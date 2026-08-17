@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>9个月第1周家庭早教与辅食执行手册</title>
+    <title>10月龄进阶版周成长计划 | 我会想办法，我会告诉你，我会和你一起玩</title>
     <!-- 引入 Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- 引入 FontAwesome 图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- 引入童趣和舒适字体 -->
+    <!-- 引入童趣字体 -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=ZCOOL+KuaiLe&display=swap" rel="stylesheet">
     
     <script>
@@ -25,25 +25,12 @@
                             dots: '#F5EBD8',      /* 麦麸燕麦色 */
                             darkText: '#3A352D',  /* 浓椰黑 */
                             border: '#4E4637',    /* 巧克力边框 */
-                            
-                            // 暖系马卡龙卡片
                             blueBg: '#C3ECFC',    /* 雾霭蓝 */
-                            blueBorder: '#359FC2',
-                            
                             pinkBg: '#FFD3D3',    /* 蜜桃粉 */
-                            pinkBorder: '#DE7070',
-                            
                             greenBg: '#CEF2D6',   /* 暖沙绿 */
-                            greenBorder: '#4FA55F',
-                            
                             purpleBg: '#E4DBFC',  /* 香芋紫 */
-                            purpleBorder: '#8A70D6',
-                            
                             yellowBg: '#FFEAA1',  /* 奶油黄 */
-                            yellowBorder: '#D8A020',
-
-                            orangeBg: '#FFDEC0',  /* 暖杏橙 */
-                            orangeBorder: '#D38038'
+                            orangeBg: '#FFDEC0'   /* 暖杏橙 */
                         }
                     }
                 }
@@ -52,1828 +39,428 @@
     </script>
     
     <style>
-        /* 温暖燕麦色童趣波点背景 */
         body { 
             background-color: #FFFDF9; 
             background-image: radial-gradient(#F5EBD8 2.5px, transparent 2.5px);
             background-size: 28px 28px;
             color: #3A352D; 
         }
-        h1, h2, h3, h4, .font-bold.text-lg {
+        h1, h2, h3, h4, .font-display {
             font-family: 'ZCOOL KuaiLe', cursive;
             letter-spacing: 1px;
         }
-        .hide-scrollbar::-webkit-scrollbar { display: none; }
-        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        
-        /* Q弹积木卡片（带暖色巧克力厚边框与硬阴影） */
         .activity-card { 
             transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1); 
-            border-radius: 18px;
-            border: 3px solid #4E4637;
-            box-shadow: 0 5px 0px #4E4637;
+            border-radius: 14px;
+            border: 2.5px solid #4E4637;
+            box-shadow: 0 4px 0px #4E4637;
         }
         .activity-card:hover { 
-            transform: translateY(-4px) rotate(-0.5deg); 
-            box-shadow: 0 9px 0px #4E4637;
+            transform: translateY(-2px); 
+            box-shadow: 0 6px 0px #4E4637;
             cursor: pointer; 
         }
-        .activity-card:active { 
-            transform: translateY(3px) rotate(0); 
-            box-shadow: 0 2px 0px #4E4637;
-        }
-
-        /* 积木风格按钮 */
-        .tab-btn { 
-            border: 3px solid #4E4637; 
-            box-shadow: 0 4px 0px #4E4637;
-            transition: all 0.15s ease;
-        }
-        .tab-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 0px #4E4637;
-        }
-        .tab-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 2px 0px #4E4637;
-        }
-        .tab-btn.active {
-            background-color: #FFEAA1 !important; /* 激活时使用温润奶油黄 */
-            color: #3A352D !important;
-        }
-
-        /* 统一容器样式 */
         .wood-container {
             background-color: rgba(255, 255, 255, 0.95);
-            border: 4px solid #4E4637;
-            border-radius: 24px;
-            box-shadow: 0 8px 0px rgba(78, 70, 55, 0.1);
+            border: 3.5px solid #4E4637;
+            border-radius: 20px;
+            box-shadow: 0 6px 0px rgba(78, 70, 55, 0.12);
         }
-
-        /* 弹窗设计 */
-        .modal-enter { opacity: 0; transform: scale(0.8) translateY(20px) rotate(-5deg); }
-        .modal-enter-active { opacity: 1; transform: scale(1) translateY(0) rotate(0); transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
-        
-        #modal-content { border: 4px solid #4E4637; box-shadow: 8px 8px 0px #4E4637; border-radius: 24px; }
-        #modal-header-bg { border-bottom: 4px solid #4E4637; }
-        #modal-icon { border: 4px solid #4E4637; background-color: white; }
+        /* 打印专用样式优化：自动展开打印隐藏的详细说明 */
+        @media print {
+            body { 
+                background: white !important; 
+                background-image: none !important; 
+                color: #000 !important;
+                font-size: 11px;
+            }
+            .no-print { display: none !important; }
+            .print-only-desc { display: block !important; }
+            .wood-container, .activity-card { 
+                box-shadow: none !important; 
+                border: 2px solid #333 !important; 
+                break-inside: avoid; 
+                background: #fff !important;
+            }
+            table { font-size: 10px !important; width: 100% !important; border-collapse: collapse; }
+            th, td { border: 1px solid #333 !important; padding: 5px !important; vertical-align: top; }
+            .page-break { page-break-after: always; }
+        }
     </style>
 </head>
-<body class="antialiased min-h-screen pb-24 md:pb-10 text-toy-darkText">
+<body class="antialiased min-h-screen pb-16 text-toy-darkText">
 
-<header class="bg-white sticky top-0 z-30 border-b-4 border-toy-border shadow-sm">
-    <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col lg:flex-row justify-between items-center gap-3">
-        <div class="text-center lg:text-left">
-            <h1 class="text-2xl sm:text-3xl text-toy-darkText flex items-center justify-center lg:justify-start gap-2">
-                <i class="fa-solid fa-shapes text-orange-400 animate-bounce"></i> 小小探索家
+<!-- 顶部导航与操作条 -->
+<header class="bg-white sticky top-0 z-30 border-b-4 border-toy-border shadow-sm no-print">
+    <div class="max-w-7xl mx-auto px-4 py-3 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-3">
+        <div>
+            <h1 class="text-2xl sm:text-3xl text-toy-darkText flex items-center gap-2">
+                <i class="fa-solid fa-seedling text-emerald-500"></i> 10月龄进阶版周成长计划
             </h1>
-            <p class="text-xs sm:text-sm font-bold text-amber-600 mt-0.5">🚀 9个月第1周家庭早教与辅食一站式手册 · 我可以让事情发生 🚀</p>
+            <p class="text-xs font-bold text-amber-700 mt-0.5">🌟 主题：我会想办法，我会告诉你，我会和你一起玩 🌟</p>
         </div>
-        <div class="flex gap-2 overflow-x-auto max-w-full pb-1 lg:pb-0 hide-scrollbar">
-            <button onclick="switchTab('solids')" id="tab-solids" class="tab-btn active px-3.5 py-1.5 rounded-xl bg-white text-toy-darkText font-bold text-xs sm:text-sm whitespace-nowrap">🥄 辅食计划</button>
-            <button onclick="switchTab('schedule')" id="tab-schedule" class="tab-btn  px-3.5 py-1.5 rounded-xl bg-white text-toy-darkText font-bold text-xs sm:text-sm whitespace-nowrap">📅 每日早教</button>
-            <button onclick="switchTab('goals')" id="tab-goals" class="tab-btn px-3.5 py-1.5 rounded-xl bg-white text-toy-darkText font-bold text-xs sm:text-sm whitespace-nowrap">🎯 发展目标</button>
-            <button onclick="switchTab('resources')" id="tab-resources" class="tab-btn px-3.5 py-1.5 rounded-xl bg-white text-toy-darkText font-bold text-xs sm:text-sm whitespace-nowrap">📚 资源指南</button>
+        <div class="flex items-center gap-2">
+            <button onclick="window.print()" class="px-4 py-2 bg-toy-yellowBg hover:bg-amber-300 border-2 border-toy-border rounded-xl font-bold text-xs shadow-[0_3px_0_#4E4637] transition-all flex items-center gap-1.5 active:translate-y-0.5">
+                <i class="fa-solid fa-print"></i> 打印整张周计划表
+            </button>
         </div>
     </div>
 </header>
 
-<!-- Mobile Navigation Bar (Bottom) -->
-<nav class="lg:hidden fixed bottom-0 w-full bg-white border-t-4 border-toy-border z-30 pb-safe shadow-[0_-4px_10px_rgba(0,0,0,0.05)]">
-    <div class="flex justify-around py-2.5">
-        <button onclick="switchTab('solids')" id="mtab-solids" class="flex flex-col items-center text-amber-500 font-bold">
-            <i class="fa-solid fa-spoon text-lg"></i>
-            <span class="text-[10px] mt-0.5">辅食计划</span>
-        </button>
-        <button onclick="switchTab('schedule')" id="mtab-schedule" class="flex flex-col items-center text-stone-500 font-bold">
-            <i class="fa-regular fa-calendar-check text-lg"></i>
-            <span class="text-[10px] mt-0.5">早教日程</span>
-        </button>
+<main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-6 space-y-6">
 
-        <button onclick="switchTab('goals')" id="mtab-goals" class="flex flex-col items-center text-stone-400 font-bold">
-            <i class="fa-solid fa-bullseye text-lg"></i>
-            <span class="text-[10px] mt-0.5">目标发展</span>
-        </button>
-        <button onclick="switchTab('resources')" id="mtab-resources" class="flex flex-col items-center text-stone-400 font-bold">
-            <i class="fa-solid fa-book-open text-lg"></i>
-            <span class="text-[10px] mt-0.5">绘本户外</span>
-        </button>
+    <!-- 顶部导语与核心发展线 -->
+    <div class="wood-container p-5 sm:p-6 bg-white border-t-8 border-toy-yellowBg">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+            <div class="md:col-span-2 space-y-2">
+                <h2 class="text-xl sm:text-2xl font-bold text-amber-800 flex items-center gap-2">
+                    <i class="fa-solid fa-compass text-amber-500"></i> 本周核心发展线与边界指南
+                </h2>
+                <div class="bg-amber-50 border-2 border-amber-300 p-3 rounded-xl text-xs sm:text-sm font-bold text-amber-900 flex flex-wrap items-center gap-2">
+                    <span>探索</span> <i class="fa-solid fa-arrow-right text-xs text-amber-500"></i>
+                    <span>发现规律</span> <i class="fa-solid fa-arrow-right text-xs text-amber-500"></i>
+                    <span>解决问题</span> <i class="fa-solid fa-arrow-right text-xs text-amber-500"></i>
+                    <span>主动表达</span> <i class="fa-solid fa-arrow-right text-xs text-amber-500"></i>
+                    <span class="text-red-700">让别人参与</span>
+                </div>
+                <p class="text-xs text-stone-600 leading-relaxed">
+                    我们不追求“宝宝必须完成”。每项活动分为：<strong class="text-emerald-700">Level 1（轻松完成→加变量）</strong>、<strong class="text-amber-700">Level 2（思考尝试→最佳难度）</strong>、<strong class="text-red-700">Level 3（明显受挫→降难度）</strong>。请根据宝宝实时状态灵活调整，无需死守步骤！
+                </p>
+            </div>
+            <div class="bg-toy-pinkBg/30 border-2 border-toy-pinkBorder rounded-xl p-3.5 text-xs space-y-1.5">
+                <div class="font-bold text-red-900 text-sm mb-1"><i class="fa-solid fa-bullseye"></i> Gloria的核心观察关键</div>
+                <p class="text-stone-700 leading-relaxed">不再强求“学会新动作”，而是看他是否开始通过动作、眼神、声音让大人理解、帮助、一起玩！</p>
+            </div>
+        </div>
     </div>
-</nav>
 
-<main class="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-5">
-
-    <!-- TAB 1: EARLY EDUCATION SCHEDULE -->
-    <section id="view-schedule" class="hidden block space-y-6">
-        <div class="bg-white p-4 sm:p-5 rounded-2xl border-4 border-dashed border-amber-400/60 shadow-[0_4px_0_rgba(216,160,32,0.15)] flex flex-col md:flex-row items-center justify-between gap-3 text-center md:text-left">
-            <div>
-                <h2 class="text-2xl text-amber-600 flex items-center gap-2 justify-center md:justify-start">🌈 温暖积木行动日记 (早教版)</h2>
-                <p class="text-xs sm:text-sm text-stone-600 mt-1 font-bold">👉 温馨提示：点击彩色积木卡片，可以直接看详细玩法、开口话术及注意事项哦！</p>
-            </div>
-            <div class="flex gap-2 text-[10px] sm:text-xs font-bold shrink-0 flex-wrap justify-center">
-                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded bg-toy-blueBg border border-toy-border inline-block"></span> 运动</span>
-                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded bg-toy-pinkBg border border-toy-border inline-block"></span> 主题</span>
-                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded bg-toy-greenBg border border-toy-border inline-block"></span> 户外</span>
-                <span class="flex items-center gap-1"><span class="w-3.5 h-3.5 rounded bg-toy-purpleBg border border-toy-border inline-block"></span> 亲子</span>
-            </div>
+    <!-- 核心：浓缩在一张总表格中的 7 天全景周计划 -->
+    <div class="wood-container p-4 sm:p-6 bg-white">
+        <div class="flex justify-between items-center mb-4 border-b-3 border-stone-200 pb-3">
+            <h3 class="text-xl sm:text-2xl font-bold text-toy-darkText flex items-center gap-2">
+                <i class="fa-solid fa-table-cells text-amber-600"></i> 10月龄第1周“全景执行矩阵表” (点击格子查看详情)
+            </h3>
+            <span class="text-xs bg-amber-100 border border-amber-300 px-2.5 py-1 rounded-lg font-bold text-amber-800 no-print">💡 点击下方表格任意日程块展开详细操作</span>
         </div>
 
-        <!-- Weekly Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
-            
-            <!-- Monday -->
-            <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-stone-200 pb-1.5">
-                    <span class="font-bold text-lg text-toy-darkText">周一</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-stone-100 rounded-md text-stone-600 border border-stone-300">Day 1</span>
-                </div>
-                <div class="activity-card bg-toy-blueBg p-3" onclick="openModal('crawl')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>☀️ 上午 (运动)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">目标爬行</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">寻找最喜欢的玩具</div>
-                </div>
-                <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('inout')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>⛅ 下午 (主题)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">里面外面探索</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">感受空间里外关系</div>
-                </div>
-                <div class="activity-card bg-toy-greenBg p-3" onclick="openModal('outdoor')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌿 傍晚 (户外)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">户外空间探索</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">看移动 & 语言输入</div>
-                </div>
-                <div class="activity-card bg-toy-purpleBg p-3" onclick="openModal('peek')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌙 晚上 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">藏猫猫游戏</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">📚 Peek-a-Who</div>
-                </div>
-            </div>
+        <div class="overflow-x-auto rounded-xl border-2 border-toy-border">
+            <table class="w-full text-left text-xs sm:text-sm">
+                <thead class="bg-toy-yellowBg text-toy-darkText border-b-2 border-toy-border font-bold">
+                    <tr>
+                        <th class="p-3 border-r border-toy-border w-24">星期 / 核心</th>
+                        <th class="p-3 border-r border-toy-border">☀️ 上午 (认知/运动)</th>
+                        <th class="p-3 border-r border-toy-border">⛅ 下午 (环境/兴趣)</th>
+                        <th class="p-3 border-r border-toy-border">🌙 晚上 (家庭互动)</th>
+                        <th class="p-3">📖 绘本与观察点</th>
+                    </tr>
+                </thead>
+                <tbody class="divide-y-2 divide-stone-200">
+                    <!-- Day 1 -->
+                    <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周一 (Day 1)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">消失的玩具</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 1 上午', '“玩具去哪了？”——将玩具放入盒子盖上，问小熊在哪里，观察宝宝是直接找、看盒子还是看妈妈。熟练后移动盒子或增加双盒。')">
+                            <span class="font-bold text-sky-800">“玩具去哪了？”</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">物体恒存与搜索游戏</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>将玩具放入盒子盖上，问小熊在哪里，观察宝宝是直接找、看盒子还是看妈妈。熟练后移动盒子或增加双盒。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 1 下午', '户外“寻找目标”——问“爸爸在哪里？”或“滑梯在哪里？”让宝宝自主寻找并指认。')">
+                            <span class="font-bold text-pink-800">户外寻找目标</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">熟悉人与物的方向搜寻</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>问“爸爸在哪里？”或“滑梯在哪里？”让宝宝自主寻找并指认。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 1 晚上', '家庭“藏起来”——爸妈轮流把玩具藏手里让宝宝找，观察宝宝主动寻找倾向。')">
+                            <span class="font-bold text-purple-800">家庭藏玩具</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">轮流互动与分享注意</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>爸妈轮流把玩具藏手里让宝宝找，观察宝宝主动寻找倾向。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            照常进行，本天不加新绘本要求，给宝宝适应期。
+                        </td>
+                    </tr>
 
-            <!-- Tuesday -->
-            <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-stone-200 pb-1.5">
-                    <span class="font-bold text-lg text-toy-darkText">周二</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-stone-100 rounded-md text-stone-600 border border-stone-300">Day 2</span>
-                </div>
-                <div class="activity-card bg-toy-blueBg p-3" onclick="openModal('obstacle')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>☀️ 上午 (运动)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">障碍爬行</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">翻越枕头与障碍物</div>
-                </div>
-                <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('sound')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>⛅ 下午 (主题)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">声音实验</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">探索不同器物响声</div>
-                </div>
-                <div class="activity-card bg-toy-greenBg p-3" onclick="openModal('outdoor_sound')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌿 傍晚 (户外)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">听声音找声源</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">追踪大自然的声音</div>
-                </div>
-                <div class="activity-card bg-toy-purpleBg p-3" onclick="openModal('knock')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌙 晚上 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">模仿敲击游戏</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">📚 Open Barn Door</div>
-                </div>
-            </div>
+                    <!-- Day 2 -->
+                    <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周二 (Day 2)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">两步问题解决</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 2 上午', '双步骤任务——玩具放进盒子并盖上，甚至稍微推远。观察宝宝是否会“靠近 → 打开 → 找到”，以及遇阻时是否看妈妈寻求社会帮助。')">
+                            <span class="font-bold text-sky-800">双步骤任务</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">打开盒子并推远变量</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>玩具放进盒子并盖上，稍微推远。观察宝宝是否会“靠近 → 打开 → 找到”，以及遇阻时是否看妈妈寻求社会帮助。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 2 下午', '真实环境滑梯——想去滑梯不直接抱，给时间自己爬移动。指滑梯时回应：“你想去滑梯。”')">
+                            <span class="font-bold text-pink-800">真实环境滑梯</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">把运动与自主愿望连接</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>想去滑梯不直接抱，给时间自己爬移动。指滑梯时回应：“你想去滑梯。”</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 2 晚上', '家人求助游戏——故意把玩具放够不到处，观察宝宝是否主动看妈妈、发声或指求助。重点：“我不会 → 我可以告诉你”。')">
+                            <span class="font-bold text-purple-800">家人求助游戏</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">求助信号与社会连结</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>故意把玩具放够不到处，观察宝宝是否主动看妈妈、发声或指求助。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            配合日常绘本，练习停顿2秒等待宝宝发起翻页。
+                        </td>
+                    </tr>
 
-            <!-- Wednesday -->
-            <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-stone-200 pb-1.5">
-                    <span class="font-bold text-lg text-toy-darkText">周三</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-stone-100 rounded-md text-stone-600 border border-stone-300">Day 3</span>
-                </div>
-                <div class="activity-card bg-toy-blueBg p-3" onclick="openModal('stand')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>☀️ 上午 (运动)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">扶站+移动探索</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">扶着沙发横着走</div>
-                </div>
-                <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('openclose')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>⛅ 下午 (主题)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">打开和关闭</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">小小机关趣味挑战</div>
-                </div>
-                <div class="activity-card bg-toy-greenBg p-3" onclick="openModal('outdoor_observe')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌿 傍晚 (户外)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">观察里外</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">过大门与进车箱</div>
-                </div>
-                <div class="activity-card bg-toy-purpleBg p-3" onclick="openModal('spot')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌙 晚上 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">翻书互动</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">📚 Spot (小玻在哪)</div>
-                </div>
-            </div>
+                    <!-- Day 3 -->
+                    <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周三 (Day 3)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">主动纠正与表达</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 3 上午', '妈妈故意拿错东西——桌上放书+球，妈妈指球说“我要书”并拿书。观察宝宝看球、指球、发声、推开错误物品的反应，不立刻纠正，让宝宝表达“不是这个！”')">
+                            <span class="font-bold text-sky-800">妈妈故意拿错</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">建立早期反抗与纠错能力</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>桌上放书+球，妈妈指球说“我要书”并拿书。观察宝宝看球、指球、发声、推开错误物品的反应，让宝宝表达“不是这个！”</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 3 下午', '户外跟随宝宝兴趣——不主动选择，看足球说足球，看小朋友说哥哥在跑，然后停下让宝宝继续观察。')">
+                            <span class="font-bold text-pink-800">跟随宝宝兴趣</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">成人做随从与实况播报员</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>不主动选择，看足球说足球，看小朋友说哥哥在跑，然后停下让宝宝继续观察。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 3 晚上', '宝宝来选——准备积木、绘本、六面体，不问想玩什么，直接让他拿，拿什么陪什么。')">
+                            <span class="font-bold text-purple-800">宝宝自主选择</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">培养主动决定互动内容</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>准备积木、绘本、六面体，不问想玩什么，直接让他拿，拿什么陪什么。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            绘本翻页等待，激发宝宝发声与指点。
+                        </td>
+                    </tr>
 
-            <!-- Thursday -->
-            <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-stone-200 pb-1.5">
-                    <span class="font-bold text-lg text-toy-darkText">周四</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-stone-100 rounded-md text-stone-600 border border-stone-300">Day 4</span>
-                </div>
-                <div class="activity-card bg-toy-blueBg p-3" onclick="openModal('ball')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>☀️ 上午 (运动)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">球类运动</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">互动推球和滚球</div>
-                </div>
-                <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('pushpull')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>⛅ 下午 (主题)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">推拉与移动</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">拖拉小车物体运动</div>
-                </div>
-                <div class="activity-card bg-toy-greenBg p-3" onclick="openModal('outdoor_move')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌿 傍晚 (户外)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">看移动物体</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">观察行车与小鸟</div>
-                </div>
-                <div class="activity-card bg-toy-purpleBg p-3" onclick="openModal('givemom')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌙 晚上 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">“给妈妈”游戏</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">📚 SEE TOUCH FEEL</div>
-                </div>
-            </div>
+                    <!-- Day 4 -->
+                    <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周四 (Day 4)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">积木：建构与因果</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 4 上午', '积木自由操作——提供3-4块积木自由叠、推倒、重建。若轻松，妈妈搭一个宝宝推倒后看宝宝是否会自己重新开始。')">
+                            <span class="font-bold text-sky-800">积木自由—破坏—重建</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">空间关系与自主循环</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>提供3-4块积木自由叠、推倒、重建。若轻松，妈妈搭一个宝宝推倒后看宝宝是否会自己重新开始。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 4 下午', '户外自由爬——户外自由爬行探索，不再做特定障碍训练，让运动融入自然。')">
+                            <span class="font-bold text-pink-800">户外自由爬</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">大运动自然释放</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>户外自由爬行探索，不再做特定障碍训练，让运动融入自然。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 4 晚上', '家庭轮流建构——妈妈放一块，宝宝放一块，观察宝宝是否开始等待妈妈的轮次。')">
+                            <span class="font-bold text-purple-800">家庭轮流放积木</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">回合制互动意识</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>妈妈放一块，宝宝放一块，观察宝宝是否开始等待妈妈的轮次。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            阅读《See Touch Feel》，带手触摸不同质感。
+                        </td>
+                    </tr>
 
-            <!-- Friday -->
-            <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-stone-200 pb-1.5">
-                    <span class="font-bold text-lg text-toy-darkText">周五</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-stone-100 rounded-md text-stone-600 border border-stone-300">Day 5</span>
-                </div>
-                <div class="activity-card bg-toy-blueBg p-3" onclick="openModal('imitate')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>☀️ 上午 (运动)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">模仿动作游戏</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">拍拍手、做鬼脸</div>
-                </div>
-                <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('helper')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>⛅ 下午 (主题)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">生活小帮手</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">擦一擦、收小积木</div>
-                </div>
-                <div class="activity-card bg-toy-greenBg p-3" onclick="openModal('outdoor_emotion')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌿 傍晚 (户外)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">看情绪与社交</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">观察小朋友互动</div>
-                </div>
-                <div class="activity-card bg-toy-purpleBg p-3" onclick="openModal('interact')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🌙 晚上 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">家庭互动游戏</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">📚 Dear Zoo</div>
-                </div>
-            </div>
+                    <!-- Day 5 -->
+                    <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周五 (Day 5)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">预测与社会认知</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 5 上午', '熟悉动作预测——拿球做出准备滚球动作，停住。观察宝宝看球、看妈妈、发声或等待，然后滚球。')">
+                            <span class="font-bold text-sky-800">熟悉动作预测</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">建立对下一步的心理预期</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>拿球做出准备滚球动作，停住。观察宝宝看球、看妈妈、发声或等待，然后滚球。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 5 下午', '滑梯预测——到熟悉滑梯旁暂停，观察宝宝是否主动用看+指+发声表达“我要”。')">
+                            <span class="font-bold text-pink-800">滑梯前预测</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">手势与发声的主动表达</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>到熟悉滑梯旁暂停，观察宝宝是否主动用看+指+发声表达“我要”。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 5 晚上', '音乐暂停——跳舞音乐开始跳，突然暂停，观察宝宝会不会要求继续，培养主动沟通。')">
+                            <span class="font-bold text-purple-800">音乐暂停游戏</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">节奏中断与主动沟通</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>跳舞音乐开始跳，突然暂停，观察宝宝会不会要求继续，培养主动沟通。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            阅读《Spot (小玻)》，利用翻页制造悬念与期待。
+                        </td>
+                    </tr>
 
-            <!-- Saturday -->
-            <div class="bg-toy-orangeBg/20 rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-toy-orangeBorder/30 pb-1.5">
-                    <span class="font-bold text-lg text-amber-900">周六</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-amber-100 rounded-md text-amber-700 border border-amber-300">周末</span>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('parent_sport')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🎈 上午 (家庭)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">父母合力运动</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">爸爸开摇摇摇小船</div>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('family_explore')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>⛅ 下午 (探索)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">安全抽屉寻宝</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">家里安全角落探险</div>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('family_outdoor')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🪁 傍晚 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">全家户外游戏</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">在公园踩草地吹风</div>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('piano')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🎹 晚上 (启蒙)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">妈妈钢琴启蒙</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">音乐节奏亲子拍手</div>
-                </div>
-            </div>
+                    <!-- Day 6 -->
+                    <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周六 (Day 6)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">社会模仿与发起</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 6 上午', '妈妈模仿宝宝——宝宝玩什么妈妈不示范，而是默默模仿宝宝（敲、叠、推倒），观察宝宝是否有停下、看妈妈再做一次的反应。')">
+                            <span class="font-bold text-sky-800">成人反向模仿宝宝</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">觉察“别人在模仿我”</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>宝宝玩什么妈妈不示范，而是默默模仿宝宝（敲、叠、推倒），观察宝宝是否有停下、看妈妈再做一次的反应。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 6 下午', '户外自主路线——让宝宝决定路线和观察对象，妈妈少引导。')">
+                            <span class="font-bold text-pink-800">户外自主路线</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">主导权交还给宝宝</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>让宝宝决定路线和观察对象，妈妈少引导。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 6 晚上', '爸爸加入模仿——爸爸加入模仿宝宝，看看宝宝是否特别注意，观察宝宝是否开始主动教别人。')">
+                            <span class="font-bold text-purple-800">爸爸加入模仿</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">家庭多角色互动观察</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>爸爸加入模仿宝宝，看看宝宝是否特别注意，观察宝宝是否开始主动教别人。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            阅读《Peek-a-Who》，体验猜猜我是谁的互动乐趣。
+                        </td>
+                    </tr>
 
-            <!-- Sunday -->
-            <div class="bg-toy-orangeBg/20 rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                <div class="flex justify-between items-center border-b-2 border-dashed border-toy-orangeBorder/30 pb-1.5">
-                    <span class="font-bold text-lg text-amber-900">周日</span>
-                    <span class="text-[10px] font-bold px-2 py-0.5 bg-amber-100 rounded-md text-amber-700 border border-amber-300">周末</span>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('free_explore')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🧸 全天 (灵活)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">全天自主探索</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">无干涉专注力训练</div>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('family_outdoor2')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>🪁 傍晚 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">亲子户外探寻</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 truncate">小区广场晒落日</div>
-                </div>
-                <div class="activity-card bg-white p-3" onclick="openModal('family_read')">
-                    <div class="text-[10px] text-toy-darkText font-extrabold mb-1 flex items-center justify-between">
-                        <span>📖 晚上 (亲子)</span>
-                        <i class="fa-solid fa-chevron-right text-[8px]"></i>
-                    </div>
-                    <div class="font-bold text-sm">家庭阅读仪式</div>
-                    <div class="text-[10px] text-stone-600 mt-0.5 italic">📚 宝宝自由挑选</div>
-                </div>
-            </div>
-
+                    <!-- Day 7 -->
+                   <!--  <tr class="hover:bg-amber-50/40">
+                        <td class="p-3 font-bold border-r border-toy-border bg-stone-50">
+                            <div class="text-amber-900">周日 (Day 7)</div>
+                            <div class="text-[10px] text-stone-500 font-normal">综合能力与自由设计</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-blueBg/30 transition-colors" onclick="openDetail('Day 7 上午', '宝宝设计游戏——盒子、积木、六面体、绘本全放出，宝宝自己选，妈妈只跟随。记录选择、操作与求助。')">
+                            <span class="font-bold text-sky-800">全自由设计玩具选择</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">本周综合能力大检验</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>盒子、积木、六面体、绘本全放出，宝宝自己选，妈妈只跟随。记录选择、操作与求助。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-pinkBg/30 transition-colors" onclick="openDetail('Day 7 下午', '户外自由探索——户外自由探索，宝宝主动表达某事时尽可能全方位响应。')">
+                            <span class="font-bold text-pink-800">户外自由响应</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">强化沟通有效性</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>户外自由探索，宝宝主动表达某事时尽可能全方位响应。</div>
+                        </td>
+                        <td class="p-3 border-r border-toy-border cursor-pointer hover:bg-toy-purpleBg/30 transition-colors" onclick="openDetail('Day 7 晚上', '家庭自由互动——不安排任务，观察主动找谁、玩什么、会不会把人拉进游戏、分享注意。')">
+                            <span class="font-bold text-purple-800">家庭无任务自由互动</span>
+                            <div class="text-[11px] text-stone-600 mt-0.5">综合社交表现观察</div>
+                            <div class="print-only-desc hidden print:block text-[10px] text-stone-800 mt-1 pt-1 border-t border-stone-300"><strong>操作：</strong>不安排任务，观察主动找谁、玩什么、会不会把人拉进游戏、分享注意。</div>
+                        </td>
+                        <td class="p-3 text-stone-600 text-[11px]">
+                            阅读《Dear Zoo》，等待宝宝翻开小动物机关。
+                        </td>
+                    </tr> -->
+                </tbody>
+            </table>
         </div>
-    </section>
+    </div>
 
-    <!-- TAB 2: SOLIDS SCHEDULE (NEW) -->
-    <section id="view-solids" class=" space-y-6">
+    <!-- 育儿嫂专属执行脚本：任务一与任务二 -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         
-        <!-- Solids Execution Principles -->
-        <div class="wood-container p-4 sm:p-6 bg-white border-t-8 border-toy-yellowBorder">
-            <div class="flex flex-col md:flex-row items-center justify-between gap-3 border-b-4 border-dashed border-toy-border/20 pb-4 mb-4">
-                <div>
-                    <h3 class="text-xl sm:text-2xl font-bold text-amber-600 flex items-center gap-2">
-                        <i class="fa-solid fa-spoon text-orange-400"></i> 暖心积木辅食餐厅
-                    </h3>
-                    <p class="text-xs sm:text-sm text-stone-600 font-bold mt-1">🍽️ 9个月进阶期：从“吃进去”逐步过渡到“吃得丰富、会咀嚼”！每天2餐（午餐+晚餐）。</p>
-                </div>
-                <div class="bg-toy-orangeBg border-2 border-toy-orangeBorder px-3.5 py-1.5 rounded-xl text-center shadow-sm">
-                    <div class="text-xs font-bold text-stone-700">🎯 本周目标单餐量</div>
-                    <div class="text-lg font-bold text-amber-900">150g</div>
-                </div>
-            </div>
-            
-            <div class="grid grid-cols-2 md:grid-cols-5 gap-3.5 text-xs">
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-stone-50">
-                    <div class="font-bold text-amber-700 mb-1">⏰ 进餐控制</div>
-                    <div class="text-stone-600">20-25分钟内，避免长时间拉锯追喂。</div>
-                </div>
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-stone-50">
-                    <div class="font-bold text-amber-700 mb-1">🥦 食材原则</div>
-                    <div class="text-stone-600">全部采用已排敏食材，减少过敏变量。</div>
-                </div>
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-stone-50">
-                    <div class="font-bold text-amber-700 mb-1">🪑 进餐环境</div>
-                    <div class="text-stone-600">固定餐椅和位置，杜绝玩具与屏幕干扰。</div>
-                </div>
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-stone-50">
-                    <div class="font-bold text-amber-700 mb-1">🚽 关注便秘</div>
-                    <div class="text-stone-600">增加碎菜和水果，保证水分，少吃干干。</div>
-                </div>
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-stone-50">
-                    <div class="font-bold text-amber-700 mb-1">🚫 暂不训练</div>
-                    <div class="text-stone-600">本周不重点强求自主进食和餐具使用。</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Weekly Solids Calendar -->
-        <div>
-            <h3 class="text-lg sm:text-xl font-bold text-stone-800 mb-3 flex items-center gap-2">
-                <i class="fa-solid fa-calendar-days text-amber-500"></i> 周一至周日辅食推荐配单 (点击查看详细食谱标准)
+        <!-- 育儿嫂任务一 -->
+        <div class="wood-container p-5 bg-white border-t-8 border-toy-blueBorder">
+            <h3 class="text-xl font-bold text-sky-800 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-person-chalkboard"></i> 育儿嫂任务一：不重复熟练动作，改做“模仿宝宝”
             </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-7 gap-4">
-                <!-- Mon -->
-                <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-stone-100 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-stone-700">周一</span>
-                        <span class="text-[10px] font-bold text-amber-600">Day 1</span>
-                    </div>
-                    <div class="activity-card bg-toy-yellowBg p-3" onclick="openModal('food_mon_lunch')">
-                        <div class="text-[9px] font-bold text-amber-900 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">胚芽米牛肉西兰花粥</div>
-                        <div class="text-[9px] text-amber-800 font-bold mt-1.5"><i class="fa-solid fa-magnet"></i> 强力补铁</div>
-                    </div>
-                    <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('food_mon_dinner')">
-                        <div class="text-[9px] font-bold text-red-900 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">南瓜腱子肉五常米粥</div>
-                        <div class="text-[9px] text-red-800 font-bold mt-1.5"><i class="fa-solid fa-feather"></i> 温润好消化</div>
-                    </div>
-                </div>
-
-                <!-- Tue -->
-                <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-stone-100 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-stone-700">周二</span>
-                        <span class="text-[10px] font-bold text-amber-600">Day 2</span>
-                    </div>
-                    <div class="activity-card bg-toy-yellowBg p-3" onclick="openModal('food_tue_lunch')">
-                        <div class="text-[9px] font-bold text-amber-900 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">排骨碎菠菜五常米粥</div>
-                        <div class="text-[9px] text-amber-800 font-bold mt-1.5"><i class="fa-solid fa-shield"></i> 优质骨钙</div>
-                    </div>
-                    <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('food_tue_dinner')">
-                        <div class="text-[9px] font-bold text-red-900 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">番茄猪肉碎烂面条</div>
-                        <div class="text-[9px] text-red-800 font-bold mt-1.5"><i class="fa-solid fa-lemon"></i> 口感极佳</div>
-                    </div>
-                </div>
-
-                <!-- Wed -->
-                <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-stone-100 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-stone-700">周三</span>
-                        <span class="text-[10px] font-bold text-amber-600">Day 3</span>
-                    </div>
-                    <div class="activity-card bg-toy-yellowBg p-3" onclick="openModal('food_wed_lunch')">
-                        <div class="text-[9px] font-bold text-amber-900 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">鲜虾胡萝卜胚芽米粥</div>
-                        <div class="text-[9px] text-amber-800 font-bold mt-1.5"><i class="fa-solid fa-sparkles"></i> 鲜甜补锌</div>
-                    </div>
-                    <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('food_wed_dinner')">
-                        <div class="text-[9px] font-bold text-red-900 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">紫薯腱子肉稠米粥</div>
-                        <div class="text-[9px] text-red-800 font-bold mt-1.5"><i class="fa-solid fa-eye"></i> 保护视力</div>
-                    </div>
-                </div>
-
-                <!-- Thu -->
-                <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-stone-100 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-stone-700">周四</span>
-                        <span class="text-[10px] font-bold text-amber-600">Day 4</span>
-                    </div>
-                    <div class="activity-card bg-toy-yellowBg p-3" onclick="openModal('food_thu_lunch')">
-                        <div class="text-[9px] font-bold text-amber-900 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">野生鱼西兰花稠米粥</div>
-                        <div class="text-[9px] text-amber-800 font-bold mt-1.5"><i class="fa-solid fa-brain"></i> DHA满满</div>
-                    </div>
-                    <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('food_thu_dinner')">
-                        <div class="text-[9px] font-bold text-red-900 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">土豆猪肉碎青菜稠粥</div>
-                        <div class="text-[9px] text-red-800 font-bold mt-1.5"><i class="fa-solid fa-cookie"></i> 软糯香浓</div>
-                    </div>
-                </div>
-
-                <!-- Fri -->
-                <div class="bg-white rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-stone-100 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-stone-700">周五</span>
-                        <span class="text-[10px] font-bold text-amber-600">Day 5</span>
-                    </div>
-                    <div class="activity-card bg-toy-yellowBg p-3" onclick="openModal('food_fri_lunch')">
-                        <div class="text-[9px] font-bold text-amber-900 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">胚芽米牛肉番茄粥</div>
-                        <div class="text-[9px] text-amber-800 font-bold mt-1.5"><i class="fa-solid fa-apple-whole"></i> 经典酸甜</div>
-                    </div>
-                    <div class="activity-card bg-toy-pinkBg p-3" onclick="openModal('food_fri_dinner')">
-                        <div class="text-[9px] font-bold text-red-900 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">南瓜五常猪肉碎米粥</div>
-                        <div class="text-[9px] text-red-800 font-bold mt-1.5"><i class="fa-solid fa-heart"></i> 超高接受度</div>
-                    </div>
-                </div>
-
-                <!-- Sat -->
-                <div class="bg-toy-orangeBg/20 rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-toy-orangeBorder/30 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-amber-900">周六</span>
-                        <span class="text-[10px] font-bold text-amber-700">周末</span>
-                    </div>
-                    <div class="activity-card bg-white p-3" onclick="openModal('food_sat_lunch')">
-                        <div class="text-[9px] font-bold text-stone-500 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">家庭软饭 + 肉菜碎</div>
-                        <div class="text-[9px] text-stone-600 font-bold mt-1.5"><i class="fa-solid fa-people-roof"></i> 亲子餐桌体验</div>
-                    </div>
-                    <div class="activity-card bg-white p-3" onclick="openModal('food_sat_dinner')">
-                        <div class="text-[9px] font-bold text-stone-500 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">宝宝本周最爱主副食</div>
-                        <div class="text-[9px] text-stone-600 font-bold mt-1.5"><i class="fa-solid fa-face-laugh-beam"></i> 快乐吃饱饱</div>
-                    </div>
-                </div>
-
-                <!-- Sun -->
-                <div class="bg-toy-orangeBg/20 rounded-2xl p-3 border-4 border-toy-border shadow-[0_4px_0_rgba(0,0,0,0.05)] flex flex-col gap-3">
-                    <div class="border-b-2 border-toy-orangeBorder/30 pb-1 flex justify-between">
-                        <span class="font-bold text-base text-amber-900">周日</span>
-                        <span class="text-[10px] font-bold text-amber-700">周末</span>
-                    </div>
-                    <div class="activity-card bg-white p-3" onclick="openModal('food_sun_lunch')">
-                        <div class="text-[9px] font-bold text-stone-500 mb-1">🥣 中午 (午餐)</div>
-                        <div class="font-bold text-xs">本周接受度NO.1组合</div>
-                        <div class="text-[9px] text-stone-600 font-bold mt-1.5"><i class="fa-solid fa-trophy"></i> 巩固大胜利</div>
-                    </div>
-                    <div class="activity-card bg-white p-3" onclick="openModal('food_sun_dinner')">
-                        <div class="text-[9px] font-bold text-stone-500 mb-1">🥣 晚上 (晚餐)</div>
-                        <div class="font-bold text-xs">本周接受度NO.2组合</div>
-                        <div class="text-[9px] text-stone-600 font-bold mt-1.5"><i class="fa-solid fa-thumbs-up"></i> 稳妥助眠餐</div>
-                    </div>
+            <div class="text-xs text-stone-700 space-y-2.5">
+                <p class="font-bold text-stone-900 bg-sky-50 p-2.5 rounded-xl border border-sky-200">
+                    💡 核心目标：不把宝宝变成“执行指令的小朋友”，而是培养双向互动感！每天10分钟。
+                </p>
+                <ol class="list-decimal pl-4 space-y-1.5 leading-relaxed">
+                    <li><strong class="text-sky-900">先让宝宝自己玩 2～3分钟：</strong>不主动教、不递玩具、不示范。</li>
+                    <li><strong class="text-sky-900">观察宝宝“主动做了什么”：</strong>比如叠积木、推倒、放盒子里、翻书等。</li>
+                    <li><strong class="text-sky-900">育儿嫂模仿宝宝：</strong>例如宝宝叠积木，阿姨拿另一块说“阿姨也这样”，做同样的动作。不要求宝宝跟阿姨学，而是让宝宝发现“别人注意到了我”。</li>
+                    <li><strong class="text-sky-900">做完以后停下来，看宝宝：</strong>停2-3秒，看宝宝有没有看她、再做一次、笑或递东西。</li>
+                    <li><strong class="text-sky-900">循环与跟随：</strong>宝宝再次做就跟着做，换动作就跟着换。</li>
+                </ol>
+                <div class="bg-red-50 p-2 rounded border border-red-200 text-red-800 font-bold text-[11px] mt-2">
+                    ❌ 绝对禁止：“宝宝，看阿姨！这样！你来！宝宝这样做！”
                 </div>
             </div>
         </div>
 
-        <!-- Recommended Solids Structure -->
-        <div class="wood-container p-5 sm:p-6 bg-white">
-            <h3 class="text-xl sm:text-2xl font-display text-toy-darkText mb-4 flex items-center gap-2 border-l-6 border-stone-400 pl-3">
-                <i class="fa-solid fa-chart-pie text-stone-400"></i> 单餐营养黄金比例指南 (50-20-25 法则)
+        <!-- 育儿嫂任务二 -->
+        <div class="wood-container p-5 bg-white border-t-8 border-toy-orangeBorder">
+            <h3 class="text-xl font-bold text-amber-800 mb-3 flex items-center gap-2">
+                <i class="fa-solid fa-hourglass-half"></i> 育儿嫂任务二：遇到问题先观察，不要马上帮
             </h3>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-                <div class="border-3 border-toy-border rounded-2xl p-4 bg-baby-yellow/20 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-bold text-amber-900 text-lg">🍚 能量主食</h4>
-                            <span class="text-xs px-2 py-0.5 bg-amber-200 border border-amber-400 text-amber-800 rounded-md font-bold">约 50%</span>
-                        </div>
-                        <p class="text-xs text-stone-600 leading-relaxed mt-1">提供每日所需的碳水化合物，支持大运动消耗。</p>
-                    </div>
-                    <div class="mt-3 text-xs bg-white border border-amber-300 p-2 rounded-lg font-bold text-amber-800">
-                        例如：胚芽米粥、五常米稠粥、软面条
-                    </div>
-                </div>
-                <div class="border-3 border-toy-border rounded-2xl p-4 bg-baby-pink/20 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-bold text-red-900 text-lg">🥩 肉蛋海鲜</h4>
-                            <span class="text-xs px-2 py-0.5 bg-red-200 border border-red-400 text-red-800 rounded-md font-bold">约 20%</span>
-                        </div>
-                        <p class="text-xs text-stone-600 leading-relaxed mt-1">提供优质铁、蛋白质和锌，帮助大脑与肌肉发育。</p>
-                    </div>
-                    <div class="mt-3 text-xs bg-white border border-red-300 p-2 rounded-lg font-bold text-red-800">
-                        例如：腱子肉碎、猪肝粉、野生鱼碎、鲜虾碎
-                    </div>
-                </div>
-                <div class="border-3 border-toy-border rounded-2xl p-4 bg-baby-green/20 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-bold text-emerald-900 text-lg">🥬 膳食蔬菜</h4>
-                            <span class="text-xs px-2 py-0.5 bg-emerald-200 border border-emerald-400 text-emerald-800 rounded-md font-bold">约 25%</span>
-                        </div>
-                        <p class="text-xs text-stone-600 leading-relaxed mt-1">提供维生素和膳食纤维，预防宝宝肠道干硬便秘。</p>
-                    </div>
-                    <div class="mt-3 text-xs bg-white border border-emerald-300 p-2 rounded-lg font-bold text-emerald-800">
-                        例如：碎西兰花、碎菠菜、蒸南瓜、番茄碎
-                    </div>
-                </div>
-                <div class="border-3 border-toy-border rounded-2xl p-4 bg-baby-blue/20 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-1">
-                            <h4 class="font-bold text-sky-900 text-lg">🥑 植物性油脂</h4>
-                            <span class="text-xs px-2 py-0.5 bg-sky-200 border border-sky-400 text-sky-800 rounded-md font-bold">少量滴入</span>
-                        </div>
-                        <p class="text-xs text-stone-600 leading-relaxed mt-1">提供必需不饱和脂肪酸，促进脂溶性维生素吸收。</p>
-                    </div>
-                    <div class="mt-3 text-xs bg-white border border-sky-300 p-2 rounded-lg font-bold text-sky-800">
-                        例如：核桃油、牛油果油、亚麻籽油
-                    </div>
+            <div class="text-xs text-stone-700 space-y-2.5">
+                <p class="font-bold text-stone-900 bg-amber-50 p-2.5 rounded-xl border border-amber-200">
+                    💡 核心目标：给宝宝几秒钟的思考与求助时间，将“遇到困难”和“寻求社会帮助”连接起来。
+                </p>
+                <ul class="space-y-2 leading-relaxed">
+                    <li><strong class="text-amber-900">① 遭遇卡壳（如打不开盒子、够不到玩具）：</strong>
+                        <div class="text-stone-600 mt-0.5">不要瞬间冲过去代劳！先在旁边静静等待 3~5 秒。</div>
+                    </li>
+                    <li><strong class="text-amber-900">② 观察宝宝的自主反应：</strong>
+                        <div class="text-stone-600 mt-0.5">如果宝宝自己继续尝试，继续鼓励等待；如果宝宝明确看人、发声、伸手求助：</div>
+                    </li>
+                    <li><strong class="text-amber-900">③ 适度协助：</strong>
+                        <div class="text-stone-600 mt-0.5">“打不开呀？阿姨帮你松一点点。”——只帮一点点，把最后的成功留给宝宝自己完成！</div>
+                    </li>
+                </ul>
+                <div class="bg-emerald-50 p-2 rounded border border-emerald-200 text-emerald-800 font-bold text-[11px] mt-2">
+                    ✅ 让宝宝明白：“我遇到困难时，可以通过眼神和声音让大人来帮我。”
                 </div>
             </div>
         </div>
 
-        <!-- Interactive Feeding Flow -->
-        <div class="wood-container p-5 sm:p-6 bg-white">
-            <h3 class="text-xl sm:text-2xl font-bold text-amber-600 mb-4 flex items-center gap-2 border-l-6 border-amber-400 pl-3">
-                <i class="fa-solid fa-list-check text-orange-400"></i> 三餐仪式感：进餐标准三步流程
-            </h3>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 relative">
-                
-                <!-- Step 1 -->
-                <div class="relative bg-stone-50 p-4 rounded-2xl border-2 border-toy-border">
-                    <span class="absolute top-3 right-4 text-3xl font-bold text-stone-200">01</span>
-                    <h4 class="font-bold text-stone-800 text-base mb-2">① 餐前仪式（1-2分钟）</h4>
-                    <ul class="text-xs space-y-2 text-stone-600">
-                        <li><span class="font-bold text-stone-800">坐上餐椅：</span>在固定安静的角落把宝宝安置好，形成吃饭的心理反射。</li>
-                        <li><span class="font-bold text-stone-800">展示食物：</span>端着碗在宝宝鼻尖前晃一晃，闻闻味道。</li>
-                        <li><span class="font-bold text-stone-800">话术输入：</span>
-                            <div class="bg-amber-50 p-2 rounded-lg border border-amber-200 text-amber-900 font-semibold mt-1">
-                                “宝宝吃饭啦，今天吃红红的番茄牛肉粥哦，这里还有绿色的小菜菜，好香香呀！”
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+    </div>
 
-                <!-- Step 2 -->
-                <div class="relative bg-stone-50 p-4 rounded-2xl border-2 border-toy-border">
-                    <span class="absolute top-3 right-4 text-3xl font-bold text-stone-200">02</span>
-                    <h4 class="font-bold text-stone-800 text-base mb-2">② 正式喂食：看-等-吃-交流</h4>
-                    <ul class="text-xs space-y-1 text-stone-600">
-                        <li><span class="font-bold text-stone-800">看：</span>先观察宝宝。直到宝宝注意到你递过去的勺子。</li>
-                        <li><span class="font-bold text-stone-800">等：</span>等待宝宝主动张嘴！成人切勿用力主动把勺子硬塞入嘴中。</li>
-                        <li><span class="font-bold text-stone-800">吃：</span>等待上一口完全吞咽干净后，再喂下一口，不连环快速喂。</li>
-                        <li><span class="font-bold text-stone-800">喂养节奏对比：</span>
-                            <div class="grid grid-cols-2 gap-2 mt-1.5 text-[10px]">
-                                <div class="bg-red-50 p-1.5 border border-red-200 rounded text-red-800">
-                                    ❌ <span class="font-extrabold">不推荐</span>：追着喂、连续快速塞、强迫最后几口吃完。
-                                </div>
-                                <div class="bg-emerald-50 p-1.5 border border-emerald-200 rounded text-emerald-800">
-                                    ✅ <span class="font-extrabold">推荐</span>：一口一停、尊重饱腹信号、等待嘴巴主动张开。
-                                </div>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="relative bg-stone-50 p-4 rounded-2xl border-2 border-toy-border">
-                    <span class="absolute top-3 right-4 text-3xl font-bold text-stone-200">03</span>
-                    <h4 class="font-bold text-stone-800 text-base mb-2">③ 结束信号（3分钟）</h4>
-                    <ul class="text-xs space-y-2 text-stone-600">
-                        <li><span class="font-bold text-stone-800">观察饱腹：</span>出现以下行为表示吃饱，直接结束，切忌哄喂：</li>
-                        <li class="flex gap-2 flex-wrap text-[10px] font-bold">
-                            <span class="bg-stone-200 px-1.5 py-0.5 rounded">推勺子</span>
-                            <span class="bg-stone-200 px-1.5 py-0.5 rounded">转头回避</span>
-                            <span class="bg-stone-200 px-1.5 py-0.5 rounded">身体后仰</span>
-                            <span class="bg-stone-200 px-1.5 py-0.5 rounded">玩餐具扔东西</span>
-                        </li>
-                        <li><span class="font-bold text-stone-800">结束仪式话术：</span>
-                            <div class="bg-stone-200/50 p-2 rounded-lg border border-stone-300 text-stone-800 font-semibold mt-1">
-                                “宝宝吃饱饱啦，我们今天吃饭结束。真棒！”（建立吃饭有始有终的概念）
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
+    <!-- 七大高级观察指标总结 -->
+    <div class="wood-container p-5 sm:p-6 bg-white">
+        <h3 class="text-xl sm:text-2xl font-bold text-purple-800 mb-4 flex items-center gap-2 border-l-6 border-purple-400 pl-3">
+            <i class="fa-solid fa-star text-purple-500"></i> Gloria本周真正的“高级观察指标” (不只看动作，看认知与社交)
+        </h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 text-xs">
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50">
+                <div class="font-bold text-purple-900 mb-1">① 记忆与搜索</div>
+                <div class="text-stone-600">玩具藏起来之后，他会不会记得并主动寻找？</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50">
+                <div class="font-bold text-purple-900 mb-1">② 改变策略</div>
+                <div class="text-stone-600">遇到拿不到的问题后，会不会尝试更换方法或找人？</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50">
+                <div class="font-bold text-purple-900 mb-1">③ 预测未来</div>
+                <div class="text-stone-600">对熟悉的滚球游戏、绘本翻页、音乐暂停是否有明显的期待预测？</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50">
+                <div class="font-bold text-purple-900 mb-1">④ 主动纠正成人</div>
+                <div class="text-stone-600">当妈妈故意拿错东西时，会不会表现出不依、指认纠正？</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50">
+                <div class="font-bold text-purple-900 mb-1">⑤ 主动发起互动</div>
+                <div class="text-stone-600">是不是一直等成人逗他，还是会主动拿玩具找人？</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50">
+                <div class="font-bold text-purple-900 mb-1">⑥ 注意别人在模仿</div>
+                <div class="text-stone-600">当别人模仿他的动作时，他会不会停下来观察并产生共鸣？</div>
+            </div>
+            <div class="p-3 rounded-xl border-2 border-toy-border bg-purple-50/50 sm:col-span-2">
+                <div class="font-bold text-purple-900 mb-1">⑦ 成功后分享喜悦</div>
+                <div class="text-stone-600">当自己达成某项小挑战或找到玩具后，会不会主动找人对视并分享？</div>
             </div>
         </div>
+    </div>
 
-        <!-- Food Textures Cooking Standards -->
-        <div class="wood-container p-5 sm:p-6 bg-white">
-            <h3 class="text-xl sm:text-2xl font-bold text-toy-darkText mb-4 flex items-center gap-2 border-l-6 border-stone-400 pl-3">
-                <i class="fa-solid fa-cookie-bite text-stone-400"></i> 本周食物制作与烹饪颗粒标准 (保姆与奶奶必看)
-            </h3>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
-                
-                <!-- Mains -->
-                <div class="border-2 border-toy-border rounded-xl p-4 bg-baby-yellow/10">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🍚</span>
-                        <h4 class="font-bold text-amber-900 text-base">主食过渡状态</h4>
-                    </div>
-                    <div class="bg-white border-2 border-stone-200 p-2.5 rounded-lg text-xs space-y-1 mb-3 shadow-sm">
-                        <div class="flex items-center justify-between text-stone-400 line-through">
-                            <span>稀汤水饭</span> <i class="fa-solid fa-arrow-down"></i>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-amber-800">
-                            <span>保留微粒的稠粥</span> <span class="bg-amber-100 text-[10px] px-1 rounded border border-amber-300">本周标准</span>
-                        </div>
-                    </div>
-                    <ul class="text-xs text-stone-600 space-y-1 list-disc pl-4">
-                        <li>米粒：保留完整米粒状态，不可以用破壁机完全打碎。</li>
-                        <li>粘稠度：用铁勺舀起来之后，呈缓慢流落状态。</li>
-                        <li>目的：练习宝宝的吞咽吞吐力与舌头挤压感。</li>
-                    </ul>
-                </div>
-
-                <!-- Meats -->
-                <div class="border-2 border-toy-border rounded-xl p-4 bg-baby-pink/10">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🥩</span>
-                        <h4 class="font-bold text-red-900 text-base">肉类过渡状态</h4>
-                    </div>
-                    <div class="bg-white border-2 border-stone-200 p-2.5 rounded-lg text-xs space-y-1 mb-3 shadow-sm">
-                        <div class="flex items-center justify-between text-stone-400 line-through">
-                            <span>细腻粉粉泥状</span> <i class="fa-solid fa-arrow-down"></i>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-red-800">
-                            <span>剁得极碎的小肉碎</span> <span class="bg-red-100 text-[10px] px-1 rounded border border-red-300">本周标准</span>
-                        </div>
-                    </div>
-                    <ul class="text-xs text-stone-600 space-y-1 list-disc pl-4">
-                        <li>腱子肉/牛肉/排骨肉：先文火炖烂炖软，随后用双刀切剁成极细碎末。</li>
-                        <li>野生鱼/大虾：去壳去刺，用手指充分捏碎、压扁剁细。</li>
-                    </ul>
-                </div>
-
-                <!-- Veggies -->
-                <div class="border-2 border-toy-border rounded-xl p-4 bg-baby-green/10">
-                    <div class="flex items-center gap-2 mb-2">
-                        <span class="text-2xl">🥬</span>
-                        <h4 class="font-bold text-emerald-900 text-base">蔬菜过渡状态</h4>
-                    </div>
-                    <div class="bg-white border-2 border-stone-200 p-2.5 rounded-lg text-xs space-y-1 mb-3 shadow-sm">
-                        <div class="flex items-center justify-between text-stone-400 line-through">
-                            <span>稀绿菜叶泥</span> <i class="fa-solid fa-arrow-down"></i>
-                        </div>
-                        <div class="flex items-center justify-between font-bold text-emerald-800">
-                            <span>细碎蔬菜末</span> <span class="bg-emerald-100 text-[10px] px-1 rounded border border-emerald-300">本周标准</span>
-                        </div>
-                    </div>
-                    <ul class="text-xs text-stone-600 space-y-1 list-disc pl-4">
-                        <li>西兰花/叶菜：焯水滚熟，沥干水分切剁碎。</li>
-                        <li>胡萝卜/南瓜：蒸软烂，用勺子背面细致压成带有微小软颗粒的碎末。</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- DO & DON'T Red-Green Board -->
-        <div class="wood-container p-5 sm:p-6 bg-white">
-            <h3 class="text-xl sm:text-2xl font-bold text-red-600 mb-4 flex items-center gap-2 border-l-6 border-red-400 pl-3">
-                <i class="fa-solid fa-circle-exclamation"></i> 辅食执行红黑对比红绿榜
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div class="bg-red-50 border-3 border-red-200 rounded-2xl p-4 text-xs">
-                    <h4 class="font-bold text-red-900 text-sm mb-2">❌ 不做（避雷区）</h4>
-                    <ul class="space-y-2 text-stone-600">
-                        <li><span class="font-bold text-red-700">不要强迫：</span>不要指望每顿都光盘，吃不完不强塞，保护进食兴趣第一位。</li>
-                        <li><span class="font-bold text-red-700">不要急于放手：</span>本阶段依然以成人喂养为主，不盲目开始训练宝宝自己吃。</li>
-                        <li><span class="font-bold text-red-700">不要加新食材：</span>只吃已经排除过敏反应的成熟食材，不增添新的过敏原风险。</li>
-                        <li><span class="font-bold text-red-700">不要一成不变：</span>不能长期给米泥、菜泥，阻碍咀嚼功能和口腔颌面发育。</li>
-                        <li><span class="font-bold text-red-700">不要追着喂：</span>超过30分钟直接收拾碗筷离座，让宝宝知道“过期不候”。</li>
-                    </ul>
-                </div>
-                <div class="bg-emerald-50 border-3 border-emerald-200 rounded-2xl p-4 text-xs">
-                    <h4 class="font-bold text-emerald-900 text-sm mb-2">✅ 做（红线区）</h4>
-                    <ul class="space-y-2 text-stone-600">
-                        <li><span class="font-bold text-emerald-700">提供愉快进食体验：</span>餐前多夸张描述、逗笑，让吃辅食变成一天中最快乐的时间。</li>
-                        <li><span class="font-bold text-emerald-700">成人喂养为主：</span>把大勺控制在大人的手里，保证营养能量能够稳定输入。</li>
-                        <li><span class="font-bold text-emerald-700">坚持排敏老食材：</span>用香浓的经典菜谱，给宝宝极度熟悉和习惯的安全感。</li>
-                        <li><span class="font-bold text-emerald-700">逐步提高硬度：</span>从糊粥到软粥，再到细小的软肉末碎菜末。</li>
-                        <li><span class="font-bold text-emerald-700">严格控制就餐时长：</span>固定20-25分钟内搞定，吃得干干净净、痛痛快快。</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- TAB 3: GOALS & FRAMEWORK -->
-    <section id="view-goals" class="hidden space-y-6">
-        
-        <!-- 发展目标表 -->
-        <div class="wood-container p-5 sm:p-6 bg-white">
-            <h3 class="text-xl sm:text-2xl font-bold text-amber-600 mb-4 border-l-6 border-amber-400 pl-3 flex items-center gap-2">
-                <i class="fa-solid fa-bullseye text-orange-400"></i> 本周发展目标一览
-            </h3>
-            <div class="overflow-x-auto rounded-xl border-2 border-toy-border">
-                <table class="w-full text-left text-xs sm:text-sm whitespace-normal md:whitespace-nowrap">
-                    <thead class="bg-toy-yellowBg text-toy-darkText border-b-2 border-toy-border">
-                        <tr class="font-bold">
-                            <th class="p-3 border-r border-toy-border">发展领域</th>
-                            <th class="p-3 border-r border-toy-border">当前宝宝情况</th>
-                            <th class="p-3 border-r border-toy-border">本周培养目标</th>
-                            <th class="p-3">培养方式</th>
-                        </tr>
-                    </thead>
-                    <tbody class="divide-y-2 divide-stone-200">
-                        <tr class="hover:bg-amber-50/50">
-                            <td class="p-3 font-bold text-sky-600 border-r border-toy-border">🏃‍♂️ 大运动</td>
-                            <td class="p-3 border-r border-toy-border text-stone-700">会腹部离地爬，会扶站，会蹲起</td>
-                            <td class="p-3 border-r border-toy-border font-semibold text-stone-800">增强爬行目的性、身体协调能力</td>
-                            <td class="p-3 text-stone-600">目标爬行、障碍爬行、户外运动</td>
-                        </tr>
-                        <tr class="hover:bg-amber-50/50">
-                            <td class="p-3 font-bold text-red-400 border-r border-toy-border">🖐️ 精细动作</td>
-                            <td class="p-3 border-r border-toy-border text-stone-700">会双手交换、扔东西、拿出容器物品</td>
-                            <td class="p-3 border-r border-toy-border font-semibold text-stone-800">练习放入、取出、操作物品</td>
-                            <td class="p-3 text-stone-600">投放游戏（里面外面）、盒子探索</td>
-                        </tr>
-                        <tr class="hover:bg-amber-50/50">
-                            <td class="p-3 font-bold text-purple-600 border-r border-toy-border">💡 认知能力</td>
-                            <td class="p-3 border-r border-toy-border text-stone-700">喜欢推倒、打开关闭、观察结果</td>
-                            <td class="p-3 border-r border-toy-border font-semibold text-stone-800">建立“动作→结果”的因果关系</td>
-                            <td class="p-3 text-stone-600">声音实验、机关探索</td>
-                        </tr>
-                        <tr class="hover:bg-amber-50/50">
-                            <td class="p-3 font-bold text-emerald-600 border-r border-toy-border">🗣️ 语言能力</td>
-                            <td class="p-3 border-r border-toy-border text-stone-700">会叫妈妈爸爸，会回应名字</td>
-                            <td class="p-3 border-r border-toy-border font-semibold text-stone-800">增加动作词汇、环境词汇的日常理解</td>
-                            <td class="p-3 text-stone-600">生活描述、高质量绘本互动</td>
-                        </tr>
-                        <tr class="hover:bg-amber-50/50">
-                            <td class="p-3 font-bold text-amber-500 border-r border-toy-border">📖 阅读能力</td>
-                            <td class="p-3 border-r border-toy-border text-stone-700">喜欢自主翻书，尝试啃书</td>
-                            <td class="p-3 border-r border-toy-border font-semibold text-stone-800">建立固定的伴读仪式，训练小手翻页</td>
-                            <td class="p-3 text-stone-600">每日睡前亲子阅读，指认互动</td>
-                        </tr>
-                        <tr class="hover:bg-amber-50/50">
-                            <td class="p-3 font-bold text-orange-400 border-r border-toy-border">😊 社交情绪</td>
-                            <td class="p-3 border-r border-toy-border text-stone-700">会主动求抱，会简单模仿动作</td>
-                            <td class="p-3 border-r border-toy-border font-semibold text-stone-800">增强亲子双向互动和共同注意</td>
-                            <td class="p-3 text-stone-600">模仿小帮手、睡眠仪式高质量抚摩</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-
-        <!-- 日常执行框架表 -->
-        <div class="wood-container p-5 sm:p-6 bg-white">
-            <h3 class="text-xl sm:text-2xl font-bold text-toy-darkText mb-4 border-l-6 border-stone-400 pl-3 flex items-center gap-2">
-                <i class="fa-solid fa-business-time text-stone-400"></i> 看护人每日执行时间框架 (保姆/爸妈必看)
-            </h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                
-                <!-- AM Active -->
-                <div class="border-3 border-toy-border rounded-xl p-4 bg-baby-blue/30 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-sky-800 text-lg">☀️ 上午 (活力期)</h4>
-                            <span class="text-[10px] px-2 py-0.5 bg-sky-200 border border-sky-400 text-sky-800 rounded font-bold">育儿嫂</span>
-                        </div>
-                        <ul class="text-xs space-y-2 text-stone-700">
-                            <li><span class="font-extrabold text-stone-900">大运动活动 (20-30分钟):</span> 必须在宝宝睡眠充足、状态极佳时进行（如目标爬行、障碍爬）。</li>
-                            <li><span class="font-extrabold text-stone-900">绘本阅读 (10分钟):</span> 不强求宝宝坐着，允许其啃书或翻页。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- PM Focus -->
-                <div class="border-3 border-toy-border rounded-xl p-4 bg-baby-pink/30 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-red-800 text-lg">⛅ 下午 (探索期)</h4>
-                            <span class="text-[10px] px-2 py-0.5 bg-red-200 border border-red-400 text-red-800 rounded font-bold">育儿嫂</span>
-                        </div>
-                        <ul class="text-xs space-y-2 text-stone-700">
-                            <li><span class="font-extrabold text-stone-900">主题探索 (15-20分钟):</span> 如里面外面、声音实验。每天精细玩1-2个即可。</li>
-                            <li><span class="font-extrabold text-stone-900">自由探索 (30分钟以上):</span> 在安全范围内观察，让宝宝集中注意力，不强干涉。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Evening Outdoors -->
-                <div class="border-3 border-toy-border rounded-xl p-4 bg-baby-green/30 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-emerald-800 text-lg">🌿 傍晚 (自然期)</h4>
-                            <span class="text-[10px] px-2 py-0.5 bg-emerald-200 border border-emerald-400 text-emerald-800 rounded font-bold">育儿嫂</span>
-                        </div>
-                        <ul class="text-xs space-y-2 text-stone-700">
-                            <li><span class="font-extrabold text-stone-900">户外探索 (30-60分钟):</span> 运动结合大量的语言输入。看到车、鸟或听到声音都要随时做“实况广播”。</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Night Family -->
-                <div class="border-3 border-toy-border rounded-xl p-4 bg-baby-purple/30 flex flex-col justify-between">
-                    <div>
-                        <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-purple-800 text-lg">🌙 晚上 (情感期)</h4>
-                            <span class="text-[10px] px-2 py-0.5 bg-purple-200 border border-purple-400 text-purple-800 rounded font-bold">爸爸妈妈</span>
-                        </div>
-                        <ul class="text-xs space-y-2 text-stone-700">
-                            <li><span class="font-extrabold text-stone-900">亲子陪伴 (20-30分钟):</span> 爸妈亲自下场，无手机亲密游戏互动。</li>
-                            <li><span class="font-extrabold text-stone-900">睡前阅读 (10分钟):</span> 固定睡前伴读仪式，配合温和慢音乐。</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <!-- TAB 4: RESOURCES -->
-    <section id="view-resources" class="hidden space-y-6">
-        
-        <!-- 绘本指南 -->
-        <div class="wood-container p-5 sm:p-6 bg-white border-t-8 border-toy-purpleBorder">
-            <h3 class="text-xl sm:text-2xl font-bold text-purple-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-book-open"></i> 睡前绘本高效共读技巧表</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                
-                <div class="p-3.5 rounded-xl border-2 border-toy-border bg-baby-purple/10">
-                    <div class="font-bold text-base text-purple-900 mb-1">📖 SEE TOUCH FEEL</div>
-                    <div class="text-xs text-stone-600 leading-relaxed">
-                        <span class="font-bold">使用技巧：</span>带宝宝的手去触摸凸起、坑洼、镜子。<br>
-                        <span class="font-bold text-purple-700">培养重点：</span>感知觉丰富、感官动作词汇输入。
-                    </div>
-                </div>
-
-                <div class="p-3.5 rounded-xl border-2 border-toy-border bg-baby-purple/10">
-                    <div class="font-bold text-base text-purple-900 mb-1">📖 Spot (小玻系列)</div>
-                    <div class="text-xs text-stone-600 leading-relaxed">
-                        <span class="font-bold">使用技巧：</span>寻找翻页底下的秘密，多提问：“小玻藏在这里面吗？”。<br>
-                        <span class="font-bold text-purple-700">培养重点：</span>客体永久性理解，精细抠掀纸片。
-                    </div>
-                </div>
-
-                <div class="p-3.5 rounded-xl border-2 border-toy-border bg-baby-purple/10">
-                    <div class="font-bold text-base text-purple-900 mb-1">📖 Peek-a-Who</div>
-                    <div class="text-xs text-stone-600 leading-relaxed">
-                        <span class="font-bold">使用技巧：</span>捂着遮挡页，大声问“猜猜是谁呀？”，一翻开“Peek-a-zoo!”。<br>
-                        <span class="font-bold text-purple-700">培养重点：</span>韵律感和动作预期。
-                    </div>
-                </div>
-
-                <div class="p-3.5 rounded-xl border-2 border-toy-border bg-baby-purple/10">
-                    <div class="font-bold text-base text-purple-900 mb-1">📖 Open the Barn Door</div>
-                    <div class="text-xs text-stone-600 leading-relaxed">
-                        <span class="font-bold">使用技巧：</span>指认谷仓小动物，带动物叫声“咩咩”“哞哞”。<br>
-                        <span class="font-bold text-purple-700">培养重点：</span>拟声词模仿、指尖抓握力量。
-                    </div>
-                </div>
-
-                <div class="p-3.5 rounded-xl border-2 border-toy-border bg-baby-purple/10">
-                    <div class="font-bold text-base text-purple-900 mb-1">📖 Dear Zoo</div>
-                    <div class="text-xs text-stone-600 leading-relaxed">
-                        <span class="font-bold">使用技巧：</span>讲动物退回的因果，比如“太重了，退回去，送一匹马”。<br>
-                        <span class="font-bold text-purple-700">培养重点：</span>简单情绪、认知因果关系。
-                    </div>
-                </div>
-
-                <div class="p-3.5 rounded-xl border-2 border-toy-border bg-baby-purple/10">
-                    <div class="font-bold text-base text-purple-900 mb-1">📖 选读（橡树林/古力超人）</div>
-                    <div class="text-xs text-stone-600 leading-relaxed">
-                        <span class="font-bold">使用技巧：</span>只看画面不强背文字，以日常唠唠叨叨的方式说给宝宝听。<br>
-                        <span class="font-bold text-purple-700">培养重点：</span>语音声调磨耳朵、安全感联结。
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 户外探索指南 -->
-        <div class="wood-container p-5 sm:p-6 bg-white border-t-8 border-toy-greenBorder">
-            <h3 class="text-xl sm:text-2xl font-bold text-emerald-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-tree"></i> 户外语言输入与探索实操话术</h3>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-3">
-                
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-baby-green/10 flex flex-col justify-between">
-                    <div>
-                        <span class="text-lg mb-1 block">🚗 观察移动</span>
-                        <div class="text-[11px] text-stone-500 mb-2">追踪路过的人、小车、奔跑的狗。</div>
-                        <div class="bg-white p-2 rounded-lg border border-emerald-200 text-xs font-bold text-emerald-800">
-                            “看！红色的大卡车开过去了，嗖——！”
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-baby-green/10 flex flex-col justify-between">
-                    <div>
-                        <span class="text-lg mb-1 block">👂 声源追踪</span>
-                        <div class="text-[11px] text-stone-500 mb-2">听汽车喇叭、树叶沙沙、鸟儿鸣叫。</div>
-                        <div class="bg-white p-2 rounded-lg border border-emerald-200 text-xs font-bold text-emerald-800">
-                            “嘘，听——叽叽喳喳，小鸟在哪里唱歌呀？”
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-baby-green/10 flex flex-col justify-between">
-                    <div>
-                        <span class="text-lg mb-1 block">🌿 自然触觉</span>
-                        <div class="text-[11px] text-stone-500 mb-2">摸粗糙树皮、冰凉长椅、柔嫩小草。</div>
-                        <div class="bg-white p-2 rounded-lg border border-emerald-200 text-xs font-bold text-emerald-800">
-                            “摸摸草地，软软的；摸摸石凳，凉凉的~”
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-baby-green/10 flex flex-col justify-between">
-                    <div>
-                        <span class="text-lg mb-1 block">🚪 空间定位</span>
-                        <div class="text-[11px] text-stone-500 mb-2">推电梯门、钻亭子、出入大门。</div>
-                        <div class="bg-white p-2 rounded-lg border border-emerald-200 text-xs font-bold text-emerald-800">
-                            “我们在门‘外面’，门开了，走，我们进到‘里面’咯。”
-                        </div>
-                    </div>
-                </div>
-
-                <div class="p-3 rounded-xl border-2 border-toy-border bg-baby-green/10 flex flex-col justify-between">
-                    <div>
-                        <span class="text-lg mb-1 block">👋 亲近社交</span>
-                        <div class="text-[11px] text-stone-500 mb-2">观察路人表情，友好地和小区伙伴招手。</div>
-                        <div class="bg-white p-2 rounded-lg border border-emerald-200 text-xs font-bold text-emerald-800">
-                            “看，那个小哥哥在荡秋千，在笑呢，他很开心。”
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- 妈妈钢琴启蒙 -->
-        <div class="wood-container p-5 sm:p-6 bg-white border-t-8 border-toy-yellowBorder mb-8">
-            <h3 class="text-xl sm:text-2xl font-bold text-amber-700 mb-4 flex items-center gap-2"><i class="fa-solid fa-music"></i> 周末特色：妈妈钢琴启蒙法</h3>
-            <div class="flex flex-col sm:flex-row gap-4 justify-between">
-                <div class="flex-1 bg-baby-yellow/20 p-4 rounded-xl text-center border-2 border-toy-border">
-                    <div class="text-2xl mb-1">🎹</div>
-                    <div class="font-bold text-toy-darkText text-base">环节一：听音乐</div>
-                    <div class="text-xs text-stone-600 mt-1">妈妈弹奏简单温柔旋律，宝宝坐旁边看</div>
-                    <div class="text-xs font-bold text-amber-700 mt-2.5 bg-white border border-amber-300 py-1 rounded">推荐时间：5 分钟</div>
-                </div>
-                <div class="flex-1 bg-baby-yellow/20 p-4 rounded-xl text-center border-2 border-toy-border">
-                    <div class="text-2xl mb-1">👏</div>
-                    <div class="font-bold text-toy-darkText text-base">环节二：节奏互动</div>
-                    <div class="text-xs text-stone-600 mt-1">播放古曲，带宝宝拍手、摇沙锤、点头摇摆</div>
-                    <div class="text-xs font-bold text-amber-700 mt-2.5 bg-white border border-amber-300 py-1 rounded">推荐时间：5 分钟</div>
-                </div>
-                <div class="flex-1 bg-baby-yellow/20 p-4 rounded-xl text-center border-2 border-toy-border">
-                    <div class="text-2xl mb-1">👶</div>
-                    <div class="font-bold text-toy-darkText text-base">环节三：宝宝演奏</div>
-                    <div class="text-xs text-stone-600 mt-1">抱起宝宝，允许宝宝伸小手指去乱按黑白琴键</div>
-                    <div class="text-xs font-bold text-amber-700 mt-2.5 bg-white border border-amber-300 py-1 rounded">推荐时间：5 分钟</div>
-                </div>
-            </div>
-        </div>
-    </section>
 </main>
 
-<!-- Modal Overlay -->
-<div id="activity-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4">
-    <!-- Backdrop -->
-    <div id="modal-backdrop" class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity" onclick="closeModal()"></div>
-    
-    <!-- Modal Content -->
-    <div id="modal-content" class="bg-white rounded-3xl shadow-2xl w-full max-w-md max-h-[85vh] overflow-y-auto z-10 modal-enter transform flex flex-col">
-        
-        <!-- Header Image/Color Banner -->
-        <div id="modal-header-bg" class="h-20 bg-toy-blueBg relative">
-            <button onclick="closeModal()" class="absolute top-4 right-4 bg-white/60 hover:bg-white p-1.5 rounded-full text-toy-darkText transition-colors border border-toy-border/20">
-                <i class="fa-solid fa-xmark text-lg"></i>
-            </button>
-            <div id="modal-icon" class="absolute -bottom-6 left-6 w-14 h-14 bg-white rounded-full flex items-center justify-center text-2xl shadow-md border-4 border-toy-border">
-                🧸
-            </div>
-        </div>
-
-        <div class="px-6 pt-8 pb-5 flex-1">
-            <div class="mb-4">
-                <h3 id="modal-title" class="text-2xl font-bold text-toy-darkText">活动名称</h3>
-                <div class="flex gap-2 mt-2 flex-wrap" id="modal-tags">
-                    <!-- Tags injected here -->
-                </div>
-            </div>
-
-            <div id="modal-body" class="space-y-4 text-sm text-stone-700">
-                <!-- Content injected here -->
-            </div>
-        </div>
-        
-        <!-- Footer action -->
-        <div class="p-4 bg-white rounded-b-[20px] border-t-2 border-dashed border-stone-200 text-center">
-            <button onclick="closeModal()" class="w-full py-3 bg-toy-yellowBg hover:bg-amber-300 text-toy-darkText rounded-xl font-bold text-lg transition-all border-3 border-toy-border shadow-[0_4px_0_#4E4637] active:translate-y-1 active:shadow-[0_0px_0_#4E4637]">
-                🎈 我明白啦！
+<!-- 详情弹窗 -->
+<div id="detail-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center px-4 no-print">
+    <div class="fixed inset-0 bg-stone-900/60 backdrop-blur-sm" onclick="closeDetail()"></div>
+    <div class="bg-white rounded-3xl shadow-2xl w-full max-w-lg p-6 relative z-10 border-4 border-toy-border transform transition-all">
+        <button onclick="closeDetail()" class="absolute top-4 right-4 bg-stone-100 hover:bg-stone-200 p-2 rounded-full font-bold">
+            <i class="fa-solid fa-xmark text-lg"></i>
+        </button>
+        <div class="text-2xl mb-2" id="modal-icon">✨</div>
+        <h3 id="modal-title" class="text-2xl font-bold text-toy-darkText mb-2">活动详情</h3>
+        <p id="modal-content" class="text-sm text-stone-700 leading-relaxed mt-2 bg-stone-50 p-4 rounded-xl border-2 border-stone-200"></p>
+        <div class="mt-6 text-center">
+            <button onclick="closeDetail()" class="px-6 py-2.5 bg-toy-yellowBg hover:bg-amber-300 border-3 border-toy-border rounded-xl font-bold text-sm shadow-[0_3px_0_#4E4637]">
+                我知道啦！
             </button>
         </div>
     </div>
 </div>
 
 <script>
-    // --- 1. Tab Switching Logic ---
-    function switchTab(tabId) {
-        // Hide all views
-        document.getElementById('view-schedule').classList.add('hidden');
-        document.getElementById('view-solids').classList.add('hidden');
-        document.getElementById('view-goals').classList.add('hidden');
-        document.getElementById('view-resources').classList.add('hidden');
-        
-        // Show target view
-        document.getElementById('view-' + tabId).classList.remove('hidden');
-
-        // Desktop tabs update
-        const desktopTabs = ['schedule', 'solids', 'goals', 'resources'];
-        desktopTabs.forEach(id => {
-            const btn = document.getElementById('tab-' + id);
-            if(id === tabId) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-
-        // Mobile tabs update
-        desktopTabs.forEach(id => {
-            const mBtn = document.getElementById('mtab-' + id);
-            if(id === tabId) {
-                mBtn.className = 'flex flex-col items-center text-amber-500 font-bold';
-            } else {
-                mBtn.className = 'flex flex-col items-center text-stone-400 font-bold';
-            }
-        });
+    function openDetail(title, content) {
+        document.getElementById('modal-title').innerText = title;
+        document.getElementById('modal-content').innerText = content;
+        document.getElementById('detail-modal').classList.remove('hidden');
     }
-
-    // --- 2. Activity & Solids Data Storage ---
-    const activities = {
-        // --- 核心大运动、主题与亲子活动数据 ---
-        'crawl': {
-            title: "目标爬行",
-            icon: "🏃‍♂️",
-            theme: "blue",
-            tags: ["大运动", "认知", "建议时长: 10-15分钟"],
-            goal: "增加主动爬行的目的性，提高空间距离判断能力。",
-            materials: "安全宜家蔬菜玩具、小木质飞机、色彩鲜艳的小球或积木",
-            steps: [
-                "1. 将一个宝宝最爱的玩具放在宝宝前方（刚开始约0.5米处）。",
-                "2. 保持身体平行，用兴奋期待的声音呼唤：“宝宝去拿球，小球在这里！”",
-                "3. 鼓励并静静等待宝宝自己慢慢爬过去，不要强拉或直接塞到他手里。",
-                "4. 当宝宝爬到并拿到玩具时，立刻给予极大的微笑和击掌欢呼。"
-            ],
-            language: "“宝宝去拿球！”、“哇，你拿到它啦，小手真棒！”、“爬过去咯，加油！”",
-            tips: "⚠️ 注意：成人不可因为急躁而代劳。<br>🔧 难度调整：熟练后可拉开距离，或者中间放一个柔软羽绒枕头作为障碍增加攀越乐趣。",
-            performer: "育儿嫂执行 / 爸妈周末指导"
-        },
-        'inout': {
-            title: "小小收纳员 (里面外面探索)",
-            icon: "📦",
-            theme: "pink",
-            tags: ["精细动作", "空间认知", "建议时长: 15分钟"],
-            goal: "帮助宝宝理解“里面、外面、拿出、放入”等早期的空间概念。",
-            materials: "宜家彩色套杯、大开口的透明食品盒子、光滑无棱角的小积木",
-            steps: [
-                "1. 育儿嫂先夸张地将小积木一块块扔进透明盒子：“看，放进去了，进去了。”",
-                "2. 把盒子端到宝宝面前，握拳示范抓出，引导宝宝学着把物品一个个“拿出来”并丢在地上。",
-                "3. 当盒子彻底空了，引导并鼓励宝宝尝试把丢在外面的积木扔回盒子“里面”。"
-            ],
-            language: "“在里面咯！”、“嗖，出来啦！”、“把它放进去吧！”",
-            tips: "⚠️ 注意：此阶段不强求宝宝一定要完美地放回。只要他能尝试扔进去，或体验倒出来声音的因果快感即可。",
-            performer: "育儿嫂"
-        },
-        'sound': {
-            title: "什么声音？(声音实验)",
-            icon: "🎵",
-            theme: "yellow",
-            tags: ["因果认知", "建议时长: 10-15分钟"],
-            goal: "培养对声音节奏的敏感度，加深“我拍打/投掷会发出响声”的简单因果联结。",
-            materials: "木质积木、带软胶把手的塑料水杯、小摇铃、沙锤",
-            steps: [
-                "1. 引导宝宝坐好，将几种不同材质（软塑料、实木、小金属铃铛）放在面前抓握。",
-                "2. 示范用木头轻敲地板，“咚咚咚”，用惊讶好奇的表情问：“什么声音呀？”",
-                "3. 引导宝宝学着敲击，或者在安全范围允许他扔积木到柔软垫子上，感受不同硬度的声音差异。"
-            ],
-            language: "“听！咚咚咚！”、“掉下来啦！”、“啪！是积木在唱歌呢。”",
-            tips: "⚠️ 注意：扔玩具是他们这一阶段最喜爱的“声学物理研究”，并非淘气。请提供安全的材料，不要过度制止。"
-        },
-        'openclose': {
-            title: "小小机关探索",
-            icon: "🚪",
-            theme: "pink",
-            tags: ["精细动作", "手脑协调", "建议时长: 15分钟"],
-            goal: "锻炼手指的抠、翻、掀、推等精细控制力，激发好奇探索心。",
-            materials: "汇乐多功能忙碌板、带磁吸搭扣的纸盒子、翻翻书",
-            steps: [
-                "1. 成人在宝宝面前缓慢夸张地示范一次“打开盖子”和“盖紧”的动作。",
-                "2. 保持安静与温和，留下空间，等待宝宝自己用指尖去抠开盖子或忙碌板小窗户。",
-                "3. 只要宝宝成功推开或按上，成人做出惊喜的表情模仿机械音给予鼓励。"
-            ],
-            language: "“哇，打开了！”、“哒哒，关上了——”",
-            tips: "⚠️ 注意：打不开时成人切忌伸手代劳，可以握住他的小手指辅助推动一部分，把最后的攻坚成就感留给宝宝。"
-        },
-        'helper': {
-            title: "我会帮忙",
-            icon: "🧹",
-            theme: "green",
-            tags: ["社交参与", "自主感", "建议时长: 5-10分钟"],
-            goal: "建立对生活的社会自豪感和参与度，锻炼听懂日常生活基础指令的能力。",
-            materials: "干净的无尘纯棉小毛巾、轻便无盖的玩具收纳小筐",
-            steps: [
-                "1. 育儿嫂在准备收拾玩具时，拿个小毛巾温和地说：“宝宝，和阿姨一起擦擦桌子吧。”",
-                "2. 一边示范擦拭，一边带宝宝的手轻按桌子做平移滑行。",
-                "3. 收尾时，把玩具箱放其跟前，鼓励把手里的积木轻轻扔回：“谢谢我的小帮手。”"
-            ],
-            language: "“谢谢宝宝帮阿姨！”、“擦一擦，擦桌子咯。”、“放这里，放回小家。”",
-            tips: "⚠️ 注意：完全不追求擦洗和收纳的结果。核心是让宝宝产生“我和大人一起做重要事情”的尊严与满足感。"
-        },
-        'obstacle': { 
-            title: "障碍爬行", 
-            icon: "🚧", 
-            theme: "blue", 
-            tags: ["大运动", "腰腿力量", "15分钟"], 
-            goal: "增强腰腿支撑力、攀爬信心及空间距离感知力。", 
-            steps: [
-                "1. 在爬爬垫中央横向放置一个蓬松、柔软且平整的羽绒枕头或小厚垫子。",
-                "2. 在枕头另一侧，放一个宝宝极其喜爱并渴望指认、拿到的咬咬玩具。",
-                "3. 鼓励并托护宝宝用肚子和膝盖蹬地，缓缓越过障碍枕头爬过去。"
-            ], 
-            language: "“大山来啦，小勇士爬呀爬，翻过去咯！！”", 
-            tips: "安全第一，周围三尺不要有任何硬物、墙角，成人要在一侧做好防摔防磕碰护托。" 
-        },
-        'knock': { 
-            title: "模仿敲击", 
-            icon: "🥁", 
-            theme: "purple", 
-            tags: ["精细动作", "双手交叉"], 
-            goal: "练习双手交叉和对敲，促进大脑左、右半球协同开发。", 
-            steps: [
-                "1. 妈妈手里各拿两个小积木，在宝宝跟前有节奏地相互轻敲，发出“啪啪”声。",
-                "2. 给宝宝手掌里各塞一块相同的积木，静等宝宝学你的动作去对撞。",
-                "3. 当他无意中对敲成功，做出惊讶的表情并欢呼模仿击鼓点。"
-            ], 
-            language: "“啪啪啪，小积木，敲锣鼓！宝宝也来敲一下~”", 
-            tips: "敲击后可以跟绘本《Open the Barn Door》的拍敲谷仓门做联合互动。" 
-        },
-        'stand': { 
-            title: "扶站与横向移动", 
-            icon: "🧍", 
-            theme: "blue", 
-            tags: ["大运动", "肌肉平衡"], 
-            goal: "充分锻炼小腿肌肉力量、脚踝柔韧度和身体核心平衡力。", 
-            steps: [
-                "1. 将大颗红草莓或塑料小飞机玩具放在高度适中的沙发坐垫坐沿上。",
-                "2. 吸引宝宝扶着沙发稳稳站住，随后成人在其视线下将玩具顺沙发向右侧移动大约一尺距离。",
-                "3. 鼓励宝宝不要坐下，而是扶着沙发横着向右迈出脚步移动过去够取玩具。"
-            ], 
-            language: "“站住咯，站得真笔挺！小脚丫横着跨一步，够到了！”", 
-            tips: "绝对不要拉扯宝宝的细嫩胳膊生硬提拉。扶走站立要顺其自然发育。" 
-        },
-        'ball': { 
-            title: "球类运动", 
-            icon: "⚽", 
-            theme: "blue", 
-            tags: ["大运动", "视觉追踪"], 
-            goal: "锻炼手指的推拉、控球力，训练双眼视焦点的连续追踪能力。", 
-            steps: [
-                "1. 妈妈和宝宝相距半米多，面对面坐在垫子上。",
-                "2. 拿一粒软胶带网眼的大球，轻轻推滑至其胸前：“球球滚过去啦——”。",
-                "3. 引导并握住他的手，做一次夸张的向前推回动作把球滚回给妈妈。"
-            ], 
-            language: "“球儿来啦，滚滚滚！一、二、三，推给妈妈！”" 
-        },
-        'pushpull': { 
-            title: "推拉与移动", 
-            icon: "🚂", 
-            theme: "pink", 
-            tags: ["精细动作", "重力物理"], 
-            goal: "通过手臂力量的收缩与推伸，感受力与物体的对应运动关系。", 
-            steps: [
-                "1. 提供一辆圆角光滑、易于拖拉的木质小火车，或者带绳子小拖鸭。",
-                "2. 育儿嫂手握拖绳，拉动小鸭并说“走咯”。随后把绳子塞入宝宝小手心。",
-                "3. 鼓励并等待他主动往回拉胳膊，体验由于自己拉扯，玩具向自己靠拢的趣味。"
-            ], 
-            language: "“小鸭子，拉一下，它就跟着宝宝走啦！”" 
-        },
-        'imitate': { 
-            title: "模仿动作游戏", 
-            icon: "🙋‍♂️", 
-            theme: "blue", 
-            tags: ["社交情绪", "镜面映射"], 
-            goal: "激活脑内镜面神经元，通过观察与复现大人的非言语社交动作来进行学习。", 
-            steps: [
-                "1. 坐在垫上抱着宝宝，面向自己，做出夸张好玩的面部鬼脸、大张嘴巴或挑眉毛。",
-                "2. 配合最基础的手势：大力拍掌、摇晃脑袋或做出挥手再见动作。",
-                "3. 专注注视他的小脸，只要他出现一点跟拍或努嘴的学步动作，就大力拥抱表扬。"
-            ], 
-            language: "“宝宝看妈妈，我们一起拍拍手、摇摇头，再见再见~”" 
-        },
-        'givemom': { 
-            title: "“给妈妈”游戏", 
-            icon: "🤲", 
-            theme: "purple", 
-            tags: ["语言指令", "交换分享"], 
-            goal: "强化常用言语动词指令在特定场景中的理解，建立初级的社会性分享情感。", 
-            steps: [
-                "1. 乘宝宝手里拿着小勺子或不尖锐的积木玩耍时，妈妈摊开双手掌心向上递到其跟前。",
-                "2. 温和地看着宝宝的眼睛，口头下达精准的动词指令：“宝宝，把小积木给妈妈好不好？”",
-                "3. 一旦他松手落下或者递到手心，立刻贴贴他的脸颊表示深切谢意和自豪。"
-            ], 
-            language: "“把积木给妈妈。哇！谢谢宝宝，送给妈妈啦，宝宝真慷慨！”" 
-        },
-        'interact': { 
-            title: "晚间家庭亲子陪伴", 
-            icon: "👨‍👩‍👦", 
-            theme: "purple", 
-            tags: ["无手机陪伴", "解除分离焦虑"], 
-            goal: "让宝宝在睡前获得极其浓烈厚实的安全感，建立温馨和谐的家庭生活纽带。", 
-            steps: [
-                "1. 爸妈归家、洗手洗脸，关闭手机放到一旁，围坐在爬爬垫上全心神陪伴宝宝。",
-                "2. 进行抚摸四肢、飞机抱、搂抱或者高高举起的温和快乐游戏。",
-                "3. 睡前洗温水澡，进行润肤抚触，温柔述说宝宝一天的可爱和进步。"
-            ], 
-            tips: "绝对不要边搂孩子边划屏幕，视线的完全接触是建立早期深度安全感的王道。" 
-        },
-        'peek': { 
-            title: "藏猫猫游戏", 
-            icon: "🙈", 
-            theme: "purple", 
-            tags: ["客体永久性", "分离焦虑缓解"], 
-            goal: "通过最经典的捉迷藏，认知即便妈妈暂时不在视线里，也会再次出现的现实规律。", 
-            steps: [
-                "1. 妈妈拿一件轻飘、略透光的柔润棉纱巾，整个笼罩蒙在自己的头上假装消失。",
-                "2. 在沙巾下面轻轻哼唱或叫名字：“妈妈在哪里？找一找。”",
-                "3. 快速掀掉纱巾，做出极其亲切温暖的露齿微笑：“Peek-a-boo（在这里呀）！”"
-            ], 
-            language: "“妈妈去哪了？咚！在这里呢！！”" 
-        },
-        'spot': { 
-            title: "翻书互动", 
-            icon: "🐶", 
-            theme: "purple", 
-            tags: ["翻页习惯", "手部抠夹力"], 
-            goal: "配合共读经典绘本，训练宝宝主动指认、手掌抠夹和翻掀的能力。", 
-            steps: [
-                "1. 打开纸板翻翻书《Spot》（小玻在哪里），指着上面的橱门或地毯翻页。",
-                "2. 妈妈用指尖抠起翻页，露出藏在下面的小动物，随后重新关好，鼓励宝宝伸他的食指去抠掀。",
-                "3. 宝宝如果因好玩而拍打、啃咬纸板书，不要训斥，这属于他的口腔敏感探索期表现。"
-            ] 
-        },
-        'outdoor': { 
-            title: "傍晚空间探索", 
-            icon: "🌳", 
-            theme: "green", 
-            tags: ["户外大自然", "30-60分钟"], 
-            goal: "拓宽宝宝开阔的心态和眼界，依靠大自然流动不息的景象进行高密度言语磨耳朵。", 
-            steps: [
-                "1. 育儿嫂或家人用推车或抱袋抱宝宝到植物繁密、相对安静的小区绿道、小广场。",
-                "2. 遇到小鸟起飞、卡车倒车时，配合大声欢快的话术引导其视线追逐跟视。",
-                "3. 带他靠近大树，轻揉摘一片干净的香樟树叶，带他的小手指去抚捏和嗅闻。"
-            ], 
-            tips: "出门切忌低头刷手机推车。育儿嫂和家人的言语输出在这一时期极为关键！" 
-        },
-        'outdoor_sound': { 
-            title: "听声找源", 
-            icon: "👂", 
-            theme: "green", 
-            tags: ["听觉空间定位"], 
-            goal: "在真实空旷的户外，提升双耳空间对微弱声音信号的分辨和追踪聚焦能力。", 
-            steps: [
-                "1. 推推车散步时，只要周围传来流浪小狗的汪汪声、远处的喷泉喷水、或风吹落叶沙沙响。",
-                "2. 妈妈和阿姨立刻停下，将手窝在耳廓后方做出仔细倾听的夸张姿态：“嘘，听——”",
-                "3. 顺着声音方向指过去，引导宝宝扭头追逐声音发射源。"
-            ], 
-            language: "“听！哗啦哗啦，水池在唱歌呢。小水花喷出来了，看那里！”" 
-        },
-        'outdoor_observe': { 
-            title: "户外观察里外关系", 
-            icon: "🏡", 
-            theme: "green", 
-            tags: ["三维方向感知"], 
-            goal: "借助生活现实大转折，把抽象的空间逻辑词语（里面、外面）彻底具体化绑定。", 
-            steps: [
-                "1. 在抱宝宝出入电梯、进入小区铁闸机口、或者是坐进婴儿车遮阳篷下的一瞬间。",
-                "2. 握着他的手，极力用生动声调强调方位的大幅度变化和视野转换。"
-            ], 
-            language: "“大门打开啦，我们从‘外面’，走进来——哦！我们现在在‘里面’啦！”" 
-        },
-        'outdoor_move': { 
-            title: "观察移动物体", 
-            icon: "🚗", 
-            theme: "green", 
-            tags: ["视平滑追随"], 
-            goal: "锻炼视网膜连续追踪高速/低速运动目标的能力，为未来入学后连续阅读打下坚实眼部基础。", 
-            steps: [
-                "1. 在安全的小桥栏杆后、人行天桥边，静观楼下的红色卡车、黄衣骑士以及飞行的麻雀。",
-                "2. 指给宝宝看，关注他的瞳孔视线是否能随着移动目标从左移向右方，稳定流畅。"
-            ], 
-            language: "“小红车，滴滴滴，走远了……嗖，没有了。”" 
-        },
-        'outdoor_emotion': { 
-            title: "看情绪与社交", 
-            icon: "😊", 
-            theme: "green", 
-            tags: ["早期共情心"], 
-            goal: "感受大孩子及小区邻居的情感互动，引导其感知、理解真实社交场景中他人的表情反馈。", 
-            steps: [
-                "1. 遇到邻居带大一些的宝贝在推积木、荡秋千。观察他们嬉笑大笑、或者偶尔抢玩具痛哭。",
-                "2. 搂着宝宝，用温暖轻抚安抚，并用语言温和解释别的宝贝现在开不开心。"
-            ], 
-            language: "“小哥哥跑太快跌倒了，在哭呢，他有点疼。宝宝跟哥哥挥挥手，拍拍他。”" 
-        },
-        'parent_sport': { 
-            title: "全家摇摇小船 (父母运动)", 
-            icon: "💪", 
-            theme: "yellow", 
-            tags: ["大运动", "前庭平衡开发", "周末专属"], 
-            goal: "感知前后左右大幅摇摆的空间位移感，开发内耳前庭觉平衡感，拉近亲子距离。", 
-            steps: [
-                "1. 爸爸坐在软爬爬垫上，双大腿向前伸直平放。让宝宝双腿跨坐在爸爸肚子或腿面上，面迎爸爸。",
-                "2. 爸爸用宽大温暖的手掌牢牢护扶着宝宝的两腋下或者腰侧两端。",
-                "3. 爸爸上身带着宝宝开始温和、规律地前后、左右画圈式慢摇，模仿小船航行，妈妈在一旁拍手唱歌配乐。"
-            ], 
-            tips: "请爸爸严格控制力度，绝对禁止高频抖动、剧烈高抛或倒挂抛接，安全第一，开心第二。" 
-        },
-        'family_explore': { 
-            title: "安全抽屉探险", 
-            icon: "🏠", 
-            theme: "yellow", 
-            tags: ["主动探索欲", "周末专属"], 
-            goal: "顺应其天然的翻箱倒柜求知天性，提供一个绝对安全、任意破坏折腾的自我主权抽屉。", 
-            steps: [
-                "1. 在厨房底层或者客厅柜中，腾空出一个极易被宝宝拉拽的最矮小抽屉，贴上他的名字贴。",
-                "2. 抽屉内严禁摆放剪刀、保鲜膜刀、防潮剂和药物。塞入宜家塑料杯、不划手的纸筒、纯棉布袋、空盒子等。",
-                "3. 引导他自己拉开，痛痛快快翻一地。家长在一旁微笑静看，不许干预和责备其凌乱。"
-            ], 
-            tips: "大人坐一旁安安静静看他“捣蛋”即可，不插手整理、不打断，让他自己琢磨半小时。" 
-        },
-        'family_outdoor': { 
-            title: "全家公园草地游", 
-            icon: "⛺", 
-            theme: "yellow", 
-            tags: ["全家温情游", "触觉综合集成"], 
-            goal: "享受爸妈双人全心神伴行，踩草抚叶，让肌肤接受微风、暖阳、天然软草泥的多重自然刺激。", 
-            steps: [
-                "1. 周六下午，带上婴儿车和防潮垫，带到幽静公园。在树荫斑驳底下铺平防潮餐垫。",
-                "2. 扶持宝宝站立几分钟，脱掉小袜子小鞋子，光脚直接踩在真实且干净的嫩草皮上，感受微痒与柔软。"
-            ] 
-        },
-        'family_outdoor2': { 
-            title: "亲子金色夕阳散步", 
-            icon: "🪁", 
-            theme: "yellow", 
-            tags: ["黄昏舒缓", "视觉解压"], 
-            goal: "在温柔、舒适的金色夕阳下享受安详的家庭散步，缓解一天的兴奋劲儿，利于晚睡。", 
-            steps: [
-                "1. 周末下午五点前后，合家推车散步。指向天边金灿灿的夕阳、漂亮的晚霞云彩。",
-                "2. 闭上眼慢行，听天空中归巢鸟儿的叽喳声，引导做深呼吸和拍手。"
-            ] 
-        },
-        'piano': { 
-            title: "妈妈钢琴启蒙法", 
-            icon: "🎹", 
-            theme: "yellow", 
-            tags: ["节奏熏陶", "多维美感", "15分钟"], 
-            goal: "通过听觉、视觉、指尖触琴键的三维结合，让宝宝从小对乐音音响和律动形成舒适感和好感。", 
-            steps: [
-                "1. 听音乐 (5min)：妈妈弹简易温润琴曲，宝宝坐在一侧，静观妈妈手指和音色。",
-                "2. 节奏互动 (5min)：播放琴歌，带他的小身体前后摇摆，配合手摇沙锤、伴乐拍手。",
-                "3. 快乐演奏 (5min)：抱他到大腿上，允许他探出细嫩的小食指去随意敲击黑白琴键，聆听自己砸出来的声响。"
-            ], 
-            tips: "重在琴音、爸妈快乐神色与身体摩擦传递的美好感，弹不弹得准音符完全无所谓，千万别嫌弃宝宝胡乱砸按砸乱旋律。" 
-        },
-        'free_explore': { 
-            title: "自由无干涉探索", 
-            icon: "🌈", 
-            theme: "yellow", 
-            tags: ["深度专注力保护", "放空空白期"], 
-            goal: "极其珍视和培护早期、极易受损的婴儿自主研究专注力，成人一律不得进行介入性打扰。", 
-            steps: [
-                "1. 周日规划出一小块完全安静、没任何大人指令安排的空白探索游玩一小时。",
-                "2. 将他安置在铺好软爬爬垫的玩具死角，身旁只丢置2、3粒他当前偏爱的小套杯或皮球。",
-                "3. 家人静音远远守在一侧（保护安全）。不送水、不擦嘴、不喊宝宝、不做任何言语纠错。只要他没哭喊或寻找你，就允许他自己一个人闷头专心琢磨积木二十分钟。"
-            ] 
-        },
-        'family_read': { 
-            title: "家庭无声阅读仪式", 
-            icon: "📚", 
-            theme: "purple", 
-            tags: ["阅读环境场效"], 
-            goal: "依靠环境的群体静默、翻书氛围，让宝宝好奇模仿大人的端正阅读姿势，种下爱书基因。", 
-            steps: [
-                "1. 睡前洗浴洗手后，爸爸靠沙发看纸质专业书，妈妈静坐看纸书，在宝宝跟前摊开一两本厚硬纸翻翻书。",
-                "2. 全屋调低顶光，打开温馨台灯。大人均安静翻看。宝宝很快便会被大人的静默姿态吸引，像个小大人一样安稳趴下翻自己的那一厚本书页。"
-            ] 
-        },
-
-        // --- STREAMING_CHUNK: Injecting solids database recipes (Monday to Sunday)... ---
-        // --- 核心辅食卡片详情数据 (餐配比例 + 制作步骤 + 进餐流程 + 话术) ---
-        'food_mon_lunch': {
-            title: "周一午餐：胚芽米牛肉西兰花粥",
-            icon: "🥣",
-            theme: "yellow",
-            tags: ["午餐", "高能量", "富铁补锌", "粘稠稠粥"],
-            goal: "主攻午间铁、锌微量元素补充。牛肉碎与胚芽米融合提供长效大运动体能支柱。",
-            materials: "胚芽米70g、炖烂熟透细牛肉碎30g、焯水切碎西兰花30g、植物油数滴",
-            steps: [
-                "1. 胚芽米洗净，小锅慢火炖煮成米粒完整但浓郁粘滑的稠粥（勺起缓慢滑落）。",
-                "2. 预先炖熟极烂的牛里脊肉，取其软嫩肌肉部分，用刀精心切剁至细碎颗粒末（绝非肉泥）。",
-                "3. 西兰花一小朵焯滚熟透，沥水后细切剁成碎末。",
-                "4. 将牛肉碎、碎西兰花和几滴亚麻籽油拌入滚烫稠粥中，中火煮滚2分钟，放至温热喂食。"
-            ],
-            language: "“宝宝看，今天吃红色的牛肉和绿色的小树林西兰花粥！香甜香甜，啊——张嘴。”",
-            tips: "⚠️ 执行要点：牛肉务必先慢火炖到软熟，用两把刀彻底剁细，以防宝宝因咀嚼硬物出现推勺和干呕。"
-        },
-        'food_mon_dinner': {
-            title: "周一晚餐：南瓜腱子肉五常米粥",
-            icon: "🥣",
-            theme: "pink",
-            tags: ["晚餐", "温和舒眠", "膳食纤维", "微小软颗粒"],
-            goal: "晚间配方讲求润肠通便、和胃好消化，腱子肉提供软骨胶，南瓜补充丰富β-胡萝卜素和纤维。",
-            materials: "五常大米70g、蒸软腱子肉碎25g、蒸软压颗粒南瓜30g",
-            steps: [
-                "1. 大米熬成绵软大米稠粥。南瓜入蒸锅蒸熟蒸透，用勺子背稍微压几下成带小软块的南瓜糊。",
-                "2. 将先文火高汤炖极其烂的猪腱子肉扒下，用双刀切剁为细碎末。",
-                "3. 稠粥出锅前，加入南瓜、腱子肉碎搅拌，温火融煮3分钟即成香糯大黄米粥。"
-            ],
-            language: "“大南瓜来喽，黄澄澄的！像个小金太阳，宝宝来尝尝香甜的大南瓜和软软的小猪肉。”",
-            tips: "⚠️ 执行要点：晚上胃肠蠕动减缓，肉类的量切记比中午调低，粥水保持饱腹和顺畅流动质感。"
-        },
-        'food_tue_lunch': {
-            title: "周二午餐：排骨碎菠菜五常米粥",
-            icon: "🥣",
-            theme: "yellow",
-            tags: ["午餐", "高能补钙", "叶绿素", "粘稠稠粥"],
-            goal: "利用焯水菠菜补充大量叶绿素、膳食纤维，排骨骨油提供钙、脂，利于大运动骨骼结实。",
-            materials: "五常大米70g、脱骨炖烂排骨肉碎30g、彻底焯水菠菜碎30g、核桃油少量",
-            steps: [
-                "1. 排骨加温水、姜片慢火清炖2小时直到筷子轻轻一拨脱骨。取下最嫩处排骨瘦肉剁极细末。",
-                "2. 大米入小锅加排骨汤和清水慢熬至浓郁、勺子舀起后缓慢流动的粥底。",
-                "3. 菠菜浸洗、滚水焯足1分钟（去除草酸防止结石），捞出沥干剁细菜末。",
-                "4. 稠粥盛起前调入菠菜碎、排骨碎和核桃油，拌匀温火熬熟。"
-            ],
-            language: "“香喷喷的骨头肉肉和绿绿的小菠菜，一、二、三，看勺子——宝宝张嘴，啊呜，吞咽下去。”",
-            tips: "⚠️ 注意：菠菜必须焯水！必须去除草酸。肉末和菜末一定切成微小颗粒练习抓取与吞咽。"
-        },
-        'food_tue_dinner': {
-            title: "周二晚餐：番茄猪肉碎烂面条",
-            icon: "🍝",
-            theme: "pink",
-            tags: ["晚餐", "口感变换", "酸爽开胃", "切段软面"],
-            goal: "转换主食花色，用番茄天然温和的有机酸刺激消化酶，解决晚间厌食不爱吃，易吞咽好吞吐。",
-            materials: "宝宝无盐细碎面条30g、去皮熟番茄碎30g、炖熟熟猪里脊末15g、植物油少许",
-            steps: [
-                "1. 鲜番茄顶部划十字，开水烫1分钟去薄皮。用小刀剁成软烂番茄果碎末。",
-                "2. 奶锅加几滴油，下番茄碎炒出沙汁，加水烧开。下面条煮至极软，用筷子夹切成1厘米左右极短小面段。",
-                "3. 拌入预炖好的猪肉末。小火收浓稠。温冷后喂食。"
-            ],
-            language: "“酸酸甜甜红通通的番茄面条！像小面条虫虫爬呀爬，宝宝小嘴张开，吸吸溜，真好吃。”",
-            tips: "⚠️ 注意：面条务必用铲子在锅里拦腰剁成1厘米小段，防整根面吸入时噎住宝宝气管。"
-        },
-        'food_wed_lunch': {
-            title: "周三午餐：鲜虾胡萝卜胚芽米粥",
-            icon: "🥣",
-            theme: "yellow",
-            tags: ["午餐", "海鲜美味", "叶黄素补锌", "切碎虾肉"],
-            goal: "利用鲜虾补充极高质量的易消化动物性锌和动物性蛋白质。胡萝卜胡萝卜素支持眼部视网膜晶体健康发育。",
-            materials: "胚芽米70g、去沙线鲜大虾肉2只（约30g）、蒸软胡萝卜末30g",
-            steps: [
-                "1. 鲜虾去头、剥壳，细心剥挑前后泥沙线，洗净滚水捞熟，切成微小虾碎块（手握试其硬度，需软易烂）。",
-                "2. 胡萝卜小块蒸软透，用勺子背压成微小颗粒泥。",
-                "3. 胚芽米煮稠，加入胡萝卜泥和虾碎，加入牛油果油，中火融合烹煮3分钟出锅。"
-            ],
-            language: "“大红虾，海里游！今天我们吃大虾，还有红红甜甜胡萝卜，宝宝吃一口，变聪明变高高！”",
-            tips: "⚠️ 注意：海鲜可能存在异体蛋白过敏风险，确保大虾是此前排过敏无异状食材才可使用，切剁务必极碎。"
-        },
-        'food_wed_dinner': {
-            title: "周三晚餐：紫薯腱子肉稠米粥",
-            icon: "🥣",
-            theme: "pink",
-            tags: ["晚餐", "高能膳食纤维", "紫色幻想", "稠粥"],
-            goal: "紫薯提供天然优质可溶性多糖与膳食纤维，对改善大便干结硬块有奇效，搭配碎牛肉或瘦肉平衡微量元素。",
-            materials: "大米70g、蒸熟烂紫薯块30g、炖软腱子肉碎25g",
-            steps: [
-                "1. 大米洗净入小砂锅慢熬。紫薯去皮蒸软，切压成小碎块（不打泥，保留极小碎面颗粒）。",
-                "2. 熟腱子肉碎切至极细颗粒末。",
-                "3. 粥好前10分钟，将紫薯和肉碎倾入粥煲。慢慢搅匀，整锅粥呈现美丽的淡紫色，极具童趣视觉诱惑。"
-            ],
-            language: "“宝宝瞧！哇——一整碗亮紫色的梦幻公主粥，像星空一样漂亮！南瓜小甜饼和肉肉在开会，宝宝来一口。”"
-        },
-        'food_thu_lunch': {
-            title: "周四午餐：野生鱼西兰花稠米粥",
-            icon: "🥣",
-            theme: "yellow",
-            tags: ["午餐", "DHA黄金大脑", "叶绿素", "极软鱼肉"],
-            goal: "野生鱼富含DHA和Ω-3，是大脑灰质建立的黄金物质。配西兰花平衡膳食纤维防止积食便秘。",
-            materials: "五常大米70g、刺剔净极嫩野生鱼肉碎30g、焯熟切碎西兰花30g",
-            steps: [
-                "1. 精选野生银鳕鱼或鲈鱼肉，上蒸盘隔水蒸熟。用手和餐叉反复碾压排查：【确保100%零鱼刺残留】！压扁碎肉。",
-                "2. 大米熬煮至绵密、勺舀慢流稠粥。",
-                "3. 西兰花一小瓣，入水滚熟，除硬茎只留花蕊，剁细蔬菜碎。",
-                "4. 稠粥内拌入鱼碎与花蕊碎，烧开数沸出锅。"
-            ],
-            language: "“大鱼大鱼，水里游！吐泡泡呀！现在游进宝宝肚里，让我们小脑袋变聪明，看，大口啊——”",
-            tips: "⚠️ 注意：即使买刺最少的深海鱼，也必须用成人的两根食指反复在盘中反复捏捏肉泥，确保绝对无暗刺、硬壳碎片存留！"
-        },
-        'food_thu_dinner': {
-            title: "周四晚餐：土豆猪肉碎青菜稠粥",
-            icon: "🥣",
-            theme: "pink",
-            tags: ["晚餐", "温和柔糯", "维生素B族", "稠粥"],
-            goal: "土豆淀粉蒸熟后极软糯好咬，对胃粘膜有修复缓和功效，结合绿色青菜补充电解质，利于大运动消耗后的晚间静息恢复。",
-            materials: "大米70g、软面土豆30g、猪肉末25g、焯水切碎青菜末20g、香油2滴",
-            steps: [
-                "1. 大米煮粥。土豆去皮蒸极烂极软，用勺子捏碎为带颗粒土豆泥面。小青菜焯水烫熟剁极碎。",
-                "2. 将碎猪里脊末放入稠米粥底中，随后加土豆泥搅拌充分融合。",
-                "3. 出锅前2分钟撒入小青菜碎，点两滴麻油。整锅咸香柔滑。"
-            ],
-            language: "“软糯的小土豆和绿油油的小青菜来咯。哇，有香香的味道，宝宝闻一闻。等勺勺，啊，真香！”"
-        },
-        'food_fri_lunch': {
-            title: "周五午餐：胚芽米牛肉番茄粥",
-            icon: "🥣",
-            theme: "yellow",
-            tags: ["午餐", "经典酸甜", "开胃高能量", "富铁"],
-            goal: "在周五午后用宝宝最难以拒绝的番茄酸甜与经典牛肉汤相融，诱导宝宝胃口，同时牛肉的有机铁吸收率最高。",
-            materials: "胚芽米70g、炖熟熟牛肉末35g、去皮熟番茄碎35g",
-            steps: [
-                "1. 胚芽米微火炖煮到浓厚。番茄去皮细切剁碎果泥。",
-                "2. 番茄碎和极碎的熟牛里脊末倒进大火滚开的胚芽米粥内，持续慢煮至整碗米粒染上橙红光泽。",
-                "3. 熬至没有汤水和稀米汤，彻底融合为稠饭糊感。"
-            ],
-            language: "“番茄和牛哥哥手拉手，红彤彤，甜丝丝！宝宝今天能吃一大碗，啊——等一等，嘴张开，吃下去。”"
-        },
-        'food_fri_dinner': {
-            title: "周五晚餐：南瓜五常猪肉碎米粥",
-            icon: "🥣",
-            theme: "pink",
-            tags: ["晚餐", "周末放松", "金灿好吞咽", "助眠"],
-            goal: "周末前夕给宝宝呈现接受度最高的南瓜加瘦猪里脊肉组合，极好消化、极少有胀气干呕，保证晚间深睡眠。",
-            materials: "大米70g、南瓜35g、猪里脊瘦肉末25g",
-            steps: [
-                "1. 大米加南瓜块同锅蒸煮熬熟，南瓜蒸至自然烂入大米稠粥中。稍用勺背在粥内搅碎散成金色粥底。",
-                "2. 加入切剁最细小的猪肉末，搅拌均匀，再次滚煮5分钟至熟。咸甜交织。"
-            ],
-            language: "“甜金子一样的南瓜粥！里面藏着白白的小肉末哦，宝宝找一找，一口一口，真享受！”"
-        },
-        'food_sat_lunch': {
-            title: "周六午餐：家庭软饭/稠粥 + 辅食肉菜碎",
-            icon: "🍚",
-            theme: "yellow",
-            tags: ["午餐", "周末温情", "成人同吃", "社会模仿"],
-            goal: "周末中午全家同坐一张餐桌，让宝宝看爸妈和育儿嫂吃饭动作。宝宝吃较软的家庭软米饭或同款大稠粥，配碎肉碎菜。",
-            materials: "大人吃稠粥/电饭煲底层最软稻米饭70g、家常肉丸捏碎或家常无盐炖肉末25g、碎大白菜末25g",
-            steps: [
-                "1. 从电饭煲底层捞一碗最软、富水汽的软白大米饭，加两汤勺热水微波再加热1分钟使之更烂。",
-                "2. 将大白菜菜蕊焯熟、细切，炖肉剁为颗粒碎末。",
-                "3. 菜碎和肉碎铺在软饭上面，淋上两滴香油，微拌至每一粒米都粘带配菜颗粒。"
-            ],
-            language: "“看爸爸妈妈也在吃饭饭！宝宝也是小大人，我们一起舀勺勺，大口嚼嚼、嚼嚼、吞咽。”",
-            tips: "⚠️ 注意：由于是大人餐桌，严禁给宝宝吃大人盘里带食盐、酱油或鸡精的高盐辛辣调料菜肴！辅食继续坚持不加盐。"
-        },
-        'food_sat_dinner': {
-            title: "周六晚餐：宝宝最爱主副食组合 (任选)",
-            icon: "🥣",
-            theme: "pink",
-            tags: ["晚餐", "自决兴趣", "食量最大化", "温和"],
-            goal: "利用周末晚间放松时刻，由育儿嫂或妈妈根据宝宝本周接受度最好、最爱吃、无推勺反应的一顿食谱进行重现，确保摄入量。",
-            materials: "本周宝宝最不排斥的谷物、肉类、蔬菜推荐比例配比",
-            steps: [
-                "1. 比如宝宝最喜欢周一的南瓜腱子肉稠粥或周四的土豆猪肉粥，则今晚精美复刻一餐。",
-                "2. 做法遵循：大米煮至粘稠带粒，菜焯水剁末，肉细切碎蒸烂，油脂滴入，温热喂饱。"
-            ],
-            language: "“宝宝最喜欢的黄金粥来啦！最棒最爱吃的宝贝，和妈妈一起，高高兴兴吃完它，拍拍手！”"
-        },
-        'food_sun_lunch': {
-            title: "周日午餐：本周接受度最大组合 (巩固)",
-            icon: "🥣",
-            theme: "yellow",
-            tags: ["午餐", "大获全胜", "经验加深", "高能量"],
-            goal: "在周日中午大运动时间充裕时，重现本周进餐用时最短、大便排出最松软的一顿主副食菜谱，固化良好的进餐因果反馈。",
-            materials: "胚芽米或五常米、牛肉或鲜虾、西兰花或番茄等金牌组合",
-            steps: [
-                "1. 严格按照“看-等-吃-交流”的节奏喂食，成人手里拿着勺子，绝不追着喂，耐心等待张嘴。",
-                "2. 按照本周极优碎末切剁标准（保留细小软颗粒、米粒不碎、软粥慢落）进行熬制。"
-            ],
-            language: "“宝宝的小嘴真灵敏，吃得又香又快！我们是大嘴巴河马，嚼一嚼，全咽下去了，真自豪！”"
-        },
-        'food_sun_dinner': {
-            title: "周日晚餐：本周第二喜欢温和辅食",
-            icon: "🥣",
-            theme: "pink",
-            tags: ["晚餐", "好便便", "胃肠舒适", "平稳过渡"],
-            goal: "在周日晚上，给宝宝提供一款高水分、高纤维、胃肠极佳吸收效率的菜谱，避免次日便秘或积食不睡，为新的一周积蓄充沛精力。",
-            materials: "大米50g、软糯南瓜或熟烂紫薯块25g、少许肉碎15g、熟菜叶碎20g",
-            steps: [
-                "1. 砂锅将大米和甘甜红薯/南瓜同煮熟，搅成黄金稠饭，拌入一点碎熟猪肉和绿菜叶末。",
-                "2. 喂完后，说出标准的结束语，撤掉餐椅回爬爬地进行周末晚上静默伴读仪式。"
-            ]
-        }
-    };
-
-    // --- 3. Modal Details Display Logic ---
-    function openModal(activityKey) {
-        const data = activities[activityKey] || {
-            title: "活动详情", icon: "💡", theme: "blue", tags: ["探索"], goal: "基于宝宝兴趣灵活进行", steps: ["观察宝宝的状态。","提供安全的环境。"], tips: "随时回应宝宝的需求。"
-        };
-
-        // Theme visual palettes (Curated, harmonious, and child-friendly Warm Pastel)
-        const themes = {
-            blue: { bg: 'bg-toy-blueBg', text: 'text-sky-950', tagBg: 'bg-white border-2 border-toy-blueBorder' },
-            pink: { bg: 'bg-toy-pinkBg', text: 'text-red-950', tagBg: 'bg-white border-2 border-toy-pinkBorder' },
-            green: { bg: 'bg-toy-greenBg', text: 'text-emerald-950', tagBg: 'bg-white border-2 border-toy-greenBorder' },
-            yellow: { bg: 'bg-toy-yellowBg', text: 'text-amber-950', tagBg: 'bg-white border-2 border-toy-yellowBorder' },
-            purple: { bg: 'bg-toy-purpleBg', text: 'text-purple-950', tagBg: 'bg-white border-2 border-toy-purpleBorder' }
-        };
-        const t = themes[data.theme] || themes.blue;
-
-        // Header configuration
-        document.getElementById('modal-header-bg').className = `h-20 rounded-t-[20px] relative ${t.bg}`;
-        document.getElementById('modal-icon').innerText = data.icon;
-        document.getElementById('modal-title').innerText = data.title;
-
-        // Tags generation
-        const tagsHtml = data.tags.map(tag => `<span class="px-2 py-0.5 text-[10px] font-extrabold rounded-md ${t.tagBg} ${t.text}">${tag}</span>`).join('');
-        document.getElementById('modal-tags').innerHTML = tagsHtml;
-
-        // Modal content compiler
-        let bodyHtml = '';
-        
-        if(data.goal) {
-            bodyHtml += `
-                <div class="bg-stone-50 p-3 rounded-xl border border-stone-200">
-                    <span class="font-extrabold text-stone-800 block mb-0.5">🎯 本次活动/辅食目标</span>
-                    <span class="text-stone-600 text-xs">${data.goal}</span>
-                </div>`;
-        }
-        
-        if(data.materials) {
-            bodyHtml += `
-                <div>
-                    <span class="font-extrabold text-stone-800 block mb-0.5">🧸 准备材料/配料配比</span>
-                    <span class="text-stone-600 text-xs">${data.materials}</span>
-                </div>`;
-        }
-        
-        if(data.steps && data.steps.length > 0) {
-            const stepsList = data.steps.map(step => `<li class="mb-1.5">${step}</li>`).join('');
-            bodyHtml += `
-                <div>
-                    <span class="font-extrabold text-stone-800 block mb-1">👣 详细操作/制作步骤</span>
-                    <ul class="text-stone-600 text-xs ml-1 space-y-1 list-none leading-relaxed">${stepsList}</ul>
-                </div>`;
-        }
-        
-        if(data.language) {
-            bodyHtml += `
-                <div class="bg-amber-50 p-3 rounded-xl border-2 border-dashed border-amber-300">
-                    <span class="font-extrabold text-amber-900 block mb-0.5">💬 推荐开口话术/语言互动</span>
-                    <span class="text-amber-800 font-bold text-xs leading-relaxed">${data.language}</span>
-                </div>`;
-        }
-        
-        if(data.tips) {
-            bodyHtml += `
-                <div class="bg-red-50 p-3 rounded-xl border border-red-200 text-red-900 text-xs leading-relaxed">
-                    <strong>⚠️ 执行要点 & 避坑注意事项：</strong><br>${data.tips}
-                </div>`;
-        }
-        
-        if(data.performer) {
-            bodyHtml += `
-                <div class="text-[10px] text-stone-400 text-right font-extrabold">
-                    负责执行人: ${data.performer}
-                </div>`;
-        }
-
-        document.getElementById('modal-body').innerHTML = bodyHtml;
-
-        // Launch modal window
-        const modal = document.getElementById('activity-modal');
-        const content = document.getElementById('modal-content');
-        
-        modal.classList.remove('hidden');
-        
-        // Reflow browser state for CSS animation sequence
-        void modal.offsetWidth;
-        
-        content.classList.remove('modal-leave', 'modal-leave-active');
-        content.classList.add('modal-enter-active');
-        
-        // Prevent body scrolling
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-        const modal = document.getElementById('activity-modal');
-        const content = document.getElementById('modal-content');
-        
-        content.classList.remove('modal-enter-active');
-        content.classList.add('modal-leave-active');
-        
-        setTimeout(() => {
-            modal.classList.add('hidden');
-            content.classList.remove('modal-leave-active');
-            document.body.style.overflow = ''; // Resume body scroll list
-        }, 200);
+    function closeDetail() {
+        document.getElementById('detail-modal').classList.add('hidden');
     }
 </script>
+
 </body>
 </html>
