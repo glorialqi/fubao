@@ -2,394 +2,809 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🧸 宝贝快乐成长日记</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>👶 宝贝快乐成长周计划</title>
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <!-- Google Fonts for cute typography -->
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'baby-pink': '#FFD1DC',
+                        'baby-soft-pink': '#FFF0F5',
+                        'baby-yellow': '#FFE699',
+                        'baby-cream': '#FFFDF9',
+                        'baby-blue': '#BAE6FD',
+                        'baby-mint': '#A7F3D0',
+                        'baby-purple': '#DDD6FE',
+                        'baby-orange': '#FFEDD5',
+                        'cute-primary': '#FF7E9D'
+                    },
+                    fontFamily: {
+                        cute: ['"ZCOOL KuaiLe"', 'Nunito', 'sans-serif'],
+                        sans: ['Nunito', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
     <style>
         body {
-            font-family: 'Nunito', system-ui, -apple-system, sans-serif;
-            background-color: #fff8f1;
-            background-image: radial-gradient(#ffe4e6 2px, transparent 2px), radial-gradient(#ffe4e6 2px, transparent 2px);
-            background-size: 40px 40px;
-            background-position: 0 0, 20px 20px;
-            color: #4a4a4a;
+            background-color: #FFF9F2;
+            background-image: radial-gradient(#FFD1DC 1.5px, transparent 1.5px), radial-gradient(#BAE6FD 1.5px, #FFF9F2 1.5px);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+            font-family: 'Nunito', -apple-system, sans-serif;
+            -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- 动画效果 --- */
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(2deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        .bubble-btn {
+            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .bubble-btn:active {
+            transform: scale(0.92);
         }
 
-        @keyframes bounce-gentle {
-            0%, 100% { transform: translateY(-5%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
-            50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
+        .cute-card {
+            border: 3px solid #FFF;
+            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
         }
 
-        .animate-float { animation: float 4s ease-in-out infinite; }
-        .animate-float-delayed { animation: float 4s ease-in-out 2s infinite; }
-        .animate-bounce-gentle { animation: bounce-gentle 2s infinite; }
-
-        /* --- 装饰样式 --- */
-        .card-shadow {
-            box-shadow: 0 10px 25px -5px rgba(253, 164, 175, 0.2), 0 8px 10px -6px rgba(253, 164, 175, 0.1);
-        }
-        
-        .cute-border {
-            border: 4px solid white;
+        .tab-active {
+            background-color: #FF7E9D !important;
+            color: #FFFFFF !important;
+            box-shadow: 0 4px 12px rgba(255, 126, 157, 0.4);
+            transform: translateY(-2px);
         }
 
-        .text-shadow-sm {
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
         }
-        
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #fecdd3; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #fda4af; }
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
 
-        /* --- A4 极致打印优化 (修复空白及截断问题) --- */
-        @media print {
-            @page { 
-                size: A4 portrait; 
-                margin: 4mm; 
-            }
-            
-            html, body { 
-                background: white !important; 
-                -webkit-print-color-adjust: exact !important; 
-                print-color-adjust: exact !important; 
-                font-size: 10px !important; 
-                line-height: 1.25 !important;
-                height: auto !important;
-                min-height: auto !important;
-                overflow: visible !important; 
-                position: static !important;
-            }
-
-            * {
-                box-shadow: none !important;
-                animation: none !important;
-                transition: none !important;
-            }
-            
-            .fixed, .absolute, .pointer-events-none { display: none !important; } 
-            
-            .max-w-5xl { max-width: 100% !important; padding: 0 !important; margin: 0 !important; overflow: visible !important; }
-            .pt-12 { padding-top: 0 !important; }
-            .pb-20 { padding-bottom: 0 !important; }
-            .mb-14 { margin-bottom: 6px !important; }
-            .mb-12 { margin-bottom: 6px !important; }
-            .mb-6 { margin-bottom: 4px !important; }
-            
-            header .inline-block { padding: 4px 10px !important; border-radius: 0.8rem !important; border-width: 1px !important; transform: none !important; }
-            h1 { font-size: 1.2rem !important; margin: 0 !important;}
-            header p { font-size: 0.75rem !important; padding: 2px 6px !important; margin-top: 4px !important; }
-            
-            h2 { font-size: 0.95rem !important; margin-bottom: 4px !important;}
-            h2 span { padding: 2px 4px !important; font-size: 0.8rem !important; border-radius: 4px !important; }
-            
-            /* 1. 每日日常模块 */
-            .grid-cols-2.md\:grid-cols-4 { gap: 4px !important; }
-            section:nth-of-type(1) .p-5 { padding: 4px !important; border-radius: 6px !important; border-width: 1px !important;}
-            .text-4xl { font-size: 1rem !important; margin-bottom: 0 !important; display: inline-block; }
-            h3 { font-size: 0.8rem !important; margin-bottom: 0 !important; display: inline-block; margin-left: 2px; }
-            section:nth-of-type(1) .text-sm { font-size: 0.7rem !important; margin: 0 !important; }
-            
-            /* 2. 早教原则模块 */
-            .md\:p-8 { padding: 6px !important; border-radius: 6px !important; border-width: 1px !important;}
-            .md\:grid-cols-3 { gap: 4px !important; margin-bottom: 4px !important; }
-            .bg-teal-50.p-4 { padding: 4px !important; border-radius: 4px !important; gap: 3px !important; }
-            .text-3xl { font-size: 0.9rem !important; }
-            h4 { font-size: 0.75rem !important; margin-bottom: 0 !important;}
-            .border-2.p-4 { padding: 4px 6px !important; border-radius: 4px !important; border-width: 1px !important;}
-            
-            /* 3. 一周安排模块：多列紧凑排版，强制所有折叠框展开 */
-            .space-y-6 { 
-                display: grid !important; 
-                grid-template-columns: repeat(2, 1fr) !important; 
-                gap: 4px !important; 
-            }
-            .space-y-6 > div { 
-                margin: 0 !important; 
-                border-radius: 6px !important; 
-                border-width: 1px !important; 
-                break-inside: avoid !important;
-                overflow: visible !important; 
-            }
-            .px-6.py-3 { padding: 4px 8px !important; }
-            .text-lg { font-size: 0.85rem !important; font-weight: bold !important; }
-            
-            /* 核心修复：强制在打印时以 grid 显示折叠框内容，解决打印只剩日常标题的Bug */
-            [id^="icon-"] { display: none !important; } 
-            [id^="content-"] { 
-                display: grid !important; 
-                grid-template-columns: 1fr !important;
-                gap: 2px !important; 
-                padding: 4px !important; 
-            }
-            [id^="content-"] > div { gap: 3px !important; align-items: start !important; }
-            [id^="content-"] .p-2 { padding: 2px !important; font-size: 0.7rem !important; border-radius: 3px !important; }
-            p.text-sm { font-size: 0.7rem !important; line-height: 1.15 !important; margin: 0 !important; }
-            
-            /* 4. 魔法词汇模块 */
-            section:last-of-type { padding: 6px !important; border-radius: 6px !important; border-width: 1px !important;}
-            section:last-of-type h2 { font-size: 0.85rem !important; margin-bottom: 4px !important; }
-            .px-5.py-2 { padding: 2px 6px !important; font-size: 0.7rem !important; border-radius: 4px !important; margin: 0 !important;}
-            .gap-3.md\:gap-4 { gap: 3px !important; }
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-6px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: floatSlow 3s ease-in-out infinite;
         }
     </style>
 </head>
-<body class="min-h-screen pb-20 relative">
-    <div class="fixed top-10 left-10 text-5xl opacity-50 animate-float z-0 pointer-events-none">☁️</div>
-    <div class="fixed top-40 right-12 text-6xl opacity-50 animate-float-delayed z-0 pointer-events-none">🎈</div>
-    <div class="fixed bottom-20 left-20 text-5xl opacity-50 animate-float-delayed z-0 pointer-events-none">🌟</div>
-    <div class="fixed top-1/2 right-10 text-4xl opacity-50 animate-float z-0 pointer-events-none">🧸</div>
+<body class="text-gray-700 min-h-screen pb-20 selection:bg-pink-200">
 
-    <div class="max-w-5xl mx-auto px-4 pt-12 pb-8 relative z-10">
-        
-        <header class="text-center mb-12">
-            <div class="inline-block bg-white px-8 py-4 rounded-[3rem] card-shadow cute-border rotate-2 hover:rotate-0 transition duration-300">
-                <h1 class="text-4xl md:text-5xl font-extrabold text-pink-500 tracking-wide text-shadow-sm flex items-center justify-center gap-3">
-                    <span class="animate-bounce-gentle inline-block">🍼</span> 
-                    宝贝快乐成长日记 
-                    <span class="animate-bounce-gentle inline-block" style="animation-delay: 0.5s">🐥</span>
-                </h1>
+    <!-- Container capped at mobile width -->
+    <div class="max-w-md mx-auto min-h-screen flex flex-col relative px-3 py-4">
+
+        <!-- Top Cute Header -->
+        <header class="bg-white/90 backdrop-blur-md rounded-3xl p-4 mb-4 cute-card relative overflow-hidden">
+            <div class="absolute -right-4 -top-4 w-20 h-20 bg-yellow-200/50 rounded-full blur-xl pointer-events-none"></div>
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <span class="text-3xl animate-float inline-block">👶</span>
+                    <div>
+                        <h1 class="font-cute text-2xl text-pink-500 tracking-wide flex items-center gap-1">
+                            宝贝快乐日程
+                        </h1>
+                        <p class="text-xs text-gray-400 font-semibold" id="todayDateStr">📅 正在加载日期...</p>
+                    </div>
+                </div>
+                <!-- Emergency Switch Toggle -->
+                <button onclick="toggleLazyMode()" id="lazyBtn" class="bubble-btn bg-pink-100 hover:bg-pink-200 text-pink-600 px-3 py-1.5 rounded-2xl text-xs font-bold flex items-center gap-1 border border-pink-200">
+                    <span>⚡ 应急模式</span>
+                </button>
             </div>
-            <p class="mt-6 text-lg text-gray-600 font-semibold bg-white/70 inline-block px-6 py-2 rounded-full backdrop-blur-sm shadow-sm border border-pink-100">
-                在重复里越来越主动，不把生活做成训练营 ✨
-            </p>
+
+            <!-- Quick Habit Tracker Bar (Daily Essentials) -->
+            <div class="mt-4 pt-3 border-t border-dashed border-pink-100 grid grid-cols-3 gap-2 text-center text-xs">
+                <!-- Water Tracker -->
+                <div onclick="toggleHabit('water')" id="waterCard" class="cursor-pointer bg-blue-50 hover:bg-blue-100 p-2 rounded-2xl border border-blue-100 transition-all">
+                    <div class="text-base">💧 喝水</div>
+                    <div class="font-bold text-blue-600 mt-0.5" id="waterText">0 / 100 ml</div>
+                    <div class="text-[10px] text-gray-400">早50ml + 晚50ml</div>
+                </div>
+                <!-- Crawl Tracker -->
+                <div onclick="toggleHabit('crawl')" id="crawlCard" class="cursor-pointer bg-emerald-50 hover:bg-emerald-100 p-2 rounded-2xl border border-emerald-100 transition-all">
+                    <div class="text-base">🧸 爬行</div>
+                    <div class="font-bold text-emerald-600 mt-0.5" id="crawlText">0 / 60 分钟</div>
+                    <div class="text-[10px] text-gray-400">早30m + 晚30m</div>
+                </div>
+                <!-- Food Tracker -->
+                <div onclick="toggleHabit('food')" id="foodCard" class="cursor-pointer bg-amber-50 hover:bg-amber-100 p-2 rounded-2xl border border-amber-100 transition-all">
+                    <div class="text-base">🥣 辅食</div>
+                    <div class="font-bold text-amber-600 mt-0.5" id="foodText">0 / 2 餐</div>
+                    <div class="text-[10px] text-gray-400">12:00 + 17:00</div>
+                </div>
+            </div>
+
+            <!-- Notice bar -->
+            <div class="mt-3 bg-pink-50 rounded-xl p-2 text-[11px] text-pink-600 flex items-center gap-1 font-semibold">
+                <span>🍼</span> 提醒：早餐仍以奶为主，之后给少量软食/手指食物探索！
+            </div>
         </header>
 
-        <section class="mb-14">
-            <h2 class="text-2xl font-bold text-blue-500 mb-6 flex items-center gap-2 ml-2">
-                <span class="bg-blue-100 p-2 rounded-xl">⏰</span> 每日雷打不动小日常
-            </h2>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                <div class="bg-gradient-to-br from-yellow-50 to-orange-50 p-5 rounded-[2rem] card-shadow cute-border text-center hover:-translate-y-2 transition duration-300">
-                    <div class="text-4xl mb-2">🌅</div>
-                    <h3 class="font-bold text-orange-400 mb-2">早上时光</h3>
-                    <p class="text-sm text-gray-600">爬行半小时 🚶‍♂️</p>
-                    <p class="text-sm text-gray-600">喝水 50ml 💧</p>
-                </div>
-                <div class="bg-gradient-to-br from-red-50 to-pink-50 p-5 rounded-[2rem] card-shadow cute-border text-center hover:-translate-y-2 transition duration-300">
-                    <div class="text-4xl mb-2">🕛</div>
-                    <h3 class="font-bold text-pink-500 mb-2">中午 12:00</h3>
-                    <p class="text-sm text-gray-600">美味辅食时间 🥣</p>
-                    <p class="text-sm text-gray-600">肚子饱饱，心情好好</p>
-                </div>
-                <div class="bg-gradient-to-br from-blue-50 to-cyan-50 p-5 rounded-[2rem] card-shadow cute-border text-center hover:-translate-y-2 transition duration-300">
-                    <div class="text-4xl mb-2">🌤️</div>
-                    <h3 class="font-bold text-blue-400 mb-2">下午时光</h3>
-                    <p class="text-sm text-gray-600">爬行半小时 🚶‍♂️</p>
-                    <p class="text-sm text-gray-600">喝水 50ml 💧</p>
-                </div>
-                <div class="bg-gradient-to-br from-purple-50 to-indigo-50 p-5 rounded-[2rem] card-shadow cute-border text-center hover:-translate-y-2 transition duration-300">
-                    <div class="text-4xl mb-2">🕔</div>
-                    <h3 class="font-bold text-purple-400 mb-2">下午 5:00</h3>
-                    <p class="text-sm text-gray-600">美味辅食时间 🥣</p>
-                    <p class="text-sm text-gray-600">吃饱饱准备休息啦</p>
-                </div>
-            </div>
-        </section>
+        <!-- Navigation Tabs -->
+        <nav class="flex space-x-2 mb-4 overflow-x-auto custom-scrollbar py-1">
+            <button onclick="switchTab('routine')" id="tab-routine" class="tab-btn tab-active bubble-btn shrink-0 bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
+                <span>⏰</span> 每日作息
+            </button>
+            <button onclick="switchTab('weekly')" id="tab-weekly" class="tab-btn bubble-btn shrink-0 bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
+                <span>🗓</span> 本周主题
+            </button>
+            <button onclick="switchTab('waterplay')" id="tab-waterplay" class="tab-btn bubble-btn shrink-0 bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
+                <span>💦</span> 浅盆玩水
+            </button>
+            <button onclick="switchTab('music')" id="tab-music" class="tab-btn shrink-0 bubble-btn bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
+                <span>🎵</span> 音乐英语
+            </button>
+            <button onclick="switchTab('rules')" id="tab-rules" class="tab-btn shrink-0 bubble-btn bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
+                <span>💡</span> 执行规则
+            </button>
+        </nav>
 
-        <section class="mb-14 bg-white/80 backdrop-blur-md rounded-[2.5rem] p-6 md:p-8 card-shadow cute-border">
-            <h2 class="text-2xl font-bold text-teal-500 mb-6 flex items-center gap-2">
-                <span class="bg-teal-100 p-2 rounded-xl">🎯</span> 每天早教只抓 3 件事
-            </h2>
-            
-            <div class="grid md:grid-cols-3 gap-6 mb-6">
-                <div class="bg-teal-50 p-4 rounded-3xl border border-teal-100 flex items-start gap-4">
-                    <div class="text-3xl">🗣️</div>
+        <!-- Dynamic Content Sections -->
+        <main class="flex-1">
+
+            <!-- SECTION 1: DAILY ROUTINE -->
+            <section id="sec-routine" class="space-y-3">
+                
+                <!-- Main Focus Banner -->
+                <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-3 border border-purple-200">
+                    <h2 class="font-cute text-sm text-purple-700 mb-1 flex items-center gap-1">
+                        ✨ 本周核心培养目标
+                    </h2>
+                    <div class="flex flex-wrap gap-1.5">
+                        <span class="bg-white/80 text-purple-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🗣 语言: 请求/拒绝/分享</span>
+                        <span class="bg-white/80 text-pink-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🧠 认知: 放入拿出/假装</span>
+                        <span class="bg-white/80 text-blue-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🤝 社交: 等待/回应</span>
+                        <span class="bg-white/80 text-emerald-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🧹 自理: 拿书/收玩具</span>
+                        <span class="bg-white/80 text-amber-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🏃 大运动: 拓展不催促</span>
+                    </div>
+                </div>
+
+                <!-- Timeline Container -->
+                <div class="bg-white rounded-3xl p-4 cute-card space-y-4">
+                    <div class="flex justify-between items-center mb-1">
+                        <h3 class="font-cute text-lg text-gray-800">📋 全天作息时间表</h3>
+                        <span class="text-[10px] bg-yellow-100 text-amber-700 px-2 py-0.5 rounded-full font-bold">点击时间卡可标完成</span>
+                    </div>
+
+                    <!-- Timeline Item -->
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-orange-50 border border-transparent hover:border-orange-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-orange-100 text-orange-600 text-xs font-bold px-2 py-1 rounded-xl block">07:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🌅 起床、喝奶 & 英语 3-5m
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">妈妈说英语词：good morning / milk / open / more / again</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-emerald-50 border border-transparent hover:border-emerald-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-1 rounded-xl block">07:30</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🌳 早晨户外活动 (40m)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">看人、看树、摸草、指物 + 🏃 早上爬行拓展半小时</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-amber-50 border border-transparent hover:border-amber-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-amber-100 text-amber-600 text-xs font-bold px-2 py-1 rounded-xl block">08:20</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🥣 早餐时间
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">🍼 先奶，后给少量软食/手指食物探索（💧 喝水 50ml）</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-purple-50 border border-transparent hover:border-purple-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-purple-100 text-purple-600 text-xs font-bold px-2 py-1 rounded-xl block">08:40</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🎶 音乐启蒙时间
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">1首快歌 + 1首慢歌，互动：拍手、挥手、停走</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-pink-50 border border-transparent hover:border-pink-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-pink-100 text-pink-600 text-xs font-bold px-2 py-1 rounded-xl block">09:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🎯 上午主题活动 1 (10-15m)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">按今日周计划主题开展（见本周主题页）</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-blue-50 border border-transparent hover:border-blue-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded-xl block">09:30</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                😴 第一觉 (9:30-10:30)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">保持安静温和的环境，充分休息恢复精力</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-pink-50 border border-transparent hover:border-pink-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-pink-100 text-pink-600 text-xs font-bold px-2 py-1 rounded-xl block">10:45</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🎯 上午主题活动 2 (10-15m)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">主题巩固与游戏延伸</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-teal-50 border border-transparent hover:border-teal-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-teal-100 text-teal-600 text-xs font-bold px-2 py-1 rounded-xl block">11:20</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                📖 自由探索 & 收玩具
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">自主翻书、练习自己拿玩具并放回</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all bg-amber-50/60 border border-amber-200">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-amber-400 text-white text-xs font-bold px-2 py-1 rounded-xl block">12:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-amber-900 flex items-center gap-1">
+                                🍲 午餐辅食 (12:00)
+                            </div>
+                            <p class="text-xs text-amber-700 mt-0.5">练习抓握勺子、持杯饮水，让宝宝自己参与吃</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-indigo-50 border border-transparent hover:border-indigo-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-indigo-100 text-indigo-600 text-xs font-bold px-2 py-1 rounded-xl block">13:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🌙 第二觉 (13:00-15:00)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">15:15观察状态：若困意明显，最晚16:00前补觉15-20m</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-emerald-50 border border-transparent hover:border-emerald-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-1 rounded-xl block">15:30</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🎈 主题 3 + 轻量感统 (5-10m)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">🏃 下午爬行半小时 + 💧 补充水50ml</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all bg-amber-50/60 border border-amber-200">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-amber-400 text-white text-xs font-bold px-2 py-1 rounded-xl block">17:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-amber-900 flex items-center gap-1">
+                                🍲 晚餐辅食 (17:00)
+                            </div>
+                            <p class="text-xs text-amber-700 mt-0.5">自己尝试进食、餐后收尾整理</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-emerald-50 border border-transparent hover:border-emerald-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-1 rounded-xl block">17:30</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🚴 傍晚户外 (17:30-19:00)
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">走、蹲、转向、看人群社交</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-purple-50 border border-transparent hover:border-purple-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-purple-100 text-purple-600 text-xs font-bold px-2 py-1 rounded-xl block">19:15</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
+                                🛁 洗澡、绘本 & 晚安流程
+                            </div>
+                            <p class="text-xs text-gray-500 mt-0.5">英语：all done / book / night-night / bye-bye</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all bg-indigo-50 border border-indigo-100">
+                        <div class="w-16 text-center shrink-0">
+                            <span class="bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded-xl block">20:00</span>
+                        </div>
+                        <div class="flex-1">
+                            <div class="font-bold text-sm text-indigo-900 flex items-center gap-1">
+                                🌙 准时睡觉，晚安！
+                            </div>
+                            <p class="text-xs text-indigo-600 mt-0.5">关灯，播放温柔晚安歌</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 2: WEEKLY THEME PLAN -->
+            <section id="sec-weekly" class="space-y-3 hidden">
+                
+                <!-- Week Day Selector Chips -->
+                <div class="flex gap-1.5 overflow-x-auto custom-scrollbar py-1">
+                    <button onclick="selectDay(1)" id="dayBtn-1" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周一</button>
+                    <button onclick="selectDay(2)" id="dayBtn-2" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周二</button>
+                    <button onclick="selectDay(3)" id="dayBtn-3" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周三</button>
+                    <button onclick="selectDay(4)" id="dayBtn-4" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周四</button>
+                    <button onclick="selectDay(5)" id="dayBtn-5" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周五</button>
+                    <button onclick="selectDay(6)" id="dayBtn-6" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周六</button>
+                    <button onclick="selectDay(0)" id="dayBtn-0" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周日</button>
+                </div>
+
+                <!-- Active Day Card Detail -->
+                <div class="bg-white rounded-3xl p-5 cute-card space-y-4 relative">
+                    <div class="flex justify-between items-center border-b border-pink-100 pb-3">
+                        <span class="font-cute text-xl text-pink-500" id="weeklyDayTitle">🗓 周一主题安排</span>
+                        <span class="text-xs bg-pink-100 text-pink-600 font-bold px-2.5 py-1 rounded-full" id="weeklyFocusBadge">重点表达</span>
+                    </div>
+
+                    <!-- 9:00 Main Activity -->
+                    <div class="bg-pink-50/70 p-3.5 rounded-2xl border border-pink-100">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">09:00 主活动</span>
+                            <span class="text-xs font-bold text-gray-700" id="act1Title">二选一互动</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed" id="act1Desc">两本书或两个玩具二选一，宝宝指哪样就给哪样。</p>
+                    </div>
+
+                    <!-- 10:45 Consolidation -->
+                    <div class="bg-purple-50/70 p-3.5 rounded-2xl border border-purple-100">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-purple-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">10:45 巩固活动</span>
+                            <span class="text-xs font-bold text-gray-700" id="act2Title">等待示意</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed" id="act2Desc">读到喜欢页停住，静静等宝宝做出示意“再来”。</p>
+                    </div>
+
+                    <!-- 15:30 Sensory / Daily -->
+                    <div class="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-100">
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">15:30 感统/生活</span>
+                            <span class="text-xs font-bold text-gray-700" id="act3Title">轮流与递物</span>
+                        </div>
+                        <p class="text-xs text-gray-600 leading-relaxed" id="act3Desc">递书、递球、轮流接物，重点练习“要 / 不要 / 再来”。</p>
+                    </div>
+                </div>
+
+                <!-- Full Week Summary Table -->
+                <div class="bg-white rounded-3xl p-4 cute-card">
+                    <h3 class="font-cute text-base text-gray-800 mb-3">🗓 一周安排速查表</h3>
+                    <div class="space-y-2 text-xs">
+                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
+                            <span class="font-bold text-pink-500 w-10 shrink-0">周一</span>
+                            <span>指物选一选 | 示意“再来” | 递书递球练表达</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
+                            <span class="font-bold text-pink-500 w-10 shrink-0">周二</span>
+                            <span>放入拿出配对 | 按指令拿物 | 推箱爬垫蹲起</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
+                            <span class="font-bold text-pink-500 w-10 shrink-0">周三</span>
+                            <span>轮流滚球拍手 | 停顿2秒等回应 | 递积木练等待</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
+                            <span class="font-bold text-pink-500 w-10 shrink-0">周四</span>
+                            <span>勺杯自理练习 | 拿毛巾收玩具 | 拿书放书整理小框</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-blue-50 flex gap-2 border border-blue-200">
+                            <span class="font-bold text-blue-600 w-10 shrink-0">周五</span>
+                            <span>盖布找物喂熊 | 盖被拍睡 | <b>💦 浅盆玩水专项</b></span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
+                            <span class="font-bold text-pink-500 w-10 shrink-0">周六</span>
+                            <span>感统路线(坡/爬/跨) | 扶物转向蹲起 | 户外找物命名</span>
+                        </div>
+                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
+                            <span class="font-bold text-pink-500 w-10 shrink-0">周日</span>
+                            <span>复盘最爱2-3个活动 | 自主选书游戏 | 轻松重复不加难度</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 3: WATER PLAY MODULE -->
+            <section id="sec-waterplay" class="space-y-3 hidden">
+                <div class="bg-white rounded-3xl p-5 cute-card space-y-4">
+                    <div class="flex items-center gap-2 border-b border-blue-100 pb-3">
+                        <span class="text-2xl">💦</span>
+                        <div>
+                            <h2 class="font-cute text-xl text-blue-600">周五浅盆玩水专项</h2>
+                            <p class="text-xs text-gray-400">轻松感统 + 听懂指令</p>
+                        </div>
+                    </div>
+
+                    <!-- Safety Warnings Card -->
+                    <div class="bg-red-50 border border-red-200 rounded-2xl p-3 text-xs text-red-600 space-y-1">
+                        <div class="font-bold flex items-center gap-1">⚠️ 安全第一守则：</div>
+                        <p>1. <b>全程大人手边看看看！</b> 玩完立刻倒空水盆。</p>
+                        <p>2. <b>水深仅需 1-2 厘米即可</b>，绝对不用水珠/水凝珠！</p>
+                        <p>3. 湿疹宝宝玩完需及时擦干并涂抹保湿霜。</p>
+                    </div>
+
+                    <!-- Steps Checklist -->
+                    <h3 class="font-cute text-sm text-gray-700">🌊 推荐玩法顺序 (点击卡片跟随):</h3>
+                    <div class="grid grid-cols-2 gap-2 text-xs">
+                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">1</span>
+                            <div>
+                                <div class="font-bold text-blue-800">👀 看水</div>
+                                <div class="text-[10px] text-gray-500">观察水面平静</div>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">2</span>
+                            <div>
+                                <div class="font-bold text-blue-800">👏 拍水</div>
+                                <div class="text-[10px] text-gray-500">双手轻轻拍打水面</div>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">3</span>
+                            <div>
+                                <div class="font-bold text-blue-800">🫗 倒水</div>
+                                <div class="text-[10px] text-gray-500">小杯倒水倾听声音</div>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">4</span>
+                            <div>
+                                <div class="font-bold text-blue-800">🥄 舀水</div>
+                                <div class="text-[10px] text-gray-500">用勺子把水舀起来</div>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">5</span>
+                            <div>
+                                <div class="font-bold text-blue-800">🧼 洗玩具</div>
+                                <div class="text-[10px] text-gray-500">海绵/漂浮小船洗澡</div>
+                            </div>
+                        </div>
+                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
+                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">6</span>
+                            <div>
+                                <div class="font-bold text-blue-800">🧻 擦干</div>
+                                <div class="text-[10px] text-gray-500">用毛巾擦干净双手</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Verbal Short Commands -->
                     <div>
-                        <h4 class="font-bold text-teal-600 mb-1">主动表达</h4>
-                        <p class="text-sm text-gray-600">鼓励宝宝用声音或手势表达需求。</p>
+                        <h4 class="font-cute text-sm text-gray-700 mb-2">🗣 全程仅用极简短词：</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“倒”</span>
+                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“拍”</span>
+                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“舀”</span>
+                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“洗”</span>
+                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“再来”</span>
+                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“停”</span>
+                        </div>
                     </div>
                 </div>
-                <div class="bg-teal-50 p-4 rounded-3xl border border-teal-100 flex items-start gap-4">
-                    <div class="text-3xl">🔍</div>
-                    <div>
-                        <h4 class="font-bold text-teal-600 mb-1">找物互动</h4>
-                        <p class="text-sm text-gray-600">藏起来找出来，锻炼观察力和专注力。</p>
-                    </div>
-                </div>
-                <div class="bg-teal-50 p-4 rounded-3xl border border-teal-100 flex items-start gap-4">
-                    <div class="text-3xl">🔄</div>
-                    <div>
-                        <h4 class="font-bold text-teal-600 mb-1">轮流游戏</h4>
-                        <p class="text-sm text-gray-600">你一次我一次，学习等待和互动规则。</p>
-                    </div>
-                </div>
-            </div>
+            </section>
 
-            <div class="bg-yellow-50 border-2 border-yellow-200 rounded-2xl p-4 text-sm text-gray-700 flex flex-col md:flex-row gap-4 items-center justify-between">
-                <div class="flex items-center gap-2">
-                    <span class="text-2xl">⏳</span>
-                    <p>每次 <strong>5-15 分钟</strong> 就够啦！状态好再加一点，状态差就只保留 <strong>共读</strong> 和 <strong>户外</strong>。</p>
-                </div>
-                <div class="flex items-center gap-2 bg-white px-4 py-2 rounded-xl shadow-sm border border-yellow-100 shrink-0">
-                    <span class="text-xl">⚠️</span>
-                    <span class="text-red-400 font-bold">小物件都用不可入口的大件！</span>
-                </div>
-            </div>
-        </section>
+            <!-- SECTION 4: MUSIC & ENGLISH -->
+            <section id="sec-music" class="space-y-3 hidden">
+                
+                <!-- Music List -->
+                <div class="bg-white rounded-3xl p-5 cute-card space-y-3">
+                    <h2 class="font-cute text-xl text-purple-600 flex items-center gap-2">
+                        <span>🎶</span> 音乐启蒙歌单
+                    </h2>
+                    <p class="text-xs text-gray-400">搭配动作：拍手、挥手、停走</p>
 
-        <section class="mb-14">
-            <h2 class="text-2xl font-bold text-pink-500 mb-6 flex items-center gap-2 ml-2">
-                <span class="bg-pink-100 p-2 rounded-xl">📅</span> 七彩斑斓的一周安排
-            </h2>
-            
-            <div class="space-y-6">
-                <!-- Monday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-pink-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('mon')">
-                        <h3 class="font-bold text-pink-600 text-lg flex items-center gap-2">🍓 周一：主动请求日</h3>
-                        <span class="text-pink-400 text-xl transform transition-transform" id="icon-mon">▼</span>
-                    </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-mon">
-                        <div class="flex gap-3"><div class="bg-pink-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-pink-500">早上：</strong>找书/给我/再来，喜欢的东西放近再拿远。</p></div>
-                        <div class="flex gap-3"><div class="bg-pink-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-pink-500">下午：</strong>共读，停在最喜欢那页，让他指、请求再读。</p></div>
-                        <div class="flex gap-3"><div class="bg-pink-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-pink-500">晚上：</strong>玩拜拜、拍手、抱抱、再来这类来回互动。</p></div>
-                        <div class="flex gap-3"><div class="bg-pink-50 p-2 rounded-xl h-fit text-xl">🌳</div><p class="text-sm"><strong class="text-pink-500">户外：</strong>顺着他指的车、树、鸟，马上说出名字。</p></div>
-                    </div>
-                </div>
-
-                <!-- Tuesday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-blue-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('tue')">
-                        <h3 class="font-bold text-blue-600 text-lg flex items-center gap-2">🐳 周二：放入拿出日</h3>
-                        <span class="text-blue-400 text-xl transform transition-transform" id="icon-tue">▼</span>
-                    </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-tue">
-                        <div class="flex gap-3"><div class="bg-blue-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-blue-500">早上：</strong>玩盒子/抽屉，把积木/球/书做放进去拿出来。</p></div>
-                        <div class="flex gap-3"><div class="bg-blue-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-blue-500">下午：</strong>练收玩具，让他把 2-3 个东西放回指定盒子。</p></div>
-                        <div class="flex gap-3"><div class="bg-blue-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-blue-500">晚上：</strong>继续翻书，顺带练“不要”“还要”。</p></div>
-                        <div class="flex gap-3"><div class="bg-blue-50 p-2 rounded-xl h-fit text-xl">🌳</div><p class="text-sm"><strong class="text-blue-500">户外：</strong>练扶物转向、推着走。</p></div>
+                    <div class="space-y-2">
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">👏</span>
+                                <span class="text-xs font-bold text-gray-700">《拍手歌》</span>
+                            </div>
+                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">快歌/律动</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">😃</span>
+                                <span class="text-xs font-bold text-gray-700">《如果感到幸福你就拍拍手》</span>
+                            </div>
+                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">快歌/互动</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">⭐</span>
+                                <span class="text-xs font-bold text-gray-700">《小星星》</span>
+                            </div>
+                            <span class="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full">慢歌/舒缓</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🦴</span>
+                                <span class="text-xs font-bold text-gray-700">《头肩膀膝盖脚》</span>
+                            </div>
+                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">认知/身体</span>
+                        </div>
+                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
+                            <div class="flex items-center gap-2">
+                                <span class="text-lg">🚌</span>
+                                <span class="text-xs font-bold text-gray-700">《The Wheels on the Bus》</span>
+                            </div>
+                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">经典英文歌</span>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Wednesday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-yellow-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('wed')">
-                        <h3 class="font-bold text-yellow-600 text-lg flex items-center gap-2">🌻 周三：配对找物日</h3>
-                        <span class="text-yellow-500 text-xl transform transition-transform" id="icon-wed">▼</span>
-                    </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-wed">
-                        <div class="flex gap-3"><div class="bg-yellow-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-yellow-500">早上：</strong>简单配对，球配球、书配书、积木配积木。</p></div>
-                        <div class="flex gap-3"><div class="bg-yellow-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-yellow-500">下午：</strong>藏起来找出来，把玩具盖住让他找。</p></div>
-                        <div class="flex gap-3"><div class="bg-yellow-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-yellow-500">晚上：</strong>用绘本指图，问“球在哪里”“狗在哪里”。</p></div>
-                        <div class="flex gap-3"><div class="bg-yellow-50 p-2 rounded-xl h-fit text-xl">🌳</div><p class="text-sm"><strong class="text-yellow-500">户外：</strong>练观察，看到什么就一起看、一起说。</p></div>
+                <!-- English Flashcards -->
+                <div class="bg-white rounded-3xl p-5 cute-card space-y-3">
+                    <h2 class="font-cute text-xl text-emerald-600 flex items-center gap-2">
+                        <span>🔤</span> 妈妈每日固定英语词
+                    </h2>
+
+                    <div class="space-y-3">
+                        <div>
+                            <span class="text-xs font-bold text-amber-600 bg-amber-100 px-2.5 py-1 rounded-full">🌅 早上使用词汇</span>
+                            <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
+                                    Good morning <span class="block text-[10px] text-gray-400 font-normal">早安</span>
+                                </div>
+                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
+                                    Milk <span class="block text-[10px] text-gray-400 font-normal">喝奶</span>
+                                </div>
+                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
+                                    Open / Look <span class="block text-[10px] text-gray-400 font-normal">打开 / 看</span>
+                                </div>
+                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
+                                    More / Again <span class="block text-[10px] text-gray-400 font-normal">还要 / 再来</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-2.5 py-1 rounded-full">🌙 晚上使用词汇</span>
+                            <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
+                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
+                                    All done <span class="block text-[10px] text-gray-400 font-normal">吃完啦/做完啦</span>
+                                </div>
+                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
+                                    Book <span class="block text-[10px] text-gray-400 font-normal">读书/绘本</span>
+                                </div>
+                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
+                                    Night-night <span class="block text-[10px] text-gray-400 font-normal">晚安安</span>
+                                </div>
+                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
+                                    Bye-bye <span class="block text-[10px] text-gray-400 font-normal">再见</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <!-- Thursday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-green-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('thu')">
-                        <h3 class="font-bold text-green-600 text-lg flex items-center gap-2">🍀 周四：轮流情绪日</h3>
-                        <span class="text-green-500 text-xl transform transition-transform" id="icon-thu">▼</span>
+            <!-- SECTION 5: EXECUTION RULES -->
+            <section id="sec-rules" class="space-y-3 hidden">
+                <div class="bg-white rounded-3xl p-5 cute-card space-y-4">
+                    <h2 class="font-cute text-xl text-pink-500 flex items-center gap-2">
+                        <span>📌</span> 执行黄金三法则
+                    </h2>
+
+                    <div class="space-y-3 text-xs">
+                        <div class="p-3 bg-pink-50 rounded-2xl border border-pink-100 flex items-start gap-2">
+                            <span class="text-base">⏱</span>
+                            <div>
+                                <span class="font-bold text-gray-800">1. 时间短，随状态收</span>
+                                <p class="text-gray-500 mt-0.5">每个活动控制在 5-15 分钟。宝宝状态不好或走神立刻结束，不上火。</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-yellow-50 rounded-2xl border border-yellow-100 flex items-start gap-2">
+                            <span class="text-base">🧸</span>
+                            <div>
+                                <span class="font-bold text-gray-800">2. 感统融于日常生活</span>
+                                <p class="text-gray-500 mt-0.5">做成日常小游戏，不做高强度或高刺激练习。</p>
+                            </div>
+                        </div>
+
+                        <div class="p-3 bg-blue-50 rounded-2xl border border-blue-100 flex items-start gap-2">
+                            <span class="text-base">😴</span>
+                            <div>
+                                <span class="font-bold text-gray-800">3. 疲劳救急模式</span>
+                                <p class="text-gray-500 mt-0.5">如果哪天大人特别累，<b>只保留：1个主题活动 + 户外 + 读绘本</b> 就完全足够啦！</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-thu">
-                        <div class="flex gap-3"><div class="bg-green-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-green-500">早上：</strong>玩滚球、传积木、拍手歌，重点是轮流。</p></div>
-                        <div class="flex gap-3"><div class="bg-green-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-green-500">下午：</strong>制造一点等待，让他学会“等一下再给你”。</p></div>
-                        <div class="flex gap-3"><div class="bg-green-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-green-500">晚上：</strong>简单假装游戏，给娃娃喂饭、抱抱、盖被子。</p></div>
-                        <div class="flex gap-3"><div class="bg-green-50 p-2 rounded-xl h-fit text-xl">🌳</div><p class="text-sm"><strong class="text-green-500">户外：</strong>继续轻松走动，不追求任务量。</p></div>
-                    </div>
+
+                    <!-- Button to quickly filter mode -->
+                    <button onclick="toggleLazyMode()" class="w-full bubble-btn bg-gradient-to-r from-pink-400 to-purple-400 text-white font-bold py-3 rounded-2xl text-xs shadow-md">
+                        🔄 切换/体验【今天太累啦·救急模式】
+                    </button>
                 </div>
+            </section>
 
-                <!-- Friday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-purple-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('fri')">
-                        <h3 class="font-bold text-purple-600 text-lg flex items-center gap-2">🍇 周五：身体控制日</h3>
-                        <span class="text-purple-400 text-xl transform transition-transform" id="icon-fri">▼</span>
-                    </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-fri">
-                        <div class="flex gap-3"><div class="bg-purple-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-purple-500">早上：</strong>练蹲起取物、扶物移动转弯。</p></div>
-                        <div class="flex gap-3"><div class="bg-purple-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-purple-500">下午：</strong>在软垫边做跨过小障碍、转身拿玩具。</p></div>
-                        <div class="flex gap-3"><div class="bg-purple-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-purple-500">晚上：</strong>让他从站到蹲、蹲到站反复几次。</p></div>
-                        <div class="flex gap-3"><div class="bg-purple-50 p-2 rounded-xl h-fit text-xl">🌳</div><p class="text-sm"><strong class="text-purple-500">户外：</strong>找栏杆、台阶边缘或草地，练平衡和空间感。</p></div>
-                    </div>
-                </div>
+        </main>
 
-                <!-- Saturday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-orange-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('sat')">
-                        <h3 class="font-bold text-orange-600 text-lg flex items-center gap-2">🍊 周六：生活参与日</h3>
-                        <span class="text-orange-400 text-xl transform transition-transform" id="icon-sat">▼</span>
-                    </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-sat">
-                        <div class="flex gap-3"><div class="bg-orange-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-orange-500">早上：</strong>参与吃饭，抓手指食物、拿杯子、尝试勺子。</p></div>
-                        <div class="flex gap-3"><div class="bg-orange-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-orange-500">下午：</strong>参与收纳、拿纸巾、放书。</p></div>
-                        <div class="flex gap-3"><div class="bg-orange-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-orange-500">晚上：</strong>洗澡睡前说固定词“洗洗/擦擦/抱抱/睡觉”。</p></div>
-                        <div class="flex gap-3"><div class="bg-orange-50 p-2 rounded-xl h-fit text-xl">📝</div><p class="text-sm text-gray-500 italic">重在生活节奏，不用安排很多新玩法。</p></div>
-                    </div>
-                </div>
-
-                <!-- Sunday -->
-                <div class="bg-white rounded-[2rem] card-shadow cute-border overflow-hidden">
-                    <div class="bg-teal-100 px-6 py-3 flex justify-between items-center cursor-pointer" onclick="toggleDetails('sun')">
-                        <h3 class="font-bold text-teal-600 text-lg flex items-center gap-2">🌈 周日：复盘自由日</h3>
-                        <span class="text-teal-400 text-xl transform transition-transform" id="icon-sun">▼</span>
-                    </div>
-                    <div class="p-6 grid md:grid-cols-2 gap-4" id="content-sun">
-                        <div class="flex gap-3"><div class="bg-teal-50 p-2 rounded-xl h-fit text-xl">🌅</div><p class="text-sm"><strong class="text-teal-500">早上：</strong>只重复本周他最爱玩的 2 个游戏。</p></div>
-                        <div class="flex gap-3"><div class="bg-teal-50 p-2 rounded-xl h-fit text-xl">🌤️</div><p class="text-sm"><strong class="text-teal-500">下午：</strong>自由探索，不加新任务。</p></div>
-                        <div class="flex gap-3"><div class="bg-teal-50 p-2 rounded-xl h-fit text-xl">🌙</div><p class="text-sm"><strong class="text-teal-500">晚上：</strong>安静抱抱，观察他主动说什么、喜欢哪类书。</p></div>
-                        <div class="flex gap-3"><div class="bg-teal-50 p-2 rounded-xl h-fit text-xl">🌳</div><p class="text-sm"><strong class="text-teal-500">户外：</strong>轻松散步就行啦~</p></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-white rounded-[3rem] p-8 card-shadow cute-border text-center relative overflow-hidden">
-            <div class="absolute -right-6 -top-6 text-6xl opacity-20">🪄</div>
-            <h2 class="text-2xl font-bold text-indigo-500 mb-6">
-                ✨ 可以一直重复的“魔法词汇”
-            </h2>
-            <div class="flex flex-wrap justify-center gap-3 md:gap-4">
-                <span class="bg-pink-100 text-pink-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">找找看 🔎</span>
-                <span class="bg-blue-100 text-blue-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">放进去 📥</span>
-                <span class="bg-yellow-100 text-yellow-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">拿出来 📤</span>
-                <span class="bg-green-100 text-green-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">给我 🤲</span>
-                <span class="bg-purple-100 text-purple-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">再来 🔄</span>
-                <span class="bg-red-100 text-red-500 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">不要 🙅</span>
-                <span class="bg-orange-100 text-orange-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">抱抱 🤗</span>
-                <span class="bg-teal-100 text-teal-600 px-5 py-2 rounded-full font-bold shadow-sm hover:scale-110 transition cursor-default">拜拜 👋</span>
-            </div>
-        </section>
+        <!-- Toast Notification Box -->
+        <div id="toastBox" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/90 text-white text-xs px-4 py-2 rounded-full shadow-lg transition-all opacity-0 pointer-events-none z-50">
+            已更新状态
+        </div>
 
     </div>
 
+    <!-- JavaScript Interactions -->
     <script>
-        function toggleDetails(dayId) {
-            const content = document.getElementById('content-' + dayId);
-            const icon = document.getElementById('icon-' + dayId);
-            
-            if (!window.matchMedia('print').matches) {
-                if (content.style.display === 'none') {
-                    content.style.display = 'grid';
-                    icon.style.transform = 'rotate(180deg)';
-                } else {
-                    content.style.display = 'none';
-                    icon.style.transform = 'rotate(0deg)';
-                }
+        const weeklyData = {
+            1: { title: "🗓 周一主题", focus: "表达与选择", a1T: "二选一互动", a1D: "两本书或两个玩具二选一，宝宝指哪样就给哪样", a2T: "示意再来", a2D: "读到喜欢页停住，等他示意“再来”", a3T: "轮流接物", a3D: "递书、递球、轮流接物，练“要/不要/再来”" },
+            2: { title: "🗓 周二主题", focus: "认知与分类", a1T: "放入拿出", a1D: "放入拿出 + 配对分类，示范一次再让他做", a2T: "按指令拿物", a2D: "找同类物品、按指令拿物", a3T: "大运动探索", a3D: "推箱子、爬垫子、蹲起取物" },
+            3: { title: "🗓 周三主题", focus: "社交与等待", a1T: "互动滚球", a1D: "轮流滚球、拍手歌、你来我往", a2T: "分享玩具", a2D: "分享玩具，刻意停 2 秒等他回应", a3T: "递积木练等待", a3D: "递积木、递书，练等待和回合" },
+            4: { title: "🗓 周四主题", focus: "餐桌与自理", a1T: "勺杯练习", a1D: "勺和杯练习，吃饭时让他自己试", a2T: "生活整理", a2D: "拿毛巾、放回餐具、收玩具", a3T: "拿书放书", a3D: "拿书、放书、整理小框" },
+            5: { title: "🗓 周五主题", focus: "因果与浅盆玩水", a1T: "因果假装", a1D: "开合盒盖、盖布找物、喂熊/盖被拍睡", a2T: "假装游戏", a2D: "给娃娃喂饭、盖被子、拍睡", a3T: "💦 浅盆玩水", a3D: "倒、拍、舀、洗玩具（详见玩水专项页）" },
+            6: { title: "🗓 周六主题", focus: "感统与户外", a1T: "感统路线", a1D: "抱枕坡、桌下爬、跨毛巾卷", a2T: "扶物转向", a2D: "推稳定纸箱、扶物转向、蹲起", a3T: "户外找物", a3D: "户外找物命名：车、树、狗、人" },
+            0: { title: "🗓 周日主题", focus: "轻松复盘", a1T: "复盘最爱", a1D: "复盘本周最喜欢的 2-3 个活动", a2T: "自主选择", a2D: "自主选书 / 玩具 / 游戏", a3T: "轻松重复", a3D: "轻松重复，不上新难度" }
+        };
+
+        let habitState = {
+            water: 0, // 0, 50, 100
+            crawl: 0, // 0, 30, 60
+            food: 0   // 0, 1, 2
+        };
+
+        let isLazyMode = false;
+
+        // Initialize view
+        window.onload = function() {
+            // Set current date string
+            const now = new Date();
+            const days = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
+            const dateStr = `${now.getMonth() + 1}月${now.getDate()}日 ${days[now.getDay()]}`;
+            document.getElementById('todayDateStr').innerText = `📅 今天是 ${dateStr}`;
+
+            // Select today by default in weekly tab
+            selectDay(now.getDay());
+
+            // Highlight active time card
+            highlightCurrentTimeSlot(now.getHours());
+        };
+
+        // Tab Switching Logic
+        function switchTab(tabName) {
+            const tabs = ['routine', 'weekly', 'waterplay', 'music', 'rules'];
+            tabs.forEach(t => {
+                document.getElementById(`sec-${t}`).classList.add('hidden');
+                document.getElementById(`tab-${t}`).classList.remove('tab-active');
+            });
+
+            document.getElementById(`sec-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tab-${tabName}`).classList.add('tab-active');
+        }
+
+        // Weekly Day Switcher
+        function selectDay(dayNum) {
+            document.querySelectorAll('.day-chip').forEach(btn => {
+                btn.classList.remove('bg-pink-500', 'text-white');
+                btn.classList.add('bg-white', 'text-gray-700');
+            });
+
+            const activeBtn = document.getElementById(`dayBtn-${dayNum}`);
+            if(activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-gray-700');
+                activeBtn.classList.add('bg-pink-500', 'text-white');
+            }
+
+            const data = weeklyData[dayNum];
+            document.getElementById('weeklyDayTitle').innerText = data.title;
+            document.getElementById('weeklyFocusBadge').innerText = data.focus;
+            document.getElementById('act1Title').innerText = data.a1T;
+            document.getElementById('act1Desc').innerText = data.a1D;
+            document.getElementById('act2Title').innerText = data.a2T;
+            document.getElementById('act2Desc').innerText = data.a2D;
+            document.getElementById('act3Title').innerText = data.a3T;
+            document.getElementById('act3Desc').innerText = data.a3D;
+        }
+
+        // Interactive Habit Counter
+        function toggleHabit(type) {
+            if (type === 'water') {
+                habitState.water = (habitState.water + 50) % 150;
+                document.getElementById('waterText').innerText = `${habitState.water} / 100 ml`;
+                showToast(habitState.water === 100 ? '🎉 今日饮水目标完成！' : `💧 已喝水 ${habitState.water} ml`);
+            } else if (type === 'crawl') {
+                habitState.crawl = (habitState.crawl + 30) % 90;
+                document.getElementById('crawlText').innerText = `${habitState.crawl} / 60 分钟`;
+                showToast(habitState.crawl === 60 ? '🎉 今日爬行目标完成！' : `🧸 已爬行 ${habitState.crawl} 分钟`);
+            } else if (type === 'food') {
+                habitState.food = (habitState.food + 1) % 3;
+                document.getElementById('foodText').innerText = `${habitState.food} / 2 餐`;
+                showToast(habitState.food === 2 ? '🎉 今日辅食目标完成！' : `🥣 已完成 ${habitState.food} 餐辅食`);
             }
         }
 
-        document.addEventListener('DOMContentLoaded', () => {
-            const days = ['tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
-            days.forEach(day => {
-                const content = document.getElementById('content-' + day);
-                const icon = document.getElementById('icon-' + day);
-                if(content) {
-                    content.style.display = 'none';
-                    icon.style.transform = 'rotate(0deg)';
-                }
-            });
-            const iconMon = document.getElementById('icon-mon');
-            if (iconMon) iconMon.style.transform = 'rotate(180deg)';
-        });
+        // Emergency / Lazy Mode Toggle
+        function toggleLazyMode() {
+            isLazyMode = !isLazyMode;
+            const lazyBtn = document.getElementById('lazyBtn');
+            const items = document.querySelectorAll('.timeline-item');
+
+            if (isLazyMode) {
+                lazyBtn.classList.add('bg-pink-500', 'text-white');
+                lazyBtn.classList.remove('bg-pink-100', 'text-pink-600');
+                lazyBtn.innerHTML = '⚡ 救急模式中';
+                showToast('已开启【救急模式】：仅保留核心任务');
+
+                // Filter items: Keep only outdoor, 1 activity, and books
+                items.forEach((item, index) => {
+                    if (index === 1 || index === 4 || index === 13) {
+                        item.style.opacity = '1';
+                    } else {
+                        item.style.opacity = '0.35';
+                    }
+                });
+            } else {
+                lazyBtn.classList.remove('bg-pink-500', 'text-white');
+                lazyBtn.classList.add('bg-pink-100', 'text-pink-600');
+                lazyBtn.innerHTML = '⚡ 应急模式';
+                showToast('恢复正常作息计划');
+                items.forEach(item => item.style.opacity = '1');
+            }
+        }
+
+        // Highlight current time slot based on system clock
+        function highlightCurrentTimeSlot(currentHour) {
+            const items = document.querySelectorAll('.timeline-item');
+            if (currentHour >= 7 && currentHour < 8) items[0]?.classList.add('ring-2', 'ring-pink-400');
+            else if (currentHour >= 8 && currentHour < 9) items[2]?.classList.add('ring-2', 'ring-pink-400');
+            else if (currentHour >= 12 && currentHour < 13) items[8]?.classList.add('ring-2', 'ring-amber-400');
+            else if (currentHour >= 17 && currentHour < 18) items[11]?.classList.add('ring-2', 'ring-amber-400');
+        }
+
+        // Show Toast Function
+        function showToast(msg) {
+            const toast = document.getElementById('toastBox');
+            toast.innerText = msg;
+            toast.classList.remove('opacity-0');
+            toast.classList.add('opacity-100');
+            setTimeout(() => {
+                toast.classList.remove('opacity-100');
+                toast.classList.add('opacity-0');
+            }, 1800);
+        }
     </script>
 </body>
 </html>
