@@ -2,809 +2,481 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>👶 宝贝快乐成长周计划</title>
-    <!-- Tailwind CSS CDN -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🍭 宝贝成长乐园 - 主题探索版 🍭</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for cute typography -->
-    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'baby-pink': '#FFD1DC',
-                        'baby-soft-pink': '#FFF0F5',
-                        'baby-yellow': '#FFE699',
-                        'baby-cream': '#FFFDF9',
-                        'baby-blue': '#BAE6FD',
-                        'baby-mint': '#A7F3D0',
-                        'baby-purple': '#DDD6FE',
-                        'baby-orange': '#FFEDD5',
-                        'cute-primary': '#FF7E9D'
-                    },
-                    fontFamily: {
-                        cute: ['"ZCOOL KuaiLe"', 'Nunito', 'sans-serif'],
-                        sans: ['Nunito', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+        
         body {
-            background-color: #FFF9F2;
-            background-image: radial-gradient(#FFD1DC 1.5px, transparent 1.5px), radial-gradient(#BAE6FD 1.5px, #FFF9F2 1.5px);
-            background-size: 30px 30px;
-            background-position: 0 0, 15px 15px;
-            font-family: 'Nunito', -apple-system, sans-serif;
-            -webkit-tap-highlight-color: transparent;
+            font-family: 'Varela Round', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #fdfbfb;
+            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+            background: radial-gradient(circle, #ffe4e1 10%, transparent 10%),
+                        radial-gradient(circle, #e0ffff 10%, transparent 10%),
+                        radial-gradient(circle, #fff0f5 10%, transparent 10%);
+            background-size: 60px 60px;
+            background-position: 0 0, 30px 30px, 15px 15px;
+            background-attachment: fixed;
+            overflow-x: hidden;
         }
 
-        .bubble-btn {
-            transition: all 0.2s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-        .bubble-btn:active {
-            transform: scale(0.92);
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+        .macaron-shadow {
+            box-shadow: 0 10px 30px -5px rgba(255, 182, 193, 0.3), 0 8px 10px -6px rgba(173, 216, 230, 0.2);
         }
 
-        .cute-card {
-            border: 3px solid #FFF;
-            box-shadow: 0 8px 20px rgba(255, 182, 193, 0.25);
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(255, 192, 203, 0.4);
         }
 
-        .tab-active {
-            background-color: #FF7E9D !important;
-            color: #FFFFFF !important;
-            box-shadow: 0 4px 12px rgba(255, 126, 157, 0.4);
-            transform: translateY(-2px);
+        .floating-label-container { position: relative; display: inline-block; }
+        .floating-label {
+            visibility: hidden;
+            width: max-content;
+            background-color: #ffb6c1;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 4px 10px;
+            position: absolute;
+            z-index: 10;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            font-size: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .floating-label::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #ffb6c1 transparent transparent transparent;
+        }
+        .floating-label-container:hover .floating-label {
+            visibility: visible;
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
         }
 
-        .custom-scrollbar::-webkit-scrollbar {
-            display: none;
-        }
-        .custom-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
+        .drawer-transition { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
 
-        @keyframes floatSlow {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-6px) rotate(2deg); }
-        }
-        .animate-float {
-            animation: floatSlow 3s ease-in-out infinite;
-        }
+        .macaron-zebra-table { border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; }
+        .macaron-zebra-table tr:nth-child(even) { background-color: #f0fdf4; }
+        .macaron-zebra-table tr:nth-child(odd) { background-color: #ffffff; }
+        .macaron-zebra-table td, .macaron-zebra-table th { padding: 12px 16px; border-bottom: 1px dashed #e5e7eb; }
+        .macaron-zebra-table tr:last-child td { border-bottom: none; }
+
+        .accordion-content { transition: max-height 0.3s ease-out, padding 0.3s ease; max-height: 0; overflow: hidden; padding: 0 1.5rem; }
+        .accordion-active .accordion-content { max-height: 500px; padding: 1rem 1.5rem; }
+        .accordion-active .accordion-icon { transform: rotate(180deg); }
     </style>
 </head>
-<body class="text-gray-700 min-h-screen pb-20 selection:bg-pink-200">
+<body class="text-slate-600 h-screen flex flex-col relative">
 
-    <!-- Container capped at mobile width -->
-    <div class="max-w-md mx-auto min-h-screen flex flex-col relative px-3 py-4">
-
-        <!-- Top Cute Header -->
-        <header class="bg-white/90 backdrop-blur-md rounded-3xl p-4 mb-4 cute-card relative overflow-hidden">
-            <div class="absolute -right-4 -top-4 w-20 h-20 bg-yellow-200/50 rounded-full blur-xl pointer-events-none"></div>
-            <div class="flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                    <span class="text-3xl animate-float inline-block">👶</span>
-                    <div>
-                        <h1 class="font-cute text-2xl text-pink-500 tracking-wide flex items-center gap-1">
-                            宝贝快乐日程
-                        </h1>
-                        <p class="text-xs text-gray-400 font-semibold" id="todayDateStr">📅 正在加载日期...</p>
-                    </div>
-                </div>
-                <!-- Emergency Switch Toggle -->
-                <button onclick="toggleLazyMode()" id="lazyBtn" class="bubble-btn bg-pink-100 hover:bg-pink-200 text-pink-600 px-3 py-1.5 rounded-2xl text-xs font-bold flex items-center gap-1 border border-pink-200">
-                    <span>⚡ 应急模式</span>
-                </button>
+    <!-- 顶部导航 -->
+    <header class="bg-white/90 backdrop-blur-md macaron-shadow sticky top-0 z-40 px-6 py-4 flex justify-between items-center border-b-[6px] border-pink-200">
+        <div class="flex items-center gap-4">
+            <div class="w-14 h-14 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full flex items-center justify-center text-3xl text-white shadow-lg border-2 border-white transform rotate-[-10deg]">
+                <i class="fa-solid fa-horse-玩具"></i><i class="fa-solid fa-shapes"></i>
             </div>
-
-            <!-- Quick Habit Tracker Bar (Daily Essentials) -->
-            <div class="mt-4 pt-3 border-t border-dashed border-pink-100 grid grid-cols-3 gap-2 text-center text-xs">
-                <!-- Water Tracker -->
-                <div onclick="toggleHabit('water')" id="waterCard" class="cursor-pointer bg-blue-50 hover:bg-blue-100 p-2 rounded-2xl border border-blue-100 transition-all">
-                    <div class="text-base">💧 喝水</div>
-                    <div class="font-bold text-blue-600 mt-0.5" id="waterText">0 / 100 ml</div>
-                    <div class="text-[10px] text-gray-400">早50ml + 晚50ml</div>
-                </div>
-                <!-- Crawl Tracker -->
-                <div onclick="toggleHabit('crawl')" id="crawlCard" class="cursor-pointer bg-emerald-50 hover:bg-emerald-100 p-2 rounded-2xl border border-emerald-100 transition-all">
-                    <div class="text-base">🧸 爬行</div>
-                    <div class="font-bold text-emerald-600 mt-0.5" id="crawlText">0 / 60 分钟</div>
-                    <div class="text-[10px] text-gray-400">早30m + 晚30m</div>
-                </div>
-                <!-- Food Tracker -->
-                <div onclick="toggleHabit('food')" id="foodCard" class="cursor-pointer bg-amber-50 hover:bg-amber-100 p-2 rounded-2xl border border-amber-100 transition-all">
-                    <div class="text-base">🥣 辅食</div>
-                    <div class="font-bold text-amber-600 mt-0.5" id="foodText">0 / 2 餐</div>
-                    <div class="text-[10px] text-gray-400">12:00 + 17:00</div>
-                </div>
+            <div>
+                <h1 class="text-2xl font-black text-pink-500 tracking-wider" style="text-shadow: 1px 1px 0px #fbcfe8;">10月龄探索乐园</h1>
+                <p class="text-sm text-purple-400 font-bold">主题分类 · 互动与认知</p>
             </div>
+        </div>
+        <div class="floating-label-container">
+            <button onclick="toggleDrawer()" class="bg-gradient-to-r from-teal-200 to-blue-200 hover:from-teal-300 hover:to-blue-300 text-teal-800 px-6 py-3 rounded-[2rem] font-extrabold shadow-md transition-all duration-300 flex items-center gap-3 transform hover:scale-105 border-2 border-white">
+                <i class="fa-solid fa-sliders animate-pulse"></i>
+                <span>难度调节与指南</span>
+            </button>
+            <span class="floating-label font-bold tracking-wide">点击打开右侧抽屉</span>
+        </div>
+    </header>
 
-            <!-- Notice bar -->
-            <div class="mt-3 bg-pink-50 rounded-xl p-2 text-[11px] text-pink-600 flex items-center gap-1 font-semibold">
-                <span>🍼</span> 提醒：早餐仍以奶为主，之后给少量软食/手指食物探索！
+    <!-- 主体内容 -->
+    <main class="flex-1 overflow-y-auto p-6 lg:p-10 no-scrollbar">
+        <div class="max-w-7xl mx-auto space-y-12">
+            
+            <!-- 模块零：发育主目标 (新增) -->
+            <section>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-rose-200 rounded-2xl flex items-center justify-center text-rose-600 text-xl transform -rotate-6 shadow-sm"><i class="fa-solid fa-crosshairs"></i></div>
+                    <h2 class="text-2xl font-extrabold text-rose-500 drop-shadow-sm">10-12月龄 发育主目标</h2>
+                    <div class="h-1 flex-1 bg-gradient-to-r from-rose-200 to-transparent rounded-full ml-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                    <!-- 语言理解 -->
+                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-indigo-100 card-hover transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-400 text-lg"><i class="fa-solid fa-ear-listen"></i></div>
+                            <h3 class="font-extrabold text-indigo-600 text-lg">语言理解</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed font-medium">从听懂单个指令，升级到执行熟悉的<strong class="text-indigo-500">“两步任务”</strong>，例如“拿球，放进去”。</p>
+                    </div>
+
+                    <!-- 认知 -->
+                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-purple-100 card-hover transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center text-purple-400 text-lg"><i class="fa-solid fa-puzzle-piece"></i></div>
+                            <h3 class="font-extrabold text-purple-600 text-lg">认知</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed font-medium">从找藏物、放入拿出，升级到<strong class="text-purple-500">旋拧、开关、配对、分类</strong>和简单因果。</p>
+                    </div>
+
+                    <!-- 社交 -->
+                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-pink-100 card-hover transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-pink-50 rounded-full flex items-center justify-center text-pink-400 text-lg"><i class="fa-solid fa-users"></i></div>
+                            <h3 class="font-extrabold text-pink-600 text-lg">社交</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed font-medium">从主动互动，升级到<strong class="text-pink-500">短暂等待、轮流</strong>、主动请求“再来”。</p>
+                    </div>
+
+                    <!-- 自理 -->
+                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-amber-100 card-hover transition-all duration-300">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center text-amber-500 text-lg"><i class="fa-solid fa-hands-bubbles"></i></div>
+                            <h3 class="font-extrabold text-amber-600 text-lg">自理</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed font-medium">加入<strong class="text-amber-500">真实生活参与</strong>，如擦桌子、拿围兜、尝试杯子和勺子。</p>
+                    </div>
+
+                    <!-- 大运动 -->
+                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-teal-100 card-hover transition-all duration-300 lg:col-span-2">
+                        <div class="flex items-center gap-3 mb-3">
+                            <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-400 text-lg"><i class="fa-solid fa-person-walking"></i></div>
+                            <h3 class="font-extrabold text-teal-600 text-lg">大运动</h3>
+                        </div>
+                        <p class="text-sm text-slate-500 leading-relaxed font-medium">继续维持爬、扶站、扶走、蹲起，加入<strong class="text-teal-500">推、绕、爬过障碍</strong>，<span class="bg-teal-50 text-teal-600 px-2 py-0.5 rounded-full text-xs ml-1 whitespace-nowrap"><i class="fa-solid fa-shield-cat"></i> 不催独走</span></p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模块一：高阶探索活动 (网格布局) -->
+            <section>
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-10 h-10 bg-yellow-200 rounded-2xl flex items-center justify-center text-yellow-600 text-xl transform rotate-12 shadow-sm"><i class="fa-solid fa-cube"></i></div>
+                    <h2 class="text-2xl font-extrabold text-yellow-500 drop-shadow-sm">趣味探索活动</h2>
+                    <div class="h-1 flex-1 bg-gradient-to-r from-yellow-200 to-transparent rounded-full ml-4"></div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 活动 1 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-pink-100 relative group">
+                        <div class="absolute top-4 right-4 text-pink-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-glass-water"></i></div>
+                        <h3 class="font-extrabold text-pink-500 text-lg mb-3">1. 三杯寻物</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">准备三个不透明大杯子。让宝宝看着玩具被放到其中一个杯子下。熟练后，缓慢交换两个杯子的位置一次，再找。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-pink-100">
+                            <span class="inline-block bg-pink-50 text-pink-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-arrow-up-right-dots"></i> 恒存/追踪/记忆</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 2 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-blue-100 relative group">
+                        <div class="absolute top-4 right-4 text-blue-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-hands-holding-child"></i></div>
+                        <h3 class="font-extrabold text-blue-500 text-lg mb-3">2. 拉布取物</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">把喜欢的玩具放在毛巾远端，玩具够不到，但毛巾够得到。观察宝宝是否会拉毛巾取得玩具。之后放进盒子。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-blue-100">
+                            <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-lightbulb"></i> 工具思维</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 3 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-green-100 relative group">
+                        <div class="absolute top-4 right-4 text-green-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-person-running"></i></div>
+                        <h3 class="font-extrabold text-green-500 text-lg mb-3">3. 两步小跑腿</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">“拿书，给妈妈。” “拿球，放篮子。” 先配合手势，熟练后只说指令。更高一级可换房间或换人执行。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-green-100">
+                            <span class="inline-block bg-green-50 text-green-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-ear-listen"></i> 听觉指令执行</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 4 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-orange-100 relative group">
+                        <div class="absolute top-4 right-4 text-orange-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-broom"></i></div>
+                        <h3 class="font-extrabold text-orange-500 text-lg mb-3">4. 三步真实任务</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">1)拿出布 2)擦两下桌子 3)放回篮子。可逐段提醒，重点是形成“开始—完成—收尾”的过程。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-orange-100">
+                            <span class="inline-block bg-orange-50 text-orange-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-list-check"></i> 任务闭环</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 5 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-purple-100 relative group">
+                        <div class="absolute top-4 right-4 text-purple-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-puzzle-piece"></i></div>
+                        <h3 class="font-extrabold text-purple-500 text-lg mb-3">5. 盒盖配对</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">准备两个形状或大小不同安全容器，打乱盖子，让宝宝找对应。“这个盖在哪？不合适换一个。”</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-purple-100">
+                            <span class="inline-block bg-purple-50 text-purple-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-object-ungroup"></i> 形状大小认知</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 6 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-teal-100 relative group">
+                        <div class="absolute top-4 right-4 text-teal-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-layer-group"></i></div>
+                        <h3 class="font-extrabold text-teal-500 text-lg mb-3">6. 套杯与空间</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">三个不同套杯：小杯放大杯、倒扣藏玩具、重新套杯。体验大小、方向和空间关系。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-teal-100">
+                            <span class="inline-block bg-teal-50 text-teal-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-up-down-left-right"></i> 空间关系</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 7 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-rose-100 relative group">
+                        <div class="absolute top-4 right-4 text-rose-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-book-open-reader"></i></div>
+                        <h3 class="font-extrabold text-rose-500 text-lg mb-3">7. 跨页找绘本</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">读熟悉一页后，翻开两三页问：“小熊在哪里？”让宝宝自己翻页寻找并精确指认。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-rose-100">
+                            <span class="inline-block bg-rose-50 text-rose-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass"></i> 主动翻页与指认</span>
+                        </div>
+                    </div>
+
+                    <!-- 活动 8 -->
+                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-indigo-100 relative group">
+                        <div class="absolute top-4 right-4 text-indigo-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-users"></i></div>
+                        <h3 class="font-extrabold text-indigo-500 text-lg mb-3">8. 三人轮流</h3>
+                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">三人坐成三角：宝宝给大人A，A给B，B再给宝宝。练习“给妈妈”“给阿姨”“轮到谁”“再来”。</p>
+                        <div class="mt-4 pt-4 border-t border-dashed border-indigo-100">
+                            <span class="inline-block bg-indigo-50 text-indigo-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-arrows-rotate"></i> 社交与等待</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 模块二：古典音乐与英语启蒙并排 -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                
+                <!-- 音乐区 -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-purple-200 rounded-2xl flex items-center justify-center text-purple-600 text-xl transform -rotate-12 shadow-sm"><i class="fa-solid fa-music"></i></div>
+                        <h2 class="text-2xl font-extrabold text-purple-500 drop-shadow-sm">古典音乐时光</h2>
+                        <div class="h-1 flex-1 bg-gradient-to-r from-purple-200 to-transparent rounded-full ml-4"></div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] macaron-shadow border-2 border-purple-100 p-2">
+                        <!-- 音乐 1 -->
+                        <div class="accordion-item border-b border-dashed border-purple-100">
+                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
+                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-purple-100 text-purple-500 flex justify-center items-center"><i class="fa-solid fa-sun"></i></span> 莫扎特《C大调钢琴奏鸣曲》第一乐章</span>
+                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
+                            </button>
+                            <div class="accordion-content bg-purple-50/50 rounded-xl mb-2 mx-2">
+                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-purple-600">明快，适合上午。</strong><br>播放时，妈妈轻拍两下，停一下，观察宝宝是否模仿。音乐停止时，妈妈也停止动作，等待宝宝看人、挥手或表示“再来”。</p>
+                            </div>
+                        </div>
+
+                        <!-- 音乐 2 -->
+                        <div class="accordion-item border-b border-dashed border-purple-100">
+                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
+                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-500 flex justify-center items-center"><i class="fa-solid fa-drum"></i></span> 巴赫《第一大提琴组曲》前奏曲</span>
+                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
+                            </button>
+                            <div class="accordion-content bg-indigo-50/50 rounded-xl mb-2 mx-2">
+                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-indigo-600">节奏清楚。</strong><br>适合观察宝宝身体反应。音乐时间重点是听到音乐后看人、挥手、拍手、等待、模仿节奏和参与互动。</p>
+                            </div>
+                        </div>
+
+                        <!-- 音乐 3 -->
+                        <div class="accordion-item border-b border-dashed border-purple-100">
+                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
+                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-green-100 text-green-500 flex justify-center items-center"><i class="fa-solid fa-leaf"></i></span> 维瓦尔第《春》第一乐章</span>
+                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
+                            </button>
+                            <div class="accordion-content bg-green-50/50 rounded-xl mb-2 mx-2">
+                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-green-600">动静结合。</strong><br>适合做快慢、开始停止游戏。结束后可以说：“音乐停了”“还要吗？”</p>
+                            </div>
+                        </div>
+
+                        <!-- 音乐 4 -->
+                        <div class="accordion-item">
+                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
+                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-blue-500 flex justify-center items-center"><i class="fa-solid fa-moon"></i></span> 舒缓摇篮曲 (晚上)</span>
+                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
+                            </button>
+                            <div class="accordion-content bg-blue-50/50 rounded-xl mb-2 mx-2">
+                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-blue-600">宁静放松。</strong><br>优先选择舒缓的摇篮曲或妈妈轻声哼唱，配合慢速摇摆、抱坐听，不做剧烈运动。不建议睡前播放过于兴奋的乐章。</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 英语区 -->
+                <section>
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 bg-teal-200 rounded-2xl flex items-center justify-center text-teal-600 text-xl transform rotate-6 shadow-sm"><i class="fa-solid fa-language"></i></div>
+                        <h2 class="text-2xl font-extrabold text-teal-500 drop-shadow-sm">英语启蒙日常</h2>
+                        <div class="h-1 flex-1 bg-gradient-to-r from-teal-200 to-transparent rounded-full ml-4"></div>
+                    </div>
+
+                    <div class="bg-white rounded-[2rem] macaron-shadow border-2 border-teal-100 p-6">
+                        <p class="text-sm text-slate-500 mb-4 bg-teal-50 p-3 rounded-xl border border-dashed border-teal-200">
+                            <i class="fa-solid fa-circle-info text-teal-400 mr-1"></i> 早起或睡前每次3-5分钟。绘本中宝宝指哪一页，妈妈就用一两个英文词回应，不逐页翻译。
+                        </p>
+                        
+                        <div class="border border-slate-100 rounded-[1rem] overflow-hidden">
+                            <table class="w-full text-left macaron-zebra-table">
+                                <thead class="bg-teal-100/50 text-teal-800 text-sm">
+                                    <tr>
+                                        <th class="font-extrabold w-1/3"><i class="fa-solid fa-location-dot mr-2 opacity-50"></i>生活场景</th>
+                                        <th class="font-extrabold"><i class="fa-solid fa-comment-dots mr-2 opacity-50"></i>高频互动短句</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-sm font-medium text-slate-600">
+                                    <tr>
+                                        <td>开合物品</td>
+                                        <td class="text-teal-600 font-bold font-mono">Open. Close.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>给予与放入</td>
+                                        <td class="text-teal-600 font-bold font-mono">Give me. Put in.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>寻找失物</td>
+                                        <td class="text-teal-600 font-bold font-mono">Where is the ball? Here it is.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>家务帮忙</td>
+                                        <td class="text-teal-600 font-bold font-mono">Help mommy. Wipe.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>喝水进食</td>
+                                        <td class="text-teal-600 font-bold font-mono">Drink water. More? All done.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>轮流游戏</td>
+                                        <td class="text-teal-600 font-bold font-mono">My turn. Your turn. Wait.</td>
+                                    </tr>
+                                    <tr>
+                                        <td>共读绘本</td>
+                                        <td class="text-teal-600 font-bold font-mono">Book. Turn the page. Again?</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
             </div>
-        </header>
+        </div>
+        <!-- 底部留白 -->
+        <div class="h-20"></div>
+    </main>
 
-        <!-- Navigation Tabs -->
-        <nav class="flex space-x-2 mb-4 overflow-x-auto custom-scrollbar py-1">
-            <button onclick="switchTab('routine')" id="tab-routine" class="tab-btn tab-active bubble-btn shrink-0 bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
-                <span>⏰</span> 每日作息
+    <!-- 右侧抽屉面板 -->
+    <div id="drawer-overlay" class="fixed inset-0 bg-slate-900/20 z-50 hidden transition-opacity opacity-0 backdrop-blur-sm" onclick="toggleDrawer()"></div>
+    
+    <div id="right-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full drawer-transition flex flex-col rounded-l-[3rem] overflow-hidden border-l-[8px] border-blue-200">
+        
+        <div class="bg-blue-50 px-8 py-6 flex justify-between items-center border-b border-blue-100">
+            <h2 class="text-2xl font-black text-blue-500 flex items-center gap-3">
+                <i class="fa-solid fa-sliders text-blue-300"></i> 指南与调节
+            </h2>
+            <button onclick="toggleDrawer()" class="w-10 h-10 bg-white hover:bg-blue-100 text-blue-400 rounded-full flex items-center justify-center transition-colors shadow-sm">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
-            <button onclick="switchTab('weekly')" id="tab-weekly" class="tab-btn bubble-btn shrink-0 bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
-                <span>🗓</span> 本周主题
-            </button>
-            <button onclick="switchTab('waterplay')" id="tab-waterplay" class="tab-btn bubble-btn shrink-0 bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
-                <span>💦</span> 浅盆玩水
-            </button>
-            <button onclick="switchTab('music')" id="tab-music" class="tab-btn shrink-0 bubble-btn bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
-                <span>🎵</span> 音乐英语
-            </button>
-            <button onclick="switchTab('rules')" id="tab-rules" class="tab-btn shrink-0 bubble-btn bg-white text-gray-600 font-bold px-4 py-2.5 rounded-2xl text-xs flex items-center gap-1.5 shadow-sm">
-                <span>💡</span> 执行规则
-            </button>
-        </nav>
-
-        <!-- Dynamic Content Sections -->
-        <main class="flex-1">
-
-            <!-- SECTION 1: DAILY ROUTINE -->
-            <section id="sec-routine" class="space-y-3">
-                
-                <!-- Main Focus Banner -->
-                <div class="bg-gradient-to-r from-purple-100 to-pink-100 rounded-2xl p-3 border border-purple-200">
-                    <h2 class="font-cute text-sm text-purple-700 mb-1 flex items-center gap-1">
-                        ✨ 本周核心培养目标
-                    </h2>
-                    <div class="flex flex-wrap gap-1.5">
-                        <span class="bg-white/80 text-purple-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🗣 语言: 请求/拒绝/分享</span>
-                        <span class="bg-white/80 text-pink-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🧠 认知: 放入拿出/假装</span>
-                        <span class="bg-white/80 text-blue-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🤝 社交: 等待/回应</span>
-                        <span class="bg-white/80 text-emerald-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🧹 自理: 拿书/收玩具</span>
-                        <span class="bg-white/80 text-amber-600 text-[11px] px-2 py-0.5 rounded-full font-bold">🏃 大运动: 拓展不催促</span>
-                    </div>
-                </div>
-
-                <!-- Timeline Container -->
-                <div class="bg-white rounded-3xl p-4 cute-card space-y-4">
-                    <div class="flex justify-between items-center mb-1">
-                        <h3 class="font-cute text-lg text-gray-800">📋 全天作息时间表</h3>
-                        <span class="text-[10px] bg-yellow-100 text-amber-700 px-2 py-0.5 rounded-full font-bold">点击时间卡可标完成</span>
-                    </div>
-
-                    <!-- Timeline Item -->
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-orange-50 border border-transparent hover:border-orange-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-orange-100 text-orange-600 text-xs font-bold px-2 py-1 rounded-xl block">07:00</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🌅 起床、喝奶 & 英语 3-5m
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">妈妈说英语词：good morning / milk / open / more / again</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-emerald-50 border border-transparent hover:border-emerald-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-1 rounded-xl block">07:30</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🌳 早晨户外活动 (40m)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">看人、看树、摸草、指物 + 🏃 早上爬行拓展半小时</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-amber-50 border border-transparent hover:border-amber-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-amber-100 text-amber-600 text-xs font-bold px-2 py-1 rounded-xl block">08:20</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🥣 早餐时间
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">🍼 先奶，后给少量软食/手指食物探索（💧 喝水 50ml）</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-purple-50 border border-transparent hover:border-purple-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-purple-100 text-purple-600 text-xs font-bold px-2 py-1 rounded-xl block">08:40</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🎶 音乐启蒙时间
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">1首快歌 + 1首慢歌，互动：拍手、挥手、停走</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-pink-50 border border-transparent hover:border-pink-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-pink-100 text-pink-600 text-xs font-bold px-2 py-1 rounded-xl block">09:00</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🎯 上午主题活动 1 (10-15m)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">按今日周计划主题开展（见本周主题页）</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-blue-50 border border-transparent hover:border-blue-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-blue-100 text-blue-600 text-xs font-bold px-2 py-1 rounded-xl block">09:30</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                😴 第一觉 (9:30-10:30)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">保持安静温和的环境，充分休息恢复精力</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-pink-50 border border-transparent hover:border-pink-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-pink-100 text-pink-600 text-xs font-bold px-2 py-1 rounded-xl block">10:45</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🎯 上午主题活动 2 (10-15m)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">主题巩固与游戏延伸</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-teal-50 border border-transparent hover:border-teal-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-teal-100 text-teal-600 text-xs font-bold px-2 py-1 rounded-xl block">11:20</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                📖 自由探索 & 收玩具
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">自主翻书、练习自己拿玩具并放回</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all bg-amber-50/60 border border-amber-200">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-amber-400 text-white text-xs font-bold px-2 py-1 rounded-xl block">12:00</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-amber-900 flex items-center gap-1">
-                                🍲 午餐辅食 (12:00)
-                            </div>
-                            <p class="text-xs text-amber-700 mt-0.5">练习抓握勺子、持杯饮水，让宝宝自己参与吃</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-indigo-50 border border-transparent hover:border-indigo-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-indigo-100 text-indigo-600 text-xs font-bold px-2 py-1 rounded-xl block">13:00</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🌙 第二觉 (13:00-15:00)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">15:15观察状态：若困意明显，最晚16:00前补觉15-20m</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-emerald-50 border border-transparent hover:border-emerald-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-1 rounded-xl block">15:30</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🎈 主题 3 + 轻量感统 (5-10m)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">🏃 下午爬行半小时 + 💧 补充水50ml</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all bg-amber-50/60 border border-amber-200">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-amber-400 text-white text-xs font-bold px-2 py-1 rounded-xl block">17:00</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-amber-900 flex items-center gap-1">
-                                🍲 晚餐辅食 (17:00)
-                            </div>
-                            <p class="text-xs text-amber-700 mt-0.5">自己尝试进食、餐后收尾整理</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-emerald-50 border border-transparent hover:border-emerald-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-emerald-100 text-emerald-600 text-xs font-bold px-2 py-1 rounded-xl block">17:30</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🚴 傍晚户外 (17:30-19:00)
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">走、蹲、转向、看人群社交</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all hover:bg-purple-50 border border-transparent hover:border-purple-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-purple-100 text-purple-600 text-xs font-bold px-2 py-1 rounded-xl block">19:15</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-gray-800 flex items-center gap-1">
-                                🛁 洗澡、绘本 & 晚安流程
-                            </div>
-                            <p class="text-xs text-gray-500 mt-0.5">英语：all done / book / night-night / bye-bye</p>
-                        </div>
-                    </div>
-
-                    <div class="timeline-item flex gap-3 items-start p-2.5 rounded-2xl transition-all bg-indigo-50 border border-indigo-100">
-                        <div class="w-16 text-center shrink-0">
-                            <span class="bg-indigo-600 text-white text-xs font-bold px-2 py-1 rounded-xl block">20:00</span>
-                        </div>
-                        <div class="flex-1">
-                            <div class="font-bold text-sm text-indigo-900 flex items-center gap-1">
-                                🌙 准时睡觉，晚安！
-                            </div>
-                            <p class="text-xs text-indigo-600 mt-0.5">关灯，播放温柔晚安歌</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 2: WEEKLY THEME PLAN -->
-            <section id="sec-weekly" class="space-y-3 hidden">
-                
-                <!-- Week Day Selector Chips -->
-                <div class="flex gap-1.5 overflow-x-auto custom-scrollbar py-1">
-                    <button onclick="selectDay(1)" id="dayBtn-1" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周一</button>
-                    <button onclick="selectDay(2)" id="dayBtn-2" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周二</button>
-                    <button onclick="selectDay(3)" id="dayBtn-3" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周三</button>
-                    <button onclick="selectDay(4)" id="dayBtn-4" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周四</button>
-                    <button onclick="selectDay(5)" id="dayBtn-5" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周五</button>
-                    <button onclick="selectDay(6)" id="dayBtn-6" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周六</button>
-                    <button onclick="selectDay(0)" id="dayBtn-0" class="day-chip bubble-btn shrink-0 bg-white text-gray-700 px-3 py-1.5 rounded-xl text-xs font-bold border border-pink-200">周日</button>
-                </div>
-
-                <!-- Active Day Card Detail -->
-                <div class="bg-white rounded-3xl p-5 cute-card space-y-4 relative">
-                    <div class="flex justify-between items-center border-b border-pink-100 pb-3">
-                        <span class="font-cute text-xl text-pink-500" id="weeklyDayTitle">🗓 周一主题安排</span>
-                        <span class="text-xs bg-pink-100 text-pink-600 font-bold px-2.5 py-1 rounded-full" id="weeklyFocusBadge">重点表达</span>
-                    </div>
-
-                    <!-- 9:00 Main Activity -->
-                    <div class="bg-pink-50/70 p-3.5 rounded-2xl border border-pink-100">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="bg-pink-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">09:00 主活动</span>
-                            <span class="text-xs font-bold text-gray-700" id="act1Title">二选一互动</span>
-                        </div>
-                        <p class="text-xs text-gray-600 leading-relaxed" id="act1Desc">两本书或两个玩具二选一，宝宝指哪样就给哪样。</p>
-                    </div>
-
-                    <!-- 10:45 Consolidation -->
-                    <div class="bg-purple-50/70 p-3.5 rounded-2xl border border-purple-100">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="bg-purple-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">10:45 巩固活动</span>
-                            <span class="text-xs font-bold text-gray-700" id="act2Title">等待示意</span>
-                        </div>
-                        <p class="text-xs text-gray-600 leading-relaxed" id="act2Desc">读到喜欢页停住，静静等宝宝做出示意“再来”。</p>
-                    </div>
-
-                    <!-- 15:30 Sensory / Daily -->
-                    <div class="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-100">
-                        <div class="flex items-center gap-2 mb-1">
-                            <span class="bg-emerald-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">15:30 感统/生活</span>
-                            <span class="text-xs font-bold text-gray-700" id="act3Title">轮流与递物</span>
-                        </div>
-                        <p class="text-xs text-gray-600 leading-relaxed" id="act3Desc">递书、递球、轮流接物，重点练习“要 / 不要 / 再来”。</p>
-                    </div>
-                </div>
-
-                <!-- Full Week Summary Table -->
-                <div class="bg-white rounded-3xl p-4 cute-card">
-                    <h3 class="font-cute text-base text-gray-800 mb-3">🗓 一周安排速查表</h3>
-                    <div class="space-y-2 text-xs">
-                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
-                            <span class="font-bold text-pink-500 w-10 shrink-0">周一</span>
-                            <span>指物选一选 | 示意“再来” | 递书递球练表达</span>
-                        </div>
-                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
-                            <span class="font-bold text-pink-500 w-10 shrink-0">周二</span>
-                            <span>放入拿出配对 | 按指令拿物 | 推箱爬垫蹲起</span>
-                        </div>
-                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
-                            <span class="font-bold text-pink-500 w-10 shrink-0">周三</span>
-                            <span>轮流滚球拍手 | 停顿2秒等回应 | 递积木练等待</span>
-                        </div>
-                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
-                            <span class="font-bold text-pink-500 w-10 shrink-0">周四</span>
-                            <span>勺杯自理练习 | 拿毛巾收玩具 | 拿书放书整理小框</span>
-                        </div>
-                        <div class="p-2 rounded-xl bg-blue-50 flex gap-2 border border-blue-200">
-                            <span class="font-bold text-blue-600 w-10 shrink-0">周五</span>
-                            <span>盖布找物喂熊 | 盖被拍睡 | <b>💦 浅盆玩水专项</b></span>
-                        </div>
-                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
-                            <span class="font-bold text-pink-500 w-10 shrink-0">周六</span>
-                            <span>感统路线(坡/爬/跨) | 扶物转向蹲起 | 户外找物命名</span>
-                        </div>
-                        <div class="p-2 rounded-xl bg-gray-50 flex gap-2">
-                            <span class="font-bold text-pink-500 w-10 shrink-0">周日</span>
-                            <span>复盘最爱2-3个活动 | 自主选书游戏 | 轻松重复不加难度</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 3: WATER PLAY MODULE -->
-            <section id="sec-waterplay" class="space-y-3 hidden">
-                <div class="bg-white rounded-3xl p-5 cute-card space-y-4">
-                    <div class="flex items-center gap-2 border-b border-blue-100 pb-3">
-                        <span class="text-2xl">💦</span>
-                        <div>
-                            <h2 class="font-cute text-xl text-blue-600">周五浅盆玩水专项</h2>
-                            <p class="text-xs text-gray-400">轻松感统 + 听懂指令</p>
-                        </div>
-                    </div>
-
-                    <!-- Safety Warnings Card -->
-                    <div class="bg-red-50 border border-red-200 rounded-2xl p-3 text-xs text-red-600 space-y-1">
-                        <div class="font-bold flex items-center gap-1">⚠️ 安全第一守则：</div>
-                        <p>1. <b>全程大人手边看看看！</b> 玩完立刻倒空水盆。</p>
-                        <p>2. <b>水深仅需 1-2 厘米即可</b>，绝对不用水珠/水凝珠！</p>
-                        <p>3. 湿疹宝宝玩完需及时擦干并涂抹保湿霜。</p>
-                    </div>
-
-                    <!-- Steps Checklist -->
-                    <h3 class="font-cute text-sm text-gray-700">🌊 推荐玩法顺序 (点击卡片跟随):</h3>
-                    <div class="grid grid-cols-2 gap-2 text-xs">
-                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
-                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">1</span>
-                            <div>
-                                <div class="font-bold text-blue-800">👀 看水</div>
-                                <div class="text-[10px] text-gray-500">观察水面平静</div>
-                            </div>
-                        </div>
-                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
-                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">2</span>
-                            <div>
-                                <div class="font-bold text-blue-800">👏 拍水</div>
-                                <div class="text-[10px] text-gray-500">双手轻轻拍打水面</div>
-                            </div>
-                        </div>
-                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
-                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">3</span>
-                            <div>
-                                <div class="font-bold text-blue-800">🫗 倒水</div>
-                                <div class="text-[10px] text-gray-500">小杯倒水倾听声音</div>
-                            </div>
-                        </div>
-                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
-                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">4</span>
-                            <div>
-                                <div class="font-bold text-blue-800">🥄 舀水</div>
-                                <div class="text-[10px] text-gray-500">用勺子把水舀起来</div>
-                            </div>
-                        </div>
-                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
-                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">5</span>
-                            <div>
-                                <div class="font-bold text-blue-800">🧼 洗玩具</div>
-                                <div class="text-[10px] text-gray-500">海绵/漂浮小船洗澡</div>
-                            </div>
-                        </div>
-                        <div class="p-3 rounded-2xl bg-blue-50 border border-blue-100 flex items-center gap-2">
-                            <span class="bg-blue-500 text-white rounded-full w-5 h-5 flex items-center justify-center font-bold text-[10px]">6</span>
-                            <div>
-                                <div class="font-bold text-blue-800">🧻 擦干</div>
-                                <div class="text-[10px] text-gray-500">用毛巾擦干净双手</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Verbal Short Commands -->
-                    <div>
-                        <h4 class="font-cute text-sm text-gray-700 mb-2">🗣 全程仅用极简短词：</h4>
-                        <div class="flex flex-wrap gap-2">
-                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“倒”</span>
-                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“拍”</span>
-                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“舀”</span>
-                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“洗”</span>
-                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“再来”</span>
-                            <span class="bg-amber-100 text-amber-800 font-bold px-3 py-1 rounded-xl text-xs">“停”</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 4: MUSIC & ENGLISH -->
-            <section id="sec-music" class="space-y-3 hidden">
-                
-                <!-- Music List -->
-                <div class="bg-white rounded-3xl p-5 cute-card space-y-3">
-                    <h2 class="font-cute text-xl text-purple-600 flex items-center gap-2">
-                        <span>🎶</span> 音乐启蒙歌单
-                    </h2>
-                    <p class="text-xs text-gray-400">搭配动作：拍手、挥手、停走</p>
-
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
-                            <div class="flex items-center gap-2">
-                                <span class="text-lg">👏</span>
-                                <span class="text-xs font-bold text-gray-700">《拍手歌》</span>
-                            </div>
-                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">快歌/律动</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
-                            <div class="flex items-center gap-2">
-                                <span class="text-lg">😃</span>
-                                <span class="text-xs font-bold text-gray-700">《如果感到幸福你就拍拍手》</span>
-                            </div>
-                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">快歌/互动</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
-                            <div class="flex items-center gap-2">
-                                <span class="text-lg">⭐</span>
-                                <span class="text-xs font-bold text-gray-700">《小星星》</span>
-                            </div>
-                            <span class="text-[10px] bg-indigo-100 text-indigo-700 font-bold px-2 py-0.5 rounded-full">慢歌/舒缓</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
-                            <div class="flex items-center gap-2">
-                                <span class="text-lg">🦴</span>
-                                <span class="text-xs font-bold text-gray-700">《头肩膀膝盖脚》</span>
-                            </div>
-                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">认知/身体</span>
-                        </div>
-                        <div class="flex items-center justify-between p-3 rounded-2xl bg-purple-50 border border-purple-100">
-                            <div class="flex items-center gap-2">
-                                <span class="text-lg">🚌</span>
-                                <span class="text-xs font-bold text-gray-700">《The Wheels on the Bus》</span>
-                            </div>
-                            <span class="text-[10px] bg-purple-200 text-purple-700 font-bold px-2 py-0.5 rounded-full">经典英文歌</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- English Flashcards -->
-                <div class="bg-white rounded-3xl p-5 cute-card space-y-3">
-                    <h2 class="font-cute text-xl text-emerald-600 flex items-center gap-2">
-                        <span>🔤</span> 妈妈每日固定英语词
-                    </h2>
-
-                    <div class="space-y-3">
-                        <div>
-                            <span class="text-xs font-bold text-amber-600 bg-amber-100 px-2.5 py-1 rounded-full">🌅 早上使用词汇</span>
-                            <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
-                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
-                                    Good morning <span class="block text-[10px] text-gray-400 font-normal">早安</span>
-                                </div>
-                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
-                                    Milk <span class="block text-[10px] text-gray-400 font-normal">喝奶</span>
-                                </div>
-                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
-                                    Open / Look <span class="block text-[10px] text-gray-400 font-normal">打开 / 看</span>
-                                </div>
-                                <div class="p-2.5 bg-emerald-50 rounded-xl border border-emerald-100 font-bold text-emerald-800">
-                                    More / Again <span class="block text-[10px] text-gray-400 font-normal">还要 / 再来</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <span class="text-xs font-bold text-indigo-600 bg-indigo-100 px-2.5 py-1 rounded-full">🌙 晚上使用词汇</span>
-                            <div class="grid grid-cols-2 gap-2 mt-2 text-xs">
-                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
-                                    All done <span class="block text-[10px] text-gray-400 font-normal">吃完啦/做完啦</span>
-                                </div>
-                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
-                                    Book <span class="block text-[10px] text-gray-400 font-normal">读书/绘本</span>
-                                </div>
-                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
-                                    Night-night <span class="block text-[10px] text-gray-400 font-normal">晚安安</span>
-                                </div>
-                                <div class="p-2.5 bg-indigo-50 rounded-xl border border-indigo-100 font-bold text-indigo-800">
-                                    Bye-bye <span class="block text-[10px] text-gray-400 font-normal">再见</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- SECTION 5: EXECUTION RULES -->
-            <section id="sec-rules" class="space-y-3 hidden">
-                <div class="bg-white rounded-3xl p-5 cute-card space-y-4">
-                    <h2 class="font-cute text-xl text-pink-500 flex items-center gap-2">
-                        <span>📌</span> 执行黄金三法则
-                    </h2>
-
-                    <div class="space-y-3 text-xs">
-                        <div class="p-3 bg-pink-50 rounded-2xl border border-pink-100 flex items-start gap-2">
-                            <span class="text-base">⏱</span>
-                            <div>
-                                <span class="font-bold text-gray-800">1. 时间短，随状态收</span>
-                                <p class="text-gray-500 mt-0.5">每个活动控制在 5-15 分钟。宝宝状态不好或走神立刻结束，不上火。</p>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-yellow-50 rounded-2xl border border-yellow-100 flex items-start gap-2">
-                            <span class="text-base">🧸</span>
-                            <div>
-                                <span class="font-bold text-gray-800">2. 感统融于日常生活</span>
-                                <p class="text-gray-500 mt-0.5">做成日常小游戏，不做高强度或高刺激练习。</p>
-                            </div>
-                        </div>
-
-                        <div class="p-3 bg-blue-50 rounded-2xl border border-blue-100 flex items-start gap-2">
-                            <span class="text-base">😴</span>
-                            <div>
-                                <span class="font-bold text-gray-800">3. 疲劳救急模式</span>
-                                <p class="text-gray-500 mt-0.5">如果哪天大人特别累，<b>只保留：1个主题活动 + 户外 + 读绘本</b> 就完全足够啦！</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Button to quickly filter mode -->
-                    <button onclick="toggleLazyMode()" class="w-full bubble-btn bg-gradient-to-r from-pink-400 to-purple-400 text-white font-bold py-3 rounded-2xl text-xs shadow-md">
-                        🔄 切换/体验【今天太累啦·救急模式】
-                    </button>
-                </div>
-            </section>
-
-        </main>
-
-        <!-- Toast Notification Box -->
-        <div id="toastBox" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-gray-800/90 text-white text-xs px-4 py-2 rounded-full shadow-lg transition-all opacity-0 pointer-events-none z-50">
-            已更新状态
         </div>
 
+        <div class="flex-1 overflow-y-auto p-8 space-y-8 bg-[#fdfbfb]">
+            
+            <div class="bg-white rounded-3xl p-6 macaron-shadow border border-pink-100 relative overflow-hidden">
+                <div class="absolute -right-4 -top-4 w-16 h-16 bg-pink-100 rounded-full opacity-50"></div>
+                <h3 class="font-extrabold text-pink-500 text-lg mb-4 flex items-center gap-2"><i class="fa-solid fa-stairs"></i> 难度三级跳</h3>
+                
+                <div class="space-y-4">
+                    <div class="flex gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black shrink-0">1</span>
+                        <div>
+                            <h4 class="font-bold text-slate-700">一级难度</h4>
+                            <p class="text-sm text-slate-500">大人示范，同时说话并指向。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-pink-200 text-pink-700 flex items-center justify-center font-black shrink-0">2</span>
+                        <div>
+                            <h4 class="font-bold text-slate-700">二级难度</h4>
+                            <p class="text-sm text-slate-500">只说指令，不立即用手势提示。</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-3">
+                        <span class="w-8 h-8 rounded-xl bg-pink-300 text-pink-800 flex items-center justify-center font-black shrink-0">3</span>
+                        <div>
+                            <h4 class="font-bold text-slate-700">三级难度</h4>
+                            <p class="text-sm text-slate-500">说完等待2—3秒，或者换地点、换照护人完成。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-amber-50 rounded-3xl p-6 border border-amber-100">
+                <h3 class="font-extrabold text-amber-600 text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> 核心原则</h3>
+                <ul class="text-sm text-amber-700 space-y-2 list-disc list-inside marker:text-amber-300 font-medium">
+                    <li>每次只提高<strong class="text-amber-800 bg-amber-200 px-1 rounded">一个变量</strong></li>
+                    <li>连续三次卡住就<strong class="text-amber-800 bg-amber-200 px-1 rounded">退回一级</strong></li>
+                    <li>不要同时增加步骤、减少提示、换场景。</li>
+                </ul>
+                <div class="mt-4 p-3 bg-white/60 rounded-xl text-xs text-amber-600">
+                    💡 真正适合的“高难度”，是主动解决真实问题，而不是背诵识字或做超龄题目。
+                </div>
+            </div>
+
+            <div class="bg-purple-50 rounded-3xl p-6 border border-purple-100">
+                <h3 class="font-extrabold text-purple-600 text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-headphones"></i> 音乐播放规范</h3>
+                <ul class="text-sm text-purple-700 space-y-2 font-medium">
+                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 每天1次，5—10分钟。</li>
+                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 音量保持在说话声或更低，不戴耳机。</li>
+                    <li><i class="fa-solid fa-xmark text-red-400 w-4"></i> 不要全天当背景音播放。</li>
+                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 一首曲子可重复2—3次，观察反应。</li>
+                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 烦躁或想离开时就停止，不强制听完。</li>
+                </ul>
+            </div>
+
+        </div>
     </div>
 
-    <!-- JavaScript Interactions -->
+    <!-- 交互脚本 -->
     <script>
-        const weeklyData = {
-            1: { title: "🗓 周一主题", focus: "表达与选择", a1T: "二选一互动", a1D: "两本书或两个玩具二选一，宝宝指哪样就给哪样", a2T: "示意再来", a2D: "读到喜欢页停住，等他示意“再来”", a3T: "轮流接物", a3D: "递书、递球、轮流接物，练“要/不要/再来”" },
-            2: { title: "🗓 周二主题", focus: "认知与分类", a1T: "放入拿出", a1D: "放入拿出 + 配对分类，示范一次再让他做", a2T: "按指令拿物", a2D: "找同类物品、按指令拿物", a3T: "大运动探索", a3D: "推箱子、爬垫子、蹲起取物" },
-            3: { title: "🗓 周三主题", focus: "社交与等待", a1T: "互动滚球", a1D: "轮流滚球、拍手歌、你来我往", a2T: "分享玩具", a2D: "分享玩具，刻意停 2 秒等他回应", a3T: "递积木练等待", a3D: "递积木、递书，练等待和回合" },
-            4: { title: "🗓 周四主题", focus: "餐桌与自理", a1T: "勺杯练习", a1D: "勺和杯练习，吃饭时让他自己试", a2T: "生活整理", a2D: "拿毛巾、放回餐具、收玩具", a3T: "拿书放书", a3D: "拿书、放书、整理小框" },
-            5: { title: "🗓 周五主题", focus: "因果与浅盆玩水", a1T: "因果假装", a1D: "开合盒盖、盖布找物、喂熊/盖被拍睡", a2T: "假装游戏", a2D: "给娃娃喂饭、盖被子、拍睡", a3T: "💦 浅盆玩水", a3D: "倒、拍、舀、洗玩具（详见玩水专项页）" },
-            6: { title: "🗓 周六主题", focus: "感统与户外", a1T: "感统路线", a1D: "抱枕坡、桌下爬、跨毛巾卷", a2T: "扶物转向", a2D: "推稳定纸箱、扶物转向、蹲起", a3T: "户外找物", a3D: "户外找物命名：车、树、狗、人" },
-            0: { title: "🗓 周日主题", focus: "轻松复盘", a1T: "复盘最爱", a1D: "复盘本周最喜欢的 2-3 个活动", a2T: "自主选择", a2D: "自主选书 / 玩具 / 游戏", a3T: "轻松重复", a3D: "轻松重复，不上新难度" }
-        };
-
-        let habitState = {
-            water: 0, // 0, 50, 100
-            crawl: 0, // 0, 30, 60
-            food: 0   // 0, 1, 2
-        };
-
-        let isLazyMode = false;
-
-        // Initialize view
-        window.onload = function() {
-            // Set current date string
-            const now = new Date();
-            const days = ['周日', '周一', '周二', '周三', '周四', '周五', '周六'];
-            const dateStr = `${now.getMonth() + 1}月${now.getDate()}日 ${days[now.getDay()]}`;
-            document.getElementById('todayDateStr').innerText = `📅 今天是 ${dateStr}`;
-
-            // Select today by default in weekly tab
-            selectDay(now.getDay());
-
-            // Highlight active time card
-            highlightCurrentTimeSlot(now.getHours());
-        };
-
-        // Tab Switching Logic
-        function switchTab(tabName) {
-            const tabs = ['routine', 'weekly', 'waterplay', 'music', 'rules'];
-            tabs.forEach(t => {
-                document.getElementById(`sec-${t}`).classList.add('hidden');
-                document.getElementById(`tab-${t}`).classList.remove('tab-active');
-            });
-
-            document.getElementById(`sec-${tabName}`).classList.remove('hidden');
-            document.getElementById(`tab-${tabName}`).classList.add('tab-active');
-        }
-
-        // Weekly Day Switcher
-        function selectDay(dayNum) {
-            document.querySelectorAll('.day-chip').forEach(btn => {
-                btn.classList.remove('bg-pink-500', 'text-white');
-                btn.classList.add('bg-white', 'text-gray-700');
-            });
-
-            const activeBtn = document.getElementById(`dayBtn-${dayNum}`);
-            if(activeBtn) {
-                activeBtn.classList.remove('bg-white', 'text-gray-700');
-                activeBtn.classList.add('bg-pink-500', 'text-white');
-            }
-
-            const data = weeklyData[dayNum];
-            document.getElementById('weeklyDayTitle').innerText = data.title;
-            document.getElementById('weeklyFocusBadge').innerText = data.focus;
-            document.getElementById('act1Title').innerText = data.a1T;
-            document.getElementById('act1Desc').innerText = data.a1D;
-            document.getElementById('act2Title').innerText = data.a2T;
-            document.getElementById('act2Desc').innerText = data.a2D;
-            document.getElementById('act3Title').innerText = data.a3T;
-            document.getElementById('act3Desc').innerText = data.a3D;
-        }
-
-        // Interactive Habit Counter
-        function toggleHabit(type) {
-            if (type === 'water') {
-                habitState.water = (habitState.water + 50) % 150;
-                document.getElementById('waterText').innerText = `${habitState.water} / 100 ml`;
-                showToast(habitState.water === 100 ? '🎉 今日饮水目标完成！' : `💧 已喝水 ${habitState.water} ml`);
-            } else if (type === 'crawl') {
-                habitState.crawl = (habitState.crawl + 30) % 90;
-                document.getElementById('crawlText').innerText = `${habitState.crawl} / 60 分钟`;
-                showToast(habitState.crawl === 60 ? '🎉 今日爬行目标完成！' : `🧸 已爬行 ${habitState.crawl} 分钟`);
-            } else if (type === 'food') {
-                habitState.food = (habitState.food + 1) % 3;
-                document.getElementById('foodText').innerText = `${habitState.food} / 2 餐`;
-                showToast(habitState.food === 2 ? '🎉 今日辅食目标完成！' : `🥣 已完成 ${habitState.food} 餐辅食`);
-            }
-        }
-
-        // Emergency / Lazy Mode Toggle
-        function toggleLazyMode() {
-            isLazyMode = !isLazyMode;
-            const lazyBtn = document.getElementById('lazyBtn');
-            const items = document.querySelectorAll('.timeline-item');
-
-            if (isLazyMode) {
-                lazyBtn.classList.add('bg-pink-500', 'text-white');
-                lazyBtn.classList.remove('bg-pink-100', 'text-pink-600');
-                lazyBtn.innerHTML = '⚡ 救急模式中';
-                showToast('已开启【救急模式】：仅保留核心任务');
-
-                // Filter items: Keep only outdoor, 1 activity, and books
-                items.forEach((item, index) => {
-                    if (index === 1 || index === 4 || index === 13) {
-                        item.style.opacity = '1';
-                    } else {
-                        item.style.opacity = '0.35';
-                    }
-                });
+        function toggleDrawer() {
+            const drawer = document.getElementById('right-drawer');
+            const overlay = document.getElementById('drawer-overlay');
+            
+            if (drawer.classList.contains('translate-x-full')) {
+                drawer.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => {
+                    overlay.classList.remove('opacity-0');
+                    overlay.classList.add('opacity-100');
+                }, 10);
             } else {
-                lazyBtn.classList.remove('bg-pink-500', 'text-white');
-                lazyBtn.classList.add('bg-pink-100', 'text-pink-600');
-                lazyBtn.innerHTML = '⚡ 应急模式';
-                showToast('恢复正常作息计划');
-                items.forEach(item => item.style.opacity = '1');
+                drawer.classList.add('translate-x-full');
+                overlay.classList.remove('opacity-100');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => {
+                    overlay.classList.add('hidden');
+                }, 400); 
             }
         }
 
-        // Highlight current time slot based on system clock
-        function highlightCurrentTimeSlot(currentHour) {
-            const items = document.querySelectorAll('.timeline-item');
-            if (currentHour >= 7 && currentHour < 8) items[0]?.classList.add('ring-2', 'ring-pink-400');
-            else if (currentHour >= 8 && currentHour < 9) items[2]?.classList.add('ring-2', 'ring-pink-400');
-            else if (currentHour >= 12 && currentHour < 13) items[8]?.classList.add('ring-2', 'ring-amber-400');
-            else if (currentHour >= 17 && currentHour < 18) items[11]?.classList.add('ring-2', 'ring-amber-400');
+        function toggleAccordion(button) {
+            const item = button.parentElement;
+            item.classList.toggle('accordion-active');
         }
-
-        // Show Toast Function
-        function showToast(msg) {
-            const toast = document.getElementById('toastBox');
-            toast.innerText = msg;
-            toast.classList.remove('opacity-0');
-            toast.classList.add('opacity-100');
-            setTimeout(() => {
-                toast.classList.remove('opacity-100');
-                toast.classList.add('opacity-0');
-            }, 1800);
-        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstAccordion = document.querySelector('.accordion-item');
+            if(firstAccordion) firstAccordion.classList.add('accordion-active');
+        });
     </script>
 </body>
 </html>
