@@ -1,482 +1,1829 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🍭 宝贝成长乐园 - 主题探索版 🍭</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
-        
-        body {
-            font-family: 'Varela Round', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-            background-color: #fdfbfb;
-            background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-            background: radial-gradient(circle, #ffe4e1 10%, transparent 10%),
-                        radial-gradient(circle, #e0ffff 10%, transparent 10%),
-                        radial-gradient(circle, #fff0f5 10%, transparent 10%);
-            background-size: 60px 60px;
-            background-position: 0 0, 30px 30px, 15px 15px;
-            background-attachment: fixed;
-            overflow-x: hidden;
-        }
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fffafd">
+  <title>11月龄第1周主题成长计划</title>
+  <style>
+    :root {
+      --ink: #344454;
+      --muted: #7a8998;
+      --paper: #fffafd;
+      --white: #ffffff;
+      --line: #ebe8ef;
+      --coral: #ff9fb0;
+      --coral-soft: #fff0f3;
+      --mint: #a7e3cc;
+      --mint-soft: #eefaf4;
+      --sky: #9fd7ff;
+      --sky-soft: #edf7ff;
+      --lemon: #ffe09a;
+      --lemon-soft: #fff8e5;
+      --lavender: #cab8f5;
+      --lavender-soft: #f4f0ff;
+      --peach: #ffc6a5;
+      --peach-soft: #fff2ea;
+      --shadow: 0 8px 24px rgba(59, 72, 86, 0.08);
+      --radius: 14px;
+    }
 
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    * {
+      box-sizing: border-box;
+    }
 
-        .macaron-shadow {
-            box-shadow: 0 10px 30px -5px rgba(255, 182, 193, 0.3), 0 8px 10px -6px rgba(173, 216, 230, 0.2);
-        }
+    html {
+      background: var(--paper);
+    }
 
-        .card-hover:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px -5px rgba(255, 192, 203, 0.4);
-        }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background-color: var(--paper);
+      background-image:
+        radial-gradient(circle at 14px 14px, rgba(255, 159, 176, 0.12) 0 2px, transparent 2.5px),
+        radial-gradient(circle at 8px 8px, rgba(159, 215, 255, 0.12) 0 1.5px, transparent 2px);
+      background-size: 38px 38px, 54px 54px;
+      font-family: "Aptos", "PingFang SC", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+      font-size: 14px;
+      line-height: 1.55;
+    }
 
-        .floating-label-container { position: relative; display: inline-block; }
-        .floating-label {
-            visibility: hidden;
-            width: max-content;
-            background-color: #ffb6c1;
-            color: #fff;
-            text-align: center;
-            border-radius: 8px;
-            padding: 4px 10px;
-            position: absolute;
-            z-index: 10;
-            bottom: 125%;
-            left: 50%;
-            transform: translateX(-50%) translateY(10px);
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            font-size: 0.75rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .floating-label::after {
-            content: "";
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            margin-left: -5px;
-            border-width: 5px;
-            border-style: solid;
-            border-color: #ffb6c1 transparent transparent transparent;
-        }
-        .floating-label-container:hover .floating-label {
-            visibility: visible;
-            opacity: 1;
-            transform: translateX(-50%) translateY(0);
-        }
+    .svg-sprite {
+      position: absolute;
+      width: 0;
+      height: 0;
+      overflow: hidden;
+    }
 
-        .drawer-transition { transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1); }
+    .page {
+      width: min(1480px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 24px 0 36px;
+    }
 
-        .macaron-zebra-table { border-collapse: separate; border-spacing: 0; border-radius: 16px; overflow: hidden; }
-        .macaron-zebra-table tr:nth-child(even) { background-color: #f0fdf4; }
-        .macaron-zebra-table tr:nth-child(odd) { background-color: #ffffff; }
-        .macaron-zebra-table td, .macaron-zebra-table th { padding: 12px 16px; border-bottom: 1px dashed #e5e7eb; }
-        .macaron-zebra-table tr:last-child td { border-bottom: none; }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 24px;
+      align-items: center;
+      margin-bottom: 16px;
+    }
 
-        .accordion-content { transition: max-height 0.3s ease-out, padding 0.3s ease; max-height: 0; overflow: hidden; padding: 0 1.5rem; }
-        .accordion-active .accordion-content { max-height: 500px; padding: 1rem 1.5rem; }
-        .accordion-active .accordion-icon { transform: rotate(180deg); }
-    </style>
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: #d97891;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    h1, h2, h3, p {
+      margin: 0;
+    }
+
+    h1 {
+      margin-top: 5px;
+      font-size: clamp(26px, 3vw, 42px);
+      line-height: 1.12;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 780px;
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .hero-stickers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 8px;
+      max-width: 320px;
+    }
+
+    .sticker {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 11px;
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .sticker:nth-child(1) { background: var(--lemon-soft); }
+    .sticker:nth-child(2) { background: var(--mint-soft); }
+    .sticker:nth-child(3) { background: var(--sky-soft); }
+    .sticker:nth-child(4) { background: var(--lavender-soft); }
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .icon-fill {
+      fill: currentColor;
+      stroke: none;
+    }
+
+    .section {
+      margin-top: 16px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin: 0 2px 9px;
+    }
+
+    .section-heading h2 {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 12px;
+      text-align: right;
+    }
+
+    .panel {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid rgba(235, 232, 239, 0.95);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 28px rgba(59, 72, 86, 0.09);
+    }
+
+    .goal-banner {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 16px 18px;
+      background: linear-gradient(120deg, #fff1f4 0%, #fffdfd 48%, #edf8ff 100%);
+      border-color: #f1dfe5;
+      box-shadow: 0 14px 30px rgba(217, 111, 136, 0.1);
+    }
+
+    .goal-icon {
+      display: grid;
+      place-items: center;
+      width: 54px;
+      height: 54px;
+      border-radius: 17px;
+      color: #d96f88;
+      background: #ffd6df;
+    }
+
+    .goal-icon .icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .goal-banner h2 {
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .goal-banner p {
+      margin-top: 4px;
+      color: #5f6b78;
+    }
+
+    .goal-note {
+      max-width: 230px;
+      padding: 9px 11px;
+      color: #7d6470;
+      background: rgba(255, 255, 255, 0.68);
+      border: 1px solid rgba(255, 198, 165, 0.72);
+      border-radius: 12px;
+      font-size: 12px;
+    }
+
+    .goal-modal-trigger {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      min-height: 31px;
+      margin-top: 9px;
+      padding: 6px 9px;
+      border: 1px solid #f0b9c6;
+      border-radius: 7px;
+      background: #fff8fa;
+      color: #c6677e;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: background 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+    }
+
+    .goal-modal-trigger:hover {
+      background: var(--coral-soft);
+      box-shadow: 0 5px 12px rgba(217, 111, 136, 0.14);
+      transform: translateY(-1px);
+    }
+
+    .goal-modal-trigger:focus-visible,
+    .goal-modal-close:focus-visible,
+    .theme-nav button:focus-visible {
+      outline: 3px solid rgba(159, 215, 255, 0.65);
+      outline-offset: 2px;
+    }
+
+    .goal-modal-trigger .icon {
+      width: 15px;
+      height: 15px;
+    }
+
+    .goal-reference-panel {
+      padding: 0;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+    }
+
+    .goal-reference {
+      width: min(1180px, calc(100% - 24px));
+      max-width: 1180px;
+      max-height: calc(100vh - 28px);
+      margin: auto;
+      padding: 16px;
+      border: 0;
+      border-radius: 16px;
+      background: var(--paper);
+      box-shadow: 0 22px 70px rgba(59, 72, 86, 0.22);
+      color: var(--ink);
+      overflow: auto;
+      overscroll-behavior: contain;
+    }
+
+    .goal-reference::backdrop {
+      background: rgba(52, 68, 84, 0.38);
+      backdrop-filter: blur(4px);
+    }
+
+    .goal-reference .section-heading {
+      position: sticky;
+      top: -16px;
+      z-index: 2;
+      margin: -16px -16px 12px;
+      padding: 16px;
+      background: rgba(255, 250, 253, 0.96);
+      border-bottom: 1px solid #f0e6eb;
+    }
+
+    .goal-modal-heading > div:first-child {
+      min-width: 0;
+    }
+
+    .goal-modal-heading p {
+      margin-top: 4px;
+      text-align: left;
+    }
+
+    .goal-modal-close {
+      display: inline-grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      flex: 0 0 auto;
+      border: 1px solid #eadfe7;
+      border-radius: 8px;
+      background: #fff;
+      color: #758393;
+      cursor: pointer;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .goal-modal-close:hover {
+      background: var(--coral-soft);
+      color: #d96f88;
+      transform: translateY(-1px);
+    }
+
+    .goal-modal-close .icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .goal-reference-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(230px, 0.75fr);
+      gap: 14px;
+      padding: 16px;
+      border: 1px solid #f0e3e9;
+      border-radius: 10px;
+      background: linear-gradient(120deg, #fff4f6 0%, #fffdf8 54%, #f1f8ff 100%);
+    }
+
+    .goal-reference-intro h3 {
+      font-size: 17px;
+      line-height: 1.3;
+    }
+
+    .goal-reference-intro p {
+      margin-top: 6px;
+      color: #657483;
+      font-size: 12px;
+    }
+
+    .goal-reference-overview,
+    .goal-reference-growth {
+      margin: 0;
+      padding-left: 18px;
+      color: #657483;
+      font-size: 12px;
+    }
+
+    .goal-reference-overview li + li,
+    .goal-reference-growth li + li {
+      margin-top: 4px;
+    }
+
+    .goal-reference-growth {
+      padding: 11px 13px 11px 28px;
+      border: 1px solid rgba(255, 198, 165, 0.62);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .goal-reference-growth::before {
+      content: "已掌握，继续扩展";
+      display: block;
+      margin-left: -15px;
+      margin-bottom: 5px;
+      color: #c47f62;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .goal-reference-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .goal-dimension {
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-top: 4px solid var(--dimension-color, var(--sky));
+      border-radius: 8px;
+      background: #fff;
+      box-shadow: 0 6px 16px rgba(59, 72, 86, 0.05);
+      overflow: hidden;
+    }
+
+    .goal-dimension:nth-child(1) { --dimension-color: var(--coral); }
+    .goal-dimension:nth-child(2) { --dimension-color: var(--lemon); }
+    .goal-dimension:nth-child(3) { --dimension-color: var(--sky); }
+    .goal-dimension:nth-child(4) { --dimension-color: var(--mint); }
+    .goal-dimension:nth-child(5) { --dimension-color: var(--peach); }
+    .goal-dimension:nth-child(6) { --dimension-color: var(--lavender); }
+
+    .goal-dimension summary {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 13px 14px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .goal-dimension summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .goal-dimension summary::after {
+      content: "+";
+      margin-left: auto;
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1;
+    }
+
+    .goal-dimension[open] summary::after {
+      content: "−";
+    }
+
+    .goal-dimension-icon {
+      display: grid;
+      place-items: center;
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      border-radius: 8px;
+      color: #5f7182;
+      background: #f4f0ff;
+    }
+
+    .goal-dimension:nth-child(1) .goal-dimension-icon { color: #d96f88; background: var(--coral-soft); }
+    .goal-dimension:nth-child(2) .goal-dimension-icon { color: #bd8c34; background: var(--lemon-soft); }
+    .goal-dimension:nth-child(3) .goal-dimension-icon { color: #5f9ec7; background: var(--sky-soft); }
+    .goal-dimension:nth-child(4) .goal-dimension-icon { color: #559e82; background: var(--mint-soft); }
+    .goal-dimension:nth-child(5) .goal-dimension-icon { color: #cc865e; background: var(--peach-soft); }
+    .goal-dimension:nth-child(6) .goal-dimension-icon { color: #8067bb; background: var(--lavender-soft); }
+
+    .goal-dimension-icon .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .goal-dimension-title {
+      min-width: 0;
+    }
+
+    .goal-dimension-title small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 800;
+    }
+
+    .goal-dimension-title strong {
+      display: block;
+      margin-top: 1px;
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .goal-dimension-body {
+      padding: 0 14px 14px;
+      border-top: 1px solid #f0edf2;
+    }
+
+    .goal-dimension-body h4 {
+      margin-top: 11px;
+      color: #66798a;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .goal-dimension-body ul {
+      display: grid;
+      gap: 4px;
+      margin: 5px 0 0;
+      padding-left: 17px;
+      color: #687887;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .goal-dimension-body li::marker {
+      color: var(--dimension-color);
+    }
+
+    .goal-dimension-note {
+      margin-top: 9px;
+      padding: 8px 9px;
+      border-radius: 7px;
+      background: #faf7fb;
+      color: #6c7782;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .goal-dimension:nth-child(1) .goal-dimension-note { background: #fff7f8; }
+    .goal-dimension:nth-child(2) .goal-dimension-note { background: #fffaf0; }
+    .goal-dimension:nth-child(3) .goal-dimension-note { background: #f7fbff; }
+    .goal-dimension:nth-child(4) .goal-dimension-note { background: #f5fcf8; }
+    .goal-dimension:nth-child(5) .goal-dimension-note { background: #fff8f3; }
+    .goal-dimension:nth-child(6) .goal-dimension-note { background: #faf8ff; }
+
+    .goal-principles-heading {
+      margin: 15px 2px 8px;
+      color: #647586;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .goal-principles {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .goal-principle {
+      padding: 10px 11px;
+      border: 1px solid #eee8ef;
+      border-radius: 8px;
+      background: #fffdfd;
+    }
+
+    .goal-principle strong {
+      display: block;
+      color: #566879;
+      font-size: 12px;
+    }
+
+    .goal-principle p {
+      margin-top: 3px;
+      color: #7a8792;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    code {
+      padding: 1px 4px;
+      border-radius: 4px;
+      background: #f4f0ff;
+      color: #7369a1;
+      font-size: 0.92em;
+    }
+
+    .schedule {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .time-block {
+      min-height: 91px;
+      padding: 11px 12px;
+      border-radius: 14px;
+      border: 1px solid rgba(52, 68, 84, 0.07);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.82);
+    }
+
+    .time-block:nth-child(1) { background: var(--lemon-soft); }
+    .time-block:nth-child(2) { background: var(--sky-soft); }
+    .time-block:nth-child(3) { background: var(--mint-soft); }
+    .time-block:nth-child(4) { background: var(--lavender-soft); }
+
+    .time-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 5px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .time-label .icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .time-block p {
+      color: #586675;
+      font-size: 12px;
+    }
+
+    .schedule-foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 16px;
+      padding: 0 16px 13px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .schedule-foot span {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .schedule-foot .icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .themes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .theme-toolbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      border: 1px solid #ece8ef;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.78);
+      box-shadow: 0 5px 14px rgba(59, 72, 86, 0.04);
+    }
+
+    .theme-toolbar-copy {
+      min-width: 150px;
+    }
+
+    .theme-toolbar-copy strong {
+      display: block;
+      color: #566879;
+      font-size: 12px;
+    }
+
+    .theme-toolbar-copy span {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .theme-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 6px;
+    }
+
+    .theme-nav button {
+      --button-tone: var(--sky);
+      --button-bg: var(--sky-soft);
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      min-height: 29px;
+      padding: 5px 8px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      background: #f8f6fa;
+      color: #71808d;
+      font: inherit;
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .theme-nav button:nth-child(1) { --button-tone: var(--coral); --button-bg: var(--coral-soft); }
+    .theme-nav button:nth-child(2) { --button-tone: var(--lemon); --button-bg: var(--lemon-soft); }
+    .theme-nav button:nth-child(3) { --button-tone: var(--sky); --button-bg: var(--sky-soft); }
+    .theme-nav button:nth-child(4) { --button-tone: var(--mint); --button-bg: var(--mint-soft); }
+    .theme-nav button:nth-child(5) { --button-tone: var(--peach); --button-bg: var(--peach-soft); }
+    .theme-nav button:nth-child(6) { --button-tone: var(--lavender); --button-bg: var(--lavender-soft); }
+
+    .theme-nav button::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--button-tone);
+    }
+
+    .theme-nav button:hover,
+    .theme-nav button.is-active {
+      border-color: var(--button-tone);
+      background: var(--button-bg);
+      color: #536677;
+      transform: translateY(-1px);
+    }
+
+    .theme-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 16px;
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 9px 20px rgba(59, 72, 86, 0.07);
+      scroll-margin-top: 18px;
+      transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+    }
+
+    .theme-card:hover,
+    .theme-card:focus-within {
+      transform: translateY(-3px);
+      box-shadow: 0 13px 26px rgba(59, 72, 86, 0.1);
+    }
+
+    .theme-card.is-featured {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 30px rgba(59, 72, 86, 0.14);
+      outline: 2px solid rgba(255, 159, 176, 0.42);
+      outline-offset: 3px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .goal-modal-trigger,
+      .goal-modal-close,
+      .theme-nav button,
+      .theme-card {
+        transition: none;
+      }
+    }
+
+    .theme-card:nth-child(1) { border-top: 4px solid var(--coral); }
+    .theme-card:nth-child(2) { border-top: 4px solid var(--lemon); }
+    .theme-card:nth-child(3) { border-top: 4px solid var(--sky); }
+    .theme-card:nth-child(4) { border-top: 4px solid var(--mint); }
+    .theme-card:nth-child(5) { border-top: 4px solid var(--peach); }
+    .theme-card:nth-child(6) { border-top: 4px solid var(--lavender); }
+
+    .theme-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid #f0edf2;
+    }
+
+    .theme-icon {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
+      flex: 0 0 auto;
+    }
+
+    .theme-card:nth-child(1) .theme-icon { color: #d96f88; background: var(--coral-soft); }
+    .theme-card:nth-child(2) .theme-icon { color: #bd8c34; background: var(--lemon-soft); }
+    .theme-card:nth-child(3) .theme-icon { color: #5f9ec7; background: var(--sky-soft); }
+    .theme-card:nth-child(4) .theme-icon { color: #559e82; background: var(--mint-soft); }
+    .theme-card:nth-child(5) .theme-icon { color: #cc865e; background: var(--peach-soft); }
+    .theme-card:nth-child(6) .theme-icon { color: #8067bb; background: var(--lavender-soft); }
+
+    .theme-icon .icon {
+      width: 21px;
+      height: 21px;
+    }
+
+    .theme-kicker {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .theme-card h3 {
+      margin-top: 1px;
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .theme-card h3 span {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+    }
+
+    .theme-content {
+      margin-top: 9px;
+      color: #566371;
+      font-size: 12px;
+    }
+
+    .activity-list {
+      display: grid;
+      gap: 0;
+      margin-top: 10px;
+      border-left: 1px solid #eee8ef;
+      counter-reset: activity;
+    }
+
+    .activity-item {
+      position: relative;
+      padding: 8px 0 9px 28px;
+      border-bottom: 1px dashed #eee8ef;
+      counter-increment: activity;
+    }
+
+    .activity-item:last-child {
+      border-bottom: 0;
+    }
+
+    .activity-item::before {
+      content: counter(activity);
+      position: absolute;
+      top: 9px;
+      left: -10px;
+      display: grid;
+      place-items: center;
+      width: 19px;
+      height: 19px;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      background: var(--sky-soft);
+      color: #6c8da7;
+      box-shadow: 0 2px 5px rgba(59, 72, 86, 0.08);
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .theme-card:nth-child(1) .activity-item::before { background: var(--coral-soft); color: #d96f88; }
+    .theme-card:nth-child(2) .activity-item::before { background: var(--lemon-soft); color: #bd8c34; }
+    .theme-card:nth-child(3) .activity-item::before { background: var(--sky-soft); color: #5f9ec7; }
+    .theme-card:nth-child(4) .activity-item::before { background: var(--mint-soft); color: #559e82; }
+    .theme-card:nth-child(5) .activity-item::before { background: var(--peach-soft); color: #cc865e; }
+    .theme-card:nth-child(6) .activity-item::before { background: var(--lavender-soft); color: #8067bb; }
+
+    .activity-item strong {
+      display: block;
+      color: #526476;
+      font-size: 11px;
+      line-height: 1.35;
+    }
+
+    .activity-item p {
+      margin-top: 3px;
+      color: #6f7e8b;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .theme-content strong {
+      color: var(--ink);
+    }
+
+    .theme-content p + p {
+      margin-top: 6px;
+    }
+
+    .steps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 9px;
+    }
+
+    .step {
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: #f4f0ff;
+      color: #7369a1;
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    .theme-footer {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #f0edf2;
+      color: #77838e;
+      font-size: 11px;
+    }
+
+    .theme-footer .icon {
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      color: #9aa5ae;
+    }
+
+    .check-row input,
+    .observation input {
+      width: 15px;
+      height: 15px;
+      margin: 0;
+      accent-color: #e18a9d;
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+    }
+
+    .note-panel {
+      padding: 14px 16px;
+    }
+
+    .note-panel h3 {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+    }
+
+    .note-panel h3 .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .note-panel ul {
+      display: grid;
+      gap: 4px;
+      margin: 8px 0 0;
+      padding: 0;
+      list-style: none;
+      color: #687583;
+      font-size: 12px;
+    }
+
+    .note-panel li {
+      display: flex;
+      gap: 7px;
+      align-items: flex-start;
+    }
+
+    .note-panel li::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      margin-top: 7px;
+      border-radius: 50%;
+      background: var(--coral);
+      flex: 0 0 auto;
+    }
+
+    .observation-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 7px 14px;
+      margin-top: 9px;
+    }
+
+    .observation {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      color: #687583;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 14px;
+      color: #87929b;
+      font-size: 11px;
+    }
+
+    .footer strong {
+      color: #66747f;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        width: min(100% - 22px, 680px);
+        padding-top: 16px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 13px;
+      }
+
+      .hero-stickers {
+        justify-content: flex-start;
+        max-width: none;
+      }
+
+      .goal-banner {
+        grid-template-columns: auto minmax(0, 1fr);
+      }
+
+      .goal-note {
+        grid-column: 1 / -1;
+        max-width: none;
+      }
+
+      .goal-reference {
+        width: min(100% - 20px, 680px);
+        max-height: calc(100vh - 20px);
+      }
+
+      .goal-reference-intro {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-principles {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .schedule {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .themes-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .notes {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 520px) {
+      body {
+        font-size: 13px;
+      }
+
+      .page {
+        width: min(100% - 16px, 430px);
+        padding-top: 12px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      .hero-copy {
+        font-size: 13px;
+      }
+
+      .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 3px;
+      }
+
+      .section-heading p {
+        text-align: left;
+      }
+
+      .goal-banner {
+        gap: 11px;
+        padding: 13px;
+      }
+
+      .goal-icon {
+        width: 45px;
+        height: 45px;
+      }
+
+      .goal-icon .icon {
+        width: 25px;
+        height: 25px;
+      }
+
+      .goal-banner h2 {
+        font-size: 15px;
+      }
+
+      .goal-banner p {
+        font-size: 12px;
+      }
+
+      .goal-reference {
+        width: calc(100% - 14px);
+        max-height: calc(100vh - 14px);
+        padding: 12px;
+        border-radius: 12px;
+      }
+
+      .goal-reference .section-heading {
+        top: -12px;
+        margin: -12px -12px 10px;
+        padding: 12px;
+      }
+
+      .goal-modal-heading {
+        flex-direction: row;
+        align-items: flex-start;
+      }
+
+      .theme-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .theme-nav {
+        justify-content: flex-start;
+      }
+
+      .goal-reference-panel {
+        padding: 10px;
+      }
+
+      .goal-reference-intro {
+        padding: 13px;
+      }
+
+      .goal-reference-intro h3 {
+        font-size: 15px;
+      }
+
+      .goal-reference-grid,
+      .goal-principles {
+        grid-template-columns: 1fr;
+      }
+
+      .goal-dimension summary {
+        padding: 11px 12px;
+      }
+
+      .goal-dimension-body {
+        padding: 0 12px 12px;
+      }
+
+      .schedule {
+        gap: 6px;
+        padding: 7px;
+      }
+
+      .time-block {
+        min-height: 0;
+        padding: 9px;
+      }
+
+      .time-block p {
+        font-size: 11px;
+      }
+
+      .themes-grid,
+      .observation-list {
+        grid-template-columns: 1fr;
+      }
+
+      .theme-card {
+        padding: 13px;
+      }
+
+      .footer {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+
+      .page {
+        width: 100%;
+        padding: 8px;
+      }
+
+      .panel,
+      .theme-card {
+        box-shadow: none;
+      }
+
+      .section {
+        margin-top: 10px;
+      }
+    }
+  </style>
 </head>
-<body class="text-slate-600 h-screen flex flex-col relative">
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="icon-sun" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="4"></circle>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+    </symbol>
+    <symbol id="icon-moon" viewBox="0 0 24 24">
+      <path d="M20 15.3A8.5 8.5 0 0 1 8.7 4a8.5 8.5 0 1 0 11.3 11.3Z"></path>
+    </symbol>
+    <symbol id="icon-book" viewBox="0 0 24 24">
+      <path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v15H6.5A2.5 2.5 0 0 0 4 20.5Z"></path>
+      <path d="M4 5.5v15M8 7h8M8 10h7"></path>
+    </symbol>
+    <symbol id="icon-speech" viewBox="0 0 24 24">
+      <path d="M20 11.5a7.5 7.5 0 0 1-8 7.5 8.6 8.6 0 0 1-3.1-.6L4 20l1.6-3.8A7.2 7.2 0 0 1 4.5 12 7.5 7.5 0 0 1 12 4.5a7.5 7.5 0 0 1 8 7Z"></path>
+      <path d="M8 12h.01M12 12h.01M16 12h.01"></path>
+    </symbol>
+    <symbol id="icon-bulb" viewBox="0 0 24 24">
+      <path d="M9 18h6M10 21h4"></path>
+      <path d="M8.6 14.5a6 6 0 1 1 6.8 0c-.9.6-1.4 1.4-1.4 2.5h-4c0-1.1-.5-1.9-1.4-2.5Z"></path>
+    </symbol>
+    <symbol id="icon-heart" viewBox="0 0 24 24">
+      <path d="M20.8 8.8c0 5.2-8.8 10.2-8.8 10.2S3.2 14 3.2 8.8A4.7 4.7 0 0 1 12 6.2a4.7 4.7 0 0 1 8.8 2.6Z"></path>
+    </symbol>
+    <symbol id="icon-body" viewBox="0 0 24 24">
+      <circle cx="12" cy="5" r="2.3"></circle>
+      <path d="M8.5 21v-6.2l-2.2-2.4 1.4-1.3 2.3 2.2h4l2.3-2.2 1.4 1.3-2.2 2.4V21M9 17h6"></path>
+    </symbol>
+    <symbol id="icon-cup" viewBox="0 0 24 24">
+      <path d="M5 6h11v7a5 5 0 0 1-5 5H10a5 5 0 0 1-5-5Z"></path>
+      <path d="M16 8h2a2.5 2.5 0 0 1 0 5h-2M8 21h8"></path>
+    </symbol>
+    <symbol id="icon-music" viewBox="0 0 24 24">
+      <path d="M9 18V5l10-2v13"></path>
+      <circle cx="6" cy="18" r="3"></circle>
+      <circle cx="16" cy="16" r="3"></circle>
+    </symbol>
+    <symbol id="icon-pencil" viewBox="0 0 24 24">
+      <path d="m4 20 3.2-.7L19 7.5a2.1 2.1 0 0 0-3-3L4.2 16.3Z"></path>
+      <path d="m14.5 6.5 3 3M4 20l.7-3.2"></path>
+    </symbol>
+    <symbol id="icon-basket" viewBox="0 0 24 24">
+      <path d="M4 9h16l-1.2 10H5.2Z"></path>
+      <path d="m8 9 2-5M16 9l-2-5M7 13h10M8 16h8"></path>
+    </symbol>
+    <symbol id="icon-droplet" viewBox="0 0 24 24">
+      <path d="M12 3s6 6.2 6 11a6 6 0 0 1-12 0c0-4.8 6-11 6-11Z"></path>
+    </symbol>
+    <symbol id="icon-clock" viewBox="0 0 24 24">
+      <circle cx="12" cy="12" r="8.5"></circle>
+      <path d="M12 7v5l3 2"></path>
+    </symbol>
+    <symbol id="icon-calendar" viewBox="0 0 24 24">
+      <rect x="4" y="5" width="16" height="15" rx="2.5"></rect>
+      <path d="M8 3v4M16 3v4M4 10h16M8 14h2M12 14h2M16 14h.01M8 17h2M12 17h2"></path>
+    </symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24">
+      <path d="m5 12 4 4L19 6"></path>
+    </symbol>
+    <symbol id="icon-star" viewBox="0 0 24 24">
+      <path d="m12 3 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z"></path>
+    </symbol>
+    <symbol id="icon-warning" viewBox="0 0 24 24">
+      <path d="M12 4 21 20H3Z"></path>
+      <path d="M12 9v5M12 17h.01"></path>
+    </symbol>
+    <symbol id="icon-x" viewBox="0 0 24 24">
+      <path d="m6 6 12 12M18 6 6 18"></path>
+    </symbol>
+  </svg>
 
-    <!-- 顶部导航 -->
-    <header class="bg-white/90 backdrop-blur-md macaron-shadow sticky top-0 z-40 px-6 py-4 flex justify-between items-center border-b-[6px] border-pink-200">
-        <div class="flex items-center gap-4">
-            <div class="w-14 h-14 bg-gradient-to-br from-pink-200 to-purple-200 rounded-full flex items-center justify-center text-3xl text-white shadow-lg border-2 border-white transform rotate-[-10deg]">
-                <i class="fa-solid fa-horse-玩具"></i><i class="fa-solid fa-shapes"></i>
-            </div>
-            <div>
-                <h1 class="text-2xl font-black text-pink-500 tracking-wider" style="text-shadow: 1px 1px 0px #fbcfe8;">10月龄探索乐园</h1>
-                <p class="text-sm text-purple-400 font-bold">主题分类 · 互动与认知</p>
-            </div>
+  <main class="page">
+    <header class="hero">
+      <div>
+        <div class="eyebrow">
+          <svg class="icon icon-fill"><use href="#icon-star"></use></svg>
+          10—12月龄总目标 · 第1周
         </div>
-        <div class="floating-label-container">
-            <button onclick="toggleDrawer()" class="bg-gradient-to-r from-teal-200 to-blue-200 hover:from-teal-300 hover:to-blue-300 text-teal-800 px-6 py-3 rounded-[2rem] font-extrabold shadow-md transition-all duration-300 flex items-center gap-3 transform hover:scale-105 border-2 border-white">
-                <i class="fa-solid fa-sliders animate-pulse"></i>
-                <span>难度调节与指南</span>
-            </button>
-            <span class="floating-label font-bold tracking-wide">点击打开右侧抽屉</span>
-        </div>
+        <p class="hero-copy">把已经会的能力串起来：听懂一点、完成一点、等待一点、求助一点、表达一点。</p>
+      </div>
+      <div class="hero-stickers" aria-label="本周原则">
+        <span class="sticker"><svg class="icon"><use href="#icon-moon"></use></svg>两觉作息</span>
+        <span class="sticker"><svg class="icon"><use href="#icon-heart"></use></svg>回应式互动</span>
+        <span class="sticker"><svg class="icon"><use href="#icon-sun"></use></svg>无屏幕</span>
+      </div>
     </header>
 
-    <!-- 主体内容 -->
-    <main class="flex-1 overflow-y-auto p-6 lg:p-10 no-scrollbar">
-        <div class="max-w-7xl mx-auto space-y-12">
-            
-            <!-- 模块零：发育主目标 (新增) -->
-            <section>
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-rose-200 rounded-2xl flex items-center justify-center text-rose-600 text-xl transform -rotate-6 shadow-sm"><i class="fa-solid fa-crosshairs"></i></div>
-                    <h2 class="text-2xl font-extrabold text-rose-500 drop-shadow-sm">10-12月龄 发育主目标</h2>
-                    <div class="h-1 flex-1 bg-gradient-to-r from-rose-200 to-transparent rounded-full ml-4"></div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <!-- 语言理解 -->
-                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-indigo-100 card-hover transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-indigo-50 rounded-full flex items-center justify-center text-indigo-400 text-lg"><i class="fa-solid fa-ear-listen"></i></div>
-                            <h3 class="font-extrabold text-indigo-600 text-lg">语言理解</h3>
-                        </div>
-                        <p class="text-sm text-slate-500 leading-relaxed font-medium">从听懂单个指令，升级到执行熟悉的<strong class="text-indigo-500">“两步任务”</strong>，例如“拿球，放进去”。</p>
-                    </div>
-
-                    <!-- 认知 -->
-                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-purple-100 card-hover transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-purple-50 rounded-full flex items-center justify-center text-purple-400 text-lg"><i class="fa-solid fa-puzzle-piece"></i></div>
-                            <h3 class="font-extrabold text-purple-600 text-lg">认知</h3>
-                        </div>
-                        <p class="text-sm text-slate-500 leading-relaxed font-medium">从找藏物、放入拿出，升级到<strong class="text-purple-500">旋拧、开关、配对、分类</strong>和简单因果。</p>
-                    </div>
-
-                    <!-- 社交 -->
-                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-pink-100 card-hover transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-pink-50 rounded-full flex items-center justify-center text-pink-400 text-lg"><i class="fa-solid fa-users"></i></div>
-                            <h3 class="font-extrabold text-pink-600 text-lg">社交</h3>
-                        </div>
-                        <p class="text-sm text-slate-500 leading-relaxed font-medium">从主动互动，升级到<strong class="text-pink-500">短暂等待、轮流</strong>、主动请求“再来”。</p>
-                    </div>
-
-                    <!-- 自理 -->
-                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-amber-100 card-hover transition-all duration-300">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-amber-50 rounded-full flex items-center justify-center text-amber-500 text-lg"><i class="fa-solid fa-hands-bubbles"></i></div>
-                            <h3 class="font-extrabold text-amber-600 text-lg">自理</h3>
-                        </div>
-                        <p class="text-sm text-slate-500 leading-relaxed font-medium">加入<strong class="text-amber-500">真实生活参与</strong>，如擦桌子、拿围兜、尝试杯子和勺子。</p>
-                    </div>
-
-                    <!-- 大运动 -->
-                    <div class="bg-white rounded-[1.5rem] p-5 macaron-shadow border-2 border-teal-100 card-hover transition-all duration-300 lg:col-span-2">
-                        <div class="flex items-center gap-3 mb-3">
-                            <div class="w-10 h-10 bg-teal-50 rounded-full flex items-center justify-center text-teal-400 text-lg"><i class="fa-solid fa-person-walking"></i></div>
-                            <h3 class="font-extrabold text-teal-600 text-lg">大运动</h3>
-                        </div>
-                        <p class="text-sm text-slate-500 leading-relaxed font-medium">继续维持爬、扶站、扶走、蹲起，加入<strong class="text-teal-500">推、绕、爬过障碍</strong>，<span class="bg-teal-50 text-teal-600 px-2 py-0.5 rounded-full text-xs ml-1 whitespace-nowrap"><i class="fa-solid fa-shield-cat"></i> 不催独走</span></p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 模块一：高阶探索活动 (网格布局) -->
-            <section>
-                <div class="flex items-center gap-3 mb-6">
-                    <div class="w-10 h-10 bg-yellow-200 rounded-2xl flex items-center justify-center text-yellow-600 text-xl transform rotate-12 shadow-sm"><i class="fa-solid fa-cube"></i></div>
-                    <h2 class="text-2xl font-extrabold text-yellow-500 drop-shadow-sm">趣味探索活动</h2>
-                    <div class="h-1 flex-1 bg-gradient-to-r from-yellow-200 to-transparent rounded-full ml-4"></div>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- 活动 1 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-pink-100 relative group">
-                        <div class="absolute top-4 right-4 text-pink-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-glass-water"></i></div>
-                        <h3 class="font-extrabold text-pink-500 text-lg mb-3">1. 三杯寻物</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">准备三个不透明大杯子。让宝宝看着玩具被放到其中一个杯子下。熟练后，缓慢交换两个杯子的位置一次，再找。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-pink-100">
-                            <span class="inline-block bg-pink-50 text-pink-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-arrow-up-right-dots"></i> 恒存/追踪/记忆</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 2 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-blue-100 relative group">
-                        <div class="absolute top-4 right-4 text-blue-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-hands-holding-child"></i></div>
-                        <h3 class="font-extrabold text-blue-500 text-lg mb-3">2. 拉布取物</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">把喜欢的玩具放在毛巾远端，玩具够不到，但毛巾够得到。观察宝宝是否会拉毛巾取得玩具。之后放进盒子。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-blue-100">
-                            <span class="inline-block bg-blue-50 text-blue-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-lightbulb"></i> 工具思维</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 3 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-green-100 relative group">
-                        <div class="absolute top-4 right-4 text-green-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-person-running"></i></div>
-                        <h3 class="font-extrabold text-green-500 text-lg mb-3">3. 两步小跑腿</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">“拿书，给妈妈。” “拿球，放篮子。” 先配合手势，熟练后只说指令。更高一级可换房间或换人执行。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-green-100">
-                            <span class="inline-block bg-green-50 text-green-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-ear-listen"></i> 听觉指令执行</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 4 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-orange-100 relative group">
-                        <div class="absolute top-4 right-4 text-orange-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-broom"></i></div>
-                        <h3 class="font-extrabold text-orange-500 text-lg mb-3">4. 三步真实任务</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">1)拿出布 2)擦两下桌子 3)放回篮子。可逐段提醒，重点是形成“开始—完成—收尾”的过程。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-orange-100">
-                            <span class="inline-block bg-orange-50 text-orange-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-list-check"></i> 任务闭环</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 5 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-purple-100 relative group">
-                        <div class="absolute top-4 right-4 text-purple-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-puzzle-piece"></i></div>
-                        <h3 class="font-extrabold text-purple-500 text-lg mb-3">5. 盒盖配对</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">准备两个形状或大小不同安全容器，打乱盖子，让宝宝找对应。“这个盖在哪？不合适换一个。”</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-purple-100">
-                            <span class="inline-block bg-purple-50 text-purple-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-object-ungroup"></i> 形状大小认知</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 6 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-teal-100 relative group">
-                        <div class="absolute top-4 right-4 text-teal-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-layer-group"></i></div>
-                        <h3 class="font-extrabold text-teal-500 text-lg mb-3">6. 套杯与空间</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">三个不同套杯：小杯放大杯、倒扣藏玩具、重新套杯。体验大小、方向和空间关系。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-teal-100">
-                            <span class="inline-block bg-teal-50 text-teal-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-up-down-left-right"></i> 空间关系</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 7 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-rose-100 relative group">
-                        <div class="absolute top-4 right-4 text-rose-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-book-open-reader"></i></div>
-                        <h3 class="font-extrabold text-rose-500 text-lg mb-3">7. 跨页找绘本</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">读熟悉一页后，翻开两三页问：“小熊在哪里？”让宝宝自己翻页寻找并精确指认。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-rose-100">
-                            <span class="inline-block bg-rose-50 text-rose-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-magnifying-glass"></i> 主动翻页与指认</span>
-                        </div>
-                    </div>
-
-                    <!-- 活动 8 -->
-                    <div class="bg-white rounded-[2rem] p-6 macaron-shadow card-hover transition-all duration-300 border-2 border-indigo-100 relative group">
-                        <div class="absolute top-4 right-4 text-indigo-200 text-4xl opacity-50 group-hover:scale-110 transition-transform"><i class="fa-solid fa-users"></i></div>
-                        <h3 class="font-extrabold text-indigo-500 text-lg mb-3">8. 三人轮流</h3>
-                        <p class="text-sm text-slate-500 leading-relaxed z-10 relative">三人坐成三角：宝宝给大人A，A给B，B再给宝宝。练习“给妈妈”“给阿姨”“轮到谁”“再来”。</p>
-                        <div class="mt-4 pt-4 border-t border-dashed border-indigo-100">
-                            <span class="inline-block bg-indigo-50 text-indigo-600 text-xs font-bold px-3 py-1 rounded-full"><i class="fa-solid fa-arrows-rotate"></i> 社交与等待</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 模块二：古典音乐与英语启蒙并排 -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
-                
-                <!-- 音乐区 -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-purple-200 rounded-2xl flex items-center justify-center text-purple-600 text-xl transform -rotate-12 shadow-sm"><i class="fa-solid fa-music"></i></div>
-                        <h2 class="text-2xl font-extrabold text-purple-500 drop-shadow-sm">古典音乐时光</h2>
-                        <div class="h-1 flex-1 bg-gradient-to-r from-purple-200 to-transparent rounded-full ml-4"></div>
-                    </div>
-
-                    <div class="bg-white rounded-[2rem] macaron-shadow border-2 border-purple-100 p-2">
-                        <!-- 音乐 1 -->
-                        <div class="accordion-item border-b border-dashed border-purple-100">
-                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
-                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-purple-100 text-purple-500 flex justify-center items-center"><i class="fa-solid fa-sun"></i></span> 莫扎特《C大调钢琴奏鸣曲》第一乐章</span>
-                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
-                            </button>
-                            <div class="accordion-content bg-purple-50/50 rounded-xl mb-2 mx-2">
-                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-purple-600">明快，适合上午。</strong><br>播放时，妈妈轻拍两下，停一下，观察宝宝是否模仿。音乐停止时，妈妈也停止动作，等待宝宝看人、挥手或表示“再来”。</p>
-                            </div>
-                        </div>
-
-                        <!-- 音乐 2 -->
-                        <div class="accordion-item border-b border-dashed border-purple-100">
-                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
-                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-indigo-100 text-indigo-500 flex justify-center items-center"><i class="fa-solid fa-drum"></i></span> 巴赫《第一大提琴组曲》前奏曲</span>
-                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
-                            </button>
-                            <div class="accordion-content bg-indigo-50/50 rounded-xl mb-2 mx-2">
-                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-indigo-600">节奏清楚。</strong><br>适合观察宝宝身体反应。音乐时间重点是听到音乐后看人、挥手、拍手、等待、模仿节奏和参与互动。</p>
-                            </div>
-                        </div>
-
-                        <!-- 音乐 3 -->
-                        <div class="accordion-item border-b border-dashed border-purple-100">
-                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
-                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-green-100 text-green-500 flex justify-center items-center"><i class="fa-solid fa-leaf"></i></span> 维瓦尔第《春》第一乐章</span>
-                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
-                            </button>
-                            <div class="accordion-content bg-green-50/50 rounded-xl mb-2 mx-2">
-                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-green-600">动静结合。</strong><br>适合做快慢、开始停止游戏。结束后可以说：“音乐停了”“还要吗？”</p>
-                            </div>
-                        </div>
-
-                        <!-- 音乐 4 -->
-                        <div class="accordion-item">
-                            <button class="w-full text-left px-4 py-5 flex justify-between items-center text-purple-700 font-bold hover:bg-purple-50 rounded-2xl transition-colors" onclick="toggleAccordion(this)">
-                                <span class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-blue-100 text-blue-500 flex justify-center items-center"><i class="fa-solid fa-moon"></i></span> 舒缓摇篮曲 (晚上)</span>
-                                <i class="fa-solid fa-chevron-down accordion-icon transition-transform duration-300 text-purple-300"></i>
-                            </button>
-                            <div class="accordion-content bg-blue-50/50 rounded-xl mb-2 mx-2">
-                                <p class="text-sm text-slate-500 leading-relaxed"><strong class="text-blue-600">宁静放松。</strong><br>优先选择舒缓的摇篮曲或妈妈轻声哼唱，配合慢速摇摆、抱坐听，不做剧烈运动。不建议睡前播放过于兴奋的乐章。</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <!-- 英语区 -->
-                <section>
-                    <div class="flex items-center gap-3 mb-6">
-                        <div class="w-10 h-10 bg-teal-200 rounded-2xl flex items-center justify-center text-teal-600 text-xl transform rotate-6 shadow-sm"><i class="fa-solid fa-language"></i></div>
-                        <h2 class="text-2xl font-extrabold text-teal-500 drop-shadow-sm">英语启蒙日常</h2>
-                        <div class="h-1 flex-1 bg-gradient-to-r from-teal-200 to-transparent rounded-full ml-4"></div>
-                    </div>
-
-                    <div class="bg-white rounded-[2rem] macaron-shadow border-2 border-teal-100 p-6">
-                        <p class="text-sm text-slate-500 mb-4 bg-teal-50 p-3 rounded-xl border border-dashed border-teal-200">
-                            <i class="fa-solid fa-circle-info text-teal-400 mr-1"></i> 早起或睡前每次3-5分钟。绘本中宝宝指哪一页，妈妈就用一两个英文词回应，不逐页翻译。
-                        </p>
-                        
-                        <div class="border border-slate-100 rounded-[1rem] overflow-hidden">
-                            <table class="w-full text-left macaron-zebra-table">
-                                <thead class="bg-teal-100/50 text-teal-800 text-sm">
-                                    <tr>
-                                        <th class="font-extrabold w-1/3"><i class="fa-solid fa-location-dot mr-2 opacity-50"></i>生活场景</th>
-                                        <th class="font-extrabold"><i class="fa-solid fa-comment-dots mr-2 opacity-50"></i>高频互动短句</th>
-                                    </tr>
-                                </thead>
-                                <tbody class="text-sm font-medium text-slate-600">
-                                    <tr>
-                                        <td>开合物品</td>
-                                        <td class="text-teal-600 font-bold font-mono">Open. Close.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>给予与放入</td>
-                                        <td class="text-teal-600 font-bold font-mono">Give me. Put in.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>寻找失物</td>
-                                        <td class="text-teal-600 font-bold font-mono">Where is the ball? Here it is.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>家务帮忙</td>
-                                        <td class="text-teal-600 font-bold font-mono">Help mommy. Wipe.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>喝水进食</td>
-                                        <td class="text-teal-600 font-bold font-mono">Drink water. More? All done.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>轮流游戏</td>
-                                        <td class="text-teal-600 font-bold font-mono">My turn. Your turn. Wait.</td>
-                                    </tr>
-                                    <tr>
-                                        <td>共读绘本</td>
-                                        <td class="text-teal-600 font-bold font-mono">Book. Turn the page. Again?</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </section>
-            </div>
+    <section class="section">
+      <div class="panel goal-banner">
+        <div class="goal-icon">
+          <svg class="icon"><use href="#icon-heart"></use></svg>
         </div>
-        <!-- 底部留白 -->
-        <div class="h-20"></div>
-    </main>
+        <div>
+          <h2>本周总方向：以生活为课程，以兴趣为入口</h2>
+          <button class="goal-modal-trigger" id="open-goals" type="button">
+            <svg class="icon"><use href="#icon-star"></use></svg>查看10—12月龄总目标
+          </button>
+        </div>
+        <div class="goal-note"><strong>执行尺度：</strong>每次10—15分钟。宝宝不感兴趣、疲劳或烦躁时，直接结束，不补做。</div>
+      </div>
+    </section>
 
-    <!-- 右侧抽屉面板 -->
-    <div id="drawer-overlay" class="fixed inset-0 bg-slate-900/20 z-50 hidden transition-opacity opacity-0 backdrop-blur-sm" onclick="toggleDrawer()"></div>
-    
-    <div id="right-drawer" class="fixed top-0 right-0 h-full w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full drawer-transition flex flex-col rounded-l-[3rem] overflow-hidden border-l-[8px] border-blue-200">
-        
-        <div class="bg-blue-50 px-8 py-6 flex justify-between items-center border-b border-blue-100">
-            <h2 class="text-2xl font-black text-blue-500 flex items-center gap-3">
-                <i class="fa-solid fa-sliders text-blue-300"></i> 指南与调节
-            </h2>
-            <button onclick="toggleDrawer()" class="w-10 h-10 bg-white hover:bg-blue-100 text-blue-400 rounded-full flex items-center justify-center transition-colors shadow-sm">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
+    <dialog class="goal-reference" id="goal-reference" aria-labelledby="goal-reference-title">
+      <div class="section-heading goal-modal-heading">
+        <div>
+          <h2 id="goal-reference-title"><svg class="icon"><use href="#icon-star"></use></svg>10—12月龄总目标定稿</h2>
+          <p>本周计划以此为依据；已掌握的能力继续扩展到更多场景</p>
+        </div>
+        <button class="goal-modal-close" id="close-goals" type="button" aria-label="关闭总目标">
+          <svg class="icon"><use href="#icon-x"></use></svg>
+        </button>
+      </div>
+      <div class="panel goal-reference-panel">
+        <div class="goal-reference-intro">
+          <div>
+            <h3>总目标</h3>
+            <p>到12个月左右，宝宝能够在安全、有回应、可自主探索的环境中：</p>
+            <ul class="goal-reference-overview">
+              <li>用手势、声音和少量有意义的词表达需求、拒绝和兴趣；</li>
+              <li>理解并参与熟悉的生活流程；</li>
+              <li>主动探索环境，尝试解决简单问题；</li>
+              <li>与成人进行来回互动、分享和轮流；</li>
+              <li>在成人支持下尝试杯子、勺子、收拾等生活活动；</li>
+              <li>通过身体动作、音乐、绘本和涂鸦表达自己的偏好。</li>
+            </ul>
+          </div>
+          <ul class="goal-reference-growth">
+            <li>更多物品；</li>
+            <li>更多生活场景；</li>
+            <li>与不同照护者互动；</li>
+            <li>在不同情绪和疲劳状态下使用；</li>
+            <li>与手势、声音和词语组合使用。</li>
+          </ul>
         </div>
 
-        <div class="flex-1 overflow-y-auto p-8 space-y-8 bg-[#fdfbfb]">
-            
-            <div class="bg-white rounded-3xl p-6 macaron-shadow border border-pink-100 relative overflow-hidden">
-                <div class="absolute -right-4 -top-4 w-16 h-16 bg-pink-100 rounded-full opacity-50"></div>
-                <h3 class="font-extrabold text-pink-500 text-lg mb-4 flex items-center gap-2"><i class="fa-solid fa-stairs"></i> 难度三级跳</h3>
-                
-                <div class="space-y-4">
-                    <div class="flex gap-3">
-                        <span class="w-8 h-8 rounded-xl bg-pink-100 text-pink-600 flex items-center justify-center font-black shrink-0">1</span>
-                        <div>
-                            <h4 class="font-bold text-slate-700">一级难度</h4>
-                            <p class="text-sm text-slate-500">大人示范，同时说话并指向。</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <span class="w-8 h-8 rounded-xl bg-pink-200 text-pink-700 flex items-center justify-center font-black shrink-0">2</span>
-                        <div>
-                            <h4 class="font-bold text-slate-700">二级难度</h4>
-                            <p class="text-sm text-slate-500">只说指令，不立即用手势提示。</p>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <span class="w-8 h-8 rounded-xl bg-pink-300 text-pink-800 flex items-center justify-center font-black shrink-0">3</span>
-                        <div>
-                            <h4 class="font-bold text-slate-700">三级难度</h4>
-                            <p class="text-sm text-slate-500">说完等待2—3秒，或者换地点、换照护人完成。</p>
-                        </div>
-                    </div>
-                </div>
+        <div class="goal-reference-grid">
+          <details class="goal-dimension" open>
+            <summary>
+              <span class="goal-dimension-icon"><svg class="icon"><use href="#icon-speech"></use></svg></span>
+              <span class="goal-dimension-title"><small>01</small><strong>沟通、理解与共同注意</strong></span>
+            </summary>
+            <div class="goal-dimension-body">
+              <h4>巩固与发展目标</h4>
+              <ul>
+                <li>主动指物、递物、请求读书或继续互动；</li>
+                <li>用动作、声音和少量有意义的词表达“要、不要、再来、拜拜、结束”等；</li>
+                <li>听懂熟悉的人、物品、身体部位和动作；</li>
+                <li>完成常见单步指令；</li>
+                <li>在绘本中主动选择、翻页、指认喜欢的内容；</li>
+                <li>通过看人、看物、发声、指物参与来回互动；</li>
+                <li>对固定英语情境产生动作回应，例如 <code>Open</code>、<code>More</code>、<code>Give me</code>、<code>Put in</code>、<code>Bye-bye</code>。</li>
+              </ul>
+              <h4>伸展目标</h4>
+              <ul>
+                <li>在熟悉情境中完成部分两步指令，如“拿球，放进去”；</li>
+                <li>把物品递给指定的人；</li>
+                <li>将指物、声音、手势或词语组合起来主动表达；</li>
+                <li>在中英文固定情境中都能通过动作回应，不追求英语词汇数量；</li>
+                <li>遇到困难时主动看人、递物或发声求助。</li>
+              </ul>
+              <div class="goal-dimension-note">英语继续放在语言和日常互动中，不单独设成“英语学习任务”。</div>
             </div>
+          </details>
 
-            <div class="bg-amber-50 rounded-3xl p-6 border border-amber-100">
-                <h3 class="font-extrabold text-amber-600 text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-triangle-exclamation"></i> 核心原则</h3>
-                <ul class="text-sm text-amber-700 space-y-2 list-disc list-inside marker:text-amber-300 font-medium">
-                    <li>每次只提高<strong class="text-amber-800 bg-amber-200 px-1 rounded">一个变量</strong></li>
-                    <li>连续三次卡住就<strong class="text-amber-800 bg-amber-200 px-1 rounded">退回一级</strong></li>
-                    <li>不要同时增加步骤、减少提示、换场景。</li>
-                </ul>
-                <div class="mt-4 p-3 bg-white/60 rounded-xl text-xs text-amber-600">
-                    💡 真正适合的“高难度”，是主动解决真实问题，而不是背诵识字或做超龄题目。
-                </div>
+          <details class="goal-dimension" open>
+            <summary>
+              <span class="goal-dimension-icon"><svg class="icon"><use href="#icon-bulb"></use></svg></span>
+              <span class="goal-dimension-title"><small>02</small><strong>主动探索、认知与问题解决</strong></span>
+            </summary>
+            <div class="goal-dimension-body">
+              <h4>巩固与发展目标</h4>
+              <ul>
+                <li>熟练进行打开、关闭、旋拧、按压、拉取、放入和拿出；</li>
+                <li>理解简单的因果关系；</li>
+                <li>按名称寻找物品，并在物品位置变化后继续寻找；</li>
+                <li>开始感受相同与不同，尝试简单配对；</li>
+                <li>通过绘本、容器和生活物品探索里面、外面、上面、下面等空间关系；</li>
+                <li>模仿真实生活中的功能动作，如擦桌子、递东西、放回物品。</li>
+              </ul>
+              <h4>伸展目标</h4>
+              <ul>
+                <li>使用毛巾、海绵等简单工具取得或转移目标；</li>
+                <li>在成人帮助下完成两步左右的小任务；</li>
+                <li>根据实际用途把物品放到合适位置，如书放书架、布放篮子；</li>
+                <li>模仿两个连续的真实操作；</li>
+                <li>在不同容器、不同空间和不同位置中解决取放问题；</li>
+                <li>初步理解物品“怎么用”，而不只是认识物品名称。</li>
+              </ul>
+              <div class="goal-dimension-note">“给娃娃喂饭、盖被子”等假装游戏不再作为必需目标。当前更适合宝宝的是<strong>真实物品、真实动作和真实结果</strong>。</div>
             </div>
+          </details>
 
-            <div class="bg-purple-50 rounded-3xl p-6 border border-purple-100">
-                <h3 class="font-extrabold text-purple-600 text-lg mb-3 flex items-center gap-2"><i class="fa-solid fa-headphones"></i> 音乐播放规范</h3>
-                <ul class="text-sm text-purple-700 space-y-2 font-medium">
-                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 每天1次，5—10分钟。</li>
-                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 音量保持在说话声或更低，不戴耳机。</li>
-                    <li><i class="fa-solid fa-xmark text-red-400 w-4"></i> 不要全天当背景音播放。</li>
-                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 一首曲子可重复2—3次，观察反应。</li>
-                    <li><i class="fa-solid fa-check text-purple-400 w-4"></i> 烦躁或想离开时就停止，不强制听完。</li>
-                </ul>
+          <details class="goal-dimension" open>
+            <summary>
+              <span class="goal-dimension-icon"><svg class="icon"><use href="#icon-heart"></use></svg></span>
+              <span class="goal-dimension-title"><small>03</small><strong>社交关系与情绪调节</strong></span>
+            </summary>
+            <div class="goal-dimension-body">
+              <h4>巩固与发展目标</h4>
+              <ul>
+                <li>主动看人、指物、分享和递东西；</li>
+                <li>参与递来递去、拍手、躲猫猫等简单轮流游戏；</li>
+                <li>对熟悉的人和户外他人做挥手、发声或注视回应；</li>
+                <li>用动作、声音或词表达喜欢、拒绝、继续和结束；</li>
+                <li>在成人陪伴下逐渐平复情绪，并回到活动中；</li>
+                <li>逐渐适应短暂分离、出门、回家和活动转换；</li>
+                <li>关注成人的反应，并根据成人回应继续互动。</li>
+              </ul>
+              <h4>伸展目标</h4>
+              <ul>
+                <li>主动把东西交给指定的人；</li>
+                <li>在轮流过程中等待几秒；</li>
+                <li>遇到困难时主动看人、递物或发声求助；</li>
+                <li>用固定动作表达“再来”“不要了”“帮忙”；</li>
+                <li>在成人提示下完成简单的“轮到你—轮到我”。</li>
+              </ul>
+              <div class="goal-dimension-note">这个阶段的情绪目标是<strong>共同调节</strong>，不是要求宝宝独立控制情绪。大人通过稳定的语气、简短的话、抱持和规律流程帮助宝宝恢复。</div>
             </div>
+          </details>
 
+          <details class="goal-dimension" open>
+            <summary>
+              <span class="goal-dimension-icon"><svg class="icon"><use href="#icon-body"></use></svg></span>
+              <span class="goal-dimension-title"><small>04</small><strong>身体运动、精细动作与感官探索</strong></span>
+            </summary>
+            <div class="goal-dimension-body">
+              <h4>巩固与发展目标</h4>
+              <ul>
+                <li>保持稳定爬行、扶站、扶走、蹲起、转向和坐站转换；</li>
+                <li>练习捏取、翻页、旋拧、撕取、双手配合和准确释放；</li>
+                <li>通过爬行、站立和蹲起增强身体控制；</li>
+                <li>接触安全的干湿、软硬、轻重、粗糙与光滑等感官差异；</li>
+                <li>通过水画、粗蜡笔、海绵和纸张观察动作带来的结果；</li>
+                <li>在活动中主动选择继续、停止或更换材料。</li>
+              </ul>
+              <h4>伸展目标</h4>
+              <ul>
+                <li>爬过低矮软障碍并绕行；</li>
+                <li>推拉轻物、携物移动；</li>
+                <li>使用简单工具完成取物或转移；</li>
+                <li>模仿两个连续动作；</li>
+                <li>完成“蹲下—捡起—移动—放入”的连续动作；</li>
+                <li>在站立和扶走过程中练习停下、转向和重新启动。</li>
+              </ul>
+              <div class="goal-dimension-note">大运动以“维持与拓展”为主，不把独立行走速度作为核心指标，也不强行牵着练走。</div>
+            </div>
+          </details>
+
+          <details class="goal-dimension" open>
+            <summary>
+              <span class="goal-dimension-icon"><svg class="icon"><use href="#icon-cup"></use></svg></span>
+              <span class="goal-dimension-title"><small>05</small><strong>生活参与、自理与健康节律</strong></span>
+            </summary>
+            <div class="goal-dimension-body">
+              <h4>巩固与发展目标</h4>
+              <ul>
+                <li>维持相对稳定的<strong>两觉作息</strong>：早觉和午觉；</li>
+                <li>保持较稳定的起床、吃饭、户外、洗漱和睡前流程；</li>
+                <li>在成人帮助下尝试敞口杯；</li>
+                <li>接触勺子并尝试把勺子送向嘴边；</li>
+                <li>参与吃饭、擦手、戴围兜、穿脱和洗漱；</li>
+                <li>递围兜、拿毛巾、模仿擦桌子；</li>
+                <li>把书、积木或布放回固定位置；</li>
+                <li>参与活动结束后的简单收拾；</li>
+                <li>继续关注安全进食、过敏观察、湿疹护理、口腔清洁和居家安全。</li>
+              </ul>
+              <h4>伸展目标</h4>
+              <ul>
+                <li>完成一个两步生活任务，如“拿布—擦桌子”；</li>
+                <li>双手扶杯喝几口水；</li>
+                <li>在成人装好食物后尝试自主送勺；</li>
+                <li>从两个物品中做选择；</li>
+                <li>在成人提醒下把物品放回固定位置；</li>
+                <li>逐步理解“吃饭—擦手—离开餐椅”等生活顺序。</li>
+              </ul>
+              <div class="goal-dimension-note">“两觉作息”保留为当前家庭节律目标，但不要求每天时长完全一致。偶尔短觉、晚觉或入睡困难不视为失败，只要整体作息仍然适合宝宝，就继续维持。</div>
+            </div>
+          </details>
+
+          <details class="goal-dimension" open>
+            <summary>
+              <span class="goal-dimension-icon"><svg class="icon"><use href="#icon-music"></use></svg></span>
+              <span class="goal-dimension-title"><small>06</small><strong>音乐、涂鸦与表达</strong></span>
+            </summary>
+            <div class="goal-dimension-body">
+              <h4>巩固与发展目标</h4>
+              <ul>
+                <li>对音乐用挥手、拍手、摇摆或发声回应；</li>
+                <li>感受音乐的开始、停止、快和慢；</li>
+                <li>参与简单动作歌曲；</li>
+                <li>通过敲击、摇晃、玩水画和涂鸦表达兴趣；</li>
+                <li>对喜欢或不喜欢的音乐、声音和材料作出选择；</li>
+                <li>在音乐和绘画活动中观察自己的动作带来的结果。</li>
+              </ul>
+              <h4>伸展目标</h4>
+              <ul>
+                <li>模仿两拍节奏或两个连续动作；</li>
+                <li>音乐停止时短暂等待；</li>
+                <li>用动作或声音表示“还要”“再来”；</li>
+                <li>根据音乐快慢改变挥手、拍打或摇摆速度；</li>
+                <li>完成“选择材料—操作—观察结果—收回材料”的小闭环。</li>
+              </ul>
+              <div class="goal-dimension-note">古典音乐、儿歌、亲子歌唱和简单乐器都可以使用。目标是互动、模仿、停顿和表达，不是记住曲目，也不是通过莫扎特获得所谓的“智力提升”。</div>
+            </div>
+          </details>
         </div>
-    </div>
 
-    <!-- 交互脚本 -->
-    <script>
-        function toggleDrawer() {
-            const drawer = document.getElementById('right-drawer');
-            const overlay = document.getElementById('drawer-overlay');
-            
-            if (drawer.classList.contains('translate-x-full')) {
-                drawer.classList.remove('translate-x-full');
-                overlay.classList.remove('hidden');
-                setTimeout(() => {
-                    overlay.classList.remove('opacity-0');
-                    overlay.classList.add('opacity-100');
-                }, 10);
-            } else {
-                drawer.classList.add('translate-x-full');
-                overlay.classList.remove('opacity-100');
-                overlay.classList.add('opacity-0');
-                setTimeout(() => {
-                    overlay.classList.add('hidden');
-                }, 400); 
-            }
-        }
+        <div class="goal-principles-heading">四项贯穿原则</div>
+        <div class="goal-principles">
+          <div class="goal-principle">
+            <strong>01 · 自主性</strong>
+            <p>给宝宝有限选择，例如两本绘本、两种材料或两个玩具，让宝宝决定先玩什么、是否继续。</p>
+          </div>
+          <div class="goal-principle">
+            <strong>02 · 回应式互动</strong>
+            <p>观察宝宝的发起，及时回应、命名和扩展，然后停下来等待宝宝参与。</p>
+          </div>
+          <div class="goal-principle">
+            <strong>03 · 学习品质</strong>
+            <p>关注宝宝是否主动、专注、愿意重复、会坚持和会求助，不追求每天完成多少项目。</p>
+          </div>
+          <div class="goal-principle">
+            <strong>04 · 环境与健康支持</strong>
+            <p>保持低矮可取放的书架和玩具区、真实安全的生活材料、充分移动空间、无屏幕环境和稳定两觉作息，并随睡眠、进食、湿疹和疲劳状态调整活动。</p>
+          </div>
+        </div>
+      </div>
+    </dialog>
 
-        function toggleAccordion(button) {
-            const item = button.parentElement;
-            item.classList.toggle('accordion-active');
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            const firstAccordion = document.querySelector('.accordion-item');
-            if(firstAccordion) firstAccordion.classList.add('accordion-active');
+    <section class="section">
+      <div class="section-heading">
+        <h2><svg class="icon"><use href="#icon-clock"></use></svg>固定时间表</h2>
+        <p>上午觉：10:15—11:30左右　·　午觉：14:30—16:00左右</p>
+      </div>
+      <div class="panel">
+        <div class="schedule">
+          <div class="time-block">
+            <div class="time-label"><svg class="icon"><use href="#icon-sun"></use></svg>早晨启动</div>
+            <p><strong>7:30</strong> 起床、喝奶<br><strong>7:30—8:15</strong> 户外 + 妈妈英语<br><strong>8:15</strong> 回家洗漱、喝水</p>
+          </div>
+          <div class="time-block">
+            <div class="time-label"><svg class="icon"><use href="#icon-book"></use></svg>上午探索</div>
+            <p><strong>8:45</strong> 音乐互动<br><strong>9:00</strong> 主题活动（择一）<br><strong>9:50</strong> 绘本，10:05安静收尾</p>
+          </div>
+          <div class="time-block">
+            <div class="time-label"><svg class="icon"><use href="#icon-cup"></use></svg>中午与午后</div>
+            <p><strong>11:30</strong> 起床、喝水<br><strong>12:00</strong> 辅食<br><strong>12:30</strong> 绘本/指令，13:30后降强度</p>
+          </div>
+          <div class="time-block">
+            <div class="time-label"><svg class="icon"><use href="#icon-moon"></use></svg>傍晚收束</div>
+            <p><strong>16:15</strong> 可选轻活动<br><strong>17:00</strong> 辅食<br><strong>17:30—18:30</strong> 户外，19:00睡前仪式</p>
+          </div>
+        </div>
+        <div class="schedule-foot">
+          <span><svg class="icon"><use href="#icon-music"></use></svg>音乐：每天5—10分钟</span>
+          <span><svg class="icon"><use href="#icon-speech"></use></svg>英语：早晨5—8分钟，固定短语即可</span>
+          <span><svg class="icon"><use href="#icon-droplet"></use></svg>感官：本周1—2次，成人近距离看护</span>
+          <span><svg class="icon"><use href="#icon-moon"></use></svg>不主动增加第三觉，必要时只做16:30前15—20分钟救援小睡</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2><svg class="icon"><use href="#icon-bulb"></use></svg>六个目标对应的本周主题</h2>
+        <p>先选一个主题，再从活动1/2/3中择一；每次只做一个活动即可</p>
+      </div>
+      <div class="theme-toolbar" aria-label="本周主题导航">
+        <div class="theme-toolbar-copy">
+          <strong>本周主题导航</strong>
+          <span>点击后定位并高亮对应卡片</span>
+        </div>
+        <div class="theme-nav" aria-label="六个发展主题">
+          <button type="button" data-theme-target="theme-1" aria-controls="theme-1" aria-pressed="false">沟通</button>
+          <button type="button" data-theme-target="theme-2" aria-controls="theme-2" aria-pressed="false">认知</button>
+          <button type="button" data-theme-target="theme-3" aria-controls="theme-3" aria-pressed="false">社交情绪</button>
+          <button type="button" data-theme-target="theme-4" aria-controls="theme-4" aria-pressed="false">身体感官</button>
+          <button type="button" data-theme-target="theme-5" aria-controls="theme-5" aria-pressed="false">生活参与</button>
+          <button type="button" data-theme-target="theme-6" aria-controls="theme-6" aria-pressed="false">音乐涂鸦</button>
+        </div>
+      </div>
+      <div class="themes-grid">
+        <article class="theme-card" id="theme-1" tabindex="-1">
+          <div class="theme-header">
+            <div class="theme-icon"><svg class="icon"><use href="#icon-speech"></use></svg></div>
+            <div>
+              <div class="theme-kicker">01 · 沟通</div>
+              <h3>找—拿—给—放 <span>把语言放进动作</span></h3>
+            </div>
+          </div>
+          <div class="theme-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <strong>活动1：找—拿—给</strong>
+                <p>材料：球、布、绘本。问“球在哪里？”等待宝宝指向或拿取，再说“给妈妈”。宝宝完成任意一步，都用眼神、语言和动作回应。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动2：绘本请求与指认</strong>
+                <p>并排放两本熟悉绘本，等待宝宝主动选择、递书或指向。阅读中问“哪里有小熊？”让宝宝指物，再回应“找到了”。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动3：英语动作小循环</strong>
+                <p>在收玩具或递物时固定使用 <code>Look</code>、<code>Give me</code>、<code>Put in</code>、<code>All done</code>，同时配合指向、伸手和放入动作。</p>
+              </div>
+            </div>
+            <div class="steps"><span class="step">单步：找球</span><span class="step">发展：递给人</span><span class="step">伸展：放进去</span></div>
+          </div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否会看人、指物、递物或用声音请求继续。</span></div>
+        </article>
+
+        <article class="theme-card" id="theme-2" tabindex="-1">
+          <div class="theme-header">
+            <div class="theme-icon"><svg class="icon"><use href="#icon-bulb"></use></svg></div>
+            <div>
+              <div class="theme-kicker">02 · 认知</div>
+              <h3>开盖—取物—放回 <span>把会的动作串联</span></h3>
+            </div>
+          </div>
+          <div class="theme-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <strong>活动1：开盖—取物—放回</strong>
+                <p>用无小零件的大号容器装2—3个熟悉玩具。让宝宝自己开盖、取出、探索，再邀请“放进去”。成人只在卡住时帮一小步。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动2：拉布取物</strong>
+                <p>把大玩具放在短布巾上，只露出一点边缘。示范拉布让玩具靠近，等待宝宝尝试拉、抓或换手，感受工具能改变位置。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动3：位置搬家找物</strong>
+                <p>让宝宝看到你把玩具从篮子移到盒子，再问“球在哪里？”逐渐增加一个遮挡或改变位置，鼓励继续寻找，不急着提示答案。</p>
+              </div>
+            </div>
+            <div class="steps"><span class="step">打开</span><span class="step">拿出</span><span class="step">放回</span><span class="step">换位置</span></div>
+          </div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否会换方法、坚持尝试或看人求助。</span></div>
+        </article>
+
+        <article class="theme-card" id="theme-3" tabindex="-1">
+          <div class="theme-header">
+            <div class="theme-icon"><svg class="icon"><use href="#icon-heart"></use></svg></div>
+            <div>
+              <div class="theme-kicker">03 · 社交情绪</div>
+              <h3>轮流传递与主动求助 <span>来回互动</span></h3>
+            </div>
+          </div>
+          <div class="theme-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <strong>活动1：轮流传球或传鼓</strong>
+                <p>宝宝、育儿嫂和家人围坐，按“轮到宝宝—给我—谢谢—轮到我”传一个大球或小鼓。每轮停3秒，等宝宝看人、递物或发声。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动2：困难盒子求助</strong>
+                <p>把喜欢的玩具放进宝宝能看到但需要成人协助打开的盒子。先等待，再回应宝宝的看人、伸手、递盒或声音，帮助打开一点。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动3：再来与结束</strong>
+                <p>一轮结束时停下来，说“再来”或“结束”，等待宝宝用动作或声音表达。若烦躁，先抱、命名情绪，再回到简单的传递游戏。</p>
+              </div>
+            </div>
+            <div class="steps"><span class="step">递给宝宝</span><span class="step">等待</span><span class="step">接回来</span><span class="step">帮一点</span></div>
+          </div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否短暂等待、看人求助、平复后回到活动。</span></div>
+        </article>
+
+        <article class="theme-card" id="theme-4" tabindex="-1">
+          <div class="theme-header">
+            <div class="theme-icon"><svg class="icon"><use href="#icon-body"></use></svg></div>
+            <div>
+              <div class="theme-kicker">04 · 身体 / 精细 / 感官</div>
+              <h3>携物移动与触觉探索 <span>动作有目的</span></h3>
+            </div>
+          </div>
+          <div class="theme-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <strong>活动1：携物路线</strong>
+                <p>用软垫或靠垫做低矮路线，把大玩具放在终点。宝宝爬过去、拿起、转向、蹲下，再把玩具放入篮子，保持自主移动。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动2：推拉与准确放入</strong>
+                <p>推一个轻纸箱或收纳篮，停下后把大积木逐个放入。可加入安全的大盖子旋拧，锻炼双手配合和力量控制。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动3：玩水触觉</strong>
+                <p>浅盆放1—2厘米温水和大海绵，体验摸、拍、抓、挤。成人全程近距离看护，宝宝想停就结束并擦干。</p>
+              </div>
+            </div>
+            <div class="steps"><span class="step">爬过</span><span class="step">拿起</span><span class="step">转向</span><span class="step">放入</span></div>
+          </div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能携物、绕行、蹲起和选择喜欢的材料。</span></div>
+        </article>
+
+        <article class="theme-card" id="theme-5" tabindex="-1">
+          <div class="theme-header">
+            <div class="theme-icon"><svg class="icon"><use href="#icon-cup"></use></svg></div>
+            <div>
+              <div class="theme-kicker">05 · 生活参与</div>
+              <h3>吃饭小帮手与活动收尾 <span>参与真实流程</span></h3>
+            </div>
+          </div>
+          <div class="theme-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <strong>活动1：餐前选择</strong>
+                <p>拿出两个围兜，让宝宝看、摸或指向一个。穿戴时说“手进去”“好了”，让他参与拉衣角和整理围兜。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动2：杯子和勺子初体验</strong>
+                <p>用少量水练习双手扶敞口杯；勺子装熟悉食物后递给宝宝，允许抓、舔、弄洒，不追求自己吃完整口。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动3：擦手—收纳—结束</strong>
+                <p>餐后给小毛巾，示范擦手一两下，再请宝宝把毛巾或一件玩具放回固定篮子，用“收好了”结束流程。</p>
+              </div>
+            </div>
+            <div class="steps"><span class="step">选择</span><span class="step">参与</span><span class="step">擦手</span><span class="step">放回</span></div>
+          </div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否愿意参与，而不看速度、整洁或准确率。</span></div>
+        </article>
+
+        <article class="theme-card" id="theme-6" tabindex="-1">
+          <div class="theme-header">
+            <div class="theme-icon"><svg class="icon"><use href="#icon-music"></use></svg></div>
+            <div>
+              <div class="theme-kicker">06 · 音乐 / 涂鸦</div>
+              <h3>宝宝来指挥 <span>开始、停止、快、慢</span></h3>
+            </div>
+          </div>
+          <div class="theme-content">
+            <div class="activity-list">
+              <div class="activity-item">
+                <strong>活动1：音乐停—动</strong>
+                <p>唱《小手拍拍》、<code>If You’re Happy</code>或《Wheels on the Bus》。音乐中挥手、拍腿，突然停下，等宝宝看人、发声或示意继续。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动2：快—慢—两拍</strong>
+                <p>用手拍出慢慢的两拍、快快的两拍，中间停一下。邀请宝宝模仿拍手、挥手或摇摆，不要求节拍准确。</p>
+              </div>
+              <div class="activity-item">
+                <strong>活动3：水画或粗蜡笔涂鸦</strong>
+                <p>使用水画板、粗水笔或大海绵，让宝宝自由点、划、拍，观察“动作—痕迹—声音”的变化，不要求画出形状。</p>
+              </div>
+            </div>
+            <div class="steps"><span class="step">继续</span><span class="step">停止</span><span class="step">等待</span><span class="step">再来</span></div>
+          </div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否注意到停顿、模仿动作或表达“还要”。</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section notes">
+      <div class="panel note-panel">
+        <h3><svg class="icon" style="color:#d97891"><use href="#icon-star"></use></svg>本周只观察，不考核</h3>
+        <div class="observation-list">
+          <label class="observation"><input type="checkbox" data-key="obs-1">会在帮助下完成熟悉的两步任务</label>
+          <label class="observation"><input type="checkbox" data-key="obs-2">物品换位置后仍继续寻找</label>
+          <label class="observation"><input type="checkbox" data-key="obs-3">主动看人、递物或发声求助</label>
+          <label class="observation"><input type="checkbox" data-key="obs-4">轮流时短暂等待</label>
+          <label class="observation"><input type="checkbox" data-key="obs-5">愿意参与杯子、勺子或收纳</label>
+          <label class="observation"><input type="checkbox" data-key="obs-6">音乐停止时注意到变化</label>
+        </div>
+      </div>
+      <div class="panel note-panel">
+        <h3><svg class="icon" style="color:#cc865e"><use href="#icon-warning"></use></svg>安全与照护提醒</h3>
+        <ul>
+          <li>水玩全程近距离看护；所有材料和容器不得有可拆小件。</li>
+          <li>不牵手练走，不快速旋转，不用活动量换睡眠。</li>
+          <li>宝宝疲劳、烦躁、湿疹不适时，活动降级为抱抱、绘本或自由玩。</li>
+          <li>蛋清曾有疑似反应；新食物和过敏相关尝试遵循儿科/过敏专科建议。</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span><strong>小记录：</strong>今天宝宝自己完成了什么？大人帮了哪一步？</span>
+      <span>以宝宝的兴趣、节奏和安全感为先</span>
+    </footer>
+  </main>
+
+  <script>
+    (function () {
+      var boxes = document.querySelectorAll('input[type="checkbox"][data-key]');
+      boxes.forEach(function (box) {
+        var key = 'baby-11m-week1-' + box.dataset.key;
+        box.checked = localStorage.getItem(key) === '1';
+        box.addEventListener('change', function () {
+          localStorage.setItem(key, box.checked ? '1' : '0');
         });
-    </script>
+      });
+
+      var goalModal = document.getElementById('goal-reference');
+      var openGoals = document.getElementById('open-goals');
+      var closeGoals = document.getElementById('close-goals');
+
+      if (goalModal && openGoals && closeGoals) {
+        openGoals.addEventListener('click', function () {
+          goalModal.showModal();
+        });
+
+        closeGoals.addEventListener('click', function () {
+          goalModal.close();
+        });
+
+        goalModal.addEventListener('click', function (event) {
+          if (event.target === goalModal) {
+            goalModal.close();
+          }
+        });
+      }
+
+      var themeButtons = document.querySelectorAll('[data-theme-target]');
+      var themeCards = document.querySelectorAll('.theme-card');
+      var highlightTimer;
+
+      themeButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var target = document.getElementById(button.dataset.themeTarget);
+          if (!target) {
+            return;
+          }
+
+          themeButtons.forEach(function (item) {
+            var isActive = item === button;
+            item.classList.toggle('is-active', isActive);
+            item.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+          });
+
+          themeCards.forEach(function (item) {
+            item.classList.remove('is-featured');
+          });
+
+          target.classList.add('is-featured');
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+
+          window.clearTimeout(highlightTimer);
+          highlightTimer = window.setTimeout(function () {
+            target.classList.remove('is-featured');
+          }, 1800);
+        });
+      });
+    }());
+  </script>
 </body>
 </html>
