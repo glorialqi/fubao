@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fffafd">
-  <title>11月龄第1周主题成长计划</title>
+  <title>11月龄第2周主题成长计划</title>
   <style>
     :root {
       --ink: #344454;
@@ -331,7 +331,7 @@
       gap: 14px;
       padding: 16px;
       border: 1px solid #f0e3e9;
-      border-radius: 10px;
+      border-radius: 8px;
       background: linear-gradient(120deg, #fff4f6 0%, #fffdf8 54%, #f1f8ff 100%);
     }
 
@@ -613,8 +613,8 @@
 
     .themes-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: 1fr;
+      gap: 12px;
     }
 
     .theme-toolbar {
@@ -625,7 +625,7 @@
       margin-bottom: 12px;
       padding: 10px 12px;
       border: 1px solid #ece8ef;
-      border-radius: 10px;
+      border-radius: 8px;
       background: rgba(255, 255, 255, 0.78);
       box-shadow: 0 5px 14px rgba(59, 72, 86, 0.04);
     }
@@ -700,50 +700,47 @@
       display: flex;
       flex-direction: column;
       min-width: 0;
-      padding: 16px;
-      border: 1px solid rgba(52, 68, 84, 0.08);
-      border-radius: 8px;
-      background: var(--white);
-      box-shadow: 0 9px 20px rgba(59, 72, 86, 0.07);
+      padding: 12px 0 14px;
+      border-top: 1px solid #eee8ef;
+      background: transparent;
       scroll-margin-top: 18px;
       transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
     }
 
     .theme-card:hover,
     .theme-card:focus-within {
-      transform: translateY(-3px);
-      box-shadow: 0 13px 26px rgba(59, 72, 86, 0.1);
+      transform: translateY(-1px);
     }
 
     .theme-card.is-featured {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 30px rgba(59, 72, 86, 0.14);
+      transform: translateY(-2px);
       outline: 2px solid rgba(255, 159, 176, 0.42);
-      outline-offset: 3px;
+      outline-offset: 5px;
     }
 
     @media (prefers-reduced-motion: reduce) {
       .goal-modal-trigger,
       .goal-modal-close,
       .theme-nav button,
-      .theme-card {
+      .theme-card,
+      .activity-item,
+      .resource-card {
         transition: none;
       }
     }
 
-    .theme-card:nth-child(1) { border-top: 4px solid var(--coral); }
-    .theme-card:nth-child(2) { border-top: 4px solid var(--lemon); }
-    .theme-card:nth-child(3) { border-top: 4px solid var(--sky); }
-    .theme-card:nth-child(4) { border-top: 4px solid var(--mint); }
-    .theme-card:nth-child(5) { border-top: 4px solid var(--peach); }
-    .theme-card:nth-child(6) { border-top: 4px solid var(--lavender); }
+    .theme-card:nth-child(1) { border-top-color: rgba(255, 159, 176, 0.55); }
+    .theme-card:nth-child(2) { border-top-color: rgba(255, 224, 154, 0.85); }
+    .theme-card:nth-child(3) { border-top-color: rgba(159, 215, 255, 0.7); }
+    .theme-card:nth-child(4) { border-top-color: rgba(167, 227, 204, 0.75); }
+    .theme-card:nth-child(5) { border-top-color: rgba(255, 198, 165, 0.75); }
+    .theme-card:nth-child(6) { border-top-color: rgba(202, 184, 245, 0.75); }
 
     .theme-header {
       display: flex;
       align-items: flex-start;
       gap: 10px;
-      padding-bottom: 11px;
-      border-bottom: 1px solid #f0edf2;
+      padding-bottom: 3px;
     }
 
     .theme-icon {
@@ -793,37 +790,45 @@
 
     .activity-list {
       display: grid;
-      gap: 0;
-      margin-top: 10px;
-      border-left: 1px solid #eee8ef;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 8px;
+      margin-top: 11px;
       counter-reset: activity;
     }
 
     .activity-item {
       position: relative;
-      padding: 8px 0 9px 28px;
-      border-bottom: 1px dashed #eee8ef;
+      min-height: 154px;
+      padding: 30px 10px 10px;
+      border: 1px solid #f0eaf0;
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 253, 0.9));
+      box-shadow: 0 6px 14px rgba(59, 72, 86, 0.055);
       counter-increment: activity;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
 
-    .activity-item:last-child {
-      border-bottom: 0;
+    .activity-item:hover {
+      transform: translateY(-2px);
+      border-color: #eadfe7;
+      box-shadow: 0 10px 20px rgba(59, 72, 86, 0.08);
     }
 
     .activity-item::before {
-      content: counter(activity);
+      content: "活动 " counter(activity);
       position: absolute;
       top: 9px;
-      left: -10px;
+      left: 9px;
       display: grid;
       place-items: center;
-      width: 19px;
-      height: 19px;
-      border: 2px solid #fff;
-      border-radius: 50%;
+      min-width: 46px;
+      height: 18px;
+      padding: 0 7px;
+      border: 1px solid rgba(255, 255, 255, 0.72);
+      border-radius: 999px;
       background: var(--sky-soft);
       color: #6c8da7;
-      box-shadow: 0 2px 5px rgba(59, 72, 86, 0.08);
+      box-shadow: 0 2px 6px rgba(59, 72, 86, 0.06);
       font-size: 10px;
       font-weight: 900;
     }
@@ -838,15 +843,15 @@
     .activity-item strong {
       display: block;
       color: #526476;
-      font-size: 11px;
+      font-size: 12px;
       line-height: 1.35;
     }
 
     .activity-item p {
-      margin-top: 3px;
+      margin-top: 5px;
       color: #6f7e8b;
       font-size: 11px;
-      line-height: 1.5;
+      line-height: 1.55;
     }
 
     .theme-content strong {
@@ -889,6 +894,161 @@
       height: 14px;
       margin-top: 2px;
       color: #9aa5ae;
+    }
+
+    .resource-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .resource-card {
+      position: relative;
+      padding: 15px;
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.92);
+      box-shadow: 0 9px 20px rgba(59, 72, 86, 0.065);
+      overflow: hidden;
+    }
+
+    .resource-card::before {
+      content: "";
+      position: absolute;
+      inset: 0 0 auto;
+      height: 4px;
+      background: linear-gradient(90deg, var(--coral), var(--lemon), var(--mint), var(--sky));
+    }
+
+    .resource-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+    }
+
+    .resource-icon {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--sky-soft);
+      color: #5f9ec7;
+      flex: 0 0 auto;
+    }
+
+    .resource-card:nth-child(2) .resource-icon {
+      background: var(--coral-soft);
+      color: #d96f88;
+    }
+
+    .resource-card:nth-child(3) .resource-icon {
+      background: var(--lemon-soft);
+      color: #bd8c34;
+    }
+
+    .resource-card-wide {
+      grid-column: 1 / -1;
+      background: linear-gradient(135deg, rgba(255, 248, 229, 0.92), rgba(237, 247, 255, 0.92));
+    }
+
+    .resource-icon .icon {
+      width: 19px;
+      height: 19px;
+    }
+
+    .resource-head h3 {
+      font-size: 15px;
+    }
+
+    .resource-head p {
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+
+    .resource-list {
+      display: grid;
+      gap: 7px;
+    }
+
+    .resource-list-two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resource-item {
+      display: grid;
+      gap: 4px;
+      padding: 9px 10px;
+      border: 1px solid #f0eaf0;
+      border-radius: 8px;
+      background: #fffafd;
+    }
+
+    .resource-item strong {
+      color: #526476;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+
+    .resource-item span {
+      color: #6f7e8b;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .resource-note {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 8px;
+      background: rgba(237, 247, 255, 0.82);
+      color: #687583;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .routine-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .routine-step {
+      padding: 10px;
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .routine-step strong {
+      display: block;
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    .routine-step span {
+      display: block;
+      margin-top: 4px;
+      color: #6f7e8b;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .phrase-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .phrase {
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: var(--lavender-soft);
+      color: #7468a5;
+      font-size: 11px;
+      white-space: nowrap;
     }
 
     .check-row input,
@@ -1020,9 +1180,16 @@
       }
 
       .themes-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .activity-list {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .resource-grid,
+      .resource-list-two,
+      .routine-grid,
       .notes {
         grid-template-columns: 1fr;
       }
@@ -1146,12 +1313,16 @@
       }
 
       .themes-grid,
+      .activity-list,
+      .resource-grid,
+      .resource-list-two,
+      .routine-grid,
       .observation-list {
         grid-template-columns: 1fr;
       }
 
       .theme-card {
-        padding: 13px;
+        padding: 11px 0 13px;
       }
 
       .footer {
@@ -1171,7 +1342,9 @@
       }
 
       .panel,
-      .theme-card {
+      .theme-card,
+      .activity-item,
+      .resource-card {
         box-shadow: none;
       }
 
@@ -1257,9 +1430,9 @@
       <div>
         <div class="eyebrow">
           <svg class="icon icon-fill"><use href="#icon-star"></use></svg>
-          10—12月龄总目标 · 第1周
+          11月龄5天 · 第2周升级计划
         </div>
-        <p class="hero-copy">把已经会的能力串起来：听懂一点、完成一点、等待一点、求助一点、表达一点。</p>
+        <p class="hero-copy">从“会做动作”升级到“有目的地完成一小串动作”：推倒、敲击、爬楼梯、玩水和交通积木都变成学习入口。</p>
       </div>
       <div class="hero-stickers" aria-label="本周原则">
         <span class="sticker"><svg class="icon"><use href="#icon-moon"></use></svg>两觉作息</span>
@@ -1274,12 +1447,13 @@
           <svg class="icon"><use href="#icon-heart"></use></svg>
         </div>
         <div>
-          <h2>本周总方向：以生活为课程，以兴趣为入口</h2>
-          <button class="goal-modal-trigger" id="open-goals" type="button">
-            <svg class="icon"><use href="#icon-star"></use></svg>查看10—12月龄总目标
-          </button>
+          <h2>本周总方向：有结果的小任务</h2>
+          
         </div>
-        <div class="goal-note"><strong>执行尺度：</strong>每次10—15分钟。宝宝不感兴趣、疲劳或烦躁时，直接结束，不补做。</div>
+        <div>
+		<button class="goal-modal-trigger" id="open-goals" type="button">
+            查看10—12月龄总目标
+          </button></div>
       </div>
     </section>
 
@@ -1287,7 +1461,7 @@
       <div class="section-heading goal-modal-heading">
         <div>
           <h2 id="goal-reference-title"><svg class="icon"><use href="#icon-star"></use></svg>10—12月龄总目标定稿</h2>
-          <p>本周计划以此为依据；已掌握的能力继续扩展到更多场景</p>
+          <p>本周计划以此为依据；第2周重点是连续操作、交换等待、安全移动和多材料表达</p>
         </div>
         <button class="goal-modal-close" id="close-goals" type="button" aria-label="关闭总目标">
           <svg class="icon"><use href="#icon-x"></use></svg>
@@ -1513,17 +1687,17 @@
     <section class="section">
       <div class="section-heading">
         <h2><svg class="icon"><use href="#icon-clock"></use></svg>固定时间表</h2>
-        <p>上午觉：10:15—11:30左右　·　午觉：14:30—16:00左右</p>
+        <p>早醒时先安静过渡，继续保留两觉：上午觉10:15—11:30左右　·　午觉14:30—16:00左右</p>
       </div>
       <div class="panel">
         <div class="schedule">
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-sun"></use></svg>早晨启动</div>
-            <p><strong>7:30</strong> 起床、喝奶<br><strong>7:30—8:15</strong> 户外 + 妈妈英语<br><strong>8:15</strong> 回家洗漱、喝水</p>
+            <p><strong>6:30左右</strong> 起床、喝奶、安静自由玩<br><strong>7:30—8:15</strong> 户外 + 爸妈英语<br><strong>8:15</strong> 回家洗漱、喝水</p>
           </div>
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-book"></use></svg>上午探索</div>
-            <p><strong>8:45</strong> 音乐互动<br><strong>9:00</strong> 主题活动（择一）<br><strong>9:50</strong> 绘本，10:05安静收尾</p>
+            <p><strong>8:45</strong> 推倒/敲击热身<br><strong>9:05</strong> 主题活动（择一）<br><strong>9:50</strong> 绘本，10:05安静收尾</p>
           </div>
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-cup"></use></svg>中午与午后</div>
@@ -1535,10 +1709,10 @@
           </div>
         </div>
         <div class="schedule-foot">
-          <span><svg class="icon"><use href="#icon-music"></use></svg>音乐：每天5—10分钟</span>
-          <span><svg class="icon"><use href="#icon-speech"></use></svg>英语：早晨5—8分钟，固定短语即可</span>
-          <span><svg class="icon"><use href="#icon-droplet"></use></svg>感官：本周1—2次，成人近距离看护</span>
-          <span><svg class="icon"><use href="#icon-moon"></use></svg>不主动增加第三觉，必要时只做16:30前15—20分钟救援小睡</span>
+          <span><svg class="icon"><use href="#icon-music"></use></svg>音乐：每天5—10分钟，练开始、停止、快慢</span>
+          <span><svg class="icon"><use href="#icon-speech"></use></svg>英语：户外或睡前用 <code>Car</code>、<code>Put in</code>、<code>Give me</code>、<code>More</code></span>
+          <span><svg class="icon"><use href="#icon-droplet"></use></svg>感官：本周玩水、水画、触觉各选1—2次</span>
+          <span><svg class="icon"><use href="#icon-moon"></use></svg>两觉作息优先，早醒当天可提前进入安静收尾</span>
         </div>
       </div>
     </section>
@@ -1568,27 +1742,27 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-speech"></use></svg></div>
             <div>
               <div class="theme-kicker">01 · 沟通</div>
-              <h3>找—拿—给—放 <span>把语言放进动作</span></h3>
+              <h3>交通积木两步任务 <span>动作、看人、发声一起用</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>活动1：找—拿—给</strong>
-                <p>材料：球、布、绘本。问“球在哪里？”等待宝宝指向或拿取，再说“给妈妈”。宝宝完成任意一步，都用眼神、语言和动作回应。</p>
+                <strong>交通积木两步指令</strong>
+                <p>材料：小车、桥、盒子。说“拿小车，放盒子里”或“拿车，给妈妈”。宝宝完成任意一步都立即回应：“你把车放进去了。”可加入 <code>Car</code>、<code>Put in</code>、<code>Give me</code>。</p>
               </div>
               <div class="activity-item">
-                <strong>活动2：绘本请求与指认</strong>
-                <p>并排放两本熟悉绘本，等待宝宝主动选择、递书或指向。阅读中问“哪里有小熊？”让宝宝指物，再回应“找到了”。</p>
+                <strong>绘本主动点读升级</strong>
+                <p>宝宝指哪一页就读哪一页。读之前停一下问：“你想读这个？再指一下。”读完再停顿，等宝宝用指物、看人、发声或身体靠近表示继续。</p>
               </div>
               <div class="activity-item">
-                <strong>活动3：英语动作小循环</strong>
-                <p>在收玩具或递物时固定使用 <code>Look</code>、<code>Give me</code>、<code>Put in</code>、<code>All done</code>，同时配合指向、伸手和放入动作。</p>
+                <strong>帮忙表达练习</strong>
+                <p>把喜欢的玩具放进稍难打开的大盒子里，让宝宝先尝试。只要他看人、递盒、伸手或发声，就回应：“要帮忙？妈妈帮你打开。”目标是困难时主动求助。</p>
               </div>
             </div>
-            <div class="steps"><span class="step">单步：找球</span><span class="step">发展：递给人</span><span class="step">伸展：放进去</span></div>
+            <div class="steps"><span class="step">拿车</span><span class="step">放盒子</span><span class="step">给大人</span><span class="step">求助</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否会看人、指物、递物或用声音请求继续。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否把看人、指物、递物、发声组合起来表达需求。</span></div>
         </article>
 
         <article class="theme-card" id="theme-2" tabindex="-1">
@@ -1596,27 +1770,27 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-bulb"></use></svg></div>
             <div>
               <div class="theme-kicker">02 · 认知</div>
-              <h3>开盖—取物—放回 <span>把会的动作串联</span></h3>
+              <h3>放进—盖上—搬走—找出 <span>让因果更好玩</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>活动1：开盖—取物—放回</strong>
-                <p>用无小零件的大号容器装2—3个熟悉玩具。让宝宝自己开盖、取出、探索，再邀请“放进去”。成人只在卡住时帮一小步。</p>
+                <strong>放入—盖上—搬走—打开—拿出</strong>
+                <p>顺着宝宝喜欢“放进去又拿出来”的兴趣，加一层任务链：球放进盒子，盖上，搬到垫子另一边，再打开找出来。宝宝立刻拿出也可以，再邀请他多做一步。</p>
               </div>
               <div class="activity-item">
-                <strong>活动2：拉布取物</strong>
-                <p>把大玩具放在短布巾上，只露出一点边缘。示范拉布让玩具靠近，等待宝宝尝试拉、抓或换手，感受工具能改变位置。</p>
+                <strong>推倒实验室</strong>
+                <p>用积木搭高塔、矮塔、宽塔，让宝宝推倒。大人描述结果：“高高的倒了”“这个很稳”“这次声音大”。推倒不是捣乱，是因果实验。</p>
               </div>
               <div class="activity-item">
-                <strong>活动3：位置搬家找物</strong>
-                <p>让宝宝看到你把玩具从篮子移到盒子，再问“球在哪里？”逐渐增加一个遮挡或改变位置，鼓励继续寻找，不急着提示答案。</p>
+                <strong>城市交通配对</strong>
+                <p>拿交通积木和绘本里的车、公交、桥、路做对应：“书里有车，盒子里哪一个也是车？”不追求答对，重点是开始感受相同和不同。</p>
               </div>
             </div>
-            <div class="steps"><span class="step">打开</span><span class="step">拿出</span><span class="step">放回</span><span class="step">换位置</span></div>
+            <div class="steps"><span class="step">放入</span><span class="step">盖上</span><span class="step">搬走</span><span class="step">打开</span><span class="step">找出</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否会换方法、坚持尝试或看人求助。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能接受物品位置变化，并继续寻找或尝试新方法。</span></div>
         </article>
 
         <article class="theme-card" id="theme-3" tabindex="-1">
@@ -1624,27 +1798,27 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-heart"></use></svg></div>
             <div>
               <div class="theme-kicker">03 · 社交情绪</div>
-              <h3>轮流传递与主动求助 <span>来回互动</span></h3>
+              <h3>交换、等待与再来 <span>哭闹后也能回到互动</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>活动1：轮流传球或传鼓</strong>
-                <p>宝宝、育儿嫂和家人围坐，按“轮到宝宝—给我—谢谢—轮到我”传一个大球或小鼓。每轮停3秒，等宝宝看人、递物或发声。</p>
+                <strong>轮到你，轮到我</strong>
+                <p>用积木敲平底盒：宝宝敲一下，大人敲一下。大人说“宝宝来”“妈妈来”，中间等2—3秒，练轮流和短暂等待。</p>
               </div>
               <div class="activity-item">
-                <strong>活动2：困难盒子求助</strong>
-                <p>把喜欢的玩具放进宝宝能看到但需要成人协助打开的盒子。先等待，再回应宝宝的看人、伸手、递盒或声音，帮助打开一点。</p>
+                <strong>交换而不是拿走</strong>
+                <p>需要拿走不合适物品时，先拿一个吸引物说：“这个给妈妈，换小车。”递新物、等待、再接旧物。哭了先安抚，再重新开始一轮。</p>
               </div>
               <div class="activity-item">
-                <strong>活动3：再来与结束</strong>
-                <p>一轮结束时停下来，说“再来”或“结束”，等待宝宝用动作或声音表达。若烦躁，先抱、命名情绪，再回到简单的传递游戏。</p>
+                <strong>结束前收一个</strong>
+                <p>活动结束前只要求“放回一个”。把一块积木放进盒子就算完成，大人说“收好了，结束”。不要求收完整盒，先建立结束流程。</p>
               </div>
             </div>
-            <div class="steps"><span class="step">递给宝宝</span><span class="step">等待</span><span class="step">接回来</span><span class="step">帮一点</span></div>
+            <div class="steps"><span class="step">预告</span><span class="step">等2秒</span><span class="step">交换</span><span class="step">收一个</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否短暂等待、看人求助、平复后回到活动。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：被拿走玩具后，是否能在安抚或交换后回到游戏。</span></div>
         </article>
 
         <article class="theme-card" id="theme-4" tabindex="-1">
@@ -1652,27 +1826,27 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-body"></use></svg></div>
             <div>
               <div class="theme-kicker">04 · 身体 / 精细 / 感官</div>
-              <h3>携物移动与触觉探索 <span>动作有目的</span></h3>
+              <h3>楼梯安全与障碍路线 <span>上得快，也学会慢下来</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>活动1：携物路线</strong>
-                <p>用软垫或靠垫做低矮路线，把大玩具放在终点。宝宝爬过去、拿起、转向、蹲下，再把玩具放入篮子，保持自主移动。</p>
+                <strong>楼梯上得快，下得慢</strong>
+                <p>允许宝宝在成人贴身保护下爬楼梯，但本周新增“倒着下一级”的示范：脚先下、慢慢来。先看、摸、尝试，不催完成。</p>
               </div>
               <div class="activity-item">
-                <strong>活动2：推拉与准确放入</strong>
-                <p>推一个轻纸箱或收纳篮，停下后把大积木逐个放入。可加入安全的大盖子旋拧，锻炼双手配合和力量控制。</p>
+                <strong>障碍爬行路线</strong>
+                <p>用枕头、软垫、低盒子做路线：爬过、绕过、扶站、蹲下捡车、放进盒子。把爬、蹲、扶站和准确释放串起来。</p>
               </div>
               <div class="activity-item">
-                <strong>活动3：玩水触觉</strong>
-                <p>浅盆放1—2厘米温水和大海绵，体验摸、拍、抓、挤。成人全程近距离看护，宝宝想停就结束并擦干。</p>
+                <strong>大颗粒积木精细挑战</strong>
+                <p>用大颗粒积木练拔开、插上、放进平底盒、找指定车或颜色。只用大颗粒，任何可入口小件都收起。</p>
               </div>
             </div>
-            <div class="steps"><span class="step">爬过</span><span class="step">拿起</span><span class="step">转向</span><span class="step">放入</span></div>
+            <div class="steps"><span class="step">爬上</span><span class="step">停下</span><span class="step">倒退</span><span class="step">转向</span><span class="step">放入</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能携物、绕行、蹲起和选择喜欢的材料。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否开始理解下楼梯、下沙发、停下和转向的身体计划。</span></div>
         </article>
 
         <article class="theme-card" id="theme-5" tabindex="-1">
@@ -1680,27 +1854,27 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-cup"></use></svg></div>
             <div>
               <div class="theme-kicker">05 · 生活参与</div>
-              <h3>吃饭小帮手与活动收尾 <span>参与真实流程</span></h3>
+              <h3>杯子、擦桌与只收一个 <span>真实流程的小参与</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>活动1：餐前选择</strong>
-                <p>拿出两个围兜，让宝宝看、摸或指向一个。穿戴时说“手进去”“好了”，让他参与拉衣角和整理围兜。</p>
+                <strong>喝水三步</strong>
+                <p>大人递敞口杯，宝宝双手扶，大人辅助喝几口，再让宝宝把杯子递回。重点是参与流程，不是独立喝完。</p>
               </div>
               <div class="activity-item">
-                <strong>活动2：杯子和勺子初体验</strong>
-                <p>用少量水练习双手扶敞口杯；勺子装熟悉食物后递给宝宝，允许抓、舔、弄洒，不追求自己吃完整口。</p>
+                <strong>擦桌子真任务</strong>
+                <p>给一小块湿毛巾，说“擦这里”。宝宝擦一下就算完成。可升级为“拿毛巾，擦桌子”，让模仿变成真实结果。</p>
               </div>
               <div class="activity-item">
-                <strong>活动3：擦手—收纳—结束</strong>
-                <p>餐后给小毛巾，示范擦手一两下，再请宝宝把毛巾或一件玩具放回固定篮子，用“收好了”结束流程。</p>
+                <strong>只收一个结束</strong>
+                <p>收玩具时不要求宝宝跟着收完，只请他把一个积木、一本书或一块布放回固定位置。大人一边收，他只完成自己的“一件事”。</p>
               </div>
             </div>
-            <div class="steps"><span class="step">选择</span><span class="step">参与</span><span class="step">擦手</span><span class="step">放回</span></div>
+            <div class="steps"><span class="step">扶杯</span><span class="step">喝几口</span><span class="step">递回</span><span class="step">擦一下</span><span class="step">收一个</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否愿意参与，而不看速度、整洁或准确率。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否愿意参与真实流程，并接受“只做一小步”。</span></div>
         </article>
 
         <article class="theme-card" id="theme-6" tabindex="-1">
@@ -1708,27 +1882,159 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-music"></use></svg></div>
             <div>
               <div class="theme-kicker">06 · 音乐 / 涂鸦</div>
-              <h3>宝宝来指挥 <span>开始、停止、快、慢</span></h3>
+              <h3>音乐、水画与小小指挥 <span>开始、停止、快、慢</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>活动1：音乐停—动</strong>
-                <p>唱《小手拍拍》、<code>If You’re Happy</code>或《Wheels on the Bus》。音乐中挥手、拍腿，突然停下，等宝宝看人、发声或示意继续。</p>
+                <strong>开始和停止</strong>
+                <p>放音乐或大人唱歌，音乐开始就挥手、敲盒或拍腿，停下就一起停2秒。宝宝用动作或声音表示“再来”后继续。</p>
               </div>
               <div class="activity-item">
-                <strong>活动2：快—慢—两拍</strong>
-                <p>用手拍出慢慢的两拍、快快的两拍，中间停一下。邀请宝宝模仿拍手、挥手或摇摆，不要求节拍准确。</p>
+                <strong>快慢节奏</strong>
+                <p>用积木敲盒子：慢慢敲、快快敲、停一下。宝宝不需要完全模仿，只要感受到速度变化，也可以让他当“小指挥”。</p>
               </div>
               <div class="activity-item">
-                <strong>活动3：水画或粗蜡笔涂鸦</strong>
-                <p>使用水画板、粗水笔或大海绵，让宝宝自由点、划、拍，观察“动作—痕迹—声音”的变化，不要求画出形状。</p>
+                <strong>磁吸画板和水画初体验</strong>
+                <p>大人画短线、圆点、车轮，宝宝用手摸、用笔戳、划线。另选一次用水画板或湿海绵点、拍、划，观察动作会留下痕迹。</p>
               </div>
             </div>
-            <div class="steps"><span class="step">继续</span><span class="step">停止</span><span class="step">等待</span><span class="step">再来</span></div>
+            <div class="steps"><span class="step">选择</span><span class="step">操作</span><span class="step">看结果</span><span class="step">停顿</span><span class="step">再来</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否注意到停顿、模仿动作或表达“还要”。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否注意到停顿、速度变化或痕迹变化，并主动要求继续。</span></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <h2><svg class="icon"><use href="#icon-music"></use></svg>音乐与英语清单</h2>
+        <p>英语做情境提示，音乐做轮流和停顿；不追求词汇量和曲目数量</p>
+      </div>
+      <div class="resource-grid">
+        <article class="resource-card">
+          <div class="resource-head">
+            <div class="resource-icon"><svg class="icon"><use href="#icon-music"></use></svg></div>
+            <div>
+              <h3>音乐清单</h3>
+              <p>每次5—10分钟，选1—2类即可；重点是开始、停止、快慢和“再来”。</p>
+            </div>
+          </div>
+          <div class="resource-list">
+            <div class="resource-item">
+              <strong>动作歌</strong>
+              <span>《小手拍拍》、<code>If You're Happy</code>、<code>Head, Shoulders, Knees and Toes</code>。唱一句，做一个动作；突然停2秒，看宝宝是否挥手、拍手、看你或要求继续。</span>
+            </div>
+            <div class="resource-item">
+              <strong>交通主题</strong>
+              <span><code>The Wheels on the Bus</code>、《开汽车》。配合城市交通积木，小车走时唱，停下时音乐也停，顺手练 <code>Go</code> / <code>Stop</code>。</span>
+            </div>
+            <div class="resource-item">
+              <strong>节奏和敲击</strong>
+              <span>不用复杂音乐，直接用积木敲盒子：慢慢敲“咚、咚”，快快敲“咚咚咚”，再停2秒。宝宝喜欢敲击，这个最贴合他。</span>
+            </div>
+            <div class="resource-item">
+              <strong>古典短曲</strong>
+              <span>莫扎特《小夜曲》片段、维瓦尔第《春》片段、圣桑《水族馆》片段。每次30—60秒，只做听觉体验，观察宝宝是挥手、安静听、靠近，还是不感兴趣。</span>
+            </div>
+            <div class="resource-item">
+              <strong>睡前安静</strong>
+              <span>Twinkle Twinkle Little Star、《摇篮曲》或妈妈轻声哼唱。只做放松，不再加入敲击和大动作。</span>
+            </div>
+          </div>
+          <div class="resource-note">音乐不是背景音，最好由大人带着宝宝“做一点、停一下、等回应”。宝宝挥手指挥、发声、看人、身体靠近，都算有效互动。</div>
+        </article>
+
+        <article class="resource-card">
+          <div class="resource-head">
+            <div class="resource-icon"><svg class="icon"><use href="#icon-speech"></use></svg></div>
+            <div>
+              <h3>英语清单</h3>
+              <p>每天固定几个场景说，不要求宝宝开口；先建立动作回应和共同注意。</p>
+            </div>
+          </div>
+          <div class="resource-list resource-list-two">
+            <div class="resource-item">
+              <strong>玩具操作</strong>
+              <div class="phrase-row">
+                <span class="phrase">Open.</span>
+                <span class="phrase">Close.</span>
+                <span class="phrase">Put in.</span>
+                <span class="phrase">Take out.</span>
+                <span class="phrase">Give me.</span>
+                <span class="phrase">More?</span>
+                <span class="phrase">All done.</span>
+              </div>
+              <span>配合盒子、积木、小车、绘本。宝宝把车放盒子里时说：<code>Put in. Car in.</code></span>
+            </div>
+            <div class="resource-item">
+              <strong>户外交通</strong>
+              <div class="phrase-row">
+                <span class="phrase">Look, a car.</span>
+                <span class="phrase">Bus.</span>
+                <span class="phrase">Go.</span>
+                <span class="phrase">Stop.</span>
+                <span class="phrase">Bye-bye.</span>
+                <span class="phrase">Up.</span>
+                <span class="phrase">Down.</span>
+              </div>
+              <span>早上户外看到车、人、电梯、台阶就说一句；只抓宝宝正在看的东西，不连续灌很多句。</span>
+            </div>
+            <div class="resource-item">
+              <strong>绘本互动</strong>
+              <div class="phrase-row">
+                <span class="phrase">Turn page.</span>
+                <span class="phrase">Where is it?</span>
+                <span class="phrase">Point.</span>
+                <span class="phrase">Again?</span>
+                <span class="phrase">Read book.</span>
+              </div>
+              <span>宝宝指喜欢的一页时说：<code>Again? Read book.</code> 然后等他再指、发声或看人。</span>
+            </div>
+            <div class="resource-item">
+              <strong>照护流程</strong>
+              <div class="phrase-row">
+                <span class="phrase">Water.</span>
+                <span class="phrase">Cup.</span>
+                <span class="phrase">Wipe.</span>
+                <span class="phrase">Hands.</span>
+                <span class="phrase">Up.</span>
+                <span class="phrase">Down.</span>
+                <span class="phrase">Good night.</span>
+              </div>
+              <span>喝水、擦手、睡前最适合。固定、短、重复，比换很多词更有效。</span>
+            </div>
+          </div>
+          <div class="resource-note">英语只在真实情境里说一句，配合指向、递物、放入、翻页和停顿；宝宝用动作回应，就已经达成目标。</div>
+        </article>
+
+        <article class="resource-card resource-card-wide">
+          <div class="resource-head">
+            <div class="resource-icon"><svg class="icon"><use href="#icon-star"></use></svg></div>
+            <div>
+              <h3>本周推荐组合</h3>
+              <p>一天不用铺满，抓住4个自然窗口就够。</p>
+            </div>
+          </div>
+          <div class="routine-grid">
+            <div class="routine-step">
+              <strong>早上户外 5分钟</strong>
+              <span>看车、台阶、人来人往：<code>Look</code>、<code>Car</code>、<code>Go</code>、<code>Stop</code>。</span>
+            </div>
+            <div class="routine-step">
+              <strong>上午音乐 5分钟</strong>
+              <span>敲盒子或动作歌，练快慢、停2秒、等宝宝“再来”。</span>
+            </div>
+            <div class="routine-step">
+              <strong>晚上绘本 2分钟</strong>
+              <span>宝宝指页就读：<code>Turn page</code>、<code>Again?</code>、<code>Read book</code>。</span>
+            </div>
+            <div class="routine-step">
+              <strong>睡前轻声哼唱</strong>
+              <span>选择摇篮曲或轻声哼唱，灯光变暗，不加敲击和兴奋游戏。</span>
+            </div>
+          </div>
         </article>
       </div>
     </section>
@@ -1737,27 +2043,28 @@
       <div class="panel note-panel">
         <h3><svg class="icon" style="color:#d97891"><use href="#icon-star"></use></svg>本周只观察，不考核</h3>
         <div class="observation-list">
-          <label class="observation"><input type="checkbox" data-key="obs-1">会在帮助下完成熟悉的两步任务</label>
-          <label class="observation"><input type="checkbox" data-key="obs-2">物品换位置后仍继续寻找</label>
-          <label class="observation"><input type="checkbox" data-key="obs-3">主动看人、递物或发声求助</label>
-          <label class="observation"><input type="checkbox" data-key="obs-4">轮流时短暂等待</label>
-          <label class="observation"><input type="checkbox" data-key="obs-5">愿意参与杯子、勺子或收纳</label>
-          <label class="observation"><input type="checkbox" data-key="obs-6">音乐停止时注意到变化</label>
+          <label class="observation"><input type="checkbox" data-key="obs-1">能用肢体表达抱抱、帮忙、再来或不要</label>
+          <label class="observation"><input type="checkbox" data-key="obs-2">能在熟悉情境中尝试两步任务</label>
+          <label class="observation"><input type="checkbox" data-key="obs-3">放入后愿意多做一步：盖上、搬走或再打开</label>
+          <label class="observation"><input type="checkbox" data-key="obs-4">交换或等待后能重新回到游戏</label>
+          <label class="observation"><input type="checkbox" data-key="obs-5">开始观察并尝试倒退下楼梯、下沙发或下床</label>
+          <label class="observation"><input type="checkbox" data-key="obs-6">音乐停顿、水画痕迹或敲击快慢能引发回应</label>
         </div>
       </div>
       <div class="panel note-panel">
         <h3><svg class="icon" style="color:#cc865e"><use href="#icon-warning"></use></svg>安全与照护提醒</h3>
         <ul>
-          <li>水玩全程近距离看护；所有材料和容器不得有可拆小件。</li>
-          <li>不牵手练走，不快速旋转，不用活动量换睡眠。</li>
-          <li>宝宝疲劳、烦躁、湿疹不适时，活动降级为抱抱、绘本或自由玩。</li>
-          <li>蛋清曾有疑似反应；新食物和过敏相关尝试遵循儿科/过敏专科建议。</li>
+          <li>楼梯、沙发、床边活动必须成人贴身保护；本周重点是学会慢下来和倒退下。</li>
+          <li>水玩全程近距离看护；水深1—2厘米即可，结束后及时擦干。</li>
+          <li>积木和乐高只用大颗粒；所有可入口小件、磁力小件和可拆零件都收起。</li>
+          <li>不牵手强练走，不快速旋转，不用活动量换睡眠。</li>
+          <li>蛋清、蛋黄都有疑似反应；新食物和过敏相关尝试遵循儿科/过敏专科建议。</li>
         </ul>
       </div>
     </section>
 
     <footer class="footer">
-      <span><strong>小记录：</strong>今天宝宝自己完成了什么？大人帮了哪一步？</span>
+      <span><strong>小记录：</strong>今天宝宝自己完成了哪一小串动作？大人只帮了哪一步？</span>
       <span>以宝宝的兴趣、节奏和安全感为先</span>
     </footer>
   </main>
@@ -1766,7 +2073,7 @@
     (function () {
       var boxes = document.querySelectorAll('input[type="checkbox"][data-key]');
       boxes.forEach(function (box) {
-        var key = 'baby-11m-week1-' + box.dataset.key;
+        var key = 'baby-11m-week2-' + box.dataset.key;
         box.checked = localStorage.getItem(key) === '1';
         box.addEventListener('change', function () {
           localStorage.setItem(key, box.checked ? '1' : '0');
