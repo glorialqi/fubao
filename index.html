@@ -791,19 +791,21 @@
     .activity-list {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 8px;
+      align-items: start;
+      gap: 10px;
       margin-top: 11px;
       counter-reset: activity;
     }
 
     .activity-item {
       position: relative;
-      min-height: 154px;
-      padding: 30px 10px 10px;
+      display: grid;
+      gap: 8px;
+      padding: 11px;
       border: 1px solid #f0eaf0;
       border-radius: 8px;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(255, 250, 253, 0.9));
-      box-shadow: 0 6px 14px rgba(59, 72, 86, 0.055);
+      background: linear-gradient(180deg, #ffffff, #fffafd);
+      box-shadow: 0 7px 16px rgba(59, 72, 86, 0.065);
       counter-increment: activity;
       transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
     }
@@ -816,13 +818,11 @@
 
     .activity-item::before {
       content: "活动 " counter(activity);
-      position: absolute;
-      top: 9px;
-      left: 9px;
-      display: grid;
-      place-items: center;
-      min-width: 46px;
-      height: 18px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      justify-self: start;
+      min-height: 19px;
       padding: 0 7px;
       border: 1px solid rgba(255, 255, 255, 0.72);
       border-radius: 999px;
@@ -840,15 +840,34 @@
     .theme-card:nth-child(5) .activity-item::before { background: var(--peach-soft); color: #cc865e; }
     .theme-card:nth-child(6) .activity-item::before { background: var(--lavender-soft); color: #8067bb; }
 
+    .theme-card:nth-child(1) .activity-item { border-color: rgba(255, 159, 176, 0.24); background: linear-gradient(180deg, #fff, var(--coral-soft)); }
+    .theme-card:nth-child(2) .activity-item { border-color: rgba(255, 224, 154, 0.38); background: linear-gradient(180deg, #fff, var(--lemon-soft)); }
+    .theme-card:nth-child(3) .activity-item { border-color: rgba(159, 215, 255, 0.35); background: linear-gradient(180deg, #fff, var(--sky-soft)); }
+    .theme-card:nth-child(4) .activity-item { border-color: rgba(167, 227, 204, 0.38); background: linear-gradient(180deg, #fff, var(--mint-soft)); }
+    .theme-card:nth-child(5) .activity-item { border-color: rgba(255, 198, 165, 0.35); background: linear-gradient(180deg, #fff, var(--peach-soft)); }
+    .theme-card:nth-child(6) .activity-item { border-color: rgba(202, 184, 245, 0.35); background: linear-gradient(180deg, #fff, var(--lavender-soft)); }
+
     .activity-item strong {
       display: block;
       color: #526476;
-      font-size: 12px;
+      font-size: 13px;
       line-height: 1.35;
     }
 
-    .activity-item p {
-      margin-top: 5px;
+    .activity-detail {
+      display: grid;
+      gap: 3px;
+      padding-top: 7px;
+      border-top: 1px dashed #f0eaf0;
+    }
+
+    .activity-detail span {
+      color: #8a98a7;
+      font-size: 10px;
+      font-weight: 900;
+    }
+
+    .activity-detail p {
       color: #6f7e8b;
       font-size: 11px;
       line-height: 1.55;
@@ -1749,15 +1768,21 @@
             <div class="activity-list">
               <div class="activity-item">
                 <strong>交通积木两步指令</strong>
-                <p>材料：小车、桥、盒子。说“拿小车，放盒子里”或“拿车，给妈妈”。宝宝完成任意一步都立即回应：“你把车放进去了。”可加入 <code>Car</code>、<code>Put in</code>、<code>Give me</code>。</p>
+                <div class="activity-detail"><span>材料</span><p>小车、桥、盒子。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>说“拿小车，放盒子里”或“拿车，给妈妈”。宝宝完成任意一步都立即回应：“你把车放进去了。”可加入 <code>Car</code>、<code>Put in</code>、<code>Give me</code>。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否能把“拿、放、给”和动作连起来。</p></div>
               </div>
               <div class="activity-item">
                 <strong>绘本主动点读升级</strong>
-                <p>宝宝指哪一页就读哪一页。读之前停一下问：“你想读这个？再指一下。”读完再停顿，等宝宝用指物、看人、发声或身体靠近表示继续。</p>
+                <div class="activity-detail"><span>材料</span><p>两本熟悉绘本，优先选择宝宝最近爱指的内容。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>宝宝指哪一页就读哪一页。读之前停一下问：“你想读这个？再指一下。”读完再停顿。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否用指物、看人、发声或身体靠近表示继续。</p></div>
               </div>
               <div class="activity-item">
                 <strong>帮忙表达练习</strong>
-                <p>把喜欢的玩具放进稍难打开的大盒子里，让宝宝先尝试。只要他看人、递盒、伸手或发声，就回应：“要帮忙？妈妈帮你打开。”目标是困难时主动求助。</p>
+                <div class="activity-detail"><span>材料</span><p>稍难打开的大盒子、宝宝喜欢的玩具。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>把玩具放进盒子，让宝宝先尝试。只要他看人、递盒、伸手或发声，就回应：“要帮忙？妈妈帮你打开。”</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否在困难时主动求助，而不是直接哭闹。</p></div>
               </div>
             </div>
             <div class="steps"><span class="step">拿车</span><span class="step">放盒子</span><span class="step">给大人</span><span class="step">求助</span></div>
@@ -1777,15 +1802,21 @@
             <div class="activity-list">
               <div class="activity-item">
                 <strong>放入—盖上—搬走—打开—拿出</strong>
-                <p>顺着宝宝喜欢“放进去又拿出来”的兴趣，加一层任务链：球放进盒子，盖上，搬到垫子另一边，再打开找出来。宝宝立刻拿出也可以，再邀请他多做一步。</p>
+                <div class="activity-detail"><span>材料</span><p>球、带盖盒子、爬爬垫。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>球放进盒子，盖上，搬到垫子另一边，再打开找出来。宝宝立刻拿出也可以，再邀请他多做一步。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否愿意从“放入拿出”升级到“盖上、搬走、再找”。</p></div>
               </div>
               <div class="activity-item">
                 <strong>推倒实验室</strong>
-                <p>用积木搭高塔、矮塔、宽塔，让宝宝推倒。大人描述结果：“高高的倒了”“这个很稳”“这次声音大”。推倒不是捣乱，是因果实验。</p>
+                <div class="activity-detail"><span>材料</span><p>积木、平底盒或垫子。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>搭高塔、矮塔、宽塔，让宝宝推倒。大人描述结果：“高高的倒了”“这个很稳”“这次声音大”。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否注意高度、稳定度和声音变化。</p></div>
               </div>
               <div class="activity-item">
                 <strong>城市交通配对</strong>
-                <p>拿交通积木和绘本里的车、公交、桥、路做对应：“书里有车，盒子里哪一个也是车？”不追求答对，重点是开始感受相同和不同。</p>
+                <div class="activity-detail"><span>材料</span><p>交通积木、交通主题绘本。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>拿积木和绘本里的车、公交、桥、路做对应：“书里有车，盒子里哪一个也是车？”</p></div>
+                <div class="activity-detail"><span>观察</span><p>不追求答对，重点看是否开始感受相同和不同。</p></div>
               </div>
             </div>
             <div class="steps"><span class="step">放入</span><span class="step">盖上</span><span class="step">搬走</span><span class="step">打开</span><span class="step">找出</span></div>
@@ -1805,15 +1836,21 @@
             <div class="activity-list">
               <div class="activity-item">
                 <strong>轮到你，轮到我</strong>
-                <p>用积木敲平底盒：宝宝敲一下，大人敲一下。大人说“宝宝来”“妈妈来”，中间等2—3秒，练轮流和短暂等待。</p>
+                <div class="activity-detail"><span>材料</span><p>积木、平底盒。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>宝宝敲一下，大人敲一下。大人说“宝宝来”“妈妈来”，中间等2—3秒。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否能短暂等待，并继续参与轮流。</p></div>
               </div>
               <div class="activity-item">
                 <strong>交换而不是拿走</strong>
-                <p>需要拿走不合适物品时，先拿一个吸引物说：“这个给妈妈，换小车。”递新物、等待、再接旧物。哭了先安抚，再重新开始一轮。</p>
+                <div class="activity-detail"><span>材料</span><p>宝宝喜欢的小车或积木，一个需要替换的物品。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>需要拿走不合适物品时，先拿吸引物说：“这个给妈妈，换小车。”递新物、等待、再接旧物。</p></div>
+                <div class="activity-detail"><span>观察</span><p>哭了先安抚；看他是否能在交换后回到游戏。</p></div>
               </div>
               <div class="activity-item">
                 <strong>结束前收一个</strong>
-                <p>活动结束前只要求“放回一个”。把一块积木放进盒子就算完成，大人说“收好了，结束”。不要求收完整盒，先建立结束流程。</p>
+                <div class="activity-detail"><span>材料</span><p>一个积木或一本书、固定收纳盒。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>活动结束前只要求“放回一个”。完成后大人说“收好了，结束”。</p></div>
+                <div class="activity-detail"><span>观察</span><p>不要求收完整盒，先看他是否接受“结束前做一小步”。</p></div>
               </div>
             </div>
             <div class="steps"><span class="step">预告</span><span class="step">等2秒</span><span class="step">交换</span><span class="step">收一个</span></div>
@@ -1833,15 +1870,21 @@
             <div class="activity-list">
               <div class="activity-item">
                 <strong>楼梯上得快，下得慢</strong>
-                <p>允许宝宝在成人贴身保护下爬楼梯，但本周新增“倒着下一级”的示范：脚先下、慢慢来。先看、摸、尝试，不催完成。</p>
+                <div class="activity-detail"><span>材料</span><p>安全楼梯或低台阶，成人贴身保护。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>允许宝宝爬上去，本周新增“倒着下一级”的示范：脚先下、慢慢来。先看、摸、尝试。</p></div>
+                <div class="activity-detail"><span>观察</span><p>不催完成，重点看是否开始理解“下”的身体方向。</p></div>
               </div>
               <div class="activity-item">
                 <strong>障碍爬行路线</strong>
-                <p>用枕头、软垫、低盒子做路线：爬过、绕过、扶站、蹲下捡车、放进盒子。把爬、蹲、扶站和准确释放串起来。</p>
+                <div class="activity-detail"><span>材料</span><p>枕头、软垫、低盒子、小车。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>做一条路线：爬过、绕过、扶站、蹲下捡车、放进盒子。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否能把爬、蹲、扶站和准确释放串起来。</p></div>
               </div>
               <div class="activity-item">
                 <strong>大颗粒积木精细挑战</strong>
-                <p>用大颗粒积木练拔开、插上、放进平底盒、找指定车或颜色。只用大颗粒，任何可入口小件都收起。</p>
+                <div class="activity-detail"><span>材料</span><p>大颗粒积木、平底盒。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>练拔开、插上、放进平底盒、找指定车或颜色。</p></div>
+                <div class="activity-detail"><span>观察</span><p>只用大颗粒；看双手配合、捏取和释放是否更精准。</p></div>
               </div>
             </div>
             <div class="steps"><span class="step">爬上</span><span class="step">停下</span><span class="step">倒退</span><span class="step">转向</span><span class="step">放入</span></div>
@@ -1861,15 +1904,21 @@
             <div class="activity-list">
               <div class="activity-item">
                 <strong>喝水三步</strong>
-                <p>大人递敞口杯，宝宝双手扶，大人辅助喝几口，再让宝宝把杯子递回。重点是参与流程，不是独立喝完。</p>
+                <div class="activity-detail"><span>材料</span><p>敞口杯，少量水。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>大人递杯，宝宝双手扶，大人辅助喝几口，再让宝宝把杯子递回。</p></div>
+                <div class="activity-detail"><span>观察</span><p>重点是参与流程，不是独立喝完。</p></div>
               </div>
               <div class="activity-item">
                 <strong>擦桌子真任务</strong>
-                <p>给一小块湿毛巾，说“擦这里”。宝宝擦一下就算完成。可升级为“拿毛巾，擦桌子”，让模仿变成真实结果。</p>
+                <div class="activity-detail"><span>材料</span><p>一小块湿毛巾、餐椅桌面或小桌面。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>给毛巾，说“擦这里”。宝宝擦一下就算完成。可升级为“拿毛巾，擦桌子”。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否把模仿动作变成真实生活结果。</p></div>
               </div>
               <div class="activity-item">
                 <strong>只收一个结束</strong>
-                <p>收玩具时不要求宝宝跟着收完，只请他把一个积木、一本书或一块布放回固定位置。大人一边收，他只完成自己的“一件事”。</p>
+                <div class="activity-detail"><span>材料</span><p>一个积木、一本书或一块布，固定收纳位置。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>收玩具时只请宝宝把一个物品放回固定位置。大人一边收，他只完成自己的“一件事”。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否愿意参与结束流程，而不是继续往外拿。</p></div>
               </div>
             </div>
             <div class="steps"><span class="step">扶杯</span><span class="step">喝几口</span><span class="step">递回</span><span class="step">擦一下</span><span class="step">收一个</span></div>
@@ -1889,15 +1938,21 @@
             <div class="activity-list">
               <div class="activity-item">
                 <strong>开始和停止</strong>
-                <p>放音乐或大人唱歌，音乐开始就挥手、敲盒或拍腿，停下就一起停2秒。宝宝用动作或声音表示“再来”后继续。</p>
+                <div class="activity-detail"><span>材料</span><p>音乐或大人唱歌，积木/盒子可选。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>音乐开始就挥手、敲盒或拍腿，停下就一起停2秒。宝宝表示“再来”后继续。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否注意到停顿，并用动作或声音要求继续。</p></div>
               </div>
               <div class="activity-item">
                 <strong>快慢节奏</strong>
-                <p>用积木敲盒子：慢慢敲、快快敲、停一下。宝宝不需要完全模仿，只要感受到速度变化，也可以让他当“小指挥”。</p>
+                <div class="activity-detail"><span>材料</span><p>积木、盒子或小鼓。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>慢慢敲、快快敲、停一下。宝宝不需要完全模仿，也可以让他当“小指挥”。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否感受到速度变化，并用挥手或发声参与。</p></div>
               </div>
               <div class="activity-item">
                 <strong>磁吸画板和水画初体验</strong>
-                <p>大人画短线、圆点、车轮，宝宝用手摸、用笔戳、划线。另选一次用水画板或湿海绵点、拍、划，观察动作会留下痕迹。</p>
+                <div class="activity-detail"><span>材料</span><p>磁吸画板、水画板或湿海绵。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>大人画短线、圆点、车轮，宝宝用手摸、用笔戳、划线；另选一次用湿海绵点、拍、划。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否发现“动作会留下痕迹”。</p></div>
               </div>
             </div>
             <div class="steps"><span class="step">选择</span><span class="step">操作</span><span class="step">看结果</span><span class="step">停顿</span><span class="step">再来</span></div>
