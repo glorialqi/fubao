@@ -896,10 +896,12 @@
 
     .theme-nav {
       display: flex;
-      flex: 1 1 520px;
+      flex: 0 0 auto;
       flex-wrap: nowrap;
       justify-content: flex-start;
       gap: 6px;
+      width: 100%;
+      max-width: 100%;
       min-width: 0;
       overflow-x: auto;
       padding: 1px 1px 4px;
@@ -918,6 +920,8 @@
       align-items: center;
       gap: 5px;
       flex: 0 0 auto;
+      align-self: center;
+      height: 40px;
       min-height: 40px;
       padding: 7px 10px;
       border: 1px solid transparent;
