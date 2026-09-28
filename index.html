@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fffafd">
-  <title>11月龄第3周主题成长计划</title>
+  <title>11月龄18天 · 满1岁前收口与升级计划</title>
   <style>
     :root {
       --ink: #344454;
@@ -1014,6 +1014,144 @@
       background: rgba(255, 250, 253, 0.86);
     }
 
+    .fun-core-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+      margin-bottom: 9px;
+    }
+
+    .fun-core {
+      padding: 11px;
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.78);
+    }
+
+    .fun-core strong {
+      display: grid;
+      place-items: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 7px;
+      background: var(--coral-soft);
+      color: #d96f88;
+      font-size: 12px;
+    }
+
+    .fun-core p {
+      margin-top: 7px;
+      color: #5f6f7d;
+      font-size: 11px;
+      line-height: 1.5;
+    }
+
+    .fun-guide-list {
+      display: grid;
+      gap: 7px;
+      margin-top: 10px;
+    }
+
+    .fun-guide-item {
+      border: 1px solid rgba(52, 68, 84, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.72);
+      overflow: hidden;
+    }
+
+    .fun-guide-item summary {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 12px;
+      color: #526476;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .fun-guide-item summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .fun-guide-item summary::before {
+      content: "＋";
+      color: #d69a82;
+      font-size: 14px;
+    }
+
+    .fun-guide-item[open] summary::before {
+      content: "－";
+    }
+
+    .fun-guide-item[open] summary {
+      border-bottom: 1px solid #f0eaf0;
+    }
+
+    .fun-guide-body {
+      padding: 10px 12px 12px;
+      color: #6f7e8b;
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .fun-guide-body p + p,
+    .fun-guide-body p + ul,
+    .fun-guide-body ul + p {
+      margin-top: 6px;
+    }
+
+    .fun-guide-body ul {
+      display: grid;
+      gap: 4px;
+      margin: 0;
+      padding-left: 17px;
+    }
+
+    .fun-guide-body blockquote {
+      margin: 7px 0;
+      padding: 8px 10px;
+      border-left: 3px solid var(--coral);
+      border-radius: 0 7px 7px 0;
+      background: rgba(255, 240, 243, 0.74);
+      color: #596a78;
+    }
+
+    .fun-script {
+      display: grid;
+      gap: 5px;
+      margin-top: 7px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      background: rgba(237, 247, 255, 0.72);
+    }
+
+    .fun-script strong {
+      color: #5f83a0;
+      font-size: 11px;
+    }
+
+    .fun-signal-grid,
+    .fun-boundary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 7px;
+      margin-top: 7px;
+    }
+
+    .fun-signal,
+    .fun-boundary {
+      padding: 9px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.76);
+      color: #667582;
+    }
+
+    .fun-boundary {
+      background: rgba(255, 242, 234, 0.74);
+    }
+
     .resource-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1306,7 +1444,10 @@
       }
 
       .fun-grid,
-      .fun-example-grid {
+      .fun-example-grid,
+      .fun-core-grid,
+      .fun-signal-grid,
+      .fun-boundary-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
@@ -1347,6 +1488,7 @@
       }
 
       .goal-banner {
+        grid-template-columns: 1fr;
         gap: 11px;
         padding: 13px;
       }
@@ -1422,6 +1564,7 @@
       }
 
       .schedule {
+        grid-template-columns: 1fr;
         gap: 6px;
         padding: 7px;
       }
@@ -1439,6 +1582,9 @@
       .activity-list,
       .fun-grid,
       .fun-example-grid,
+      .fun-core-grid,
+      .fun-signal-grid,
+      .fun-boundary-grid,
       .resource-grid,
       .resource-list-two,
       .routine-grid,
@@ -1555,9 +1701,9 @@
       <div>
         <div class="eyebrow">
           <svg class="icon icon-fill"><use href="#icon-star"></use></svg>
-          11月龄12天 · 第3周升级计划
+          11月龄18天 · 满1岁前收口与升级计划
         </div>
-        <p class="hero-copy">从“会做动作”走向“宝宝能影响游戏”：修路、绕行、选择音乐、暂停再来、主动求助和真实生活任务都成为新的探索入口。</p>
+        <p class="hero-copy">稳定已经会的能力，同时每周加入1—2个可控的新玩法：语言与英语、情绪转换、安全移动、生活参与和音乐感官都只增加一个小变化。</p>
       </div>
       <div class="hero-stickers" aria-label="本周原则">
         <span class="sticker"><svg class="icon"><use href="#icon-moon"></use></svg>两觉作息</span>
@@ -1572,12 +1718,12 @@
           <svg class="icon"><use href="#icon-heart"></use></svg>
         </div>
         <div>
-          <h2>本周总方向：让宝宝的动作产生结果</h2>
-          <p>保留推倒、敲击、玩水、交通积木和户外兴趣；正式活动只换一个变量：路线、顺序、声音或成人回应。</p>
+          <h2>收口稳定，每周一个小升级</h2>
+          <p>保留宝宝喜欢的音乐、玩水、指物、分享、户外和真实生活参与；不追抽象任务，不放任危险探索。</p>
         </div>
         <div>
 		<button class="goal-modal-trigger" id="open-goals" type="button">
-            查看10—12月龄总目标
+            查看满1岁前收口目标
           </button></div>
       </div>
     </section>
@@ -1585,8 +1731,8 @@
     <dialog class="goal-reference" id="goal-reference" aria-labelledby="goal-reference-title">
       <div class="section-heading goal-modal-heading">
         <div>
-          <h2 id="goal-reference-title"><svg class="icon"><use href="#icon-star"></use></svg>10—12月龄总目标定稿</h2>
-          <p>本周计划以此为依据；第3周重点是路线变化、主动求助、音乐选择、安全下行和真实生活任务</p>
+          <h2 id="goal-reference-title"><svg class="icon"><use href="#icon-star"></use></svg>满1岁前收口目标</h2>
+          <p>稳定已有能力，同时每周加入1—2个可控的新玩法；睡眠、情绪转换和身体安全是优先项</p>
         </div>
         <button class="goal-modal-close" id="close-goals" type="button" aria-label="关闭总目标">
           <svg class="icon"><use href="#icon-x"></use></svg>
@@ -1595,23 +1741,24 @@
       <div class="panel goal-reference-panel">
         <div class="goal-reference-intro">
           <div>
-            <h3>总目标</h3>
-            <p>到12个月左右，宝宝能够在安全、有回应、可自主探索的环境中：</p>
+            <h3>阶段总目标</h3>
+            <p>满1岁前，在安全、有回应、可自主探索的环境中：</p>
             <ul class="goal-reference-overview">
-              <li>用手势、声音和少量有意义的词表达需求、拒绝和兴趣；</li>
-              <li>理解并参与熟悉的生活流程；</li>
-              <li>主动探索环境，尝试解决简单问题；</li>
-              <li>与成人进行来回互动、分享和轮流；</li>
-              <li>在成人支持下尝试杯子、勺子、收拾等生活活动；</li>
-              <li>通过身体动作、音乐、绘本和涂鸦表达自己的偏好。</li>
+              <li>用手势、声音、少量词和固定英语短语表达需求、拒绝、选择、继续和求助；</li>
+              <li>在熟悉活动中完成一小段连续任务；</li>
+              <li>在成人少量帮助下解决直观的简单问题；</li>
+              <li>主动分享、展示、轮流，并参与情绪转换；</li>
+              <li>参与杯子、勺子、擦桌、收放等真实生活任务；</li>
+              <li>通过身体、音乐、绘本和涂鸦表达偏好；</li>
+              <li>对新玩法保持兴趣，但不需要一次成功。</li>
             </ul>
           </div>
           <ul class="goal-reference-growth">
             <li>更多物品；</li>
             <li>更多生活场景；</li>
-            <li>与不同照护者互动；</li>
-            <li>在不同情绪和疲劳状态下使用；</li>
-            <li>与手势、声音和词语组合使用。</li>
+            <li>与不同照护者使用相同流程；</li>
+            <li>在不同情绪和疲劳状态下降低难度；</li>
+            <li>与手势、声音、词语和固定英语组合使用。</li>
           </ul>
         </div>
 
@@ -1812,32 +1959,32 @@
     <section class="section">
       <div class="section-heading">
         <h2><svg class="icon"><use href="#icon-clock"></use></svg>固定时间表</h2>
-        <p>继续保留两觉：上午觉10:15—11:30左右　·　午觉14:30—16:00左右；困但不睡时降低刺激，不用活动硬撑</p>
+        <p>按当前真实节律保留两觉：上午觉10:30—12:00左右　·　午觉14:30—15:30左右</p>
       </div>
       <div class="panel">
         <div class="schedule">
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-sun"></use></svg>早晨启动</div>
-            <p><strong>6:30左右</strong> 起床、喝奶、安静自由玩<br><strong>7:30—8:15</strong> 户外 + 爸妈英语<br><strong>8:15</strong> 回家洗漱、喝水</p>
+            <p><strong>7:00左右</strong> 起床、喝奶、自由活动<br><strong>7:30—8:10</strong> 户外 + 妈妈英语<br><strong>8:10—10:00</strong> 回家洗漱、主题或感官活动</p>
           </div>
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-book"></use></svg>上午探索</div>
-            <p><strong>8:45</strong> 音乐/发声轮流<br><strong>9:05</strong> 主题活动（择一）<br><strong>9:50</strong> 绘本或画板，10:05安静收尾</p>
+            <p><strong>10:00</strong> 降低刺激、绘本或轻声音乐<br><strong>10:30—12:00</strong> 上午觉<br><strong>12:00</strong> 起床、喝水、辅食</p>
           </div>
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-cup"></use></svg>中午与午后</div>
-            <p><strong>11:30</strong> 起床、喝水<br><strong>12:00</strong> 辅食<br><strong>12:30</strong> 绘本/指令，13:30后降强度</p>
+            <p><strong>12:30—14:00</strong> 安静活动、指物、绘本、配对或生活参与<br><strong>14:30—15:30</strong> 午觉<br><strong>15:30</strong> 起床、喝水</p>
           </div>
           <div class="time-block">
             <div class="time-label"><svg class="icon"><use href="#icon-moon"></use></svg>傍晚收束</div>
-            <p><strong>16:15</strong> 可选轻活动<br><strong>17:00</strong> 辅食<br><strong>17:30—18:30</strong> 户外，19:00睡前仪式</p>
+            <p><strong>15:30—17:00</strong> 轻活动、玩水或找藏物<br><strong>17:00</strong> 辅食<br><strong>17:30—18:30</strong> 户外</p>
           </div>
         </div>
         <div class="schedule-foot">
-          <span><svg class="icon"><use href="#icon-music"></use></svg>音乐：每天5—10分钟，练开始、停止、快慢</span>
-          <span><svg class="icon"><use href="#icon-speech"></use></svg>英语：户外或睡前用 <code>Car</code>、<code>Put in</code>、<code>Give me</code>、<code>More</code></span>
-          <span><svg class="icon"><use href="#icon-droplet"></use></svg>感官：本周玩水、水画、触觉各选1—2次</span>
-          <span><svg class="icon"><use href="#icon-moon"></use></svg>两觉作息优先，困但不睡时改做绘本、画板或自由玩</span>
+          <span><svg class="icon"><use href="#icon-music"></use></svg>18:30—19:30：妈妈英语与音乐选择</span>
+          <span><svg class="icon"><use href="#icon-moon"></use></svg>19:30—20:00：统一睡前流程，所有照护者使用同一顺序</span>
+          <span><svg class="icon"><use href="#icon-droplet"></use></svg>玩水、海绵、画笔探索每周各选1—2次</span>
+          <span><svg class="icon"><use href="#icon-warning"></use></svg>沙发、床和楼梯边必须成人贴身保护</span>
         </div>
       </div>
     </section>
@@ -1867,7 +2014,7 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-speech"></use></svg></div>
             <div>
               <div class="theme-kicker">01 · 沟通</div>
-              <h3>宝宝当导演与主动表达 <span>从执行指令到影响大人</span></h3>
+              <h3>宝宝指挥大人与声音盒 <span>让表达影响下一步</span></h3>
             </div>
           </div>
           <div class="theme-content">
@@ -1880,23 +2027,23 @@
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>偶尔故意拿错物品，等宝宝重新指、递或发声“纠正”你。</span></div>
               </div>
               <div class="activity-item">
-                <strong>宝宝的语调接话</strong>
-                <div class="activity-detail"><span>材料</span><p>不需要材料，也可以配合宝宝喜欢的绘本或小车。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>模仿宝宝的语调和节奏，如“啊↗”“嗯↘”，然后停2—3秒，等宝宝再发声。大人只模仿，不要求他说词。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否看人、停下来听、再发声或用动作接话。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>把回应做成“你一句、我一句”的小对话，偶尔加入夸张但温和的声音。</span></div>
+                <strong>声音盒找物</strong>
+                <div class="activity-detail"><span>材料</span><p>带盖大盒子、熟悉的小车、球或布。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>把物品放进大盒子，摇一摇或敲一下，再说 <code>Where is it?</code> 后打开找出来。再从“看见后找”升级到“听到声音后找”。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否会先听声音、再寻找，并注意物品重新出现。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>打开前停一秒，让宝宝猜“里面是谁”，然后一起揭晓。</span></div>
               </div>
               <div class="activity-item">
-                <strong>身体部位融入真实流程</strong>
-                <div class="activity-detail"><span>材料</span><p>镜子或睡前固定流程。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>洗手时说“手”，穿鞋时说“脚”，睡前说“眼睛”。固定加入 <code>Hands up</code>、<code>Turn off the light</code>、<code>Good night</code>，不连续提问考宝宝。</p></div>
+                <strong>身体部位与固定英语</strong>
+                <div class="activity-detail"><span>材料</span><p>镜子、洗漱或睡前流程。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>洗手说 <code>Hands</code>，穿鞋说 <code>Feet</code>，擦脸说 <code>Nose</code>。睡前固定说 <code>Turn off the light</code>、<code>Good night</code>，不连续提问。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否会看、摸、拍或逐渐关注对应部位和固定短语。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>先找大人的部位，再让宝宝“帮妈妈找”，把语言放进真实动作。</span></div>
               </div>
             </div>
-            <div class="steps"><span class="step">宝宝选择</span><span class="step">大人跟随</span><span class="step">停一下</span><span class="step">再来</span></div>
+            <div class="steps"><span class="step">宝宝选择</span><span class="step">大人跟随</span><span class="step">听声音</span><span class="step">再回应</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否开始用动作、语调和看人来影响大人的行为。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否开始用动作、声音和看人来影响大人的行为。</span></div>
         </article>
 
         <article class="theme-card" id="theme-2" tabindex="-1">
@@ -1904,36 +2051,36 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-bulb"></use></svg></div>
             <div>
               <div class="theme-kicker">02 · 认知</div>
-              <h3>修路、绕行与穿隧道 <span>把熟悉积木变成新问题</span></h3>
+              <h3>斜坡、换位与分类 <span>用直观结果解决问题</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>城市修路：补缺口、过小车</strong>
-                <div class="activity-detail"><span>材料</span><p>大颗粒交通积木、小车、平面底板。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>大人搭一小段路，中间故意留缺口，把积木递给宝宝：“这里没有路，放这里。”放好后让小车通过，再换一个位置留缺口。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否开始理解缺口、补上、通过，以及放好积木会带来结果。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>小车到了缺口就“走不通啦”，修好后夸张地开过去。</span></div>
+                <strong>斜坡滚球</strong>
+                <div class="activity-detail"><span>材料</span><p>稳固的大书或斜坡、大球、收纳篮。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>大人先放球，让宝宝看球滚下来；再把球交给宝宝，让他尝试放上去。成功后用篮子接球或追球。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否理解“放上去—滚下来”的因果关系，并主动重复。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>换成小球、慢球或不同高度，每次只改变一个条件。</span></div>
               </div>
               <div class="activity-item">
-                <strong>小车路线实验：两条路选一条</strong>
-                <div class="activity-detail"><span>材料</span><p>小车、两个大积木、软垫或低盒子。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>设置一条宽而通的路和一条被软垫挡住的路。宝宝遇到障碍时只说：“这边不通，换一边。”等待他绕行、换方向或求助。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否会改变方向、绕开障碍，并在失败后继续尝试。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>大人做出一点疑惑：“咦，走不通了”，把解决问题变成共同探险。</span></div>
+                <strong>藏物换位</strong>
+                <div class="activity-detail"><span>材料</span><p>两个大杯子或盒子、宝宝熟悉的小车。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>把车藏在一个杯子下，让宝宝找到；再当着他的面换到另一个杯子下，继续寻找。</p></div>
+                <div class="activity-detail"><span>观察</span><p>位置变了以后，是否会继续寻找而不是停留在原处。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>找到后让小车“跑出来”，把结果变成小惊喜。</span></div>
               </div>
               <div class="activity-item">
-                <strong>大车穿隧道：进去、出来、换方向</strong>
-                <div class="activity-detail"><span>材料</span><p>大颗粒积木搭成的宽隧道，或两端开口的大纸盒，小车。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>先让隧道足够宽，示范小车穿过去。宝宝推车进去、出来后，把车换到另一侧，观察他是否改变方向。</p></div>
-                <div class="activity-detail"><span>观察</span><p>不要求一次穿入成功，重点看是否理解进去、出来和换方向。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>每次只改变隧道长度或小车起点一个条件，让宝宝猜“车去哪儿了”。</span></div>
+                <strong>两类物品分类</strong>
+                <div class="activity-detail"><span>材料</span><p>两个大篮子、两三辆车、两三个球。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>先示范一辆车放一堆、一个球放另一堆，再请宝宝继续。只做两类，不要求正确率。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否开始注意相同和不同，并愿意重复放的动作。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>放对后让物品发出声音或做一个夸张回应。</span></div>
               </div>
             </div>
-            <div class="steps"><span class="step">补缺口</span><span class="step">过道路</span><span class="step">绕障碍</span><span class="step">穿隧道</span></div>
+            <div class="steps"><span class="step">滚下来</span><span class="step">找出来</span><span class="step">换位置</span><span class="step">分两堆</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能根据路线变化调整方法，并主动求助或重复验证。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否理解直观因果、继续寻找，并出现简单分类尝试。</span></div>
         </article>
 
         <article class="theme-card" id="theme-3" tabindex="-1">
@@ -1941,7 +2088,7 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-heart"></use></svg></div>
             <div>
               <div class="theme-kicker">03 · 社交情绪</div>
-              <h3>选择、暂停与主动求助 <span>让宝宝影响互动节奏</span></h3>
+              <h3>选择、暂停与情绪转换 <span>让宝宝参与下一步</span></h3>
             </div>
           </div>
           <div class="theme-content">
@@ -1961,16 +2108,16 @@
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>停顿时保持期待表情和安静，不急着替宝宝回答。</span></div>
               </div>
               <div class="activity-item">
-                <strong>困难时的分级帮助</strong>
-                <div class="activity-detail"><span>材料</span><p>盒盖压住一角的玩具，或卡在软垫边缘的大玩具。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>先等宝宝自己尝试；看人、递物或发声后只帮一小步，例如掀开盒盖一点，让宝宝完成最后一步。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否主动求助、接受帮助，并在得到帮助后继续完成动作。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>大人故意只帮到“差一点”，把最后一步留给宝宝完成。</span></div>
+                <strong>结束前的最后一步</strong>
+                <div class="activity-detail"><span>材料</span><p>当前活动物品、下一项活动的物品或地点。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>提前说“再玩一次，然后结束”。结束后邀请宝宝放回一个物品，并马上给出下一项活动，避免突然中断。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否能在预告、收一个和下一项选择的帮助下更快恢复。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>下一项活动一定有可玩的结果，例如“去开小车”或“去听音乐”。</span></div>
               </div>
             </div>
-            <div class="steps"><span class="step">二选一</span><span class="step">暂停</span><span class="step">表达</span><span class="step">求助</span></div>
+            <div class="steps"><span class="step">二选一</span><span class="step">暂停</span><span class="step">表达</span><span class="step">转场</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能用选择、看人、发声或求助让互动继续。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能用选择、看人、发声和转场帮助自己恢复。</span></div>
         </article>
 
         <article class="theme-card" id="theme-4" tabindex="-1">
@@ -1978,36 +2125,36 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-body"></use></svg></div>
             <div>
               <div class="theme-kicker">04 · 身体 / 精细 / 感官</div>
-              <h3>下行、绕行与重新启动 <span>让身体适应路线变化</span></h3>
+              <h3>走着送物、跨障碍与水转移 <span>在移动中完成小任务</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>转身下低台阶</strong>
-                <div class="activity-detail"><span>材料</span><p>一层低软垫或低台阶，成人贴身保护。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>让宝宝爬上低台阶，大人示范转身、手撑、脚先下。只练一层，宝宝观察或尝试一步都可以。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否开始理解身体转向和“脚先下”，不追求独立完成。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>把喜欢的小车放在低处，宝宝下来后车就“开走”，但不让他追着冒险。</span></div>
+                <strong>走着送物品</strong>
+                <div class="activity-detail"><span>材料</span><p>大积木或球、固定收纳盒，路线保持短而安全。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>让宝宝拿一个大物品，走几步后放进盒子，再返回拿第二个。走不到时允许爬过去。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否能完成“拿—走—停—放”，并在返回后重新开始。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>箱子每收到一个物品就发出“咚”，让宝宝看到自己的运输结果。</span></div>
               </div>
               <div class="activity-item">
-                <strong>绕行与改路</strong>
-                <div class="activity-detail"><span>材料</span><p>枕头、软垫、低盒子，做两条安全路线。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>先让宝宝自由爬或扶走；大人临时挡住一条路，说“这里不通，走这边”，让他自己绕行、转向或求助。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否能根据环境变化重新规划路线，而不是只重复原方向。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>大人用小车在另一条路上等他，形成“找到新路就有结果”的小探险。</span></div>
+                <strong>跨软障碍与低台阶转身下</strong>
+                <div class="activity-detail"><span>材料</span><p>低软垫或枕头，一层低台阶，成人贴身保护。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>先让宝宝跨过或绕过软垫；再示范转身、手撑、脚先下低台阶。只练一层，不把真实高处当练习场。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否会改变身体方向、脚先下，或在边缘寻找大人。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>终点放一个小车，完成后让车“开走”，但成人始终贴身保护。</span></div>
               </div>
               <div class="activity-item">
-                <strong>停下—转身—重新启动</strong>
-                <div class="activity-detail"><span>材料</span><p>喜欢的玩具或大人，两个稳固支撑面可选。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>宝宝爬、扶走或走向目标时说“停”，停一秒后说“转过来”，再让他继续。爬过去也完全可以。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否能短暂停下、改变方向并重新开始移动。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>加入“停—开”的声音，像小车一样让身体游戏更有节奏。</span></div>
+                <strong>水转移</strong>
+                <div class="activity-detail"><span>材料</span><p>两个大容器、大海绵或小杯，水深1—2厘米。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>让宝宝用海绵吸水，再把水挤到另一个容器。可以换成小杯舀水，但全程成人近距离看护。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否注意到“吸水—移动—挤出来”的连续结果，并主动重复。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>挤水时配上“滴答滴答”，让声音帮助宝宝理解过程。</span></div>
               </div>
             </div>
-            <div class="steps"><span class="step">转身</span><span class="step">脚先下</span><span class="step">绕开</span><span class="step">停下</span><span class="step">再启动</span></div>
+            <div class="steps"><span class="step">走着送</span><span class="step">跨过去</span><span class="step">脚先下</span><span class="step">吸水</span><span class="step">挤出来</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：大运动只做安全拓展；真实楼梯、沙发和床边必须成人贴身保护。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：移动中是否能停下、转向和完成结果；真实高处必须成人贴身保护。</span></div>
         </article>
 
         <article class="theme-card" id="theme-5" tabindex="-1">
@@ -2015,7 +2162,7 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-cup"></use></svg></div>
             <div>
               <div class="theme-kicker">05 · 生活参与</div>
-              <h3>勺子、杯子与真实小任务 <span>让生活流程产生结果</span></h3>
+              <h3>勺子、换衣与餐后小任务 <span>一次只参与一小步</span></h3>
             </div>
           </div>
           <div class="theme-content">
@@ -2028,23 +2175,23 @@
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>勺子每到嘴边就说“到站啦”，把进食变成一段短短的旅程。</span></div>
               </div>
               <div class="activity-item">
-                <strong>扶杯—喝水—放回</strong>
-                <div class="activity-detail"><span>材料</span><p>吸管杯或敞口杯、固定放杯位置。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>喝完后邀请宝宝把杯子放回固定位置，说 <code>Cup down</code> 或“杯子放下”。成人可以先指位置。</p></div>
-                <div class="activity-detail"><span>观察</span><p>是否从会扶杯延伸到参与“喝完—放回”的流程。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>杯子放回后大人做一个轻微“咚”的声音，让宝宝感受到完成的结果。</span></div>
+                <strong>换尿布和穿衣小任务</strong>
+                <div class="activity-detail"><span>材料</span><p>尿布、湿巾、两件可选衣服、衣物篮。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>不要求宝宝全程配合，只让他完成一小步：拿尿布、递湿巾、把脏衣服放进篮子，或从两件衣服中选一件。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否从抗拒逐渐变成愿意参与其中一步，并接受固定流程。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>把任务变成“帮忙”，而不是“别动”；完成一步就立刻进入下一步。</span></div>
               </div>
               <div class="activity-item">
-                <strong>拿毛巾—擦桌子—放回</strong>
+                <strong>拿毛巾—擦一下—放回</strong>
                 <div class="activity-detail"><span>材料</span><p>小毛巾、餐椅桌面、固定收纳篮。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>先把毛巾递给宝宝，说“拿毛巾，擦桌子”，擦一下后再邀请放回篮子。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否愿意完成两步生活任务；只完成其中一步也算成功。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>擦过的地方立刻说“干净啦”，只改变一小块区域，让结果看得见。</span></div>
               </div>
             </div>
-            <div class="steps"><span class="step">握勺</span><span class="step">送入口</span><span class="step">扶杯</span><span class="step">擦桌</span><span class="step">放回</span></div>
+            <div class="steps"><span class="step">握勺</span><span class="step">拿尿布</span><span class="step">选衣服</span><span class="step">擦一下</span><span class="step">放回</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：关注自主参与和连续动作，不评价整洁、速度或是否吃完整口。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：关注是否愿意参与一小步，不评价速度、整洁或完整配合。</span></div>
         </article>
 
         <article class="theme-card" id="theme-6" tabindex="-1">
@@ -2052,17 +2199,17 @@
             <div class="theme-icon"><svg class="icon"><use href="#icon-music"></use></svg></div>
             <div>
               <div class="theme-kicker">06 · 音乐 / 涂鸦</div>
-              <h3>选择音乐、暂停再来与交通涂鸦 <span>让宝宝影响节奏和结果</span></h3>
+              <h3>选择乐器、暂停再来与海绵涂鸦 <span>让宝宝影响节奏和痕迹</span></h3>
             </div>
           </div>
           <div class="theme-content">
             <div class="activity-list">
               <div class="activity-item">
-                <strong>两个物品选一首歌</strong>
-                <div class="activity-detail"><span>材料</span><p>两个代表不同歌曲的物品，例如小车和手帕；音响或手机由大人操作。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>音响暂停，拿出两个物品问“你选哪个？”等待约5秒。宝宝看、伸手、触碰或拿起其中一个，就播放对应歌曲。</p></div>
-                <div class="activity-detail"><span>观察</span><p>不要求选择准确，重点看是否能表达偏好并注意选择带来的结果。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>让小车代表 <code>The Wheels on the Bus</code>，手帕代表 <code>If You're Happy</code>，选择物就是“音乐按钮”。</span></div>
+                <strong>选择乐器与听声找方向</strong>
+                <div class="activity-detail"><span>材料</span><p>两个声音不同且安全的小乐器、两个盒子。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>让宝宝从两个乐器中选一个，大人说出选择结果并敲一下。再把其中一个藏在盒子里摇响，让宝宝转头寻找声音。</p></div>
+                <div class="activity-detail"><span>观察</span><p>是否注意不同声音、表达偏好，并会寻找声音来源。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>左一下、右一下地摇响，让宝宝用眼睛和身体寻找声音。</span></div>
               </div>
               <div class="activity-item">
                 <strong>音响暂停—表达—继续</strong>
@@ -2072,26 +2219,32 @@
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>暂停时保持期待表情，安静等几秒，不急着替宝宝说“还要”。</span></div>
               </div>
               <div class="activity-item">
-                <strong>交通道路涂鸦</strong>
-                <div class="activity-detail"><span>材料</span><p>磁吸画板、粗笔或水画板，大颗粒小车。</p></div>
-                <div class="activity-detail"><span>玩法</span><p>大人画短路、圆形车轮或几个点，宝宝自由划动；再把小车沿着大人的线移动，感受“手移动—出现痕迹—车通过”。</p></div>
-                <div class="activity-detail"><span>观察</span><p>不要求画出道路，重点看是否关注动作带来的痕迹，并愿意重复。</p></div>
-                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>每次只画一小段，故意停下来问“车去哪儿了”，让宝宝参与补完路线。</span></div>
+                <strong>海绵涂鸦</strong>
+                <div class="activity-detail"><span>材料</span><p>湿海绵、磁吸画板或水画板，少量清水。</p></div>
+                <div class="activity-detail"><span>玩法</span><p>让宝宝用海绵点、拍、划，观察手移动后留下水痕。画笔先作为探索工具，允许摸、敲和扣。</p></div>
+                <div class="activity-detail"><span>观察</span><p>不要求画线或正确握笔，重点看是否发现动作会留下痕迹。</p></div>
+                <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>大人先画一个小点，再让宝宝把它“变大”或“拍掉”。</span></div>
               </div>
             </div>
-            <div class="steps"><span class="step">选择</span><span class="step">播放</span><span class="step">暂停</span><span class="step">再来</span><span class="step">留痕</span></div>
+            <div class="steps"><span class="step">选乐器</span><span class="step">听声音</span><span class="step">暂停</span><span class="step">再来</span><span class="step">留痕</span></div>
           </div>
-          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能选择喜欢的音乐、用动作请求继续，并关注涂鸦带来的结果。</span></div>
+          <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能选择声音、请求继续，并关注海绵涂鸦带来的痕迹。</span></div>
         </article>
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" id="fun-guide">
       <div class="section-heading">
-        <h2><svg class="icon"><use href="#icon-star"></use></svg>让活动变有趣</h2>
+        <h2><svg class="icon"><use href="#icon-star"></use></svg>和11个月宝宝互动变有趣</h2>
         <p>不是增加玩具，而是让宝宝的动作立刻影响结果</p>
       </div>
       <div class="fun-panel">
+        <div class="fun-core-grid">
+          <div class="fun-core"><strong>1</strong><p>我做了，事情真的发生了。</p></div>
+          <div class="fun-core"><strong>2</strong><p>我可以影响大人的反应。</p></div>
+          <div class="fun-core"><strong>3</strong><p>下一步有一点意外，但我大概猜得到。</p></div>
+          <div class="fun-core"><strong>4</strong><p>我还能再来一次。</p></div>
+        </div>
         <div class="fun-formula">
           <strong>有趣公式</strong>
           <span>兴趣入口</span><span class="fun-arrow">→</span>
@@ -2100,45 +2253,122 @@
           <span>大人夸张回应</span><span class="fun-arrow">→</span>
           <span>只加一个小变化</span>
         </div>
-        <div class="fun-grid">
-          <div class="fun-tip">
-            <strong>从喜欢的动作开始</strong>
-            <p>推倒、敲击、玩水、交通积木和户外探索都是入口，再把指令、等待或求助放进去。</p>
-          </div>
-          <div class="fun-tip">
-            <strong>大人做一点戏</strong>
-            <p>“哇，倒啦！”“咦，走不通了？”兴奋几秒后停下来，留给宝宝参与。</p>
-          </div>
-          <div class="fun-tip">
-            <strong>只改变一个条件</strong>
-            <p>只换路线、方向、音乐、声音或位置中的一个，保留熟悉感又增加新鲜感。</p>
-          </div>
-          <div class="fun-tip">
-            <strong>给宝宝控制权</strong>
-            <p>用两个物品代表两首歌或两种玩法，宝宝看、伸手、触碰都可以算选择。</p>
-          </div>
-          <div class="fun-tip">
-            <strong>留一点小意外</strong>
-            <p>大人偶尔拿错车、挡住一条路或停在“差一步”，等待宝宝修正或求助。</p>
-          </div>
-          <div class="fun-tip">
-            <strong>在还想玩时结束</strong>
-            <p>成功一次、再来一次就可以结束：“再来一次，然后结束。”不要等到宝宝已经崩溃。</p>
-          </div>
-        </div>
-        <div class="fun-example-grid">
-          <div class="fun-example">
-            <strong>城市交通</strong>
-            <p>“小车要上班，前面堵车，停！换一条路，到家啦。”</p>
-          </div>
-          <div class="fun-example">
-            <strong>玩水</strong>
-            <p>“海绵喝水，挤出来，滴答滴答，擦干净啦。”</p>
-          </div>
-          <div class="fun-example">
-            <strong>音乐</strong>
-            <p>两个物品选一首歌；播放一小段，暂停，等宝宝说“还要”。</p>
-          </div>
+        <div class="fun-guide-list">
+          <details class="fun-guide-item" open>
+            <summary>01 · 基础互动循环</summary>
+            <div class="fun-guide-body">
+              <p>每轮互动都用这个顺序：<strong>观察 → 模仿 → 等一等 → 加一点变化 → 让宝宝决定是否继续</strong>。</p>
+              <p>例如宝宝敲盒子：你学他敲一下，停2—3秒等他看你，再换成轻轻敲两下。重点不是大人表演多久，而是给宝宝留出发起和控制的机会。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>02 · 用宝宝喜欢的动作开场</summary>
+            <div class="fun-guide-body">
+              <p>宝宝喜欢推倒、敲击、玩水、交通积木、户外观察和有节奏的音乐。活动不要从“请完成指令”开始，而要从这些动作开始，再自然加入目标。</p>
+              <ul>
+                <li>不是“练两步指令”，而是“车开过去，停！拿车给妈妈”。</li>
+                <li>不是“练空间关系”，而是“车进盒子，出来啦”。</li>
+                <li>不是“练等待”，而是“敲一下，等妈妈也敲一下”。</li>
+                <li>不是“练英语”，而是操作时自然说 <code>Put in</code>、<code>Give me</code>、<code>More?</code>。</li>
+              </ul>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>03 · 大人要有一点戏剧感</summary>
+            <div class="fun-guide-body">
+              <p>推倒时说“哇！砰！”，小车出来时说“出来啦！”，找不到时说“咦？去哪儿了？”，水滴下来时说“滴答滴答！”。</p>
+              <p>不要持续大声兴奋。最好的节奏是：<strong>兴奋几秒 → 安静等待 → 再兴奋几秒</strong>。这样宝宝才有机会参与，而不是只看大人表演。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>04 · 让宝宝拥有控制权</summary>
+            <div class="fun-guide-body">
+              <p>音响由大人操作，但选择权可以交给宝宝。用小车代表 <code>The Wheels on the Bus</code>，用手帕代表 <code>If You're Happy</code>，拿出两样问“你选哪个？”宝宝看、伸手、触碰或拿起都算选择。</p>
+              <p>也可以让宝宝选择玩法：“车进盒子，还是车过桥？”“敲盒子，还是敲积木？”“玩水，还是看书？”如果宝宝没有选择，大人直接替他选，不要反复追问。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>05 · 活动中加入“小意外”</summary>
+            <div class="fun-guide-body">
+              <p>已经熟练的活动不必完全换掉，只改一个变量：塔从高变矮、车从左边变右边、玩具从盒子里换到布下面、水从拍变成挤、音乐从快变慢、路线里加入软垫。</p>
+              <blockquote>保留熟悉的动作，只改变一个条件。既有安全感，又有新鲜感。</blockquote>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>06 · 给活动一个“故事”</summary>
+            <div class="fun-guide-body">
+              <div class="fun-script"><strong>城市交通</strong><span>“小车要出发了。”“开。”“前面堵车，停。”“换一条路。”“到家啦。”</span></div>
+              <div class="fun-script"><strong>玩水</strong><span>“海绵喝水。”“挤一挤，滴答滴答。”“桌子湿了，擦一擦。”“干净啦。”</span></div>
+              <div class="fun-script"><strong>低台阶</strong><span>“上去。”“停一下。”“转身。”“脚下来。”“下来啦。”</span></div>
+              <p>如果宝宝还不理解隧道，可以先退回“车进盒子，再出来”。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>07 · 用“刚好够难”的挑战</summary>
+            <div class="fun-guide-body">
+              <p>太简单会无聊，太难会哭。可以让成人只帮最后一步：先用宽入口让宝宝成功，再把入口换个方向；宝宝卡住时，只扶正一点，让他自己完成。</p>
+              <p>如果连续两三次都失败，就降低难度，不要硬撑。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>08 · 把重复变成游戏内容</summary>
+            <div class="fun-guide-body">
+              <p>宝宝反复拿出、推倒、敲击，并不代表活动失败。可以这样逐步变化：第一次自由推倒；第二次大人搭高一点；第三次递一块让宝宝放回；第四次加入声音；第五次换一个位置。</p>
+              <p>不要阻止重复，而是让重复逐渐变得更丰富。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>09 · 一次只玩一个“高潮”</summary>
+            <div class="fun-guide-body">
+              <p>一个活动里只设一个最有趣的结果：塔倒下、海绵挤出水、音乐重新响起、盒子打开、小车从斜坡滑下来、找到藏起来的物品。</p>
+              <p>不要一次同时加入颜色、数量、英语、轮流、收纳和两步指令。目标太多，趣味会被稀释。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>10 · 在宝宝还想玩时结束</summary>
+            <div class="fun-guide-body">
+              <p>最好的结束点不是宝宝已经烦躁，而是成功了一次、又要求了一次、还想继续但注意力开始分散。</p>
+              <blockquote>“再来一次，然后结束。” <code>One more, then all done.</code></blockquote>
+              <p>结束后马上转入喝水、户外、绘本等自然流程。</p>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>11 · 结合宝宝当前能力的互动例子</summary>
+            <div class="fun-guide-body">
+              <div class="fun-script"><strong>宝宝当导演</strong><span>宝宝递车，大人故意拿起积木，停下问“你要车吗？”宝宝重新指、递或发声后说：“哦，是车！车要开。”</span></div>
+              <div class="fun-script"><strong>音乐选择</strong><span>拿出两个物品代表两首歌，选中后播放20—40秒，再暂停问“还要吗？<code>More?</code>”</span></div>
+              <div class="fun-script"><strong>声音盒找物</strong><span>把车或球放进盒子，摇一摇后问 <code>Where is it?</code>，打开再玩一次。</span></div>
+              <div class="fun-script"><strong>走着送物品</strong><span>拿一个大积木走几步，说“走、走、停，放进去”，成功后回应“送到了！”</span></div>
+              <div class="fun-script"><strong>换尿布和穿衣</strong><span>只要求完成一小步：拿尿布、递湿巾、把脏衣服放篮子，或从两件衣服中选一件。</span></div>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>12 · 判断互动是否有趣</summary>
+            <div class="fun-guide-body">
+              <p>不用只看宝宝笑，而是看他是否主动回来继续、重复刚才的动作、看大人要求再做一次、递物或指物、在暂停后表示“还要”。</p>
+              <div class="fun-signal-grid">
+                <div class="fun-signal">主动回来</div>
+                <div class="fun-signal">重复动作</div>
+                <div class="fun-signal">要求再来</div>
+              </div>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>13 · 三条边界</summary>
+            <div class="fun-guide-body">
+              <div class="fun-boundary-grid">
+                <div class="fun-boundary">不用挠痒、突然吓唬或强行逗笑来制造反应。</div>
+                <div class="fun-boundary">宝宝转头、推开、摇头时马上停。</div>
+                <div class="fun-boundary">疲劳、困倦、湿疹或烦躁时，降级为抱抱、绘本或安静玩。</div>
+              </div>
+            </div>
+          </details>
+          <details class="fun-guide-item">
+            <summary>14 · 一句话总结</summary>
+            <div class="fun-guide-body">
+              <blockquote>跟随宝宝的动作，给它配一个声音或结果，停一下等他回应，然后只改变一个小地方。</blockquote>
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -2146,7 +2376,7 @@
     <section class="section">
       <div class="section-heading">
         <h2><svg class="icon"><use href="#icon-music"></use></svg>音乐与英语清单</h2>
-        <p>英语做情境提示，音乐做轮流和停顿；不追求词汇量和曲目数量</p>
+        <p>英语在真实情境里固定使用，音乐用选择和停顿让宝宝参与；不追求词汇量和曲目数量</p>
       </div>
       <div class="resource-grid">
         <article class="resource-card">
@@ -2154,32 +2384,32 @@
             <div class="resource-icon"><svg class="icon"><use href="#icon-music"></use></svg></div>
             <div>
               <h3>音乐清单</h3>
-              <p>每次5—10分钟，选1—2类即可；重点是开始、停止、快慢和“再来”。</p>
+              <p>每次5—10分钟，选1—2类即可；重点是选择、开始、停止和“再来”。</p>
             </div>
           </div>
           <div class="resource-list">
             <div class="resource-item">
-              <strong>动作歌：先选，再播放</strong>
-              <span>《小手拍拍》、<code>If You're Happy</code>、<code>Head, Shoulders, Knees and Toes</code>。用两个物品代表两首歌，宝宝看、伸手、触碰或拿起其中一个，就播放对应歌曲；唱一句，做一个动作，突然停2秒。</span>
+              <strong>动作歌与选择</strong>
+              <span>《小手拍拍》、<code>If You're Happy</code>、<code>Head, Shoulders, Knees and Toes</code>。用两个物品代表两首歌，宝宝看、伸手、触碰或拿起其中一个，就播放对应歌曲。</span>
             </div>
             <div class="resource-item">
               <strong>交通主题</strong>
               <span><code>The Wheels on the Bus</code>、《开汽车》。配合城市交通积木，小车走时唱，停下时音乐也停，顺手练 <code>Go</code> / <code>Stop</code>。</span>
             </div>
             <div class="resource-item">
-              <strong>节奏和敲击</strong>
-              <span>不用复杂音乐，直接用积木敲盒子：慢慢敲“咚、咚”，快快敲“咚咚咚”，再停2秒。宝宝喜欢敲击，这个最贴合他。</span>
+              <strong>节奏、乐器和听声</strong>
+              <span>用两个声音不同的安全乐器，让宝宝选择敲哪个；再把一个藏进盒子摇响，让他转头寻找声音。也可以继续用积木敲盒子练快慢和停顿。</span>
             </div>
             <div class="resource-item">
-              <strong>古典短曲</strong>
-              <span>莫扎特《小夜曲》片段、维瓦尔第《春》片段、圣桑《水族馆》片段。每次30—60秒，只做听觉体验；音响由大人操作，不要求宝宝自己按按钮。</span>
+              <strong>古典与巴赫</strong>
+              <span>巴赫短曲、莫扎特《小夜曲》片段、维瓦尔第《春》片段。每次30—60秒，只做听觉体验；音响由大人操作，不要求宝宝自己按按钮。</span>
             </div>
             <div class="resource-item">
               <strong>睡前安静</strong>
               <span>Twinkle Twinkle Little Star、《摇篮曲》或妈妈轻声哼唱。只做放松，不再加入敲击和大动作。</span>
             </div>
           </div>
-          <div class="resource-note">音乐不是背景音，最好由大人带着宝宝“做一点、停一下、等回应”。宝宝挥手指挥、发声、看人、身体靠近，都算有效互动。</div>
+          <div class="resource-note">音乐不是背景音，最好由大人带着宝宝“选一下、做一点、停一下、等回应”。宝宝挥手、发声、看人、身体靠近和寻找声音，都算有效互动。</div>
         </article>
 
         <article class="resource-card">
@@ -2187,7 +2417,7 @@
             <div class="resource-icon"><svg class="icon"><use href="#icon-speech"></use></svg></div>
             <div>
               <h3>英语清单</h3>
-              <p>每天固定几个场景说，不要求宝宝开口；先建立动作回应和共同注意。</p>
+              <p>妈妈早上或晚上固定使用；不要求宝宝开口，先建立动作回应和共同注意。</p>
             </div>
           </div>
           <div class="resource-list resource-list-two">
@@ -2200,6 +2430,10 @@
                 <span class="phrase">Take out.</span>
                 <span class="phrase">Give me.</span>
                 <span class="phrase">More?</span>
+                <span class="phrase">Wait.</span>
+                <span class="phrase">Your turn.</span>
+                <span class="phrase">My turn.</span>
+                <span class="phrase">Clean up.</span>
                 <span class="phrase">All done.</span>
               </div>
               <span>配合盒子、积木、小车、绘本。宝宝把车放盒子里时说：<code>Put in. Car in.</code></span>
@@ -2209,6 +2443,7 @@
               <div class="phrase-row">
                 <span class="phrase">Look, a car.</span>
                 <span class="phrase">Bus.</span>
+                <span class="phrase">Let's go.</span>
                 <span class="phrase">Go.</span>
                 <span class="phrase">Stop.</span>
                 <span class="phrase">Bye-bye.</span>
@@ -2218,15 +2453,18 @@
               <span>早上户外看到车、人、电梯、台阶就说一句；只抓宝宝正在看的东西，不连续灌很多句。</span>
             </div>
             <div class="resource-item">
-              <strong>绘本互动</strong>
+              <strong>绘本与身体部位</strong>
               <div class="phrase-row">
                 <span class="phrase">Turn page.</span>
                 <span class="phrase">Where is it?</span>
                 <span class="phrase">Point.</span>
                 <span class="phrase">Again?</span>
                 <span class="phrase">Read book.</span>
+                <span class="phrase">Hands.</span>
+                <span class="phrase">Feet.</span>
+                <span class="phrase">Nose.</span>
               </div>
-              <span>宝宝指喜欢的一页时说：<code>Again? Read book.</code> 然后等他再指、发声或看人。</span>
+              <span>宝宝指喜欢的一页时说：<code>Again? Read book.</code> 洗手、穿鞋和擦脸时再自然加入 <code>Hands</code>、<code>Feet</code>、<code>Nose</code>。</span>
             </div>
             <div class="resource-item">
               <strong>照护流程</strong>
@@ -2256,19 +2494,19 @@
           <div class="routine-grid">
             <div class="routine-step">
               <strong>早上户外 5分钟</strong>
-              <span>看车、台阶、人来人往：<code>Look</code>、<code>Car</code>、<code>Go</code>、<code>Stop</code>。</span>
+              <span>看车、台阶、人来人往：<code>Look</code>、<code>Car</code>、<code>Let's go</code>、<code>Go</code>、<code>Stop</code>。</span>
             </div>
             <div class="routine-step">
-              <strong>上午音乐 5分钟</strong>
-              <span>拿两个物品让宝宝选一首，播放20—40秒后暂停，等他用动作或声音表示“再来”。</span>
+              <strong>白天新玩法 10分钟</strong>
+              <span>从斜坡滚球、藏物换位、走着送物、水转移、海绵涂鸦中选一个，每天只换一个小条件。</span>
             </div>
             <div class="routine-step">
-              <strong>晚上绘本 2分钟</strong>
-              <span>宝宝指页就读：<code>Turn page</code>、<code>Again?</code>、<code>Read book</code>。</span>
+              <strong>晚上英语 15—20分钟</strong>
+              <span>玩具操作、绘本、身体部位和照护流程分散进行；不连续提问，不要求宝宝复述。</span>
             </div>
             <div class="routine-step">
-              <strong>睡前轻声哼唱</strong>
-              <span>选择摇篮曲或轻声哼唱，灯光变暗，不加敲击和兴奋游戏。</span>
+              <strong>睡前统一流程</strong>
+              <span>收一个、喝水、洗漱、换尿布、说 <code>Turn off the light</code>、<code>Good night</code>，再轻声哼唱。</span>
             </div>
           </div>
         </article>
@@ -2277,24 +2515,24 @@
 
     <section class="section notes">
       <div class="panel note-panel">
-        <h3><svg class="icon" style="color:#d97891"><use href="#icon-star"></use></svg>本周只观察，不考核</h3>
+        <h3><svg class="icon" style="color:#d97891"><use href="#icon-star"></use></svg>满1岁前只观察，不考核</h3>
         <div class="observation-list">
           <label class="observation"><input type="checkbox" data-key="obs-1">会通过递物、看人、发声或动作影响大人的下一步</label>
-          <label class="observation"><input type="checkbox" data-key="obs-2">能在路线变化或有障碍时尝试换方向</label>
-          <label class="observation"><input type="checkbox" data-key="obs-3">能理解“补上—通过”或“进去—出来”的结果关系</label>
-          <label class="observation"><input type="checkbox" data-key="obs-4">暂停后会用动作或声音表示继续</label>
-          <label class="observation"><input type="checkbox" data-key="obs-5">遇到困难会主动求助，并接受成人只帮一小步</label>
-          <label class="observation"><input type="checkbox" data-key="obs-6">能参与一小段生活流程或选择一首喜欢的音乐</label>
+          <label class="observation"><input type="checkbox" data-key="obs-2">听到声音后会寻找声音来源或找到盒中物品</label>
+          <label class="observation"><input type="checkbox" data-key="obs-3">暂停后会用动作或声音表示继续</label>
+          <label class="observation"><input type="checkbox" data-key="obs-4">活动结束时能接受预告、收一个和下一项选择</label>
+          <label class="observation"><input type="checkbox" data-key="obs-5">移动中能停下、转向，或完成“拿—走—放”</label>
+          <label class="observation"><input type="checkbox" data-key="obs-6">换尿布、穿衣或餐后能参与其中一小步</label>
         </div>
       </div>
       <div class="panel note-panel">
         <h3><svg class="icon" style="color:#cc865e"><use href="#icon-warning"></use></svg>安全与照护提醒</h3>
         <ul>
-          <li>楼梯、沙发、床边活动必须成人贴身保护；不把真实高处当作练习器材。</li>
+          <li>宝宝对沙发和床边没有危险意识，必须提前阻挡并贴身保护；不把真实高处当作练习器材。</li>
           <li>水玩全程近距离看护；水深1—2厘米即可，结束后及时擦干。</li>
           <li>积木和乐高只用大颗粒；所有可入口小件、磁力小件和可拆零件都收起。</li>
           <li>不牵手强练走，不快速旋转；走不到时允许宝宝爬过去。</li>
-          <li>蛋清、蛋黄都有疑似反应；新食物和过敏相关尝试遵循儿科/过敏专科建议。</li>
+          <li>近期尝试鸡蛋暂时没有过敏反应；后续增加种类或频次仍遵循儿科医生建议。</li>
         </ul>
       </div>
     </section>
@@ -2309,7 +2547,7 @@
     (function () {
       var boxes = document.querySelectorAll('input[type="checkbox"][data-key]');
       boxes.forEach(function (box) {
-        var key = 'baby-11m-week3-' + box.dataset.key;
+        var key = 'baby-closeout-11m18-' + box.dataset.key;
         box.checked = localStorage.getItem(key) === '1';
         box.addEventListener('change', function () {
           localStorage.setItem(key, box.checked ? '1' : '0');
