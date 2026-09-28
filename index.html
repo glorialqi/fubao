@@ -34,6 +34,7 @@
 
     html {
       background: var(--paper);
+      scroll-behavior: smooth;
     }
 
     body {
@@ -59,7 +60,7 @@
     .page {
       width: min(1480px, calc(100% - 32px));
       margin: 0 auto;
-      padding: 24px 0 36px;
+      padding: 24px 0 118px;
     }
 
     .hero {
@@ -216,6 +217,247 @@
       border: 1px solid rgba(255, 198, 165, 0.72);
       border-radius: 12px;
       font-size: 12px;
+    }
+
+    .schedule-panel {
+      margin-top: 10px;
+      padding: 13px;
+    }
+
+    .brief-panel {
+      margin-top: 10px;
+      padding: 12px;
+    }
+
+    .brief-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .brief-head strong {
+      color: var(--ink);
+      font-size: 14px;
+    }
+
+    .brief-head span {
+      color: var(--muted);
+      font-size: 11px;
+      text-align: right;
+    }
+
+    .brief-strip {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding: 1px 1px 4px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+
+    .brief-strip::-webkit-scrollbar {
+      display: none;
+    }
+
+    .brief-chip {
+      flex: 0 0 min(78vw, 250px);
+      scroll-snap-align: start;
+      padding: 9px 10px;
+      border: 1px solid #ece8ef;
+      border-radius: 8px;
+      background: linear-gradient(180deg, #fff, #f8fbff);
+    }
+
+    .brief-chip strong {
+      display: block;
+      color: #526476;
+      font-size: 11px;
+    }
+
+    .brief-chip p {
+      margin-top: 4px;
+      color: #6f7e8b;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .schedule-summary {
+      margin-top: 9px;
+      border: 1px solid #e8eef3;
+      border-radius: 8px;
+      background: rgba(237, 247, 255, 0.56);
+      overflow: hidden;
+    }
+
+    .schedule-summary summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 9px;
+      padding: 9px 11px;
+      color: #526476;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .schedule-summary summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .schedule-summary summary span {
+      color: #7a8998;
+      font-size: 11px;
+      font-weight: 600;
+      text-align: right;
+    }
+
+    .schedule-summary-body {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 7px;
+      padding: 0 10px 10px;
+    }
+
+    .schedule-summary-body div {
+      padding: 8px;
+      border-radius: 7px;
+      background: rgba(255, 255, 255, 0.72);
+      color: #6f7e8b;
+      font-size: 11px;
+      line-height: 1.45;
+    }
+
+    .schedule-summary-body strong {
+      display: block;
+      color: #526476;
+      font-size: 11px;
+    }
+
+    .page-shortcuts,
+    .tool-jumps {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .page-shortcuts {
+      margin-top: 9px;
+    }
+
+    .page-shortcuts a,
+    .tool-jumps a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 29px;
+      padding: 5px 9px;
+      border: 1px solid #e3eaf0;
+      border-radius: 7px;
+      background: #fff;
+      color: #5f7284;
+      font-size: 11px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .page-shortcuts a:hover,
+    .tool-jumps a:hover {
+      border-color: #b8d9ef;
+      background: var(--sky-soft);
+    }
+
+    .bottom-nav {
+      position: fixed;
+      left: 50%;
+      right: auto;
+      bottom: 12px;
+      z-index: 90;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 5px;
+      width: min(560px, calc(100vw - 24px));
+      max-width: none;
+      padding: 7px;
+      border: 1px solid rgba(52, 68, 84, 0.1);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 14px 34px rgba(59, 72, 86, 0.18);
+      backdrop-filter: blur(18px);
+      transform: translateX(-50%);
+    }
+
+    .bottom-nav a {
+      display: flex;
+      flex: 1 1 0;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      min-width: 0;
+      min-height: 46px;
+      overflow: hidden;
+      border-radius: 11px;
+      color: #697987;
+      font-size: 11px;
+      font-weight: 900;
+      text-decoration: none;
+      transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+    }
+
+    .bottom-nav a span {
+      min-width: 0;
+      white-space: nowrap;
+    }
+
+    .bottom-nav a:nth-child(1) { background: #fff4f6; color: #c66d81; }
+    .bottom-nav a:nth-child(2) { background: #fff8e8; color: #ac8038; }
+    .bottom-nav a:nth-child(3) { background: #eef8ff; color: #5c89a8; }
+    .bottom-nav a:nth-child(4) { background: #f4f0ff; color: #7667a6; }
+
+    .bottom-nav a.is-current {
+      color: #fff;
+      box-shadow: 0 7px 15px rgba(59, 72, 86, 0.16);
+      transform: translateY(-1px);
+    }
+
+    .bottom-nav a:nth-child(1).is-current { background: #e58ca2; }
+    .bottom-nav a:nth-child(2).is-current { background: #e8bd64; }
+    .bottom-nav a:nth-child(3).is-current { background: #78b3d8; }
+    .bottom-nav a:nth-child(4).is-current { background: #9a86d2; }
+
+    .bottom-nav .icon {
+      width: 17px;
+      height: 17px;
+    }
+
+    .back-to-top {
+      position: fixed;
+      right: max(14px, calc((100vw - 560px) / 2));
+      bottom: 82px;
+      z-index: 80;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid rgba(52, 68, 84, 0.1);
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.96);
+      color: #6f7e8b;
+      box-shadow: 0 10px 24px rgba(59, 72, 86, 0.16);
+      cursor: pointer;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(7px);
+      transition: opacity 160ms ease, transform 160ms ease;
+    }
+
+    .back-to-top.is-visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
     }
 
     .goal-modal-trigger {
@@ -618,7 +860,11 @@
     }
 
     .theme-toolbar {
+      position: sticky;
+      top: 8px;
+      z-index: 20;
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
@@ -628,6 +874,7 @@
       border-radius: 8px;
       background: rgba(255, 255, 255, 0.78);
       box-shadow: 0 5px 14px rgba(59, 72, 86, 0.04);
+      backdrop-filter: blur(12px);
     }
 
     .theme-toolbar-copy {
@@ -649,9 +896,19 @@
 
     .theme-nav {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: flex-end;
+      flex: 1 1 520px;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
       gap: 6px;
+      min-width: 0;
+      overflow-x: auto;
+      padding: 1px 1px 4px;
+      scroll-snap-type: x proximity;
+      scrollbar-width: none;
+    }
+
+    .theme-nav::-webkit-scrollbar {
+      display: none;
     }
 
     .theme-nav button {
@@ -660,16 +917,18 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      min-height: 29px;
-      padding: 5px 8px;
+      flex: 0 0 auto;
+      min-height: 40px;
+      padding: 7px 10px;
       border: 1px solid transparent;
       border-radius: 7px;
       background: #f8f6fa;
       color: #71808d;
       font: inherit;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       cursor: pointer;
+      scroll-snap-align: start;
       transition: background 160ms ease, border-color 160ms ease, color 160ms ease, transform 160ms ease;
     }
 
@@ -718,6 +977,11 @@
       outline-offset: 5px;
     }
 
+    .theme-card.is-collapsed .theme-content,
+    .theme-card.is-collapsed .theme-footer {
+      display: none;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .goal-modal-trigger,
       .goal-modal-close,
@@ -741,6 +1005,19 @@
       align-items: flex-start;
       gap: 10px;
       padding-bottom: 3px;
+      cursor: pointer;
+    }
+
+    .theme-header::after {
+      content: "－";
+      margin-left: auto;
+      color: #9aa5ae;
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .theme-card.is-collapsed .theme-header::after {
+      content: "＋";
     }
 
     .theme-icon {
@@ -807,7 +1084,37 @@
       background: linear-gradient(180deg, #ffffff, #fffafd);
       box-shadow: 0 7px 16px rgba(59, 72, 86, 0.065);
       counter-increment: activity;
+      cursor: pointer;
       transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+
+    .activity-item.is-collapsed {
+      gap: 5px;
+      padding: 10px 11px;
+      min-height: 0;
+    }
+
+    .activity-item.is-collapsed .activity-detail,
+    .activity-item.is-collapsed .activity-fun {
+      display: none;
+    }
+
+    .activity-item:not(.is-collapsed) .activity-keywords {
+      display: none;
+    }
+
+    .activity-item::after {
+      content: "＋";
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: #a4afb8;
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    .activity-item:not(.is-collapsed)::after {
+      content: "－";
     }
 
     .activity-item:hover {
@@ -849,9 +1156,25 @@
 
     .activity-item strong {
       display: block;
+      padding-right: 20px;
       color: #526476;
       font-size: 13px;
       line-height: 1.35;
+    }
+
+    .activity-keywords {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      color: #82909d;
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .activity-keywords::before {
+      content: "关键词";
+      color: #a3adb6;
+      font-weight: 800;
     }
 
     .activity-detail {
@@ -1022,6 +1345,9 @@
     }
 
     .fun-core {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
       padding: 11px;
       border: 1px solid rgba(52, 68, 84, 0.08);
       border-radius: 8px;
@@ -1031,6 +1357,7 @@
     .fun-core strong {
       display: grid;
       place-items: center;
+      flex: 0 0 auto;
       width: 25px;
       height: 25px;
       border-radius: 7px;
@@ -1040,7 +1367,7 @@
     }
 
     .fun-core p {
-      margin-top: 7px;
+      margin-top: 0;
       color: #5f6f7d;
       font-size: 11px;
       line-height: 1.5;
@@ -1435,6 +1762,10 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
+      .schedule-summary-body {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
       .themes-grid {
         grid-template-columns: 1fr;
       }
@@ -1569,6 +1900,40 @@
         padding: 7px;
       }
 
+      .schedule-summary-body {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-nav {
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        max-width: none;
+        gap: 2px;
+        padding: 6px 7px calc(6px + env(safe-area-inset-bottom));
+        border-right: 0;
+        border-bottom: 0;
+        border-left: 0;
+        border-radius: 14px 14px 0 0;
+        transform: none;
+      }
+
+      .bottom-nav a {
+        min-height: 44px;
+        gap: 3px;
+        font-size: 10px;
+      }
+
+      .bottom-nav .icon {
+        width: 15px;
+        height: 15px;
+      }
+
+      .back-to-top {
+        right: 10px;
+        bottom: 74px;
+      }
+
       .time-block {
         min-height: 0;
         padding: 9px;
@@ -1694,16 +2059,18 @@
     <symbol id="icon-x" viewBox="0 0 24 24">
       <path d="m6 6 12 12M18 6 6 18"></path>
     </symbol>
+    <symbol id="icon-arrow-up" viewBox="0 0 24 24">
+      <path d="m6 14 6-6 6 6M12 8v10"></path>
+    </symbol>
   </svg>
 
-  <main class="page">
+  <main class="page" id="top">
     <header class="hero">
       <div>
         <div class="eyebrow">
           <svg class="icon icon-fill"><use href="#icon-star"></use></svg>
           11月龄18天 · 满1岁前收口与升级计划
         </div>
-        <p class="hero-copy">稳定已经会的能力，同时每周加入1—2个可控的新玩法：语言与英语、情绪转换、安全移动、生活参与和音乐感官都只增加一个小变化。</p>
       </div>
       <div class="hero-stickers" aria-label="本周原则">
         <span class="sticker"><svg class="icon"><use href="#icon-moon"></use></svg>两觉作息</span>
@@ -1726,6 +2093,19 @@
             查看满1岁前收口目标
           </button></div>
       </div>
+      <div class="panel brief-panel">
+        <div class="brief-head">
+          <strong>今日建议</strong>
+          <span>左右滑动，选1—2项即可</span>
+        </div>
+        <div class="brief-strip">
+          <div class="brief-chip"><strong>主活动</strong><p>斜坡滚球或声音盒找物，做一次就结束。</p></div>
+          <div class="brief-chip"><strong>情绪转换</strong><p>结束前预告，收一个物品，再进入下一项活动。</p></div>
+          <div class="brief-chip"><strong>生活参与</strong><p>换尿布时递尿布，或餐后拿毛巾擦一下。</p></div>
+          <div class="brief-chip"><strong>音乐与英语</strong><p>选择乐器后暂停，用 <code>More?</code> 等宝宝回应。</p></div>
+        </div>
+      </div>
+      
     </section>
 
     <dialog class="goal-reference" id="goal-reference" aria-labelledby="goal-reference-title">
@@ -1956,40 +2336,15 @@
       </div>
     </dialog>
 
-    <section class="section">
-      <div class="section-heading">
-        <h2><svg class="icon"><use href="#icon-clock"></use></svg>固定时间表</h2>
-        <p>按当前真实节律保留两觉：上午觉10:30—12:00左右　·　午觉14:30—15:30左右</p>
-      </div>
-      <div class="panel">
-        <div class="schedule">
-          <div class="time-block">
-            <div class="time-label"><svg class="icon"><use href="#icon-sun"></use></svg>早晨启动</div>
-            <p><strong>7:00左右</strong> 起床、喝奶、自由活动<br><strong>7:30—8:10</strong> 户外 + 妈妈英语<br><strong>8:10—10:00</strong> 回家洗漱、主题或感官活动</p>
-          </div>
-          <div class="time-block">
-            <div class="time-label"><svg class="icon"><use href="#icon-book"></use></svg>上午探索</div>
-            <p><strong>10:00</strong> 降低刺激、绘本或轻声音乐<br><strong>10:30—12:00</strong> 上午觉<br><strong>12:00</strong> 起床、喝水、辅食</p>
-          </div>
-          <div class="time-block">
-            <div class="time-label"><svg class="icon"><use href="#icon-cup"></use></svg>中午与午后</div>
-            <p><strong>12:30—14:00</strong> 安静活动、指物、绘本、配对或生活参与<br><strong>14:30—15:30</strong> 午觉<br><strong>15:30</strong> 起床、喝水</p>
-          </div>
-          <div class="time-block">
-            <div class="time-label"><svg class="icon"><use href="#icon-moon"></use></svg>傍晚收束</div>
-            <p><strong>15:30—17:00</strong> 轻活动、玩水或找藏物<br><strong>17:00</strong> 辅食<br><strong>17:30—18:30</strong> 户外</p>
-          </div>
-        </div>
-        <div class="schedule-foot">
-          <span><svg class="icon"><use href="#icon-music"></use></svg>18:30—19:30：妈妈英语与音乐选择</span>
-          <span><svg class="icon"><use href="#icon-moon"></use></svg>19:30—20:00：统一睡前流程，所有照护者使用同一顺序</span>
-          <span><svg class="icon"><use href="#icon-droplet"></use></svg>玩水、海绵、画笔探索每周各选1—2次</span>
-          <span><svg class="icon"><use href="#icon-warning"></use></svg>沙发、床和楼梯边必须成人贴身保护</span>
-        </div>
-      </div>
-    </section>
+    
 
-    <section class="section">
+    
+
+    
+
+
+
+<section class="section" id="themes">
       <div class="section-heading">
         <h2><svg class="icon"><use href="#icon-bulb"></use></svg>六个目标对应的本周主题</h2>
         <p>先选一个主题，再从活动1/2/3中择一；每次只做一个活动即可</p>
@@ -2009,7 +2364,7 @@
         </div>
       </div>
       <div class="themes-grid">
-        <article class="theme-card" id="theme-1" tabindex="-1">
+        <article class="theme-card is-collapsed" id="theme-1" tabindex="-1">
           <div class="theme-header">
             <div class="theme-icon"><svg class="icon"><use href="#icon-speech"></use></svg></div>
             <div>
@@ -2019,21 +2374,21 @@
           </div>
           <div class="theme-content">
             <div class="activity-list">
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>宝宝当导演：你给，我来做</strong>
                 <div class="activity-detail"><span>材料</span><p>小车、积木、盒子、敲击盒，选两种即可。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>把两个物品放在面前，等待宝宝看、伸手、递出或指向。宝宝给车，就说“你给车，妈妈推”；给积木，就做一次敲击或放入，然后停下来等待。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否主动发起、检查大人有没有理解，或用动作修正大人的回应。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>偶尔故意拿错物品，等宝宝重新指、递或发声“纠正”你。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>声音盒找物</strong>
                 <div class="activity-detail"><span>材料</span><p>带盖大盒子、熟悉的小车、球或布。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>把物品放进大盒子，摇一摇或敲一下，再说 <code>Where is it?</code> 后打开找出来。再从“看见后找”升级到“听到声音后找”。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否会先听声音、再寻找，并注意物品重新出现。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>打开前停一秒，让宝宝猜“里面是谁”，然后一起揭晓。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>身体部位与固定英语</strong>
                 <div class="activity-detail"><span>材料</span><p>镜子、洗漱或睡前流程。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>洗手说 <code>Hands</code>，穿鞋说 <code>Feet</code>，擦脸说 <code>Nose</code>。睡前固定说 <code>Turn off the light</code>、<code>Good night</code>，不连续提问。</p></div>
@@ -2046,7 +2401,7 @@
           <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否开始用动作、声音和看人来影响大人的行为。</span></div>
         </article>
 
-        <article class="theme-card" id="theme-2" tabindex="-1">
+        <article class="theme-card is-collapsed" id="theme-2" tabindex="-1">
           <div class="theme-header">
             <div class="theme-icon"><svg class="icon"><use href="#icon-bulb"></use></svg></div>
             <div>
@@ -2056,21 +2411,21 @@
           </div>
           <div class="theme-content">
             <div class="activity-list">
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>斜坡滚球</strong>
                 <div class="activity-detail"><span>材料</span><p>稳固的大书或斜坡、大球、收纳篮。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>大人先放球，让宝宝看球滚下来；再把球交给宝宝，让他尝试放上去。成功后用篮子接球或追球。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否理解“放上去—滚下来”的因果关系，并主动重复。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>换成小球、慢球或不同高度，每次只改变一个条件。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>藏物换位</strong>
                 <div class="activity-detail"><span>材料</span><p>两个大杯子或盒子、宝宝熟悉的小车。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>把车藏在一个杯子下，让宝宝找到；再当着他的面换到另一个杯子下，继续寻找。</p></div>
                 <div class="activity-detail"><span>观察</span><p>位置变了以后，是否会继续寻找而不是停留在原处。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>找到后让小车“跑出来”，把结果变成小惊喜。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>两类物品分类</strong>
                 <div class="activity-detail"><span>材料</span><p>两个大篮子、两三辆车、两三个球。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>先示范一辆车放一堆、一个球放另一堆，再请宝宝继续。只做两类，不要求正确率。</p></div>
@@ -2083,7 +2438,7 @@
           <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否理解直观因果、继续寻找，并出现简单分类尝试。</span></div>
         </article>
 
-        <article class="theme-card" id="theme-3" tabindex="-1">
+        <article class="theme-card is-collapsed" id="theme-3" tabindex="-1">
           <div class="theme-header">
             <div class="theme-icon"><svg class="icon"><use href="#icon-heart"></use></svg></div>
             <div>
@@ -2093,21 +2448,21 @@
           </div>
           <div class="theme-content">
             <div class="activity-list">
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>二选一交换</strong>
                 <div class="activity-detail"><span>材料</span><p>宝宝正在玩的物品，两个可接受的替代物。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>需要结束或拿走物品时说：“换小车还是球？”等宝宝看、指或伸手，再把选择的物品给他。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否从哭闹逐渐转向选择、伸手或看人表达。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>两个选项都是真实可玩的，选中后立刻让物品“动起来”，不要只把它当奖励。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>暂停—表达—继续</strong>
                 <div class="activity-detail"><span>材料</span><p>玩水、敲击或宝宝喜欢的音乐活动。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>玩20—30秒后暂停，面向宝宝说“还要吗？<code>More?</code>”。等待挥手、看人、发声或“再来”动作，有回应再继续。</p></div>
                 <div class="activity-detail"><span>观察</span><p>目标不是让宝宝忍住，而是看他是否学会用动作或声音恢复互动。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>停顿时保持期待表情和安静，不急着替宝宝回答。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>结束前的最后一步</strong>
                 <div class="activity-detail"><span>材料</span><p>当前活动物品、下一项活动的物品或地点。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>提前说“再玩一次，然后结束”。结束后邀请宝宝放回一个物品，并马上给出下一项活动，避免突然中断。</p></div>
@@ -2120,7 +2475,7 @@
           <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：是否能用选择、看人、发声和转场帮助自己恢复。</span></div>
         </article>
 
-        <article class="theme-card" id="theme-4" tabindex="-1">
+        <article class="theme-card is-collapsed" id="theme-4" tabindex="-1">
           <div class="theme-header">
             <div class="theme-icon"><svg class="icon"><use href="#icon-body"></use></svg></div>
             <div>
@@ -2130,21 +2485,21 @@
           </div>
           <div class="theme-content">
             <div class="activity-list">
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>走着送物品</strong>
                 <div class="activity-detail"><span>材料</span><p>大积木或球、固定收纳盒，路线保持短而安全。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>让宝宝拿一个大物品，走几步后放进盒子，再返回拿第二个。走不到时允许爬过去。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否能完成“拿—走—停—放”，并在返回后重新开始。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>箱子每收到一个物品就发出“咚”，让宝宝看到自己的运输结果。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>跨软障碍与低台阶转身下</strong>
                 <div class="activity-detail"><span>材料</span><p>低软垫或枕头，一层低台阶，成人贴身保护。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>先让宝宝跨过或绕过软垫；再示范转身、手撑、脚先下低台阶。只练一层，不把真实高处当练习场。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否会改变身体方向、脚先下，或在边缘寻找大人。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>终点放一个小车，完成后让车“开走”，但成人始终贴身保护。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>水转移</strong>
                 <div class="activity-detail"><span>材料</span><p>两个大容器、大海绵或小杯，水深1—2厘米。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>让宝宝用海绵吸水，再把水挤到另一个容器。可以换成小杯舀水，但全程成人近距离看护。</p></div>
@@ -2157,7 +2512,7 @@
           <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：移动中是否能停下、转向和完成结果；真实高处必须成人贴身保护。</span></div>
         </article>
 
-        <article class="theme-card" id="theme-5" tabindex="-1">
+        <article class="theme-card is-collapsed" id="theme-5" tabindex="-1">
           <div class="theme-header">
             <div class="theme-icon"><svg class="icon"><use href="#icon-cup"></use></svg></div>
             <div>
@@ -2167,21 +2522,21 @@
           </div>
           <div class="theme-content">
             <div class="activity-list">
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>装好勺子，宝宝送入口</strong>
                 <div class="activity-detail"><span>材料</span><p>宝宝熟悉且安全的食物、短柄勺、餐椅。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>大人装好一小勺，放在宝宝手边，让他自己抓住并送向嘴边；需要时只托住手腕，不替他完成全程。</p></div>
                 <div class="activity-detail"><span>观察</span><p>允许掉落和弄脏，关注是否愿意握勺、靠近嘴边。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>勺子每到嘴边就说“到站啦”，把进食变成一段短短的旅程。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>换尿布和穿衣小任务</strong>
                 <div class="activity-detail"><span>材料</span><p>尿布、湿巾、两件可选衣服、衣物篮。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>不要求宝宝全程配合，只让他完成一小步：拿尿布、递湿巾、把脏衣服放进篮子，或从两件衣服中选一件。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否从抗拒逐渐变成愿意参与其中一步，并接受固定流程。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>把任务变成“帮忙”，而不是“别动”；完成一步就立刻进入下一步。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>拿毛巾—擦一下—放回</strong>
                 <div class="activity-detail"><span>材料</span><p>小毛巾、餐椅桌面、固定收纳篮。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>先把毛巾递给宝宝，说“拿毛巾，擦桌子”，擦一下后再邀请放回篮子。</p></div>
@@ -2194,7 +2549,7 @@
           <div class="theme-footer"><svg class="icon"><use href="#icon-check"></use></svg><span>观察：关注是否愿意参与一小步，不评价速度、整洁或完整配合。</span></div>
         </article>
 
-        <article class="theme-card" id="theme-6" tabindex="-1">
+        <article class="theme-card is-collapsed" id="theme-6" tabindex="-1">
           <div class="theme-header">
             <div class="theme-icon"><svg class="icon"><use href="#icon-music"></use></svg></div>
             <div>
@@ -2204,21 +2559,21 @@
           </div>
           <div class="theme-content">
             <div class="activity-list">
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>选择乐器与听声找方向</strong>
                 <div class="activity-detail"><span>材料</span><p>两个声音不同且安全的小乐器、两个盒子。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>让宝宝从两个乐器中选一个，大人说出选择结果并敲一下。再把其中一个藏在盒子里摇响，让宝宝转头寻找声音。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否注意不同声音、表达偏好，并会寻找声音来源。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>左一下、右一下地摇响，让宝宝用眼睛和身体寻找声音。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>音响暂停—表达—继续</strong>
                 <div class="activity-detail"><span>材料</span><p>宝宝喜欢的音乐，音响或手机由大人控制。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>播放20—40秒后暂停，面向宝宝说“还要吗？<code>More?</code>”。等待挥手、看人、发声或“再来”动作，有回应再继续。</p></div>
                 <div class="activity-detail"><span>观察</span><p>是否逐渐用动作或声音影响音乐继续，而不是只等待大人主动播放。</p></div>
                 <div class="activity-fun"><svg class="icon"><use href="#icon-star"></use></svg><span><strong>有趣开关：</strong>暂停时保持期待表情，安静等几秒，不急着替宝宝说“还要”。</span></div>
               </div>
-              <div class="activity-item">
+              <div class="activity-item is-collapsed">
                 <strong>海绵涂鸦</strong>
                 <div class="activity-detail"><span>材料</span><p>湿海绵、磁吸画板或水画板，少量清水。</p></div>
                 <div class="activity-detail"><span>玩法</span><p>让宝宝用海绵点、拍、划，观察手移动后留下水痕。画笔先作为探索工具，允许摸、敲和扣。</p></div>
@@ -2233,7 +2588,21 @@
       </div>
     </section>
 
-    <section class="section" id="fun-guide">
+<section class="section" id="schedule">
+      <div class="panel schedule-panel">
+        <details class="schedule-summary">
+          <summary>今日作息摘要 <span>7:00起 · 10:30小睡 · 14:30小睡 · 20:00睡</span></summary>
+          <div class="schedule-summary-body">
+            <div><strong>早晨</strong>7:00起床、喝奶；7:30—8:10户外与英语。</div>
+            <div><strong>上午</strong>10:30—12:00小睡；12:00辅食。</div>
+            <div><strong>下午</strong>14:30—15:30小睡；15:30后轻活动。</div>
+            <div><strong>傍晚</strong>17:00辅食；17:30—18:30户外；19:30睡前流程。</div>
+          </div>
+        </details>
+      </div>
+    </section>
+
+<section class="section" id="fun-guide">
       <div class="section-heading">
         <h2><svg class="icon"><use href="#icon-star"></use></svg>和11个月宝宝互动变有趣</h2>
         <p>不是增加玩具，而是让宝宝的动作立刻影响结果</p>
@@ -2254,7 +2623,7 @@
           <span>只加一个小变化</span>
         </div>
         <div class="fun-guide-list">
-          <details class="fun-guide-item" open>
+          <details class="fun-guide-item">
             <summary>01 · 基础互动循环</summary>
             <div class="fun-guide-body">
               <p>每轮互动都用这个顺序：<strong>观察 → 模仿 → 等一等 → 加一点变化 → 让宝宝决定是否继续</strong>。</p>
@@ -2373,7 +2742,7 @@
       </div>
     </section>
 
-    <section class="section">
+<section class="section" id="music-tools">
       <div class="section-heading">
         <h2><svg class="icon"><use href="#icon-music"></use></svg>音乐与英语清单</h2>
         <p>英语在真实情境里固定使用，音乐用选择和停顿让宝宝参与；不追求词汇量和曲目数量</p>
@@ -2513,7 +2882,9 @@
       </div>
     </section>
 
-    <section class="section notes">
+
+
+<section class="section notes" id="goal-notes">
       <div class="panel note-panel">
         <h3><svg class="icon" style="color:#d97891"><use href="#icon-star"></use></svg>满1岁前只观察，不考核</h3>
         <div class="observation-list">
@@ -2542,6 +2913,25 @@
       <span>以宝宝的兴趣、节奏和安全感为先</span>
     </footer>
   </main>
+
+  <nav class="bottom-nav" aria-label="页面主导航">
+    <a href="#themes" data-nav-target="themes" aria-current="false">
+      <svg class="icon"><use href="#icon-bulb"></use></svg><span>主题</span>
+    </a>
+    <a href="#fun-guide" data-nav-target="fun-guide" aria-current="false">
+      <svg class="icon"><use href="#icon-star"></use></svg><span>趣味</span>
+    </a>
+    <a href="#music-tools" data-nav-target="music-tools" aria-current="false">
+      <svg class="icon"><use href="#icon-music"></use></svg><span>音乐英语</span>
+    </a>
+    <a href="#goal-notes" data-nav-target="goal-notes" aria-current="false">
+      <svg class="icon"><use href="#icon-book"></use></svg><span>目标</span>
+    </a>
+  </nav>
+
+  <button class="back-to-top" id="back-to-top" type="button" aria-label="回到顶部">
+    <svg class="icon"><use href="#icon-arrow-up"></use></svg>
+  </button>
 
   <script>
     (function () {
@@ -2578,6 +2968,37 @@
       var themeCards = document.querySelectorAll('.theme-card');
       var highlightTimer;
 
+      function setThemeState(card, isOpen) {
+        var header = card.querySelector('.theme-header');
+        card.classList.toggle('is-collapsed', !isOpen);
+        if (header) {
+          header.setAttribute('role', 'button');
+          header.setAttribute('tabindex', '0');
+          header.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+      }
+
+      themeCards.forEach(function (card) {
+        var header = card.querySelector('.theme-header');
+        var initiallyOpen = !card.classList.contains('is-collapsed');
+        setThemeState(card, initiallyOpen);
+
+        if (!header) {
+          return;
+        }
+
+        header.addEventListener('click', function () {
+          setThemeState(card, card.classList.contains('is-collapsed'));
+        });
+
+        header.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            setThemeState(card, card.classList.contains('is-collapsed'));
+          }
+        });
+      });
+
       themeButtons.forEach(function (button) {
         button.addEventListener('click', function () {
           var target = document.getElementById(button.dataset.themeTarget);
@@ -2593,6 +3014,7 @@
 
           themeCards.forEach(function (item) {
             item.classList.remove('is-featured');
+            setThemeState(item, item === target);
           });
 
           target.classList.add('is-featured');
@@ -2604,6 +3026,137 @@
           }, 1800);
         });
       });
+
+      var activityKeywords = {
+        '宝宝当导演：你给，我来做': '递物 | 大人跟随 | 故意拿错',
+        '声音盒找物': '听声音 | 打开 | 找到',
+        '身体部位与固定英语': '洗手 | 穿鞋 | 睡前短语',
+        '斜坡滚球': '放上去 | 滚下来 | 再接住',
+        '藏物换位': '藏起来 | 换位置 | 继续找',
+        '两类物品分类': '车一堆 | 球一堆 | 相同不同',
+        '二选一交换': '两个选择 | 交换 | 恢复情绪',
+        '暂停—表达—继续': '暂停 | 看人发声 | 继续',
+        '结束前的最后一步': '再玩一次 | 收一个 | 转场',
+        '走着送物品': '拿 | 走 | 停 | 放',
+        '跨软障碍与低台阶转身下': '跨过去 | 转身 | 脚先下',
+        '水转移': '吸水 | 移动 | 挤出来',
+        '装好勺子，宝宝送入口': '握勺 | 靠近嘴边 | 参与',
+        '换尿布和穿衣小任务': '拿尿布 | 递湿巾 | 选衣服',
+        '拿毛巾—擦一下—放回': '拿毛巾 | 擦一下 | 放回',
+        '选择乐器与听声找方向': '选乐器 | 敲一下 | 找声音',
+        '音响暂停—表达—继续': '播放 | 暂停 | 表示再来',
+        '海绵涂鸦': '点 | 拍 | 划 | 留痕'
+      };
+
+      var activityItems = document.querySelectorAll('.activity-item');
+      activityItems.forEach(function (item) {
+        var title = item.querySelector('strong');
+        if (!title) {
+          return;
+        }
+
+        var keywordText = activityKeywords[title.textContent.trim()] || '材料 | 玩法 | 观察';
+        var keywords = document.createElement('span');
+        keywords.className = 'activity-keywords';
+        keywords.textContent = keywordText;
+        title.insertAdjacentElement('afterend', keywords);
+
+        function setActivityState(isOpen) {
+          item.classList.toggle('is-collapsed', !isOpen);
+          item.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+
+        function toggleActivity() {
+          var willOpen = item.classList.contains('is-collapsed');
+          var list = item.closest('.activity-list');
+          if (list) {
+            list.querySelectorAll('.activity-item').forEach(function (sibling) {
+              setActivityStateForItem(sibling, false);
+            });
+          }
+          setActivityState(willOpen);
+        }
+
+        function setActivityStateForItem(target, isOpen) {
+          target.classList.toggle('is-collapsed', !isOpen);
+          target.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        }
+
+        item.setAttribute('role', 'button');
+        item.setAttribute('tabindex', '0');
+        setActivityState(false);
+
+        item.addEventListener('click', function (event) {
+          if (event.target.closest('a, button, input, label')) {
+            return;
+          }
+          toggleActivity();
+        });
+
+        item.addEventListener('keydown', function (event) {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            toggleActivity();
+          }
+        });
+      });
+
+      var bottomNavLinks = document.querySelectorAll('.bottom-nav [data-nav-target]');
+      var navSections = Array.prototype.map.call(bottomNavLinks, function (link) {
+        return document.getElementById(link.dataset.navTarget);
+      }).filter(Boolean);
+      var backToTop = document.getElementById('back-to-top');
+
+      function setCurrentNav(targetId) {
+        bottomNavLinks.forEach(function (link) {
+          var isCurrent = link.dataset.navTarget === targetId;
+          link.classList.toggle('is-current', isCurrent);
+          link.setAttribute('aria-current', isCurrent ? 'true' : 'false');
+        });
+      }
+
+      function updatePageNavigation() {
+        var threshold = window.innerHeight * 0.38;
+        var current = null;
+
+        navSections.forEach(function (section) {
+          if (section.getBoundingClientRect().top <= threshold) {
+            current = section;
+          }
+        });
+
+        setCurrentNav(current ? current.id : '');
+
+        if (backToTop) {
+          backToTop.classList.toggle('is-visible', window.scrollY > 500);
+        }
+      }
+
+      bottomNavLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+          setCurrentNav(link.dataset.navTarget);
+        });
+      });
+
+      if (backToTop) {
+        backToTop.addEventListener('click', function () {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      }
+
+      var navTicking = false;
+      window.addEventListener('scroll', function () {
+        if (navTicking) {
+          return;
+        }
+        navTicking = true;
+        window.requestAnimationFrame(function () {
+          updatePageNavigation();
+          navTicking = false;
+        });
+      }, { passive: true });
+
+      updatePageNavigation();
     }());
   </script>
 </body>
