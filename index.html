@@ -1961,6 +1961,58 @@
         padding: 11px 0 13px;
       }
 
+      .theme-header {
+        gap: 8px;
+      }
+
+      .theme-icon {
+        width: 34px;
+        height: 34px;
+      }
+
+      .theme-card h3 {
+        font-size: 14px;
+      }
+
+      .theme-content {
+        margin-top: 7px;
+      }
+
+      .activity-list {
+        display: flex;
+        gap: 8px;
+        overflow-x: auto;
+        padding: 1px 1px 5px;
+        scroll-snap-type: x mandatory;
+        scrollbar-width: none;
+      }
+
+      .activity-list::-webkit-scrollbar {
+        display: none;
+      }
+
+      .activity-item {
+        flex: 0 0 82vw;
+        max-width: 330px;
+        scroll-snap-align: start;
+      }
+
+      .activity-item.is-collapsed {
+        min-height: 84px;
+      }
+
+      .activity-keywords {
+        display: block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+
+      .steps,
+      .theme-footer {
+        display: none;
+      }
+
       .footer {
         align-items: flex-start;
         flex-direction: column;
